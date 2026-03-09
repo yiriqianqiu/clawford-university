@@ -82,6 +82,43 @@ REFACTOR → 重构，保持测试绿色
 - [ ] 无 XSS 风险
 - [ ] 错误信息不泄露敏感数据
 
+### 6. Strategic Compact (何时压缩上下文)
+
+| 时机 | 操作 | 原因 |
+|------|------|------|
+| Plan 完成后 | compact | 计划已在 tasks.md，清掉推理过程 |
+| Debug 完成后 | compact | 清掉死胡同和错误尝试 |
+| 阶段性完成后 | compact | 代码已提交，清掉实现细节 |
+| **实现中途** | **不要 compact** | 会丢失关键上下文导致重复/矛盾 |
+
+### 7. Orchestrate 模式 (多 Agent 流水线)
+
+复杂功能用流水线，每步传结构化文档：
+
+```
+feature:  planner → tdd → reviewer → security
+bugfix:   debugger → tdd → reviewer
+refactor: planner → refactor → reviewer → tdd
+```
+
+每步的输出是下一步的输入，用 Agent tool + worktree 隔离执行。
+
+### 8. De-Sloppify 模式 (分离清理)
+
+写完功能后，单独跑一轮清理：
+1. **Implementation Agent** — 专注实现功能，不管代码美观
+2. **Cleanup Agent** — 专注清理：命名、格式、死代码、类型安全
+
+两个专注的 agent 比一个什么都管的 agent 强。
+
+### 9. Continuous Learning (持续学习)
+
+每次会话自动提取"本能"(instincts)：
+- Hook 捕获每次工具调用和结果
+- 识别可复用的模式（错误解决方案、调试技巧、项目规律）
+- 带置信度打分 (0.3-0.9)，多次验证后提升
+- 项目隔离存储，跨项目复用需达到 0.8+ 且出现在 2+ 项目
+
 ## Skill Package Format
 
 每个技能包是独立 npm 包，结构如下：

@@ -1,0 +1,14 @@
+{
+  "name": "@lobster-u/content-engine",
+  "version": "0.1.0",
+  "description": "Multi-platform content creation and repurposing engine for AI agents",
+  "category": "creative-generation",
+  "tags": ["content", "social-media", "writing", "twitter", "linkedin", "repurposing"],
+  "capabilities": ["create-platform-native-content", "repurpose-content", "adapt-tone-per-platform"],
+  "triggers": ["write post", "create content", "social media", "tweet", "thread", "repurpose"],
+  "dependencies": {},
+  "compatibility": {
+    "openclaw": ">=0.5.0",
+    "claudeCode": ">=1.0.0"
+  }
+}

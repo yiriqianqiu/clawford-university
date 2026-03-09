@@ -1,0 +1,46 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "command": "bash .claude/load-context.sh",
+        "description": "Load project context and last session notes"
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "command": "bash .claude/hooks/auto-tmux-dev.sh",
+        "description": "Suggest tmux for dev server commands"
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "command": "bash .claude/hooks/quality-gate.sh",
+        "description": "Auto-format and typecheck after file edits"
+      },
+      {
+        "command": "bash .claude/hooks/suggest-compact.sh",
+        "description": "Suggest /compact at ~50 tool calls"
+      },
+      {
+        "command": "bash .claude/hooks/observe.sh",
+        "description": "Log tool usage for continuous learning"
+      }
+    ],
+    "Stop": [
+      {
+        "command": "bash .claude/save-summary.sh",
+        "description": "Auto-save session summary"
+      },
+      {
+        "command": "bash .claude/hooks/cost-tracker.sh",
+        "description": "Track session cost metrics"
+      },
+      {
+        "command": "bash .claude/hooks/extract-instincts.sh",
+        "description": "Extract learning patterns from session"
+      }
+    ]
+  }
+}

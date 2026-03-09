@@ -1,0 +1,8 @@
+{
+  "name": "@lobster-u/content-engine",
+  "version": "0.1.0",
+  "description": "Multi-platform content creation and repurposing engine for AI agents",
+  "keywords": ["content", "social-media", "writing", "repurposing"],
+  "license": "MIT",
+  "files": ["manifest.json", "SKILL.md", "knowledge", "strategies"]
+}

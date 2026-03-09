@@ -1,0 +1,54 @@
+{
+  "version": "0.0.1",
+  "timeout": 60,
+  "tasks": [
+    {
+      "id": "smoke-01",
+      "description": "Plan a KOL campaign for a DeFi token launch on Base chain with $20K budget",
+      "input": "Plan a KOL campaign for the launch of a new DeFi lending protocol on Base chain. The token generation event (TGE) is in 3 weeks. Budget is $20,000. Target audience is DeFi-native users who already use Aave, Compound, or Morpho. We need to drive awareness, attract early depositors, and grow our Twitter following from 2K to 10K. The team is anonymous but the protocol has been audited by OpenZeppelin.",
+      "rubric": [
+        {
+          "criterion": "KOL Tier Strategy & Selection Criteria",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Recommends a specific tier mix (micro-heavy given budget and DeFi focus); defines selection criteria including DeFi vertical alignment, Base chain presence, engagement rate minimums, and promotion history checks; allocates budget across tiers with justification",
+            "3": "Mentions KOL tiers but allocation is generic; some selection criteria but misses chain-specific or vertical-specific requirements",
+            "1": "Vaguely suggests 'finding influencers' without tier strategy or selection criteria",
+            "0": "No KOL selection strategy"
+          }
+        },
+        {
+          "criterion": "Campaign Structure & Timeline",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Structures campaign in waves across the 3-week window; specifies content types per wave (threads, spaces, AMAs, videos); coordinates with TGE timeline; includes multi-platform approach (X, Telegram, YouTube); pre-TGE buildup and post-TGE sustain phases clearly defined",
+            "3": "Has a timeline but waves are not well-differentiated; mentions multiple platforms but doesn't specify platform-specific content strategy",
+            "1": "Flat campaign plan with no wave structure or timeline coordination with TGE",
+            "0": "No campaign structure"
+          }
+        },
+        {
+          "criterion": "Authenticity Vetting & Risk Management",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Includes specific fake-follower detection steps; addresses the anonymous team risk (how KOLs can promote credibly without doxxed team); mentions disclosure compliance; identifies risks specific to DeFi launches (rug accusations, fork comparisons); includes kill criteria",
+            "3": "Mentions vetting but process is vague; acknowledges some risks without specific mitigation strategies",
+            "1": "No vetting process or risk consideration",
+            "0": "Ignores authenticity and risk entirely"
+          }
+        },
+        {
+          "criterion": "ROI Measurement & Success Metrics",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Defines pre-campaign baselines to measure; specifies on-chain success metrics (TVL, new depositors, holder count) alongside off-chain metrics (follower growth, engagement); includes per-KOL attribution plan (referral links/codes); defines what '10K followers' milestone means for campaign timing; calculates expected CPA",
+            "3": "Lists some metrics but doesn't connect them to the specific goals (8K new followers, early depositors); no attribution plan",
+            "1": "Mentions 'tracking results' without specific metrics",
+            "0": "No measurement plan"
+          }
+        }
+      ],
+      "passThreshold": 60
+    }
+  ]
+}

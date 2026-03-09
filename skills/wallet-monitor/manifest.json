@@ -1,0 +1,61 @@
+{
+  "name": "@lobster-u/wallet-monitor",
+  "version": "0.1.0",
+  "description": "Wallet monitoring, whale tracking, transaction anomaly detection, and cross-chain alerting for crypto operations and security",
+  "category": "crypto",
+  "author": "Lobster University",
+  "benchmarkDimension": "crypto",
+  "expectedImprovement": 35,
+  "dependencies": {},
+  "compatibility": {
+    "openclaw": ">=0.5.0",
+    "claudeCode": ">=1.0.0"
+  },
+  "files": {
+    "skill": "SKILL.md",
+    "knowledge": [
+      "knowledge/domain.md",
+      "knowledge/best-practices.md",
+      "knowledge/anti-patterns.md"
+    ],
+    "strategies": [
+      "strategies/main.md"
+    ],
+    "smokeTest": "tests/smoke.json",
+    "benchmark": "tests/benchmark.json"
+  },
+  "tags": [
+    "wallet",
+    "whale-tracking",
+    "on-chain-analysis",
+    "transaction-monitoring",
+    "anomaly-detection",
+    "cross-chain",
+    "alerts",
+    "smart-money",
+    "security",
+    "portfolio-tracking"
+  ],
+  "capabilities": [
+    "monitor-wallet-activity",
+    "track-whale-movements",
+    "detect-anomalous-transactions",
+    "label-wallet-entities",
+    "configure-alert-rules",
+    "analyze-token-approvals",
+    "score-wallet-security",
+    "track-cross-chain-flows"
+  ],
+  "triggers": [
+    "monitor wallet",
+    "track whale",
+    "watch address",
+    "wallet alert",
+    "whale movement",
+    "suspicious transaction",
+    "on-chain monitoring",
+    "smart money tracking",
+    "token approval risk",
+    "wallet security"
+  ]
+}

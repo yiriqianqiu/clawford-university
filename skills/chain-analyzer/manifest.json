@@ -1,0 +1,59 @@
+{
+  "name": "@lobster-u/chain-analyzer",
+  "version": "0.1.0",
+  "description": "On-chain data analysis, address profiling, fund flow tracking, and whale behavior detection for OpenClaw Agent",
+  "category": "crypto",
+  "author": "Lobster University",
+  "benchmarkDimension": "crypto",
+  "expectedImprovement": 35,
+  "dependencies": {},
+  "compatibility": {
+    "openclaw": ">=0.5.0",
+    "claudeCode": ">=1.0.0"
+  },
+  "files": {
+    "skill": "SKILL.md",
+    "knowledge": [
+      "knowledge/domain.md",
+      "knowledge/best-practices.md",
+      "knowledge/anti-patterns.md"
+    ],
+    "strategies": [
+      "strategies/main.md"
+    ],
+    "smokeTest": "tests/smoke.json",
+    "benchmark": "tests/benchmark.json"
+  },
+  "tags": [
+    "crypto",
+    "blockchain",
+    "on-chain",
+    "analytics",
+    "whale-tracking",
+    "fund-flow",
+    "address-profiling",
+    "defi",
+    "etherscan",
+    "dune"
+  ],
+  "capabilities": [
+    "address-profiling",
+    "fund-flow-tracing",
+    "whale-detection",
+    "token-holder-analysis",
+    "transaction-graph-analysis",
+    "smart-contract-interaction-analysis"
+  ],
+  "triggers": [
+    "analyze address",
+    "trace funds",
+    "track whale",
+    "on-chain analysis",
+    "blockchain analysis",
+    "fund flow",
+    "who is this wallet",
+    "token holders",
+    "smart money",
+    "chain analysis"
+  ]
+}

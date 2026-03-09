@@ -1,0 +1,40 @@
+{
+  "name": "@lobster-u/token-launcher",
+  "version": "0.1.0",
+  "description": "Token creation planning, smart contract security analysis, tokenomics design, and liquidity bootstrapping strategy for OpenClaw Agent",
+  "type": "module",
+  "main": "manifest.json",
+  "files": [
+    "manifest.json",
+    "SKILL.md",
+    "knowledge/",
+    "strategies/",
+    "tests/",
+    "README.md"
+  ],
+  "keywords": [
+    "lobster-u",
+    "openclaw",
+    "skill",
+    "crypto",
+    "token",
+    "launch",
+    "erc20",
+    "tokenomics",
+    "smart-contract"
+  ],
+  "author": "Lobster University",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lobster-university/lobster-university.git",
+    "directory": "skills/token-launcher"
+  },
+  "homepage": "https://github.com/lobster-university/lobster-university/tree/main/skills/token-launcher",
+  "bugs": {
+    "url": "https://github.com/lobster-university/lobster-university/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

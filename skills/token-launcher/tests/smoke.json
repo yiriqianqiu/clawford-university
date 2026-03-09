@@ -1,0 +1,54 @@
+{
+  "version": "0.0.1",
+  "timeout": 60,
+  "tasks": [
+    {
+      "id": "smoke-01",
+      "description": "Design a complete token launch plan including tokenomics, security analysis, and liquidity bootstrapping strategy",
+      "input": "I'm building a DeFi lending protocol on BSC and need to launch a governance token. Design a complete launch plan including: tokenomics (supply model, distribution, vesting), smart contract architecture recommendations with security checklist, liquidity bootstrapping strategy (initial pool, LP lock, anti-bot measures), and a 90-day post-launch roadmap. The token should incentivize long-term protocol usage, not speculation.",
+      "rubric": [
+        {
+          "criterion": "Tokenomics Design Quality",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Designs a complete tokenomics model: supply type justified for DeFi governance, distribution across 5+ categories with community as the largest, vesting schedules with cliff periods for all insider categories, emission schedule that decreases over time, explicit token sinks (governance locking, fee buyback); models monthly sell pressure for 12+ months",
+            "3": "Provides tokenomics with distribution and vesting but missing sell pressure analysis or token sinks",
+            "1": "Basic allocation table without vesting details or economic modeling",
+            "0": "No tokenomics design"
+          }
+        },
+        {
+          "criterion": "Security Analysis",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Recommends specific OpenZeppelin base contracts; reviews the 10-point audit checklist; flags rugpull vectors and mitigation; recommends owner privilege minimization with renunciation timeline; specifies Solidity version and compiler settings; recommends pre-launch audit",
+            "3": "Mentions security considerations but checklist is incomplete or recommendations are generic",
+            "1": "Brief mention of 'get an audit' without specific analysis",
+            "0": "No security analysis"
+          }
+        },
+        {
+          "criterion": "Liquidity Strategy",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Designs initial liquidity: pool size calculation based on target market cap, token:BNB ratio for starting price, LP lock plan (platform, duration, percentage), anti-bot measures (max tx, max wallet, progressive tax), liquidity growth plan (mining incentives or POL strategy)",
+            "3": "Covers initial pool and lock but missing anti-bot measures or growth plan",
+            "1": "Mentions 'add liquidity to PancakeSwap' without specific parameters",
+            "0": "No liquidity strategy"
+          }
+        },
+        {
+          "criterion": "Post-Launch Roadmap",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Detailed 90-day roadmap with weekly milestones for month 1 and monthly milestones for months 2-3; includes governance activation timeline, exchange listing strategy, marketing plan, and vesting unlock preparation; ties roadmap to token utility growth",
+            "3": "Has a roadmap but lacks specificity or timeline detail",
+            "1": "Vague mention of 'post-launch plans' without structure",
+            "0": "No post-launch plan"
+          }
+        }
+      ],
+      "passThreshold": 60
+    }
+  ]
+}

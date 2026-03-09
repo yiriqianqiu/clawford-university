@@ -1,0 +1,54 @@
+{
+  "version": "0.0.1",
+  "timeout": 60,
+  "tasks": [
+    {
+      "id": "smoke-01",
+      "description": "Plan a large DEX swap with minimal slippage, including MEV protection and execution strategy",
+      "input": "I need to swap 50 ETH for USDC on Ethereum mainnet. This is a significant amount and I want to minimize slippage and MEV exposure. Analyze the available liquidity across DEXs, recommend the best execution strategy (single swap vs. split, which aggregator, MEV protection), calculate expected price impact and total execution cost including gas, and provide specific parameters I should use for the trade.",
+      "rubric": [
+        {
+          "criterion": "Liquidity Analysis",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Analyzes liquidity depth across major venues (Uniswap v2/v3 pools by fee tier, Curve, Balancer); compares TVL and recent volume; identifies which pools offer the best depth for a 50 ETH trade; considers multi-hop routes through intermediary tokens",
+            "3": "Identifies 2-3 venues with some liquidity data but analysis is incomplete or lacks depth comparison",
+            "1": "Mentions one DEX without comparative analysis",
+            "0": "No liquidity analysis"
+          }
+        },
+        {
+          "criterion": "Price Impact & Cost Calculation",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Calculates estimated price impact using AMM formulas; includes gas cost estimate; estimates MEV cost if unprotected; provides total execution cost as percentage of trade value; compares single-trade vs. split execution costs",
+            "3": "Provides price impact estimate but missing gas costs or MEV cost estimation; no comparison between execution strategies",
+            "1": "Vague mention of 'some slippage' without calculation",
+            "0": "No cost analysis"
+          }
+        },
+        {
+          "criterion": "MEV Protection Strategy",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Recommends specific MEV protection: CowSwap for batch auction, Flashbots Protect for private submission, or combination; explains why chosen method is appropriate for this trade size; estimates MEV cost if unprotected vs. protected",
+            "3": "Mentions MEV protection but recommendation is generic without trade-size-specific justification",
+            "1": "MEV mentioned but no specific protection recommendation",
+            "0": "MEV risk not addressed"
+          }
+        },
+        {
+          "criterion": "Execution Parameters",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Provides specific, actionable parameters: recommended aggregator/DEX, slippage tolerance percentage, transaction deadline, number of splits if TWAP, timing recommendations; parameters are justified by the analysis",
+            "3": "Some parameters provided but incomplete or not justified by analysis",
+            "1": "Generic advice without specific parameters",
+            "0": "No execution parameters"
+          }
+        }
+      ],
+      "passThreshold": 60
+    }
+  ]
+}

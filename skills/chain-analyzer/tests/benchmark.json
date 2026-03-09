@@ -1,0 +1,476 @@
+{
+  "version": "0.0.1",
+  "dimension": "crypto",
+  "tasks": [
+    {
+      "id": "bench-easy-01",
+      "difficulty": "easy",
+      "description": "Look up token holder distribution for a major token",
+      "input": "Analyze the top 20 holders of a major governance token like UNI or AAVE. What percentage of supply do the top 10 holders control? Identify which are exchanges, which are protocol contracts, and which are individual whales.",
+      "rubric": [
+        {
+          "criterion": "Holder Classification",
+          "weight": 0.4,
+          "scoring": {
+            "5": "Correctly classifies holders as exchanges, protocol contracts, multisigs, whales, or retail; cites labeling sources; notes confidence level for each classification",
+            "3": "Classifies some holders but misses key distinctions or lacks source citations",
+            "1": "Lists holders by balance without classification",
+            "0": "No holder analysis"
+          }
+        },
+        {
+          "criterion": "Concentration Analysis",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Calculates concentration ratios (top 10, top 50), Gini coefficient or equivalent; compares against healthy distribution benchmarks; separates locked/vesting supply from freely tradable",
+            "3": "Reports top holder percentages but no benchmarking or locked supply distinction",
+            "1": "Mentions concentration without specific numbers",
+            "0": "No concentration analysis"
+          }
+        },
+        {
+          "criterion": "Data Accuracy & Sources",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Uses multiple data sources; notes data freshness; cross-references holder data with on-chain records; acknowledges limitations (e.g., exchange wallets aggregating many users)",
+            "3": "Uses one reliable source with some accuracy notes",
+            "1": "Presents data without source citation or accuracy consideration",
+            "0": "Inaccurate or fabricated data"
+          }
+        }
+      ],
+      "expectedScoreWithout": 35,
+      "expectedScoreWith": 75
+    },
+    {
+      "id": "bench-easy-02",
+      "difficulty": "easy",
+      "description": "Profile a single blockchain address",
+      "input": "Profile a known DeFi whale address. Tell me: What type of wallet is this? What protocols do they use? What tokens do they hold? How active are they? When was their first transaction?",
+      "rubric": [
+        {
+          "criterion": "Profile Completeness",
+          "weight": 0.4,
+          "scoring": {
+            "5": "Covers wallet type classification, protocol interactions, token holdings, activity frequency, wallet age, and behavioral patterns; organized in a structured profile format",
+            "3": "Covers 3-4 of the requested dimensions but missing behavioral analysis or structured format",
+            "1": "Addresses 1-2 dimensions only",
+            "0": "No meaningful profile"
+          }
+        },
+        {
+          "criterion": "Classification Accuracy",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Correctly classifies wallet type with supporting evidence; explains what indicators led to the classification; assigns confidence level",
+            "3": "Provides a classification but weak supporting evidence",
+            "1": "Guesses wallet type without evidence",
+            "0": "Incorrect or no classification"
+          }
+        },
+        {
+          "criterion": "Analytical Depth",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Goes beyond listing data: identifies patterns in trading behavior, protocol preferences, risk profile; notes what the activity reveals about the wallet operator's strategy",
+            "3": "Some interpretation of data but limited strategic insight",
+            "1": "Raw data listing without interpretation",
+            "0": "No analysis"
+          }
+        }
+      ],
+      "expectedScoreWithout": 30,
+      "expectedScoreWith": 70
+    },
+    {
+      "id": "bench-easy-03",
+      "difficulty": "easy",
+      "description": "Identify exchange addresses in a transaction history",
+      "input": "I have a list of addresses that received large ETH transfers. Help me identify which of these are exchange deposit addresses, which are exchange hot wallets, and which are personal wallets. Explain the indicators you use to distinguish them.",
+      "rubric": [
+        {
+          "criterion": "Classification Methodology",
+          "weight": 0.4,
+          "scoring": {
+            "5": "Explains clear indicators for each type: exchange hot wallets (labeled, high volume, many outflows), deposit addresses (short-lived, single inflow then sweep to hot wallet), personal wallets (varied behavior, direct DeFi interaction); uses multiple indicators per classification",
+            "3": "Identifies some indicators but methodology is incomplete",
+            "1": "Vague classification with no clear methodology",
+            "0": "No methodology explained"
+          }
+        },
+        {
+          "criterion": "Indicator Knowledge",
+          "weight": 0.35,
+          "scoring": {
+            "5": "Demonstrates knowledge of exchange labeling databases, transaction pattern analysis, address reuse patterns, funding chain analysis, and behavioral signatures",
+            "3": "Knows about labeling databases and basic patterns but misses advanced indicators",
+            "1": "Relies on a single indicator (e.g., only labeling databases)",
+            "0": "No relevant knowledge demonstrated"
+          }
+        },
+        {
+          "criterion": "Practical Utility",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Provides actionable steps the user can follow to verify each classification; recommends specific tools and data sources",
+            "3": "Some actionable guidance but incomplete",
+            "1": "Theoretical discussion without practical application",
+            "0": "Not useful"
+          }
+        }
+      ],
+      "expectedScoreWithout": 35,
+      "expectedScoreWith": 75
+    },
+    {
+      "id": "bench-med-01",
+      "difficulty": "medium",
+      "description": "Trace fund flows from a DeFi exploit",
+      "input": "A DeFi protocol was exploited for $5M. The attacker's address is known. Trace the fund flows: Where did the stolen funds go? Were they bridged to other chains? Did they pass through mixers? Were any funds deposited to exchanges (potential for law enforcement identification)? Create a fund flow diagram description.",
+      "rubric": [
+        {
+          "criterion": "Multi-Hop Tracing",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Traces funds across 5+ hops; identifies intermediary addresses with classifications; tracks token swaps that change denomination; follows bridge transactions to destination chains; maps the complete flow from exploit to current resting places",
+            "3": "Traces 2-3 hops with some intermediary identification but incomplete chain coverage",
+            "1": "Only traces the first transfer from the attacker address",
+            "0": "No tracing attempted"
+          }
+        },
+        {
+          "criterion": "Trail-Breaking Detection",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Identifies and flags all trail-breaking events: mixer interactions (Tornado Cash, Railgun), exchange deposits, cross-chain bridges; explains what information is lost at each break point; provides probabilistic continuation analysis where possible",
+            "3": "Identifies some trail breaks but misses others or does not explain the analytical implications",
+            "1": "Does not distinguish between traceable and untraceable segments",
+            "0": "Ignores trail-breaking events"
+          }
+        },
+        {
+          "criterion": "Flow Visualization Description",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Provides a clear, structured description of fund flows suitable for visualization: nodes (addresses with labels), edges (transfers with amounts and timestamps), annotations (bridge crossings, mixer usage, exchange deposits)",
+            "3": "Describes some flows but not in a visualization-ready format",
+            "1": "List of transactions without flow structure",
+            "0": "No flow description"
+          }
+        },
+        {
+          "criterion": "Investigative Recommendations",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Recommends concrete next steps: exchange subpoena targets, monitoring alerts for dormant funds, cross-chain addresses to watch, statistical analysis of mixer outputs, collaboration with on-chain analysis firms",
+            "3": "Some recommendations but generic or incomplete",
+            "1": "Vague suggestion to 'keep monitoring'",
+            "0": "No recommendations"
+          }
+        }
+      ],
+      "expectedScoreWithout": 25,
+      "expectedScoreWith": 65
+    },
+    {
+      "id": "bench-med-02",
+      "difficulty": "medium",
+      "description": "Analyze whale accumulation patterns for a specific token",
+      "input": "Analyze whale accumulation and distribution patterns for a mid-cap DeFi token over the past 3 months. Identify: Which whales are accumulating? Which are distributing? Is there coordinated whale activity? What is the correlation between whale movements and price action? How has the holder distribution changed?",
+      "rubric": [
+        {
+          "criterion": "Whale Identification & Tracking",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Identifies top whale addresses with profiles; tracks balance changes over time for each; classifies as accumulator, distributor, or neutral; notes the magnitude and timing of each major position change",
+            "3": "Identifies some whales and general behavior but tracking is incomplete or lacks temporal detail",
+            "1": "Lists large holders without behavior analysis",
+            "0": "No whale tracking"
+          }
+        },
+        {
+          "criterion": "Coordination Detection",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Analyzes timing correlations between whale transactions; checks for common funding sources; evaluates cluster patterns that suggest coordinated activity; distinguishes between correlated and likely independent behavior with evidence",
+            "3": "Mentions coordination possibility but analysis is surface-level",
+            "1": "No coordination analysis",
+            "0": "Claims coordination without evidence"
+          }
+        },
+        {
+          "criterion": "Price Correlation Analysis",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Overlays whale movements with price data; identifies leading/lagging relationships; notes that correlation is not causation; quantifies the relative size of whale activity vs. total volume to assess actual impact potential",
+            "3": "Some price correlation noted but lacks rigor or causation caveats",
+            "1": "States 'whale bought, price went up' without nuance",
+            "0": "No price correlation analysis"
+          }
+        },
+        {
+          "criterion": "Distribution Evolution",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Compares holder distribution snapshots across the time period; tracks concentration metrics (Gini, top-10 share); identifies trends (centralizing vs. decentralizing); notes significant threshold crossings",
+            "3": "Some distribution data but no trend analysis or metric tracking",
+            "1": "Single snapshot without temporal comparison",
+            "0": "No distribution analysis"
+          }
+        }
+      ],
+      "expectedScoreWithout": 25,
+      "expectedScoreWith": 65
+    },
+    {
+      "id": "bench-med-03",
+      "difficulty": "medium",
+      "description": "Evaluate a token's on-chain health metrics",
+      "input": "Perform a comprehensive on-chain health check for a DeFi governance token. Analyze: active address trends, transaction volume trends, holder growth rate, exchange flow balance, smart money positioning, DEX liquidity depth, and top holder concentration. Rate the token's on-chain health as strong, moderate, or weak with supporting evidence.",
+      "rubric": [
+        {
+          "criterion": "Metric Coverage",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Covers all 7 requested metrics with quantitative data; adds additional relevant metrics (velocity, NVT ratio, realized cap); each metric has a clear data point and trend direction",
+            "3": "Covers 4-5 of the requested metrics with reasonable data",
+            "1": "Covers 2-3 metrics superficially",
+            "0": "Fewer than 2 metrics analyzed"
+          }
+        },
+        {
+          "criterion": "Trend Analysis Quality",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Each metric analyzed with 30-90 day trend; rate of change noted; compared against historical baselines and peer tokens; inflection points identified with potential explanations",
+            "3": "Trends mentioned but comparison is limited to direction only (up/down) without magnitude or context",
+            "1": "Point-in-time data without trend analysis",
+            "0": "No temporal analysis"
+          }
+        },
+        {
+          "criterion": "Health Assessment Rigor",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Final health rating is clearly justified by the metrics analyzed; conflicting signals are acknowledged; rating accounts for different timeframes; comparison with similar tokens provides context",
+            "3": "Health rating provided but justification is selective (cherry-picking supportive metrics)",
+            "1": "Health rating without meaningful justification",
+            "0": "No health assessment"
+          }
+        },
+        {
+          "criterion": "Actionable Insights",
+          "weight": 0.15,
+          "scoring": {
+            "5": "Translates on-chain data into actionable insights: bullish/bearish signals, risk factors to monitor, threshold alerts to set; avoids making price predictions while noting leading indicators",
+            "3": "Some actionable notes but mostly descriptive rather than prescriptive",
+            "1": "Data reporting with no actionable takeaways",
+            "0": "Not useful for decision-making"
+          }
+        }
+      ],
+      "expectedScoreWithout": 25,
+      "expectedScoreWith": 65
+    },
+    {
+      "id": "bench-med-04",
+      "difficulty": "medium",
+      "description": "Detect potential wash trading on a DEX",
+      "input": "Investigate whether a specific token is experiencing wash trading on decentralized exchanges. Analyze trading patterns, unique trader counts vs. volume, address clustering among frequent traders, and fund flow between active trading addresses. Determine if the volume is organic or artificially inflated and provide evidence for your conclusion.",
+      "rubric": [
+        {
+          "criterion": "Wash Trading Detection Methodology",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Applies multiple detection methods: round-trip fund analysis, address clustering, volume vs. unique trader ratio, trade size distribution analysis, timing pattern analysis; explains each method and what it reveals",
+            "3": "Applies 1-2 detection methods with some explanation",
+            "1": "Looks at volume only without structural analysis",
+            "0": "No detection methodology"
+          }
+        },
+        {
+          "criterion": "Evidence Quality",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Presents specific evidence: addresses involved, transaction hashes, fund flow paths between suspect addresses, statistical anomalies quantified; distinguishes circumstantial from strong evidence",
+            "3": "Some specific evidence but relies heavily on general patterns without specific examples",
+            "1": "Claims without supporting evidence",
+            "0": "No evidence provided"
+          }
+        },
+        {
+          "criterion": "Address Clustering",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Identifies clusters of related addresses through funding source analysis, timing correlation, and transaction pattern similarity; maps relationships between suspect addresses; estimates the scale of coordinated activity",
+            "3": "Some clustering attempted but methodology is unclear or incomplete",
+            "1": "No clustering analysis",
+            "0": "Addresses treated as independent without relationship analysis"
+          }
+        },
+        {
+          "criterion": "Conclusion & Confidence",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Clear conclusion with confidence level; estimates percentage of artificial vs. organic volume; acknowledges alternative explanations; recommends monitoring approach for ongoing detection",
+            "3": "Conclusion provided but confidence level missing or alternative explanations not considered",
+            "1": "Ambiguous conclusion without commitment",
+            "0": "No conclusion reached"
+          }
+        }
+      ],
+      "expectedScoreWithout": 20,
+      "expectedScoreWith": 60
+    },
+    {
+      "id": "bench-hard-01",
+      "difficulty": "hard",
+      "description": "Cross-chain fund flow analysis with bridge and mixer detection",
+      "input": "A suspicious address on Ethereum received 500 ETH from an unknown source 6 months ago. Since then, funds have been moved through multiple chains (BSC, Arbitrum, Solana), multiple DEX swaps, and potentially through privacy protocols. Perform a comprehensive cross-chain fund flow analysis. Trace the funds as far as possible, identify where the trail breaks, estimate the current distribution of funds across chains and addresses, and assess the sophistication of the obfuscation strategy.",
+      "rubric": [
+        {
+          "criterion": "Cross-Chain Tracing Capability",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Successfully traces fund flows across 3+ chains; identifies bridge transactions with source and destination addresses; tracks token denomination changes through cross-chain swaps; maintains a unified flow map across all chains",
+            "3": "Traces across 2 chains but misses some bridge transactions or loses track on destination chains",
+            "1": "Only analyzes the source chain without cross-chain tracing",
+            "0": "No cross-chain analysis"
+          }
+        },
+        {
+          "criterion": "Obfuscation Strategy Assessment",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Categorizes the obfuscation techniques used (chain hopping, token swapping, mixing, timing dispersion, amount splitting); assesses sophistication level (basic/intermediate/advanced); compares against known laundering patterns; identifies weaknesses in the obfuscation",
+            "3": "Notes some obfuscation techniques but analysis is superficial",
+            "1": "Mentions obfuscation without analyzing techniques",
+            "0": "Does not address obfuscation"
+          }
+        },
+        {
+          "criterion": "Current Fund Distribution Estimate",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Provides a probabilistic estimate of current fund distribution: X% on Ethereum (specific addresses), Y% on BSC, Z% in mixers (untraceable), W% on exchanges; acknowledges uncertainty margins; totals approximately 500 ETH equivalent",
+            "3": "Some distribution estimates but incomplete chain coverage or no uncertainty acknowledgment",
+            "1": "Tracks some funds but cannot estimate overall distribution",
+            "0": "No distribution estimate"
+          }
+        },
+        {
+          "criterion": "Analytical Rigor & Limitations",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Clearly distinguishes between confirmed flows and probabilistic inferences; discloses limitations at each trail-breaking point; uses multiple data sources for cross-verification; provides a methodology section explaining the analytical approach",
+            "3": "Some rigor but mixes confirmed and inferred data without clear distinction",
+            "1": "Presents all findings with equal confidence regardless of evidence quality",
+            "0": "No analytical rigor"
+          }
+        }
+      ],
+      "expectedScoreWithout": 20,
+      "expectedScoreWith": 60
+    },
+    {
+      "id": "bench-hard-02",
+      "difficulty": "hard",
+      "description": "Identify sybil attack patterns in an airdrop",
+      "input": "A DeFi protocol is preparing a retroactive airdrop based on past usage. Help identify potential sybil farmers: addresses that appear to be controlled by the same entity but interact with the protocol through many different wallets to maximize airdrop allocation. Analyze transaction patterns, funding sources, timing correlations, interaction patterns, and gas usage to build sybil clusters. Estimate what percentage of eligible addresses may be sybils.",
+      "rubric": [
+        {
+          "criterion": "Sybil Detection Methodology",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Applies 5+ detection signals: common funding source, timing correlation, identical interaction sequences, gas price patterns, cross-address fund flows, similar wallet ages, minimum-viable interaction patterns; weights signals by reliability",
+            "3": "Applies 2-3 detection signals with some explanation",
+            "1": "Uses a single signal (e.g., only funding source)",
+            "0": "No detection methodology"
+          }
+        },
+        {
+          "criterion": "Cluster Analysis Quality",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Builds coherent sybil clusters with evidence chains; estimates cluster sizes (addresses per operator); provides confidence scores for cluster membership; identifies the most egregious clusters with specific evidence",
+            "3": "Identifies some clusters but membership criteria are loose or evidence is thin",
+            "1": "Flags individual suspicious addresses without clustering",
+            "0": "No clustering"
+          }
+        },
+        {
+          "criterion": "Scale Estimation",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Provides a defensible estimate of sybil percentage with methodology: sampling approach, extrapolation logic, confidence interval; compares against known sybil rates from similar airdrops (Optimism: ~30%, Arbitrum: ~25%)",
+            "3": "Provides an estimate but methodology is unclear or not well-justified",
+            "1": "Vague statement about 'many sybils' without quantification",
+            "0": "No scale estimation"
+          }
+        },
+        {
+          "criterion": "Mitigation Recommendations",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Recommends specific countermeasures: sybil filtering criteria, minimum activity thresholds, social verification layers, Gitcoin Passport integration, quadratic allocation to reduce sybil advantage; analyzes trade-offs of each approach (false positives vs. false negatives)",
+            "3": "Some recommendations but generic or without trade-off analysis",
+            "1": "Vague suggestion to 'filter sybils'",
+            "0": "No recommendations"
+          }
+        }
+      ],
+      "expectedScoreWithout": 15,
+      "expectedScoreWith": 55
+    },
+    {
+      "id": "bench-hard-03",
+      "difficulty": "hard",
+      "description": "Full protocol intelligence report with multi-dimensional on-chain analysis",
+      "input": "Produce a comprehensive on-chain intelligence report for a major DeFi lending protocol. Analyze: (1) Treasury health: fund allocation, runway, diversification. (2) User metrics: active borrowers/lenders, retention, new user growth. (3) Risk exposure: largest borrower concentration, liquidation cascade risk, collateral quality. (4) Governance: voter participation, proposal patterns, whale governance influence. (5) Smart money: what are sophisticated users doing — accumulating governance tokens, increasing deposits, or exiting? This should be an institutional-quality research report.",
+      "rubric": [
+        {
+          "criterion": "Multi-Dimensional Coverage",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Covers all 5 requested dimensions with depth; each dimension has quantitative data, trend analysis, and interpretation; dimensions are cross-referenced where relevant (e.g., governance concentration affecting treasury decisions)",
+            "3": "Covers 3-4 dimensions with reasonable depth",
+            "1": "Covers 1-2 dimensions, others are superficial",
+            "0": "Single-dimension analysis"
+          }
+        },
+        {
+          "criterion": "Institutional Report Quality",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Report follows institutional research format: executive summary, methodology, detailed findings per dimension, risk assessment matrix, forward-looking indicators, and actionable recommendations; suitable for a fund's investment committee",
+            "3": "Structured report but missing key components or not at institutional quality",
+            "1": "Blog-post quality analysis without institutional rigor",
+            "0": "Unstructured data"
+          }
+        },
+        {
+          "criterion": "Risk Assessment Depth",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Identifies protocol-specific risks with quantification: largest borrower as % of total borrows, liquidation cascade simulation under -30% collateral drop, governance attack cost calculation, smart money exit velocity; rates risks by likelihood and impact",
+            "3": "Identifies major risks but without quantification or scenario analysis",
+            "1": "Mentions generic DeFi risks without protocol-specific analysis",
+            "0": "No risk assessment"
+          }
+        },
+        {
+          "criterion": "Data Rigor & Sourcing",
+          "weight": 0.25,
+          "scoring": {
+            "5": "All claims supported by specific data points; sources cited (Dune queries, protocol dashboards, on-chain data); methodology disclosed; limitations acknowledged; data freshness noted; alternative interpretations of ambiguous data presented",
+            "3": "Most claims have data support but sourcing is inconsistent",
+            "1": "Claims without data support or sourcing",
+            "0": "Speculative without data"
+          }
+        }
+      ],
+      "expectedScoreWithout": 15,
+      "expectedScoreWith": 55
+    }
+  ]
+}

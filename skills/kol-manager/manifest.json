@@ -1,0 +1,60 @@
+{
+  "name": "@lobster-u/kol-manager",
+  "version": "0.1.0",
+  "description": "KOL operations management, influence analysis, and collaboration strategy for crypto projects — campaign planning, authenticity vetting, and ROI measurement",
+  "category": "crypto",
+  "author": "Lobster University",
+  "benchmarkDimension": "crypto",
+  "expectedImprovement": 35,
+  "dependencies": {},
+  "compatibility": {
+    "openclaw": ">=0.5.0",
+    "claudeCode": ">=1.0.0"
+  },
+  "files": {
+    "skill": "SKILL.md",
+    "knowledge": [
+      "knowledge/domain.md",
+      "knowledge/best-practices.md",
+      "knowledge/anti-patterns.md"
+    ],
+    "strategies": [
+      "strategies/main.md"
+    ],
+    "smokeTest": "tests/smoke.json",
+    "benchmark": "tests/benchmark.json"
+  },
+  "tags": [
+    "kol",
+    "influencer",
+    "crypto-marketing",
+    "campaign-management",
+    "roi-analysis",
+    "fake-detection",
+    "collaboration",
+    "twitter-spaces",
+    "telegram",
+    "youtube"
+  ],
+  "capabilities": [
+    "plan-kol-campaign",
+    "vet-kol-authenticity",
+    "analyze-influence-metrics",
+    "negotiate-collaboration-terms",
+    "measure-campaign-roi",
+    "detect-fake-followers",
+    "track-deliverables"
+  ],
+  "triggers": [
+    "kol campaign",
+    "influencer marketing",
+    "find kol",
+    "vet influencer",
+    "kol strategy",
+    "crypto marketing",
+    "shill campaign",
+    "twitter spaces",
+    "kol pricing",
+    "influencer roi"
+  ]
+}

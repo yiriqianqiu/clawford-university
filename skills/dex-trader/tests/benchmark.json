@@ -1,0 +1,476 @@
+{
+  "version": "0.0.1",
+  "dimension": "crypto",
+  "tasks": [
+    {
+      "id": "bench-easy-01",
+      "difficulty": "easy",
+      "description": "Calculate price impact for a basic swap",
+      "input": "A Uniswap v2 pool has 1000 ETH and 2,000,000 USDC in reserves (implying ETH price of $2000). If I swap 10 ETH for USDC, how much USDC will I receive? What is the price impact? What is the effective price per ETH?",
+      "rubric": [
+        {
+          "criterion": "Mathematical Accuracy",
+          "weight": 0.5,
+          "scoring": {
+            "5": "Correct application of constant product formula with fee: dy = 2000000 * 10 * 0.997 / (1000 + 10 * 0.997) = ~19,741 USDC; correct effective price (~$1974.10/ETH); correct price impact (~1.3%)",
+            "3": "Approximately correct but minor errors in fee application or rounding",
+            "1": "Understands the concept but calculation is significantly wrong",
+            "0": "Incorrect formula or no calculation"
+          }
+        },
+        {
+          "criterion": "Concept Explanation",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Clearly explains the constant product formula, how fees are deducted, why price impact occurs, and the relationship between trade size and pool reserves; distinguishes between spot price and effective price",
+            "3": "Explains the basics but misses nuances like fee deduction or price impact mechanics",
+            "1": "Vague explanation without demonstrating understanding",
+            "0": "No explanation"
+          }
+        },
+        {
+          "criterion": "Practical Context",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Notes that 10 ETH is 1% of reserves so ~1% price impact is expected; compares to what an aggregator might achieve; mentions that v3 concentrated liquidity would likely offer better execution",
+            "3": "Some practical context but limited",
+            "1": "Pure math without practical framing",
+            "0": "No context"
+          }
+        }
+      ],
+      "expectedScoreWithout": 35,
+      "expectedScoreWith": 80
+    },
+    {
+      "id": "bench-easy-02",
+      "difficulty": "easy",
+      "description": "Explain impermanent loss with a concrete example",
+      "input": "I provided liquidity to an ETH/USDC pool when ETH was $2000. I deposited 1 ETH and 2000 USDC ($4000 total). Now ETH is $4000. Calculate my impermanent loss. Am I better off having been an LP or just holding?",
+      "rubric": [
+        {
+          "criterion": "IL Calculation Accuracy",
+          "weight": 0.4,
+          "scoring": {
+            "5": "Correctly calculates: price ratio r=2, IL = 2*sqrt(2)/(1+2) - 1 = -5.72%; LP value = $4000 * 2*sqrt(2)/3 = ~$3,771; Hold value = 1 ETH * $4000 + $2000 = $6000; IL = $6000 - $5,657 absolute terms. Shows the LP position is worth ~$5,657 while holding would be $6000",
+            "3": "Gets the IL percentage approximately right but makes errors in absolute value calculation",
+            "1": "Understands IL conceptually but calculation is wrong",
+            "0": "Incorrect understanding of IL"
+          }
+        },
+        {
+          "criterion": "Concept Clarity",
+          "weight": 0.35,
+          "scoring": {
+            "5": "Explains WHY IL occurs: the AMM rebalances the position, selling the appreciating asset and buying the depreciating one; explains that 'impermanent' means IL is realized only on withdrawal and reverses if price returns; notes that fees may offset IL",
+            "3": "Explains what IL is but not the mechanics of why it occurs",
+            "1": "Vague or partially incorrect explanation",
+            "0": "No conceptual explanation"
+          }
+        },
+        {
+          "criterion": "Practical Recommendation",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Answers the 'better off?' question clearly with numbers; notes that fees earned during the period could offset IL; explains when LPing makes sense vs. holding; recommends checking actual fee earnings before deciding to exit",
+            "3": "Answers the question but limited practical guidance",
+            "1": "Does not clearly answer whether LP or hold was better",
+            "0": "No recommendation"
+          }
+        }
+      ],
+      "expectedScoreWithout": 30,
+      "expectedScoreWith": 75
+    },
+    {
+      "id": "bench-easy-03",
+      "difficulty": "easy",
+      "description": "Compare fee tiers for a Uniswap v3 LP position",
+      "input": "I want to provide liquidity for ETH/USDC on Uniswap v3. There are four fee tiers: 0.01%, 0.05%, 0.30%, and 1.00%. Which should I choose? Explain the trade-offs and recommend the best option for a standard ETH/USDC LP position.",
+      "rubric": [
+        {
+          "criterion": "Fee Tier Knowledge",
+          "weight": 0.4,
+          "scoring": {
+            "5": "Correctly explains all four tiers and their intended use cases: 0.01% for stables, 0.05% for correlated pairs, 0.30% for standard pairs, 1.00% for exotic; notes that 0.30% is the most common for ETH/USDC; explains that higher fees attract less volume but earn more per trade",
+            "3": "Explains 2-3 tiers correctly but incomplete understanding of the trade-offs",
+            "1": "Knows fee tiers exist but cannot explain differences",
+            "0": "No fee tier knowledge"
+          }
+        },
+        {
+          "criterion": "Trade-Off Analysis",
+          "weight": 0.35,
+          "scoring": {
+            "5": "Analyzes the volume/fee trade-off: lower fees attract more volume but earn less per swap; higher fees attract less volume but earn more per swap; the optimal tier maximizes fee_rate * volume_attracted; notes that 0.05% ETH/USDC pool often has competitive TVL",
+            "3": "Mentions the trade-off but analysis is surface-level",
+            "1": "No trade-off analysis",
+            "0": "Incorrect understanding"
+          }
+        },
+        {
+          "criterion": "Recommendation Quality",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Recommends 0.30% or 0.05% for ETH/USDC with data-driven justification; suggests checking current TVL and volume split across tiers before deciding; notes that the best tier can change over time; recommends monitoring fee earnings after deployment",
+            "3": "Makes a recommendation but without strong justification",
+            "1": "Gives a recommendation without any reasoning",
+            "0": "No recommendation"
+          }
+        }
+      ],
+      "expectedScoreWithout": 35,
+      "expectedScoreWith": 75
+    },
+    {
+      "id": "bench-med-01",
+      "difficulty": "medium",
+      "description": "Design an LP strategy for a volatile token pair",
+      "input": "I want to provide $10,000 of liquidity for a new DeFi governance token paired with ETH on Uniswap v3. The token has been live for 2 months with 50% weekly price volatility relative to ETH. Design a complete LP strategy: range selection, fee tier, position size, rebalancing trigger, and exit criteria. Model the expected returns vs. impermanent loss.",
+      "rubric": [
+        {
+          "criterion": "Range Selection Analysis",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Recommends a specific price range with quantitative justification based on historical volatility; calculates capital efficiency multiplier for the selected range; models probability of price staying in range based on past data; offers conservative/moderate/aggressive range options",
+            "3": "Recommends a range but justification is qualitative or not tied to volatility data",
+            "1": "Suggests a range without any analysis",
+            "0": "No range recommendation"
+          }
+        },
+        {
+          "criterion": "Return vs. IL Modeling",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Models 3 scenarios (range-bound, +50% move, -50% move) with fee earnings and IL calculated for each; estimates net APR for each scenario; identifies the breakeven point where fees offset IL; uses the specified $10K position and 50% weekly volatility as inputs",
+            "3": "Models 1-2 scenarios but analysis is incomplete or does not use the specified parameters",
+            "1": "Mentions IL risk without modeling",
+            "0": "No return/IL analysis"
+          }
+        },
+        {
+          "criterion": "Risk Management Plan",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Defines specific rebalancing triggers (price at X% of range boundary); sets maximum loss threshold for position closure; recommends monitoring frequency; addresses smart contract risk for a new token; considers LP concentration risk in the pool",
+            "3": "Some risk management but missing specific triggers or thresholds",
+            "1": "Vague risk warning without actionable management plan",
+            "0": "No risk management"
+          }
+        },
+        {
+          "criterion": "Fee Tier Justification",
+          "weight": 0.15,
+          "scoring": {
+            "5": "Recommends 1.00% tier for a volatile new token with clear reasoning: high volatility justifies higher fees; lower tiers would not compensate for IL; checks if this fee tier has adequate volume",
+            "3": "Correct tier recommendation but limited justification",
+            "1": "Incorrect tier recommendation or no justification",
+            "0": "No fee tier discussion"
+          }
+        }
+      ],
+      "expectedScoreWithout": 25,
+      "expectedScoreWith": 65
+    },
+    {
+      "id": "bench-med-02",
+      "difficulty": "medium",
+      "description": "Evaluate MEV risk and design a protection strategy",
+      "input": "I need to execute a series of 5 swaps totaling $200K across different tokens on Ethereum mainnet over the next 24 hours. Some are selling volatile small-cap tokens, others are buying blue-chip DeFi tokens. Design a comprehensive MEV protection strategy for each swap considering the different token characteristics, liquidity conditions, and available protection tools.",
+      "rubric": [
+        {
+          "criterion": "Per-Swap MEV Assessment",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Assesses MEV risk individually for each swap based on: token liquidity, trade size relative to pool depth, token volatility, and expected slippage; rates each as low/medium/high risk; higher risk for small-cap sells due to lower liquidity",
+            "3": "Assesses MEV risk but applies a uniform strategy without per-swap differentiation",
+            "1": "Acknowledges MEV exists but no per-swap analysis",
+            "0": "No MEV assessment"
+          }
+        },
+        {
+          "criterion": "Protection Tool Selection",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Recommends specific tools per swap: CowSwap for large blue-chip swaps (best MEV protection), Flashbots Protect for time-sensitive swaps, private RPC for standard swaps; explains why each tool suits each swap's characteristics",
+            "3": "Recommends protection tools but one-size-fits-all approach",
+            "1": "Mentions one tool without context",
+            "0": "No protection tools recommended"
+          }
+        },
+        {
+          "criterion": "Execution Sequencing",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Recommends execution order considering: market impact of each swap on subsequent swaps, gas cost optimization (batch during low-gas), timing diversification to avoid pattern detection, priority for highest-risk swaps first",
+            "3": "Some sequencing logic but not comprehensive",
+            "1": "No sequencing consideration",
+            "0": "Random ordering"
+          }
+        },
+        {
+          "criterion": "Cost-Benefit Analysis",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Estimates total MEV exposure without protection vs. with protection for the full $200K; calculates the cost of each protection method (gas premium, execution delay, potential worse quotes); justifies the strategy in dollar terms",
+            "3": "Some cost analysis but not quantified across the full trade set",
+            "1": "No cost-benefit analysis",
+            "0": "Not addressed"
+          }
+        }
+      ],
+      "expectedScoreWithout": 25,
+      "expectedScoreWith": 65
+    },
+    {
+      "id": "bench-med-03",
+      "difficulty": "medium",
+      "description": "Analyze a DEX pool's health and trading conditions",
+      "input": "Evaluate the trading conditions and liquidity health of a specific DEX pool (e.g., a popular memecoin/ETH pool on Uniswap v2). Analyze: TVL trend, volume/TVL ratio, LP concentration, liquidity lock status, bid-ask spread equivalent, and whether the pool is safe to trade significant size ($5K+) in. Provide a health rating.",
+      "rubric": [
+        {
+          "criterion": "Pool Health Metrics",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Analyzes all requested metrics with specific data: TVL with 30-day trend, volume/TVL ratio benchmarked against healthy ranges, LP count and top LP concentration, lock status verified on-chain, effective spread for $5K trade size",
+            "3": "Covers 3-4 metrics but some lack specificity or benchmarking",
+            "1": "Covers 1-2 metrics superficially",
+            "0": "No metric analysis"
+          }
+        },
+        {
+          "criterion": "Risk Assessment for $5K Trade",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Calculates exact price impact for a $5K buy and sell; identifies LP rug risk if liquidity is unlocked or concentrated; checks for honeypot indicators in the token contract; assesses whether organic volume supports $5K execution without moving the market significantly",
+            "3": "Some trade-size-specific analysis but incomplete risk coverage",
+            "1": "Generic risk warnings without trade-size-specific analysis",
+            "0": "No risk assessment"
+          }
+        },
+        {
+          "criterion": "Health Rating Justification",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Provides a clear health rating (healthy/caution/danger) with specific justification tied to each metric; compares against established benchmarks for pool health; notes which metrics are the primary concern",
+            "3": "Rating provided but justification is weak or selective",
+            "1": "Rating without justification",
+            "0": "No rating"
+          }
+        },
+        {
+          "criterion": "Actionable Recommendations",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Specific recommendations: safe trade size, recommended slippage, preferred execution method, risk mitigations, conditions under which the assessment would change",
+            "3": "Some recommendations but generic",
+            "1": "No actionable output",
+            "0": "Not useful"
+          }
+        }
+      ],
+      "expectedScoreWithout": 25,
+      "expectedScoreWith": 65
+    },
+    {
+      "id": "bench-med-04",
+      "difficulty": "medium",
+      "description": "Compare DEX aggregators for a complex multi-token swap",
+      "input": "I need to swap 3 different tokens on Solana: sell Token A for SOL, swap Token B for USDC, and buy Token C with USDC. Total value across all swaps is about $15K. Compare Jupiter, Raydium direct, and Orca for each swap. Consider: routing quality, fee structure, MEV exposure, and execution reliability. Which aggregator/DEX should I use for each swap and why?",
+      "rubric": [
+        {
+          "criterion": "Platform Comparison Depth",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Compares all three platforms across the four requested dimensions for each swap; explains Jupiter's aggregation advantage for multi-hop, Raydium's direct pool efficiency, and Orca's concentrated liquidity model; notes Solana-specific considerations (low fees enabling multi-hop)",
+            "3": "Compares platforms but not per-swap or missing some dimensions",
+            "1": "Surface-level comparison without technical depth",
+            "0": "No comparison"
+          }
+        },
+        {
+          "criterion": "Per-Swap Optimization",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Optimizes each swap individually: considers token liquidity differences across platforms, recommends different platforms for different tokens based on where the deepest liquidity exists, accounts for token-specific risks (new tokens vs. established)",
+            "3": "Some per-swap differentiation but mostly uniform recommendations",
+            "1": "Same recommendation for all swaps without differentiation",
+            "0": "No per-swap analysis"
+          }
+        },
+        {
+          "criterion": "Solana-Specific Knowledge",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Demonstrates Solana-specific knowledge: Jito MEV considerations, compute unit pricing, transaction priority fees, account rent, SPL token mechanics, Solana program architecture relevant to DEX execution",
+            "3": "Some Solana-specific notes but limited depth",
+            "1": "Generic DEX advice not specific to Solana",
+            "0": "No Solana-specific knowledge"
+          }
+        },
+        {
+          "criterion": "Execution Plan",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Provides a concrete execution plan: order of swaps, recommended platform for each, specific parameters (slippage, priority fee), total estimated cost across all swaps, timing recommendations",
+            "3": "Partial execution plan",
+            "1": "No clear execution plan",
+            "0": "Not actionable"
+          }
+        }
+      ],
+      "expectedScoreWithout": 25,
+      "expectedScoreWith": 65
+    },
+    {
+      "id": "bench-hard-01",
+      "difficulty": "hard",
+      "description": "Design a delta-neutral LP strategy with hedging",
+      "input": "Design a delta-neutral liquidity provision strategy for ETH/USDC on Uniswap v3. I have $100K capital. The strategy should: provide concentrated liquidity in an optimal range, hedge directional exposure using perpetual futures, manage impermanent loss dynamically, and target a net APR of 15-25%. Include mathematical modeling, rebalancing rules, and a complete risk framework.",
+      "rubric": [
+        {
+          "criterion": "Mathematical Modeling",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Models the LP position with specific range, calculates delta exposure at entry, sizes the perpetual hedge to neutralize delta, models how delta changes as price moves (gamma exposure), calculates funding rate cost for the hedge, and nets out fee income vs. IL + hedge cost",
+            "3": "Some mathematical modeling but missing delta/gamma analysis or hedge sizing is incorrect",
+            "1": "Conceptual description without mathematical rigor",
+            "0": "No modeling"
+          }
+        },
+        {
+          "criterion": "Rebalancing Strategy",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Defines specific rebalancing triggers: LP range adjustment when price at X% of boundary, hedge adjustment when delta exceeds Y threshold, periodic rebalancing schedule; estimates gas and trading costs per rebalance; optimizes rebalancing frequency to maximize net returns",
+            "3": "Rebalancing mentioned but triggers are vague or costs not estimated",
+            "1": "No rebalancing strategy",
+            "0": "Static position only"
+          }
+        },
+        {
+          "criterion": "Risk Framework",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Comprehensive risk assessment: smart contract risk (LP + perp platform), liquidation risk on hedge, funding rate risk (persistent negative funding), execution risk on rebalancing, correlation breakdown risk; defines maximum drawdown and position closure triggers; models worst-case scenarios",
+            "3": "Identifies major risks but without quantification or scenario modeling",
+            "1": "Generic risk warnings",
+            "0": "No risk framework"
+          }
+        },
+        {
+          "criterion": "Target APR Feasibility",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Builds up the target APR from components: gross fee APR from LP, minus IL cost, minus hedge funding cost, minus gas/rebalancing costs, minus platform fees = net APR; validates 15-25% target against current market conditions; identifies which assumptions must hold for target to be achievable",
+            "3": "Claims the target is achievable but calculation is incomplete",
+            "1": "States target without analysis of feasibility",
+            "0": "No APR analysis"
+          }
+        }
+      ],
+      "expectedScoreWithout": 15,
+      "expectedScoreWith": 55
+    },
+    {
+      "id": "bench-hard-02",
+      "difficulty": "hard",
+      "description": "Analyze and optimize a complex multi-pool yield farming strategy",
+      "input": "I'm running a yield farming strategy across 5 pools on 3 chains (Ethereum, BSC, Solana): Curve 3pool, Uniswap v3 ETH/USDC, PancakeSwap CAKE/BNB, Raydium SOL/USDC, and Orca whirlpool SOL/mSOL. Total capital: $500K. Analyze each position's true APR (accounting for IL, gas, bridging costs, and reward token sell pressure), identify which positions are underperforming, and optimize the allocation to maximize risk-adjusted returns.",
+      "rubric": [
+        {
+          "criterion": "Per-Position True APR Analysis",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Breaks down each position: gross fee/reward APR, IL rate, gas costs for claiming and compounding, bridging costs for cross-chain management, reward token sell impact; calculates true net APR for each; identifies the real top and bottom performers",
+            "3": "Analyzes most positions but some cost components are missing or estimated poorly",
+            "1": "Reports advertised APR without adjusting for costs",
+            "0": "No per-position analysis"
+          }
+        },
+        {
+          "criterion": "Cross-Chain Optimization",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Considers cross-chain allocation optimization: capital efficiency per chain, bridging costs and risks, gas cost differences, reward token sell logistics, correlation benefits of diversification across chains and pool types; recommends specific allocation shifts with dollar amounts",
+            "3": "Some cross-chain considerations but optimization is limited",
+            "1": "Treats each chain independently without cross-chain optimization",
+            "0": "No cross-chain analysis"
+          }
+        },
+        {
+          "criterion": "Risk-Adjusted Return Framework",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Uses a risk-adjusted framework (Sharpe-like ratio for DeFi): accounts for return volatility, IL risk, smart contract risk per protocol, chain risk, and correlation between positions; recommends allocation based on risk-adjusted returns, not raw APR",
+            "3": "Considers risk qualitatively but no formal risk-adjustment framework",
+            "1": "Optimizes for raw return without risk consideration",
+            "0": "No risk-adjusted analysis"
+          }
+        },
+        {
+          "criterion": "Actionable Optimization Plan",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Specific reallocation plan: exit positions X and Y, increase positions Z and W, add new position V; includes execution steps for the rebalance (which bridges, which swaps, estimated total cost); projects the expected improvement in portfolio APR and risk profile",
+            "3": "General recommendations without specific execution steps or projected improvement",
+            "1": "Vague suggestions to 'rebalance'",
+            "0": "No optimization recommendations"
+          }
+        }
+      ],
+      "expectedScoreWithout": 15,
+      "expectedScoreWith": 55
+    },
+    {
+      "id": "bench-hard-03",
+      "difficulty": "hard",
+      "description": "Evaluate a novel AMM design for efficiency and attack vectors",
+      "input": "A new DEX protocol claims to have invented a superior AMM model that provides 'zero impermanent loss' for liquidity providers while offering better prices than Uniswap v3 for traders. The mechanism involves a dynamic fee that adjusts based on volatility and a virtual reserve system that simulates order book depth. Evaluate this claim: Is zero IL mathematically possible in an AMM? What are the likely trade-offs? What attack vectors should we look for? How would you benchmark this AMM against Uniswap v3?",
+      "rubric": [
+        {
+          "criterion": "Theoretical Analysis",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Rigorously analyzes the zero-IL claim: explains that IL is fundamental to any AMM that provides two-sided liquidity at market prices; identifies that 'zero IL' likely means the cost is shifted elsewhere (higher fees, oracle dependency, time-delayed pricing, or LP capital restrictions); references the impossible trinity of DeFi: low slippage, low IL, and capital efficiency cannot all be maximized simultaneously",
+            "3": "Correctly skeptical of zero-IL claim but analysis lacks mathematical rigor",
+            "1": "Accepts the claim without scrutiny or dismisses without analysis",
+            "0": "No theoretical analysis"
+          }
+        },
+        {
+          "criterion": "Attack Vector Identification",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Identifies multiple attack vectors: oracle manipulation if fees depend on external data, toxic flow exploitation if dynamic fees lag market moves, LP drain through predictable fee patterns, sandwich opportunities if fee changes are predictable, economic attacks on the virtual reserve system; prioritizes by likelihood and impact",
+            "3": "Identifies 1-2 attack vectors but misses major ones",
+            "1": "Generic security concerns without protocol-specific attack analysis",
+            "0": "No attack vector analysis"
+          }
+        },
+        {
+          "criterion": "Benchmarking Framework",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Proposes a rigorous benchmarking methodology: same-pair comparison with Uniswap v3, metrics to compare (LP net returns, trader execution quality, TVL efficiency, MEV leakage), test conditions (different volatility regimes, different trade sizes), statistical significance requirements",
+            "3": "Some benchmarking ideas but methodology is incomplete",
+            "1": "Suggests comparing APR only without comprehensive methodology",
+            "0": "No benchmarking approach"
+          }
+        },
+        {
+          "criterion": "Trade-Off Analysis",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Identifies the likely trade-offs: zero-IL probably means worse execution for traders, oracle dependency, reduced capital efficiency, or hidden costs; analyzes each trade-off with its implications for protocol sustainability and user adoption; explains which trade-offs are acceptable and which are dealbreakers",
+            "3": "Identifies some trade-offs but analysis is incomplete",
+            "1": "Mentions trade-offs exist without specifics",
+            "0": "No trade-off analysis"
+          }
+        }
+      ],
+      "expectedScoreWithout": 15,
+      "expectedScoreWith": 55
+    }
+  ]
+}

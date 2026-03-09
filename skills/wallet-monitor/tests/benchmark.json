@@ -1,0 +1,476 @@
+{
+  "version": "0.0.1",
+  "dimension": "crypto",
+  "tasks": [
+    {
+      "id": "bench-easy-01",
+      "difficulty": "easy",
+      "description": "Track and interpret a single wallet's balance and activity",
+      "input": "A wallet holds 500,000 USDC, 150 ETH, and 2,000,000 of a DeFi governance token (representing 2% of circulating supply). In the last 24 hours, the wallet transferred 50 ETH to a Coinbase deposit address and granted an unlimited approval to an unverified contract deployed 3 days ago. How would you interpret this activity and what alerts should fire?",
+      "rubric": [
+        {
+          "criterion": "Activity Interpretation",
+          "weight": 0.4,
+          "scoring": {
+            "5": "Correctly interprets both events: (1) 50 ETH to Coinbase = likely selling ~$90K ETH, moderate not alarming for a wallet this size (33% of ETH holdings), could be profit-taking or operational; (2) Unlimited approval to unverified 3-day-old contract = HIGH RISK, potential phishing or interaction with untested protocol; flags that the approval is the more concerning event despite being smaller in immediate dollar impact",
+            "3": "Identifies both events but misses the relative severity (approval is more dangerous than the exchange transfer)",
+            "1": "Only interprets one event or misinterprets both",
+            "0": "No interpretation"
+          }
+        },
+        {
+          "criterion": "Alert Configuration",
+          "weight": 0.35,
+          "scoring": {
+            "5": "Two alerts should fire: (1) Medium severity — exchange deposit alert (50 ETH to labeled Coinbase address, 33% of ETH position); (2) High severity — unlimited approval to unverified contract <7 days old; correctly ranks the approval alert as higher severity; includes enrichment data for each (wallet label, contract details, historical behavior)",
+            "3": "Fires correct alerts but severity ranking is wrong or enrichment is missing",
+            "1": "Only one alert or wrong alert types",
+            "0": "No alerts suggested"
+          }
+        },
+        {
+          "criterion": "Recommended Actions",
+          "weight": 0.25,
+          "scoring": {
+            "5": "For the exchange transfer: log and monitor for follow-up sells (is this the start of distribution?); For the approval: investigate the contract immediately (check deployer, source code if verified, audit status, other approvers); recommend revoking the approval if the contract is suspicious; check if this wallet has been targeted by a phishing campaign",
+            "3": "Some action recommendations but not differentiated by event severity",
+            "1": "Generic 'investigate' without specific actions",
+            "0": "No recommendations"
+          }
+        }
+      ],
+      "expectedScoreWithout": 35,
+      "expectedScoreWith": 75
+    },
+    {
+      "id": "bench-easy-02",
+      "difficulty": "easy",
+      "description": "Classify wallet entities from on-chain behavior",
+      "input": "Classify each of these 4 wallets based on their behavior descriptions:\n\nWallet A: Receives tokens from a vesting contract every quarter, holds 15 different governance tokens, sells ~20% of unlocked tokens within 2 weeks of each vest, remaining tokens held for 6+ months.\n\nWallet B: Makes 50-100 trades per day on Uniswap and SushiSwap, each trade is $5K-$50K, primarily trades between stablecoins and mid-cap DeFi tokens, 65% of positions are profitable, average hold time is 4 hours.\n\nWallet C: Receives transfers from 10,000+ unique addresses daily, holds large balances of 80+ tokens, periodically moves large amounts to a cold storage address, labeled in Etherscan.\n\nWallet D: Deployed 3 smart contracts in the last month, called admin functions (setFee, pause, addOperator) on those contracts, holds the native token of the deployed protocol, received tokens from the protocol's distribution contract.",
+      "rubric": [
+        {
+          "criterion": "Correct Classification",
+          "weight": 0.5,
+          "scoring": {
+            "5": "Correctly classifies all 4: A = VC/fund wallet (vesting schedule, diversified governance tokens, partial sells on unlock); B = active trader / smart money (high frequency, profitable, short holds, DEX-native); C = centralized exchange hot wallet (many inflows, multi-token, cold storage transfers, publicly labeled); D = developer/deployer wallet (contract deployment, admin function calls, team token allocation)",
+            "3": "Correctly classifies 3 of 4",
+            "1": "Correctly classifies 1-2 of 4",
+            "0": "All incorrect or no classification"
+          }
+        },
+        {
+          "criterion": "Behavioral Evidence",
+          "weight": 0.3,
+          "scoring": {
+            "5": "For each classification, cites the specific behavioral signals that led to the conclusion: vesting pattern for VC, trade frequency + profitability for smart money, unique sender count + Etherscan label for exchange, admin function calls for developer; explains why alternative classifications were ruled out",
+            "3": "Cites some evidence but doesn't systematically connect behavior to classification",
+            "1": "Classifications given without evidence",
+            "0": "No reasoning provided"
+          }
+        },
+        {
+          "criterion": "Monitoring Recommendations",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Suggests appropriate monitoring tier and alert rules per entity type: VC wallet (Tier 3 — monitor vesting unlocks and sell patterns), smart money (Tier 2 — follow new positions for alpha), exchange (Tier 3 — monitor for unusual large deposits from other watched wallets), developer (Tier 1 — alert on ALL admin function calls and token movements)",
+            "3": "Some monitoring recommendations but not tailored to entity type",
+            "1": "Generic monitoring suggestions",
+            "0": "No monitoring recommendations"
+          }
+        }
+      ],
+      "expectedScoreWithout": 40,
+      "expectedScoreWith": 80
+    },
+    {
+      "id": "bench-easy-03",
+      "difficulty": "easy",
+      "description": "Assess token approval risks for a wallet",
+      "input": "A wallet has the following outstanding token approvals:\n1. Unlimited USDC approval to Uniswap V3 Router (verified, audited, deployed 2 years ago)\n2. Unlimited WETH approval to an unverified contract deployed 5 days ago\n3. 10,000 DAI approval to Aave V3 Lending Pool (verified, audited)\n4. Unlimited USDC approval to a contract last interacted with 8 months ago (verified but the protocol shut down 4 months ago)\n5. Unlimited LINK approval to a contract flagged by Forta as associated with a phishing campaign\n\nScore the risk of each approval and recommend actions.",
+      "rubric": [
+        {
+          "criterion": "Risk Scoring Accuracy",
+          "weight": 0.4,
+          "scoring": {
+            "5": "Correctly scores all 5: (1) Low risk — blue-chip protocol, limited ongoing exposure; (2) Critical risk — unverified + <7 days old + unlimited; (3) Low risk — limited amount + audited blue-chip; (4) High risk — stale approval to defunct protocol, unlimited amount; (5) Critical risk — flagged by security service as phishing-associated; ranks #5 and #2 as most urgent",
+            "3": "Correctly scores 3-4 approvals but misses nuance on 1-2",
+            "1": "Scores 1-2 correctly",
+            "0": "Incorrect scoring across the board"
+          }
+        },
+        {
+          "criterion": "Action Recommendations",
+          "weight": 0.35,
+          "scoring": {
+            "5": "Priority-ordered actions: (1) IMMEDIATELY revoke approval #5 (phishing risk, active threat); (2) IMMEDIATELY revoke approval #2 (unverified contract, likely phishing or untested protocol); (3) Revoke approval #4 (stale, protocol defunct, no reason to maintain); (4) Optional: reduce approval #1 to a specific amount or leave as-is (acceptable risk); (5) No action needed on #3 (limited approval to audited protocol); recommends tools for revocation (Revoke.cash, Etherscan)",
+            "3": "Recommends revoking the dangerous ones but priority order is wrong or misses the urgency distinction",
+            "1": "Generic 'revoke all approvals' without prioritization",
+            "0": "No action recommendations"
+          }
+        },
+        {
+          "criterion": "Security Score Impact",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Calculates overall wallet approval hygiene score; explains that approvals #2 and #5 alone make this wallet high-risk regardless of other factors; estimates total value at risk from unlimited approvals; recommends ongoing approval monitoring as a standard practice",
+            "3": "Mentions overall risk level but doesn't quantify or connect to a scoring framework",
+            "1": "No overall assessment",
+            "0": "Claims the wallet is safe"
+          }
+        }
+      ],
+      "expectedScoreWithout": 35,
+      "expectedScoreWith": 75
+    },
+    {
+      "id": "bench-med-01",
+      "difficulty": "medium",
+      "description": "Detect accumulation patterns from multi-wallet activity",
+      "input": "Over the past 72 hours, you observe the following activity for token XYZ (market cap $20M, daily volume $2M, 10M circulating supply):\n\n- Wallet A bought 100K XYZ across 8 transactions on Uniswap (total: $200K, 1% of supply)\n- Wallet B bought 50K XYZ in 3 transactions on SushiSwap ($100K, 0.5% of supply)\n- Wallet C bought 75K XYZ in 5 transactions on 1inch ($150K, 0.75% of supply)\n- All three wallets were funded with ETH from the same source wallet 4 days ago\n- The source wallet itself received ETH from a known VC fund wallet\n- Token XYZ's price has increased 8% over the 72-hour period\n- No major news or announcements about the XYZ project during this period\n\nAnalyze this activity. What's happening and what should you alert on?",
+      "rubric": [
+        {
+          "criterion": "Pattern Recognition",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Identifies this as coordinated multi-wallet accumulation: same funding source = same entity; 3 wallets × 3 DEXs = deliberate distribution to avoid detection; total accumulation is 225K tokens (2.25% of supply, $450K) — significant for a $20M cap; VC funding source suggests institutional-grade accumulation, possibly pre-announcement positioning; 8% price rise on relatively low individual transactions suggests thin order book amplification",
+            "3": "Identifies accumulation but doesn't connect the funding source or recognize the coordination",
+            "1": "Sees individual buys but misses the multi-wallet coordination pattern",
+            "0": "No pattern recognition"
+          }
+        },
+        {
+          "criterion": "Entity Clustering",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Clusters Wallets A, B, C as a single entity based on shared funding source; links back to the VC fund wallet; estimates total entity exposure: 225K XYZ (2.25% supply) + whatever the source wallet may hold; notes this is likely a VC building a position pre-announcement or a fund manager deploying across sub-wallets",
+            "3": "Notes the shared funding source but doesn't formally cluster or estimate total exposure",
+            "1": "Treats wallets as independent actors",
+            "0": "No clustering analysis"
+          }
+        },
+        {
+          "criterion": "Alert Configuration",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Multiple alerts should fire: (1) Medium — smart money / VC-linked accumulation detected (225K tokens, 2.25% supply over 72h); (2) Medium — multi-wallet coordination detected (3 wallets, same funding source, same token); (3) Low — price impact correlation (8% price rise correlated with accumulation period); recommends monitoring for: continued accumulation, any governance proposal submissions, upcoming token events; sets follow-up monitoring on all 3 wallets + source wallet",
+            "3": "Fires some alerts but misses the coordination-specific alert or the VC-link signal",
+            "1": "Only alerts on individual large transactions",
+            "0": "No alerts"
+          }
+        },
+        {
+          "criterion": "Implications and Next Steps",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Analyzes implications: VC accumulation before news = possible insider positioning; 2.25% of supply in 72h is aggressive; if accumulation continues, could trigger governance thresholds; suggests monitoring for: imminent announcement (partnership, listing, upgrade), governance proposal activity, whether the VC fund has a public position on XYZ; recommends adding XYZ to active monitoring with Tier 2 watchlist and all related wallets to Tier 3",
+            "3": "Some implications noted but doesn't connect to governance risks or insider trading concerns",
+            "1": "States 'someone is buying' without deeper analysis",
+            "0": "No implications discussed"
+          }
+        }
+      ],
+      "expectedScoreWithout": 25,
+      "expectedScoreWith": 65
+    },
+    {
+      "id": "bench-med-02",
+      "difficulty": "medium",
+      "description": "Design alert rules for a protocol treasury",
+      "input": "Design a complete alert system for a DeFi protocol's treasury. The treasury is a 4-of-7 Gnosis Safe multisig on Ethereum holding: $8M USDC, $3M ETH, 5M native governance tokens (worth $10M, 5% of supply), and $2M in LP positions on Uniswap. The protocol has a governance process where treasury spending >$100K requires an on-chain vote. The protocol also has a deployer EOA that can call emergency pause functions. Design the alert rules, severity levels, and response protocols.",
+      "rubric": [
+        {
+          "criterion": "Multisig Alert Rules",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Comprehensive multisig rules: (1) Critical — signer added/removed or threshold changed; (2) Critical — any transaction submitted that is NOT preceded by a governance vote; (3) High — any transaction >$100K (should correlate with governance approval); (4) High — native token transfer to any exchange address; (5) Medium — any transaction <$100K that's outside normal operational spending patterns; includes check for governance vote correlation on large transactions",
+            "3": "Has multisig rules but misses governance correlation check or signer change monitoring",
+            "1": "Generic 'alert on large transfers' without multisig-specific rules",
+            "0": "No multisig rules"
+          }
+        },
+        {
+          "criterion": "Deployer Wallet Rules",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Deployer rules: (1) Critical — emergency pause function called (legitimate but requires immediate attention); (2) Critical — any non-pause admin function called without governance approval; (3) Critical — deployer transfers tokens to any address; (4) High — deployer wallet receives ETH (gas top-up suggests imminent activity); whitelists expected operational transactions to reduce noise",
+            "3": "Monitors deployer but doesn't differentiate between expected and unexpected actions",
+            "1": "Deployer monitoring mentioned but rules are vague",
+            "0": "Deployer not monitored"
+          }
+        },
+        {
+          "criterion": "Asset-Specific Rules",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Rules tailored to each asset type: USDC/ETH (standard transfer thresholds); governance tokens (alert on any movement since selling team tokens is market-impactful, check against vesting/lockup schedules); LP positions (alert on any removal — LP removal by treasury signals protocol winding down or emergency); includes approval monitoring for all held tokens",
+            "3": "Some asset-specific rules but treats all assets the same or misses LP position monitoring",
+            "1": "Generic transfer rules for all assets",
+            "0": "No asset-specific rules"
+          }
+        },
+        {
+          "criterion": "Response Protocol",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Tiered response: Critical — immediate investigation by core team, pause protocol if compromise suspected, alert community within 1 hour; High — investigate within 4 hours, verify governance correlation, update community if abnormal; Medium — review in daily digest, flag patterns for weekly review; includes escalation criteria (when to declare an incident), communication templates, and emergency contact list (security partners, legal, multisig signers)",
+            "3": "Has response tiers but lacks specific actions or communication protocols",
+            "1": "Generic 'investigate alerts' without structured response",
+            "0": "No response protocol"
+          }
+        }
+      ],
+      "expectedScoreWithout": 25,
+      "expectedScoreWith": 70
+    },
+    {
+      "id": "bench-med-03",
+      "difficulty": "medium",
+      "description": "Set up smart money following with signal quality filtering",
+      "input": "I want to follow smart money wallets to find alpha in the Solana DeFi ecosystem. I have a list of 50 wallets labeled as 'smart money' by Nansen, but I know not all of them are actually useful to follow. How do I filter this list to the 10-15 most signal-rich wallets? What specific on-chain behaviors indicate a wallet is worth following? Design the monitoring system and explain how to avoid false signals.",
+      "rubric": [
+        {
+          "criterion": "Smart Money Filtering Criteria",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Defines specific filtering criteria: (1) Win rate >60% on positions held >7 days; (2) Average ROI >3x per position; (3) Active in last 30 days (dormant wallets aren't useful); (4) Trades in Solana DeFi specifically (not just Solana NFTs or memecoins); (5) Not an obvious bot/MEV wallet (bots don't provide alpha, they extract it); (6) Position sizing indicates real capital (not $100 test transactions); (7) Independent signal — doesn't just follow other smart money wallets with a delay",
+            "3": "Some filtering criteria but misses key dimensions (recency, sector focus, bot filtering)",
+            "1": "Suggests using the list as-is or filtering on only one dimension",
+            "0": "No filtering approach"
+          }
+        },
+        {
+          "criterion": "Signal vs Noise Discrimination",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Explains how to separate signal from noise: real alpha signals are new positions (first time buying a token), not portfolio rebalancing; entries matter more than exits (smart money exits positions for many reasons including risk management, not just negative conviction); size matters (a $50K position is a real signal, a $500 position is testing); timing matters (entering before social media buzz vs after = early vs late); multiple smart money entering same token = strongest signal; portfolio context matters (is this 30% of their portfolio or 0.1%?)",
+            "3": "Some signal quality discussion but doesn't cover multiple dimensions",
+            "1": "Treats all smart money transactions equally",
+            "0": "No signal quality framework"
+          }
+        },
+        {
+          "criterion": "Monitoring System Design",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Designs a practical system: monitor filtered 10-15 wallets at Tier 2 cadence; alert on new token positions (not rebalancing existing positions); confluence alert when 3+ wallets buy same token in 24h; include token metadata in alerts (market cap, volume, age, audit status); daily digest with all smart money activity; weekly performance scorecard tracking whether following the signals would have been profitable",
+            "3": "Has a monitoring structure but alerts aren't well-filtered for signal quality",
+            "1": "Monitors wallets but alerts on everything (all transactions)",
+            "0": "No monitoring system"
+          }
+        },
+        {
+          "criterion": "False Signal Awareness",
+          "weight": 0.15,
+          "scoring": {
+            "5": "Identifies specific false signal patterns: smart money buying because they're being airdropped tokens (not conviction buy); smart money getting paid to shill (KOL overlap); wash trading between own wallets; accumulation for governance attack not investment; smart money wallets that have degraded in quality over time (past performance not predictive); recommends periodic re-evaluation of the wallet list based on ongoing performance",
+            "3": "Mentions some false signal risks but doesn't enumerate specific patterns",
+            "1": "Assumes all smart money signals are genuine",
+            "0": "No false signal consideration"
+          }
+        }
+      ],
+      "expectedScoreWithout": 25,
+      "expectedScoreWith": 65
+    },
+    {
+      "id": "bench-med-04",
+      "difficulty": "medium",
+      "description": "Investigate a suspicious wallet activity pattern",
+      "input": "A project team asks you to investigate a suspicious pattern: their governance token (total supply 100M, circulating 40M) has seen 5 previously inactive wallets suddenly become active in the past 48 hours. Each wallet holds 500K-800K tokens (total: ~3.2M tokens, 8% of circulating supply). Three of the wallets have started transferring tokens to a new multisig address. The other two have granted approvals to a smart contract that was deployed just 12 hours ago. The token price hasn't moved significantly. What's happening and what should the team do?",
+      "rubric": [
+        {
+          "criterion": "Scenario Analysis",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Identifies multiple plausible scenarios: (1) Coordinated entity consolidating holdings (most likely if wallets have shared funding history) — potentially preparing for governance action (8% of circulating is significant voting power); (2) Vesting unlock — these could be early investors whose lockup just expired; (3) Preparation for a market dump via the new multisig/contract; (4) Governance attack preparation; explains which evidence supports each scenario and what additional data would differentiate them",
+            "3": "Identifies 1-2 scenarios but doesn't systematically consider alternatives",
+            "1": "Jumps to one conclusion without considering alternatives",
+            "0": "No scenario analysis"
+          }
+        },
+        {
+          "criterion": "Investigation Steps",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Concrete investigation steps: (1) Check funding history of all 5 wallets — shared origin = same entity; (2) Inspect the new multisig — who are the signers? Do they overlap with any known entities? (3) Analyze the 12-hour-old smart contract — is it verified? What functions does it expose? Is it an OTC contract, a governance tool, or something malicious? (4) Check if 8% circulating exceeds any governance thresholds for the protocol; (5) Review token distribution history — were these wallets part of the initial distribution? (6) Monitor the multisig for the next 48 hours — what transactions does it execute?",
+            "3": "Some investigation steps but misses the contract analysis or funding history check",
+            "1": "Vague 'investigate further' without specific steps",
+            "0": "No investigation steps"
+          }
+        },
+        {
+          "criterion": "Risk Assessment & Team Recommendations",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Assesses risk levels: if governance attack — check if 8% + potential delegation could pass a proposal, recommend activating governance guardrails (timelock, veto); if dump preparation — estimate price impact of 3.2M token sell on current liquidity, prepare community communication; if innocent consolidation — monitor but don't alarm; recommends team actions: set up Tier 1 monitoring on all 5 wallets + multisig + new contract, prepare contingency communications, brief governance community, review emergency governance mechanisms",
+            "3": "Some risk assessment but recommendations aren't specific to the scenarios",
+            "1": "Generic 'be careful' without actionable recommendations",
+            "0": "No risk assessment"
+          }
+        },
+        {
+          "criterion": "Alert Configuration Updates",
+          "weight": 0.15,
+          "scoring": {
+            "5": "Recommends immediate monitoring updates: (1) All 5 wallets to Tier 1 (every transaction monitored); (2) New multisig to Tier 1; (3) New smart contract interactions monitored; (4) Alert on any governance proposal submission from these addresses or the multisig; (5) Alert on any token transfers to exchange addresses; (6) Alert on any new approvals granted to the 12-hour-old contract from other wallets",
+            "3": "Some monitoring updates but doesn't cover all relevant addresses",
+            "1": "Mentions monitoring without specifics",
+            "0": "No monitoring updates"
+          }
+        }
+      ],
+      "expectedScoreWithout": 25,
+      "expectedScoreWith": 65
+    },
+    {
+      "id": "bench-hard-01",
+      "difficulty": "hard",
+      "description": "Cross-chain whale tracking with anomaly detection",
+      "input": "Design a cross-chain whale tracking system for a protocol that operates on Ethereum, Arbitrum, and Base. The protocol has a token bridgeable across all three chains (via LayerZero OFT standard). Top whales hold significant positions on different chains. We need to: (1) track whale positions across all 3 chains simultaneously, (2) detect when whales bridge between chains (and figure out why), (3) identify accumulation/distribution patterns that span multiple chains, (4) detect if someone is using cross-chain flows to obscure selling activity. Budget for tooling: $500/month. Team: 1 analyst.",
+      "rubric": [
+        {
+          "criterion": "Cross-Chain Architecture",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Designs a unified cross-chain system: single watchlist with per-chain address mapping; LayerZero OFT transfer event monitoring on all 3 chains; address linking via bridge transaction matching; aggregate portfolio view per entity across chains; handles the complexity that the same entity may have different addresses on each chain; proposes a practical data aggregation approach (Dune queries + Arkham cross-chain + custom Telegram bot)",
+            "3": "Cross-chain monitoring mentioned but architecture doesn't clearly link addresses across chains or aggregate views",
+            "1": "Three separate per-chain monitoring systems without cross-chain correlation",
+            "0": "No cross-chain architecture"
+          }
+        },
+        {
+          "criterion": "Bridge Flow Analysis",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Comprehensive bridge analysis: monitor LayerZero OFT send/receive events; correlate source and destination transactions; classify bridge motivations (yield migration — moving to higher-yield chain, arbitrage — price difference between chain DEXs, preparation — positioning before a chain-specific event, obfuscation — fragmenting a large sell across chains); alert on unusual bridge patterns (whale bridges 80% of position to a single chain = high-conviction play); net flow dashboard per chain pair",
+            "3": "Monitors bridge events but doesn't classify motivations or detect unusual patterns",
+            "1": "Mentions bridge monitoring without implementation details",
+            "0": "No bridge analysis"
+          }
+        },
+        {
+          "criterion": "Multi-Chain Obfuscation Detection",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Detects cross-chain selling obfuscation: whale bridges tokens from Ethereum to Arbitrum and Base in small amounts, sells on DEXs on each chain to minimize price impact on any single chain; detection method: aggregate sell volume across all chains for the same entity, compare with single-chain view; alert when cross-chain aggregate selling exceeds threshold even though per-chain volume is below alert threshold; specific example scenario and alert rule provided",
+            "3": "Acknowledges obfuscation risk but detection method is vague",
+            "1": "Mentions cross-chain selling without a detection approach",
+            "0": "No obfuscation detection"
+          }
+        },
+        {
+          "criterion": "Budget and Resource Feasibility",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Fits within $500/month and 1 analyst: recommends specific tool stack (Arkham free tier for labeling, Dune free tier for custom queries, Forta free bots for security events, custom Python script for OFT event monitoring via free RPC endpoints, Telegram bot for alerts); estimates analyst time at ~2 hours/day for monitoring and investigation; identifies what can be automated vs requires manual analysis; suggests scaling path if budget increases",
+            "3": "Mostly fits budget but some tools exceed $500/month or workload exceeds 1 analyst capacity",
+            "1": "System requires enterprise-grade tools and full-time analyst team",
+            "0": "Budget and resource constraints ignored"
+          }
+        }
+      ],
+      "expectedScoreWithout": 15,
+      "expectedScoreWith": 55
+    },
+    {
+      "id": "bench-hard-02",
+      "difficulty": "hard",
+      "description": "Investigate and trace funds after a protocol exploit",
+      "input": "A DeFi protocol on Ethereum was exploited 2 hours ago. The attacker drained $4.5M from the lending pool by manipulating the price oracle. The initial attack transaction is: the attacker used a flash loan from Aave, manipulated the price of a collateral token on a low-liquidity Uniswap V3 pool, then borrowed against the inflated collateral value and didn't repay. The attacker's wallet now holds $4.5M in various tokens. The team needs help with: (1) tracing where the funds go next, (2) setting up monitoring to catch the attacker's movements in real-time, (3) identifying if the attacker's wallet has any connections to known entities, (4) coordinating with exchanges to freeze funds if they're deposited. Design the investigation and monitoring system.",
+      "rubric": [
+        {
+          "criterion": "Immediate Fund Tracing",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Immediate steps: (1) Label the attacker's address in all monitoring systems; (2) Trace funding source — where did the attacker get gas ETH? (exchange withdrawal = potential KYC link; mixer = harder to trace; funded from another known address = expand investigation); (3) Monitor all outgoing transactions from attacker wallet in real-time; (4) Check if attacker already split funds to multiple wallets (common first move); (5) Monitor for interactions with Tornado Cash, Railgun, or other mixers; (6) Check for bridge transactions (cross-chain fund movement); (7) Flag any exchange deposit addresses that receive funds",
+            "3": "Some tracing steps but misses funding source analysis or mixer monitoring",
+            "1": "Generic 'watch the wallet' without specific tracing methodology",
+            "0": "No tracing approach"
+          }
+        },
+        {
+          "criterion": "Real-Time Monitoring Setup",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Sets up comprehensive real-time monitoring: Tier 1 on attacker wallet (every transaction, zero cooldown); auto-add any address that receives funds from attacker to Tier 1 (recursive tracking); bridge contract monitoring on all major chains (attacker will likely bridge out); exchange deposit address matching (alert instantly if funds go to known exchange addresses); cross-reference with Forta bot network and Blocksec monitoring; websocket subscriptions for zero-latency detection",
+            "3": "Monitors attacker wallet but doesn't recursively track fund splits or cover bridge exits",
+            "1": "Periodic polling of attacker wallet",
+            "0": "No monitoring setup"
+          }
+        },
+        {
+          "criterion": "Entity Identification",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Identity investigation: (1) Check attacker's historical transactions before the exploit — any interaction with exchanges (KYC trail)? (2) Check ENS name or any on-chain identity linked to the address; (3) Analyze the attack contract code — coding patterns, compiler version, libraries used might fingerprint the developer; (4) Check if similar attack patterns have been used before (same attacker with different address?); (5) Coordinate with Chainalysis/Arkham for entity resolution; (6) Check if the gas funding source links to any known entity",
+            "3": "Some identity investigation but misses advanced techniques (code analysis, historical pattern matching)",
+            "1": "Only checks if the address is labeled",
+            "0": "No identity investigation"
+          }
+        },
+        {
+          "criterion": "Exchange Coordination",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Exchange coordination plan: (1) Compile list of top 15 exchange deposit addresses; (2) Set up instant alerts for any transfer to these addresses; (3) Prepare a standardized incident report with: attack details, attacker address, stolen fund breakdown, transaction hashes, request for freeze; (4) Identify contact channels for exchange security teams (most have dedicated security email or Telegram); (5) Coordinate with law enforcement for freeze requests (some exchanges require LE involvement); (6) Note: realistically, exchanges can only freeze if KYC'd attacker deposits — but this is the primary recovery vector; (7) Also monitor for OTC desk interactions (attacker may try to sell stolen funds peer-to-peer)",
+            "3": "Mentions exchange coordination but lacks specific process or contact strategy",
+            "1": "Says 'alert exchanges' without a plan",
+            "0": "No exchange coordination"
+          }
+        }
+      ],
+      "expectedScoreWithout": 20,
+      "expectedScoreWith": 60
+    },
+    {
+      "id": "bench-hard-03",
+      "difficulty": "hard",
+      "description": "Build a comprehensive wallet security scoring system",
+      "input": "Design a wallet security scoring system that can evaluate any Ethereum wallet and produce a 0-100 security score. The score should be useful for: (1) individuals wanting to assess their own wallet security, (2) protocols evaluating counterparty risk (should we trust this multisig?), (3) insurance protocols assessing risk for coverage pricing. Define the scoring dimensions, weights, data sources, calculation methodology, and how to handle edge cases (new wallets, multisigs, smart contract wallets, institutional custody). Provide example scores for 3 different wallet profiles.",
+      "rubric": [
+        {
+          "criterion": "Scoring Framework Completeness",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Comprehensive scoring dimensions: (1) Approval hygiene (25%) — outstanding approvals, stale approvals, unlimited vs limited, approved contract risk levels; (2) Interaction history (20%) — has wallet interacted with known malicious contracts, phishing sites, flagged addresses; (3) Configuration security (20%) — multisig threshold, signer count, smart contract wallet features (social recovery, spending limits); (4) Fund concentration (15%) — diversification across protocols and tokens; (5) Behavioral patterns (10%) — signs of compromise, unusual outflows, interaction frequency anomalies; (6) Track record (10%) — age of wallet, consistency of behavior, no past incidents; each dimension has clear 0-100 sub-score methodology",
+            "3": "Has scoring dimensions but some are vaguely defined or missing key aspects (approvals, multisig configuration)",
+            "1": "Only 1-2 dimensions considered",
+            "0": "No scoring framework"
+          }
+        },
+        {
+          "criterion": "Edge Case Handling",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Explicitly handles edge cases: (1) New wallets (<30 days) — limited data, apply a 'novelty penalty' or report 'insufficient data' rather than a misleading score; (2) Multisigs — score based on threshold ratio, signer diversity, timelock presence, not just balance; (3) Smart contract wallets (Safe, Argent) — higher base score for built-in security features, but check implementation; (4) Institutional custody (Fireblocks, Copper) — score based on declared custody arrangement, different risk profile; (5) Wallets with mixed use (personal + protocol admin) — flag the dual-use risk; each edge case has a specific scoring adjustment",
+            "3": "Handles 2-3 edge cases but misses others",
+            "1": "One-size-fits-all scoring without edge case consideration",
+            "0": "No edge case handling"
+          }
+        },
+        {
+          "criterion": "Data Sources & Methodology",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Specifies concrete data sources per dimension: on-chain data (Etherscan API, Alchemy) for transaction history and approvals; label databases (Arkham, Nansen) for interaction risk assessment; security feeds (Forta, Blocksec) for malicious contract flagging; multisig inspection via Safe API; methodology includes: data collection, normalization (how raw data maps to 0-100 sub-scores), weighting, composite calculation, confidence interval (score reliability based on data availability); addresses temporal aspects (score should reflect current state, not just history)",
+            "3": "Some data sources mentioned but methodology for translating data to scores is unclear",
+            "1": "Mentions 'on-chain data' without specific sources or methodology",
+            "0": "No data sources or methodology"
+          }
+        },
+        {
+          "criterion": "Example Score Profiles",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Provides 3 contrasting examples with detailed scoring: (1) High-security multisig (score 85+) — 4/7 Safe, minimal approvals, audited contract interactions only, diversified treasury, strong track record; (2) Average DeFi user (score 50-65) — EOA, several stale unlimited approvals, some unverified contract interactions, moderate concentration; (3) High-risk wallet (score 20-35) — EOA with unlimited approvals to unverified contracts, interacted with flagged addresses, high concentration in one protocol, recently granted approval to 2-day-old contract; each example shows per-dimension sub-scores and explains how they aggregate",
+            "3": "Provides examples but sub-scores aren't detailed or examples don't cover the risk spectrum",
+            "1": "One example or examples without per-dimension breakdown",
+            "0": "No examples"
+          }
+        }
+      ],
+      "expectedScoreWithout": 15,
+      "expectedScoreWith": 55
+    }
+  ]
+}

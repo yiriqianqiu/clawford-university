@@ -1,0 +1,54 @@
+{
+  "version": "0.0.1",
+  "timeout": 60,
+  "tasks": [
+    {
+      "id": "smoke-01",
+      "description": "Analyze a DeFi protocol's treasury movements and generate an intelligence report with fund flow tracing and address profiling",
+      "input": "Analyze the treasury movements of a major DeFi protocol (like Uniswap or Aave) over the past month. I need to understand: Where are treasury funds being deployed? Are there any large outflows to unknown addresses? What is the holder concentration of the governance token? Profile the top 5 treasury-interacting addresses and trace any fund flows over $1M. Deliver a structured intelligence report.",
+      "rubric": [
+        {
+          "criterion": "Address Profiling Depth",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Profiles top addresses with classification (treasury, multisig, exchange, whale), behavioral analysis (transaction frequency, protocol interactions), funding source tracing, and confidence levels for each attribution",
+            "3": "Identifies address types and basic activity but lacks behavioral analysis or confidence levels",
+            "1": "Lists addresses with balances only, no profiling or classification",
+            "0": "No address profiling attempted"
+          }
+        },
+        {
+          "criterion": "Fund Flow Tracing",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Traces fund flows across multiple hops with annotated paths; identifies intermediaries; flags exchange boundaries and privacy tool usage; includes flow direction, amounts, and timestamps; notes trail-breaking events",
+            "3": "Traces direct transfers but misses multi-hop flows or intermediary analysis; limited annotation",
+            "1": "Lists individual transactions without connecting them into flows",
+            "0": "No fund flow analysis"
+          }
+        },
+        {
+          "criterion": "Pattern Detection & Analysis",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Identifies accumulation/distribution patterns, unusual activity, concentration changes; compares against baselines; correlates with governance events or market context; flags anomalies with statistical justification",
+            "3": "Notes some patterns but analysis is shallow; no baseline comparison or correlation with external events",
+            "1": "Mentions 'patterns' without specific identification or evidence",
+            "0": "No pattern analysis"
+          }
+        },
+        {
+          "criterion": "Report Structure & Methodology",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Follows structured intelligence report format: executive summary, target definition, profiles, fund flow map, patterns, risk flags, limitations, and recommendations; cites data sources; discloses confidence levels and blind spots",
+            "3": "Has some structure but missing key sections (limitations, confidence levels, or recommendations)",
+            "1": "Unstructured data dump without narrative or actionable conclusions",
+            "0": "No coherent report structure"
+          }
+        }
+      ],
+      "passThreshold": 60
+    }
+  ]
+}

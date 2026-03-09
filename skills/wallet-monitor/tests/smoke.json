@@ -1,0 +1,54 @@
+{
+  "version": "0.0.1",
+  "timeout": 60,
+  "tasks": [
+    {
+      "id": "smoke-01",
+      "description": "Set up whale monitoring for a DeFi token with alert rules and response protocols",
+      "input": "Set up a whale monitoring system for a DeFi lending protocol on Ethereum. The protocol has $50M TVL, 2,000 unique depositors, and a governance token with 100M circulating supply. The top 10 wallets hold 35% of the token supply. We want to detect: (1) whale accumulation/distribution patterns that could move the price, (2) large deposits to exchanges that signal selling pressure, (3) any security anomalies with the protocol's treasury multisig. Our team is 2 people and we use Telegram for alerts. Design the monitoring system.",
+      "rubric": [
+        {
+          "criterion": "Watchlist Design & Classification",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Creates a tiered watchlist: Tier 1 for treasury multisig and deployer (real-time), Tier 2 for top 10 whale wallets and smart money (near real-time), Tier 3 for exchange hot wallets and top 50 holders (periodic); classifies wallets by entity type; addresses the 35% concentration risk; includes address clustering to catch multi-wallet whales",
+            "3": "Has a watchlist but tiers are unclear or entity classification is incomplete; missing concentration risk analysis",
+            "1": "Flat list of addresses without tiering or classification",
+            "0": "No watchlist design"
+          }
+        },
+        {
+          "criterion": "Alert Rule Quality",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Defines specific alert rules with relative thresholds (% of supply, not $ amounts): whale-to-exchange transfer >0.5% supply, multi-whale accumulation (3+ wallets buying same token in 4h), treasury multisig ANY non-whitelisted transaction, unusual token approval events; each rule has severity, cooldown, and enrichment; targets <10 alerts/day; includes internal transfer filtering to reduce false positives",
+            "3": "Has alert rules but thresholds are absolute (dollar-based), or missing severity levels, or too many rules that would cause alert fatigue",
+            "1": "Generic 'alert on large transfers' without specific rules",
+            "0": "No alert rules"
+          }
+        },
+        {
+          "criterion": "Security Monitoring",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Specific security rules for the treasury multisig: alert on any signer change, threshold change, unexpected transaction, or interaction with unknown contracts; monitors token approval exposure; includes deployer wallet monitoring; addresses dependency monitoring (oracle, DEX integrations); has an emergency response protocol for critical alerts",
+            "3": "Some security monitoring but misses key vectors (approvals, dependency monitoring) or lacks emergency protocol",
+            "1": "Security mentioned but no specific monitoring rules",
+            "0": "No security monitoring"
+          }
+        },
+        {
+          "criterion": "Practicality for Small Team",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Designs for a 2-person team: recommends specific tools (Forta bots for security, Arkham/Nansen for labeling, custom Telegram bot for alerts); defines on-call rotation; separates real-time critical alerts (SMS/call) from batch digests (daily Telegram summary); suggests automation for common analysis tasks; realistic maintenance schedule",
+            "3": "Acknowledges team size but system requires more effort than 2 people can sustain",
+            "1": "System requires enterprise-level resources",
+            "0": "Team constraint ignored"
+          }
+        }
+      ],
+      "passThreshold": 60
+    }
+  ]
+}

@@ -1,0 +1,476 @@
+{
+  "version": "0.0.1",
+  "dimension": "crypto",
+  "tasks": [
+    {
+      "id": "bench-easy-01",
+      "difficulty": "easy",
+      "description": "Design a basic token distribution allocation",
+      "input": "Design a token distribution for a community-focused DeFi project. Total supply: 100 million tokens. Allocate across team, investors, community, treasury, and liquidity. Explain your rationale for each allocation percentage and propose vesting schedules.",
+      "rubric": [
+        {
+          "criterion": "Allocation Reasonableness",
+          "weight": 0.4,
+          "scoring": {
+            "5": "Community is the largest allocation (35%+); team + investors capped at 30%; treasury and liquidity have meaningful allocations; each percentage is justified with clear rationale tied to project goals; total sums to 100%",
+            "3": "Reasonable allocations but some categories are under/over-weighted without justification; community may not be the largest",
+            "1": "Allocations are heavily insider-weighted or arbitrary",
+            "0": "No coherent allocation"
+          }
+        },
+        {
+          "criterion": "Vesting Schedule Quality",
+          "weight": 0.35,
+          "scoring": {
+            "5": "Each category has a specific vesting schedule: team has 1+ year cliff with 3+ year vest, investors have 6+ month cliff with 18+ month vest, community has gradual release, liquidity is partially locked; schedules are realistic and aligned with incentives",
+            "3": "Vesting schedules exist but some categories are missing or schedules are too short",
+            "1": "Mentions vesting but no specific schedules",
+            "0": "No vesting consideration"
+          }
+        },
+        {
+          "criterion": "Rationale Clarity",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Each allocation and vesting decision is explained: why this percentage, what incentive does the vesting create, how does it prevent common problems (insider dumping, insufficient liquidity, misaligned incentives)",
+            "3": "Some rationale but not for all decisions",
+            "1": "Allocations given without explanation",
+            "0": "No rationale"
+          }
+        }
+      ],
+      "expectedScoreWithout": 35,
+      "expectedScoreWith": 75
+    },
+    {
+      "id": "bench-easy-02",
+      "difficulty": "easy",
+      "description": "Identify rugpull red flags in a token contract",
+      "input": "Review the following token characteristics and identify which are rugpull red flags: (1) Owner can mint unlimited tokens, (2) 5% buy/sell tax with tax going to a marketing wallet, (3) Liquidity locked for 1 year on Team Finance, (4) Owner can set sell tax up to 25%, (5) Contract is verified on BSCScan, (6) Owner can blacklist addresses, (7) No audit, (8) Team allocation is 40% with no vesting contract. Rate the overall risk level.",
+      "rubric": [
+        {
+          "criterion": "Red Flag Identification",
+          "weight": 0.4,
+          "scoring": {
+            "5": "Correctly identifies all red flags: unlimited mint (#1 - critical), adjustable tax to 25% (#4 - high), blacklist ability (#6 - medium), no audit (#7 - medium), 40% team with no vesting (#8 - critical); correctly identifies positive signals: locked LP (#3 - good), verified contract (#5 - good); notes that fixed 5% tax (#2) is acceptable if transparent",
+            "3": "Identifies most red flags but misses 1-2 or misclassifies a positive signal as a red flag",
+            "1": "Identifies only the most obvious red flags",
+            "0": "Cannot distinguish red flags from normal features"
+          }
+        },
+        {
+          "criterion": "Risk Explanation Quality",
+          "weight": 0.35,
+          "scoring": {
+            "5": "Explains WHY each flag is dangerous: unlimited mint allows supply dilution; 25% tax can make selling impossible (honeypot variant); blacklist can prevent specific addresses from selling; no vesting means team can dump; explains how these could be exploited step-by-step",
+            "3": "Explains the general risk but not the specific exploit mechanism",
+            "1": "Lists flags as 'bad' without explaining why",
+            "0": "No explanation"
+          }
+        },
+        {
+          "criterion": "Overall Risk Assessment",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Provides a clear overall risk rating (e.g., 'high risk - do not invest') with justification; notes that the combination of unlimited mint + no audit + high team allocation without vesting is especially dangerous; recommends specific actions before considering any interaction",
+            "3": "Risk rating provided but lacks the combinatorial analysis",
+            "1": "Vague risk statement",
+            "0": "No risk assessment"
+          }
+        }
+      ],
+      "expectedScoreWithout": 40,
+      "expectedScoreWith": 80
+    },
+    {
+      "id": "bench-easy-03",
+      "difficulty": "easy",
+      "description": "Compare launch models for a new token",
+      "input": "I'm choosing between three launch models for my token: (A) Fair launch with no presale, immediate DEX listing; (B) Private sale to investors followed by DEX listing; (C) Liquidity Bootstrapping Pool (LBP). Compare the pros and cons of each for a project with limited funding ($20K), a small community (500 Discord members), and a goal of maximum decentralization.",
+      "rubric": [
+        {
+          "criterion": "Comparison Completeness",
+          "weight": 0.35,
+          "scoring": {
+            "5": "Covers pros and cons for all three models across: cost/funding, decentralization, price discovery fairness, bot resistance, community trust, and required capital; comparison is structured and easy to follow",
+            "3": "Covers most aspects but missing some dimensions or one model is underdeveloped",
+            "1": "Surface-level comparison with 1-2 points per model",
+            "0": "No meaningful comparison"
+          }
+        },
+        {
+          "criterion": "Context-Specific Recommendation",
+          "weight": 0.35,
+          "scoring": {
+            "5": "Recommends a specific model based on the user's constraints: $20K budget (eliminates options needing more capital), 500 community size (affects demand), decentralization goal (favors fair launch or LBP); explains why the other models are less suitable for THIS specific situation",
+            "3": "Makes a recommendation but loosely tied to the specific constraints",
+            "1": "Generic recommendation not tied to user's situation",
+            "0": "No recommendation"
+          }
+        },
+        {
+          "criterion": "Practical Execution Notes",
+          "weight": 0.3,
+          "scoring": {
+            "5": "For the recommended model, provides practical next steps: estimated costs, platforms to use, timeline, initial parameters, risks to prepare for",
+            "3": "Some practical notes but incomplete",
+            "1": "Theoretical comparison without practical guidance",
+            "0": "Not actionable"
+          }
+        }
+      ],
+      "expectedScoreWithout": 35,
+      "expectedScoreWith": 75
+    },
+    {
+      "id": "bench-med-01",
+      "difficulty": "medium",
+      "description": "Design tokenomics for a play-to-earn game with sustainability analysis",
+      "input": "Design tokenomics for a blockchain game with a dual-token model (governance token + in-game reward token). The game expects 10,000 daily active players at steady state. Key requirement: the token economy must be sustainable for 3+ years without requiring constant new player inflows (avoid the Axie/StepN death spiral). Include emission schedules, sink mechanisms, and a sustainability analysis.",
+      "rubric": [
+        {
+          "criterion": "Dual-Token Design",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Clearly separates governance and utility token functions; governance token has fixed supply with value accrual mechanisms; reward token has controlled emission with multiple sinks; interaction between the two tokens is well-defined; each token has a distinct reason to exist",
+            "3": "Dual-token structure exists but roles overlap or interaction is unclear",
+            "1": "Two tokens named but functionally identical",
+            "0": "Single token or no coherent design"
+          }
+        },
+        {
+          "criterion": "Sustainability Analysis",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Models token flows at steady state: daily emission (player rewards) vs. daily sinks (crafting, trading fees, cosmetics, tournament entry); demonstrates that sink rate can meet or exceed emission rate without growth; includes sensitivity analysis for player count variations; explicitly addresses and avoids the death spiral pattern",
+            "3": "Has some sustainability modeling but relies on growth assumptions or sinks are insufficient",
+            "1": "Claims sustainability without modeling",
+            "0": "No sustainability consideration"
+          }
+        },
+        {
+          "criterion": "Sink Mechanism Design",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Designs 3+ meaningful token sinks: in-game crafting/upgrading (consumptive), tournament entry fees (redistributive), cosmetic marketplace (deflationary burn), governance staking (locking); each sink has an estimated daily absorption rate based on 10K DAU assumption",
+            "3": "Has sinks but fewer than 3 or without quantitative estimates",
+            "1": "Mentions 'burning' as the only sink",
+            "0": "No sink mechanisms"
+          }
+        },
+        {
+          "criterion": "Death Spiral Prevention",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Explicitly analyzes the Axie/StepN failure mode: reward value depends on token price which depends on new buyers; designs circuit breakers (dynamic emission based on token price, revenue-backed rewards, non-token incentives); ensures core gameplay is fun without financial motivation",
+            "3": "Acknowledges the death spiral risk but prevention mechanisms are weak",
+            "1": "Does not address the death spiral pattern",
+            "0": "Design repeats known death spiral patterns"
+          }
+        }
+      ],
+      "expectedScoreWithout": 25,
+      "expectedScoreWith": 65
+    },
+    {
+      "id": "bench-med-02",
+      "difficulty": "medium",
+      "description": "Perform a security audit review of a token contract",
+      "input": "Review the following ERC-20 token contract features and produce a security audit summary: (1) Inherits OpenZeppelin ERC20, Ownable; (2) Constructor mints 1B tokens to deployer; (3) Owner can mint additional tokens with no cap; (4) Transfer function includes a 3% tax on buys, 3% on sells, sent to a marketing wallet; (5) Owner can change tax up to 10%; (6) Owner can exclude addresses from tax; (7) Owner can pause all transfers; (8) Uses Solidity 0.8.19; (9) No timelock on any owner function. Rate each feature's risk and provide an overall security score.",
+      "rubric": [
+        {
+          "criterion": "Per-Feature Risk Rating",
+          "weight": 0.35,
+          "scoring": {
+            "5": "Rates each of the 9 features on a risk scale with justification: #1 (low - standard), #2 (medium - centralized initial supply), #3 (critical - unlimited mint), #4 (medium - tax is common but requires transparency), #5 (medium-high - 10% cap is reasonable but still high), #6 (low-medium - necessary for DEX but could be abused), #7 (high - pause without governance is dangerous), #8 (low - good compiler version), #9 (high - no delay for owner actions)",
+            "3": "Rates most features but some ratings are incorrect or unjustified",
+            "1": "Generic risk labels without per-feature analysis",
+            "0": "No risk rating"
+          }
+        },
+        {
+          "criterion": "Exploit Scenario Analysis",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Describes specific exploit scenarios: owner mints billions of tokens and dumps on DEX (#3); owner sets tax to 10% effectively reducing LP value (#5); owner pauses transfers then removes liquidity (#7); combination attacks (pause + mint + unpause + dump); no timelock means attacks execute instantly (#9)",
+            "3": "Identifies 1-2 exploit scenarios but misses combinations or less obvious attacks",
+            "1": "Mentions risks without concrete exploit descriptions",
+            "0": "No exploit analysis"
+          }
+        },
+        {
+          "criterion": "Remediation Recommendations",
+          "weight": 0.2,
+          "scoring": {
+            "5": "For each critical/high risk: recommends specific fix: add cap to mint function, add 48h timelock on all owner functions, make pause governance-controlled or remove it, hard-code maximum tax, consider Ownable2Step; prioritizes remediation by severity",
+            "3": "Some recommendations but not comprehensive or not prioritized",
+            "1": "Generic 'fix the issues' advice",
+            "0": "No recommendations"
+          }
+        },
+        {
+          "criterion": "Overall Security Score",
+          "weight": 0.15,
+          "scoring": {
+            "5": "Provides a clear overall score (e.g., 4/10 or D grade) with methodology: weights critical issues higher than minor ones; notes that the combination of unlimited mint + no timelock + pause makes this high-risk despite using OpenZeppelin base; compares against industry standard security expectations",
+            "3": "Score provided but methodology is unclear",
+            "1": "Score without justification",
+            "0": "No overall assessment"
+          }
+        }
+      ],
+      "expectedScoreWithout": 30,
+      "expectedScoreWith": 70
+    },
+    {
+      "id": "bench-med-03",
+      "difficulty": "medium",
+      "description": "Design an anti-bot strategy for a token launch",
+      "input": "My token launches on PancakeSwap in 48 hours. I expect significant bot activity based on the marketing hype. Design a comprehensive anti-bot strategy that protects genuine buyers in the first hours of trading while not permanently harming token tradability. Include: on-chain mechanisms, launch timing considerations, LP protection, and monitoring plan. Budget: I can modify the contract before deployment.",
+      "rubric": [
+        {
+          "criterion": "On-Chain Protection Mechanisms",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Recommends 3+ on-chain mechanisms: max transaction limit (1-2% of supply per tx for first 50 blocks), max wallet limit (2-3% for first 24h), progressive tax (high initial tax decaying to normal over hours), cooldown between transactions, blacklist capability for confirmed bot addresses; explains implementation for each",
+            "3": "Recommends 1-2 mechanisms with implementation details",
+            "1": "Mentions anti-bot measures without specific mechanisms",
+            "0": "No on-chain protection"
+          }
+        },
+        {
+          "criterion": "Launch Timing & Execution",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Recommends specific launch timing strategy: stealth liquidity addition vs. announced time, block-based vs. time-based trading enablement, multi-step deployment (deploy contract days early, add liquidity at unannounced time), consideration of BSC block times and validator behavior",
+            "3": "Some timing considerations but lacks specific strategy",
+            "1": "No timing analysis",
+            "0": "Ignores timing entirely"
+          }
+        },
+        {
+          "criterion": "LP Protection Plan",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Covers LP security: lock LP tokens before enabling trading, verify lock is on a reputable platform, calculate initial liquidity amount to withstand bot buying without extreme price impact, plan for LP migration if needed; addresses the risk of bots draining LP through rapid buy-sell cycles",
+            "3": "Mentions LP locking but missing depth on LP sizing or migration planning",
+            "1": "Brief mention of LP lock only",
+            "0": "No LP protection"
+          }
+        },
+        {
+          "criterion": "Monitoring & Response Plan",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Defines real-time monitoring for launch: watch first 100 blocks for bot patterns, track unique buyer addresses vs. contract-initiated buys, monitor price impact of early trades, have emergency response plan (pause if needed, blacklist confirmed bots); specific tools recommended for BSC monitoring",
+            "3": "Some monitoring suggestions but no response plan or specific tools",
+            "1": "Mentions monitoring without specifics",
+            "0": "No monitoring plan"
+          }
+        }
+      ],
+      "expectedScoreWithout": 25,
+      "expectedScoreWith": 65
+    },
+    {
+      "id": "bench-med-04",
+      "difficulty": "medium",
+      "description": "Design a vesting schedule with on-chain enforcement",
+      "input": "Design vesting schedules for a token launch with the following stakeholders: (1) Core team: 4 people, 15% of supply; (2) Seed investors: 3 VCs, 10% of supply; (3) Strategic advisors: 5 people, 3% of supply; (4) Community rewards: 40% of supply released over 4 years; (5) Treasury: 20% controlled by a 3/5 multisig. For each, specify cliff, vesting duration, release cadence, and recommend on-chain vesting tools. Model the monthly unlock schedule for 24 months.",
+      "rubric": [
+        {
+          "criterion": "Vesting Schedule Design",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Appropriate schedules for each category: team (12-month cliff, 36-month linear vest), seed (6-month cliff, 24-month vest), advisors (6-month cliff, 18-month vest), community (no cliff, 48-month declining emission), treasury (governance-controlled release); each schedule is justified with incentive alignment reasoning",
+            "3": "Schedules exist for all categories but some are too short or not justified",
+            "1": "Schedules for some categories only",
+            "0": "No vesting schedules"
+          }
+        },
+        {
+          "criterion": "On-Chain Enforcement",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Recommends specific on-chain vesting tools: Sablier for streaming vests, Hedgey for cliff+linear, OpenZeppelin VestingWallet for simple cases, Gnosis Safe for treasury; explains deployment steps for each; notes that off-chain vesting is unacceptable for any category",
+            "3": "Mentions on-chain vesting but tool recommendations are generic or incomplete",
+            "1": "Suggests vesting without on-chain enforcement",
+            "0": "No enforcement consideration"
+          }
+        },
+        {
+          "criterion": "Monthly Unlock Model",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Provides a month-by-month unlock schedule for 24 months showing: new tokens entering circulation from each category, cumulative circulating supply, percentage of total supply circulating; identifies peak unlock months; calculates maximum monthly sell pressure",
+            "3": "Has some unlock modeling but not month-by-month or missing some categories",
+            "1": "Describes unlock events without a timeline",
+            "0": "No unlock modeling"
+          }
+        },
+        {
+          "criterion": "Sell Pressure Analysis",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Estimates sell pressure at each unlock: applies realistic sell rates per category (40% for VCs, 20% for team, 10% for community); identifies months with dangerous sell pressure concentration; recommends adjustments if any month exceeds 2x projected demand",
+            "3": "Mentions sell pressure but analysis is incomplete or uses unrealistic rates",
+            "1": "No sell pressure analysis",
+            "0": "Ignores sell pressure entirely"
+          }
+        }
+      ],
+      "expectedScoreWithout": 25,
+      "expectedScoreWith": 65
+    },
+    {
+      "id": "bench-hard-01",
+      "difficulty": "hard",
+      "description": "Design a complete token economy for a decentralized AI compute network",
+      "input": "Design a comprehensive token economy for a decentralized AI compute marketplace where: GPU providers stake tokens to participate, AI developers pay tokens for compute, node operators earn rewards for uptime and job completion, and governance controls protocol parameters. The token must solve cold-start (bootstrapping supply before demand), avoid inflation death spirals, and scale from 100 to 100,000 GPUs. Include: dual-token analysis, staking mechanics, fee structure, emission schedule, and 3-year sustainability model.",
+      "rubric": [
+        {
+          "criterion": "Economic Design Sophistication",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Addresses cold-start with targeted subsidies that decrease as network grows; designs staking with slashing for poor performance; creates a fee structure that is competitive with centralized alternatives; emission tied to network utilization (demand-responsive); dual-token decision is analyzed and justified; includes feedback loops that are stabilizing, not reflexive",
+            "3": "Covers most components but cold-start or sustainability is weakly addressed",
+            "1": "Basic staking + rewards model without addressing the unique challenges",
+            "0": "Generic tokenomics not tailored to the use case"
+          }
+        },
+        {
+          "criterion": "Scaling Model",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Models the economy at three scales: 100 GPUs (bootstrap), 10K GPUs (growth), 100K GPUs (maturity); shows how staking requirements, fee rates, and emission schedule adapt at each scale; identifies phase transitions and parameter adjustments needed; ensures early participants are not diluted while late participants can still join economically",
+            "3": "Models one or two scales but transition mechanisms are missing",
+            "1": "Single-scale model that may not work at different sizes",
+            "0": "No scaling consideration"
+          }
+        },
+        {
+          "criterion": "3-Year Sustainability",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Builds a year-by-year model: Year 1 (subsidized growth, net inflation), Year 2 (transition to fee-based revenue, decreasing subsidies), Year 3 (self-sustaining, protocol revenue covers all rewards); identifies the break-even point; stress-tests against bear market (50% demand drop) and competitor entry scenarios",
+            "3": "Has a multi-year outlook but relies on optimistic assumptions without stress testing",
+            "1": "Claims sustainability without modeling",
+            "0": "No long-term sustainability analysis"
+          }
+        },
+        {
+          "criterion": "Security & Game Theory",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Analyzes attack vectors: Sybil attacks on GPU rewards, staking centralization, governance capture by large stakers, fee manipulation, compute fraud (fake jobs); designs countermeasures for each; analyzes Nash equilibria for key participant behaviors; identifies scenarios where rational self-interest leads to network-harmful outcomes",
+            "3": "Identifies some attack vectors but game-theoretic analysis is shallow",
+            "1": "Mentions security without specific analysis",
+            "0": "No security or game theory analysis"
+          }
+        }
+      ],
+      "expectedScoreWithout": 15,
+      "expectedScoreWith": 55
+    },
+    {
+      "id": "bench-hard-02",
+      "difficulty": "hard",
+      "description": "Analyze and compare tokenomics of 3 real DeFi protocols",
+      "input": "Perform a comparative tokenomics analysis of Uniswap (UNI), Aave (AAVE), and Curve (CRV). For each: analyze supply mechanics, distribution and current circulating vs total supply, value accrual mechanisms (or lack thereof), governance power distribution, whale concentration, and long-term sustainability. Which has the best tokenomics design and why? Which is most at risk of value erosion? Provide evidence-based conclusions.",
+      "rubric": [
+        {
+          "criterion": "Per-Protocol Depth",
+          "weight": 0.3,
+          "scoring": {
+            "5": "For each protocol: accurately describes supply mechanics (UNI fixed supply + governance treasury, AAVE fixed supply + safety module, CRV inflationary emission + veCRV locking); analyzes actual distribution vs. planned; calculates current inflation rate and future schedule; identifies value accrual status (UNI fee switch debate, AAVE safety module + buyback, CRV bribes + veCRV)",
+            "3": "Covers 2 of 3 protocols in depth or all 3 at surface level",
+            "1": "Surface-level descriptions without analytical depth",
+            "0": "Inaccurate or no per-protocol analysis"
+          }
+        },
+        {
+          "criterion": "Comparative Framework",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Compares across consistent dimensions: inflation rate, treasury runway, value accrual efficiency, governance centralization (top-10 voter share), staking yield sustainability, and supply/demand dynamics; uses the same metrics for each protocol enabling direct comparison",
+            "3": "Some comparison but dimensions are inconsistent across protocols",
+            "1": "Discusses each protocol separately without direct comparison",
+            "0": "No comparative framework"
+          }
+        },
+        {
+          "criterion": "Evidence-Based Conclusions",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Rankings and conclusions are supported by specific on-chain data: holder distribution from Etherscan, governance participation rates from Tally/Snapshot, treasury balances, actual vs. projected emission, revenue/token metrics; acknowledges where data is uncertain or where reasonable people could disagree",
+            "3": "Conclusions are reasonable but weakly supported by specific data",
+            "1": "Opinion-based conclusions without evidence",
+            "0": "No conclusions"
+          }
+        },
+        {
+          "criterion": "Risk Assessment",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Identifies the highest-risk tokenomics: CRV's continuous inflation requiring sustained demand growth; UNI's lack of value accrual despite massive revenue; AAVE's safety module risk concentration; for each, quantifies the risk and estimates timeline to potential issues; provides forward-looking indicators to monitor",
+            "3": "Identifies risks but without quantification or timeline",
+            "1": "Generic risk mentions",
+            "0": "No risk assessment"
+          }
+        }
+      ],
+      "expectedScoreWithout": 20,
+      "expectedScoreWith": 60
+    },
+    {
+      "id": "bench-hard-03",
+      "difficulty": "hard",
+      "description": "Design a secure and innovative token launch for a regulated industry",
+      "input": "Design a token launch for a decentralized insurance protocol that must: (1) comply with regulatory requirements (token must not be classified as a security), (2) bootstrap $10M in underwriting capital through staking, (3) incentivize claims assessors and insurance providers, (4) handle the unique challenge that insurance needs large capital reserves but token price volatility can decapitalize the protocol. Include: regulatory-compliant distribution strategy, staking mechanics with capital adequacy modeling, dual governance (token holders + insurance experts), and a mechanism to maintain capital reserves even during bear markets.",
+      "rubric": [
+        {
+          "criterion": "Regulatory Compliance Design",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Designs distribution to minimize securities classification: strong utility at launch (staking, governance, claims assessment), no promises of profit, broad distribution without investment framing, sufficient decentralization analysis, geographic restrictions for regulated jurisdictions, legal opinion recommendation; distinguishes from a security offering at every design point",
+            "3": "Addresses regulatory concerns but some design choices could trigger securities classification",
+            "1": "Mentions regulation without designing around it",
+            "0": "Ignores regulatory requirements"
+          }
+        },
+        {
+          "criterion": "Capital Adequacy Mechanism",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Designs a mechanism to maintain capital reserves: staking with long lock periods, treasury diversification into stablecoins, reinsurance mechanisms, dynamic premium adjustment based on reserve ratio, circuit breakers that restrict new policies when reserves are low, backstop mechanisms for extreme events; models capital adequacy under -50% token price scenarios",
+            "3": "Has capital reserve mechanisms but does not model extreme scenarios or lacks diversity of approaches",
+            "1": "Relies solely on token price for capital (the exact problem to solve)",
+            "0": "No capital adequacy consideration"
+          }
+        },
+        {
+          "criterion": "Dual Governance Design",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Separates governance into token-weighted voting for protocol parameters and expert-weighted voting for insurance-specific decisions (claims approval, risk assessment, premium setting); designs qualification criteria for expert governance; prevents governance attacks that could drain insurance reserves",
+            "3": "Has governance structure but expert governance is not well-separated or protected",
+            "1": "Standard single-layer governance without insurance-specific considerations",
+            "0": "No governance design"
+          }
+        },
+        {
+          "criterion": "Overall Design Coherence",
+          "weight": 0.25,
+          "scoring": {
+            "5": "All components (tokenomics, governance, staking, reserves, regulation) work together as a coherent system; incentives are aligned across all participant types; edge cases and failure modes are addressed; the design addresses all 4 requirements from the prompt with specific mechanisms",
+            "3": "Components exist but some work in isolation or create conflicts with each other",
+            "1": "Disconnected components that do not form a coherent system",
+            "0": "No coherent design"
+          }
+        }
+      ],
+      "expectedScoreWithout": 15,
+      "expectedScoreWith": 55
+    }
+  ]
+}

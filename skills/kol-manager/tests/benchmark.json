@@ -1,0 +1,476 @@
+{
+  "version": "0.0.1",
+  "dimension": "crypto",
+  "tasks": [
+    {
+      "id": "bench-easy-01",
+      "difficulty": "easy",
+      "description": "Identify and classify a KOL's tier based on their profile",
+      "input": "A crypto influencer has 75,000 Twitter followers, posts 3-4 times daily about Solana DeFi, gets 200-400 likes per tweet and 20-50 replies, has been active for 2 years, and promoted 4 projects in the last month. Two of those projects are still active and growing. What tier is this KOL, and would you recommend them for a Solana DeFi protocol launch?",
+      "rubric": [
+        {
+          "criterion": "Correct Tier Classification",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Correctly identifies as micro KOL (10K-100K range); notes the engagement rate is healthy (0.3-0.5% reply rate, 3-5% like rate relative to followers); recognizes Solana DeFi specialization as a strength",
+            "3": "Correctly identifies tier but doesn't calculate or assess engagement rate",
+            "1": "Misclassifies the tier",
+            "0": "No classification attempted"
+          }
+        },
+        {
+          "criterion": "Recommendation Quality",
+          "weight": 0.4,
+          "scoring": {
+            "5": "Provides a qualified recommendation considering: Solana DeFi alignment (strong positive), healthy engagement rate, reasonable promotion frequency (4/month is borderline but acceptable), track record of promoted projects surviving; flags items to verify (fake follower check, audience overlap with existing community)",
+            "3": "Gives a recommendation but misses key factors or doesn't qualify it",
+            "1": "Binary yes/no without analysis",
+            "0": "No recommendation"
+          }
+        },
+        {
+          "criterion": "Risk Factors Identified",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Flags: 4 promotions/month is on the higher end (should verify each was genuinely endorsed vs paid shill); should check if the 2 inactive projects rugged; should verify engagement is organic; assess if audience trusts their project recommendations",
+            "3": "Mentions 1-2 risk factors but misses others",
+            "1": "No risk assessment",
+            "0": "Claims there are no risks"
+          }
+        }
+      ],
+      "expectedScoreWithout": 35,
+      "expectedScoreWith": 75
+    },
+    {
+      "id": "bench-easy-02",
+      "difficulty": "easy",
+      "description": "Calculate fair pricing for a KOL engagement",
+      "input": "A macro KOL with 250K Twitter followers and a 3.5% engagement rate is quoting $12,000 for a single Twitter thread (7 tweets) about our token launch. They also have a YouTube channel with 80K subscribers. Is this price fair? What counter-offer would you suggest, and what payment structure would you recommend?",
+      "rubric": [
+        {
+          "criterion": "Price Assessment",
+          "weight": 0.35,
+          "scoring": {
+            "5": "Assesses against macro tier benchmark ($3K-$15K for a campaign); notes $12K for a single thread is on the high end; considers the YouTube channel as additional leverage for negotiation (could bundle); analyzes cost-per-engagement based on 3.5% rate on 250K followers",
+            "3": "Says the price is high or fair but doesn't reference benchmarks or do the math",
+            "1": "No price assessment",
+            "0": "Accepts the price without analysis"
+          }
+        },
+        {
+          "criterion": "Counter-Offer Strategy",
+          "weight": 0.35,
+          "scoring": {
+            "5": "Suggests a counter-offer that includes: lower base fee ($5K-$8K), bundled YouTube video at a discount, performance bonus tied to KPIs, token allocation with vesting; explains the rationale for each component",
+            "3": "Suggests a lower price but doesn't structure a comprehensive counter-offer",
+            "1": "Vague suggestion to 'negotiate lower'",
+            "0": "No counter-offer"
+          }
+        },
+        {
+          "criterion": "Payment Structure",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Recommends milestone-based payment (30/40/30 split); includes vesting for any token component; ties final payment to deliverable verification; mentions performance bonus structure",
+            "3": "Mentions milestone payments but structure is incomplete",
+            "1": "Suggests lump-sum or vague payment terms",
+            "0": "No payment structure discussed"
+          }
+        }
+      ],
+      "expectedScoreWithout": 30,
+      "expectedScoreWith": 70
+    },
+    {
+      "id": "bench-easy-03",
+      "difficulty": "easy",
+      "description": "Identify fake followers from engagement data",
+      "input": "We're considering a KOL who claims 180K followers on X. Here's their recent data: average 5,000 likes per tweet but only 8 replies, follower growth spiked 40% in one week last month (from 130K to 180K) with no viral content during that period, 45% of followers have accounts less than 3 months old, and their audience is 60% from Southeast Asia despite posting only in English about Ethereum DeFi. Is this KOL legitimate?",
+      "rubric": [
+        {
+          "criterion": "Red Flag Identification",
+          "weight": 0.5,
+          "scoring": {
+            "5": "Identifies all 4 major red flags: (1) extreme like-to-reply ratio (625:1, far above 50:1 threshold), (2) 40% follower spike without viral content = purchased followers, (3) 45% young accounts = bot cohort, (4) 60% SEA audience mismatch with English Ethereum DeFi content; concludes this is almost certainly a bot-inflated account",
+            "3": "Identifies 2-3 red flags but misses others or doesn't quantify thresholds",
+            "1": "Identifies 1 red flag",
+            "0": "Declares the KOL legitimate"
+          }
+        },
+        {
+          "criterion": "Recommendation",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Strongly recommends against hiring; estimates real organic following is likely 80K-100K (pre-spike level minus bot decay); suggests what additional verification to run if the team still wants to consider them",
+            "3": "Recommends caution but doesn't quantify the risk or estimate real following",
+            "1": "Ambiguous recommendation",
+            "0": "Recommends hiring"
+          }
+        },
+        {
+          "criterion": "Verification Steps",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Suggests specific next steps: run Social Blade analysis on follower growth timeline, sample 30 followers manually, check if the spike coincides with a known bot network operation, compare engagement before and after the spike",
+            "3": "Mentions 'further investigation' without specific steps",
+            "1": "No verification steps",
+            "0": "Suggests no further investigation needed"
+          }
+        }
+      ],
+      "expectedScoreWithout": 35,
+      "expectedScoreWith": 80
+    },
+    {
+      "id": "bench-med-01",
+      "difficulty": "medium",
+      "description": "Plan a multi-platform KOL campaign for a token launch",
+      "input": "We're launching a GameFi token on Arbitrum in 6 weeks. Budget is $50,000. The game has 5,000 active players and 8K Twitter followers. We want to grow to 50K followers and 20K active players by launch. The game combines on-chain PvP battles with an NFT marketplace. Target audience: crypto gamers, NFT collectors, and Arbitrum ecosystem users. Plan a complete multi-platform KOL campaign with specific deliverables, timeline, and budget allocation.",
+      "rubric": [
+        {
+          "criterion": "KOL Strategy & Budget Allocation",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Proposes a specific tier mix (e.g., 1 mega/2 macro/5 micro/15 nano) with dollar amounts per tier; justifies the mix for GameFi (gaming YouTubers are crucial, Telegram degen groups for NFT audience, Arbitrum-specific accounts); budget allocation table with platform breakdown; reserves budget for tracking tools and content production",
+            "3": "Has tier mix and some budget numbers but allocation rationale is weak or misses a key audience segment",
+            "1": "Generic budget split without GameFi-specific rationale",
+            "0": "No budget allocation"
+          }
+        },
+        {
+          "criterion": "Timeline & Wave Structure",
+          "weight": 0.25,
+          "scoring": {
+            "5": "6-week timeline organized in waves aligned with pre-launch milestones; Wave 1 (weeks 1-2): micro KOL seeding + gameplay demos; Wave 2 (weeks 3-4): macro KOL amplification + YouTube reviews; Wave 3 (weeks 5-6): mega KOL + NFT influencers for launch hype; post-launch sustain plan; specific dates/milestones per wave",
+            "3": "Has a timeline with some wave structure but milestones are vague or waves aren't differentiated enough",
+            "1": "Flat timeline without wave structure",
+            "0": "No timeline"
+          }
+        },
+        {
+          "criterion": "Multi-Platform Content Strategy",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Specifies content for each platform: X (gameplay clips, alpha threads, space with devs), YouTube (gameplay reviews, NFT marketplace walkthrough, 'play to earn' analysis), Telegram (alpha group posts, gameplay community), Discord (partner server AMAs); each platform targets a different audience segment; cross-platform synergy described",
+            "3": "Multi-platform mentioned but content types are generic or same content pushed everywhere",
+            "1": "Single-platform focused",
+            "0": "No platform strategy"
+          }
+        },
+        {
+          "criterion": "GameFi-Specific Tactics",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Includes GameFi-specific campaign elements: gameplay demo streams, tournament with KOL participation, NFT giveaways through KOL channels, early access codes for KOL communities, guild/clan partnership strategy, 'earn while reviewing' model for KOLs; understands that GameFi audiences need to SEE gameplay not just read about it",
+            "3": "Some GameFi awareness but mostly generic crypto marketing tactics applied to a game",
+            "1": "Treats this like a standard token launch with no gaming context",
+            "0": "No GameFi consideration"
+          }
+        }
+      ],
+      "expectedScoreWithout": 25,
+      "expectedScoreWith": 65
+    },
+    {
+      "id": "bench-med-02",
+      "difficulty": "medium",
+      "description": "Detect fake influence and recommend alternatives",
+      "input": "Our marketing team has shortlisted 3 KOLs for a DeFi campaign. Analyze each and recommend which to hire:\n\nKOL A: 320K followers, 2.1% engagement rate, posts about DeFi/trading, promoted 12 projects last month, all still active. Charges $8,000/thread.\n\nKOL B: 45K followers, 7.8% engagement rate, deep Ethereum DeFi specialist, promoted 2 projects last month (both top DeFi protocols), runs a popular analytics dashboard. Charges $2,500/thread.\n\nKOL C: 890K followers, 0.8% engagement rate, general crypto content, promoted 25 projects last month, 8 of which have rugged. Charges $25,000/thread. Claims massive reach justifies the price.",
+      "rubric": [
+        {
+          "criterion": "Individual KOL Analysis",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Analyzes each KOL with specific reasoning: KOL A — macro tier, decent engagement but 12 promotions/month is a volume shill concern; KOL B — micro tier, exceptional engagement rate, specialist credibility, selective promotion history is a trust signal; KOL C — mega tier but 0.8% engagement is below floor, 25 promos/month is a red flag factory, 8 rugged projects is disqualifying; includes cost-per-engagement calculations",
+            "3": "Analyzes each KOL but misses key red flags or doesn't compare quantitatively",
+            "1": "Surface-level analysis without specific metrics evaluation",
+            "0": "No individual analysis"
+          }
+        },
+        {
+          "criterion": "Ranking & Recommendation",
+          "weight": 0.35,
+          "scoring": {
+            "5": "Clearly recommends KOL B as the top pick with detailed justification (best engagement-to-cost ratio, DeFi specialist, selective = trusted, analytics dashboard gives additional credibility); ranks KOL A as acceptable with conditions (negotiate lower price, limit to 1 thread not a campaign); strongly rejects KOL C with specific disqualification reasons; calculates ROI comparison",
+            "3": "Correct ranking but justification is incomplete or doesn't quantify the value difference",
+            "1": "Incorrect ranking or ambiguous recommendation",
+            "0": "Recommends KOL C"
+          }
+        },
+        {
+          "criterion": "Red Flag Depth",
+          "weight": 0.2,
+          "scoring": {
+            "5": "For KOL C: 0.8% engagement on 890K followers suggests massive fake following; 25 promos/month = pure pay-to-shill; 8/25 rugged = 32% rug rate is reputation poison; $25K price is 3x overvalued based on real engagement; hiring this KOL would actively harm project credibility",
+            "3": "Identifies KOL C as problematic but doesn't quantify the severity",
+            "1": "Mentions concerns about KOL C but doesn't strongly recommend against",
+            "0": "Doesn't flag KOL C's issues"
+          }
+        },
+        {
+          "criterion": "Negotiation Advice",
+          "weight": 0.15,
+          "scoring": {
+            "5": "Provides negotiation strategy for recommended KOL(s): offer KOL B a premium ($3K-$3.5K) for exclusivity + YouTube video bundle; for KOL A, negotiate down to $5K-$6K with performance bonus; suggests payment structure for each",
+            "3": "Some negotiation advice but not specific to each KOL",
+            "1": "No negotiation guidance",
+            "0": "Suggests paying asking price"
+          }
+        }
+      ],
+      "expectedScoreWithout": 30,
+      "expectedScoreWith": 70
+    },
+    {
+      "id": "bench-med-03",
+      "difficulty": "medium",
+      "description": "Design a KOL campaign for a bear market context",
+      "input": "We're a well-funded DeFi protocol (series A, $5M in treasury) but we're launching in a bear market. Twitter engagement is down 60% across crypto, KOL prices have dropped 40%, many KOLs have lost credibility from bull market shilling. Budget is $30,000 for a 2-month campaign. How should we approach KOL marketing differently in a bear market? What opportunities does a bear market create?",
+      "rubric": [
+        {
+          "criterion": "Bear Market Strategic Adaptation",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Identifies specific bear market dynamics: lower KOL prices = more KOLs per dollar, quality KOLs still posting = genuinely passionate, reduced noise = easier to stand out, audience is more sophisticated (tourists left), focus shifts from hype to substance/utility; reframes bear market as an opportunity not a limitation",
+            "3": "Acknowledges bear market changes some things but doesn't deeply analyze opportunities",
+            "1": "Applies bull market playbook with minor tweaks",
+            "0": "Ignores market conditions entirely"
+          }
+        },
+        {
+          "criterion": "KOL Selection for Bear Market",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Recommends prioritizing: KOLs who maintained posting frequency through bear (true believers), analysts/researchers over hype creators, KOLs who lost followers but maintained engagement rate (organic audience stayed), builders who run their own projects; explicitly avoids: KOLs who went silent (will return when bull comes), KOLs still shilling everything (desperation signals)",
+            "3": "Adjusts KOL selection somewhat but doesn't articulate bear-specific criteria clearly",
+            "1": "Same selection criteria as bull market",
+            "0": "No selection adaptation"
+          }
+        },
+        {
+          "criterion": "Content & Messaging Strategy",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Bear market content strategy: lead with utility/revenue/real yield not token price; focus on technical deep dives and educational content; avoid hype language (triggers bear market cynicism); leverage 'building in the bear' narrative; position as serious protocol that launches when ready not when market is hot; suggests specific content formats (audit reviews, yield comparisons, risk analysis)",
+            "3": "Some messaging adjustment but still includes hype elements inappropriate for bear market",
+            "1": "Standard promotional messaging regardless of market",
+            "0": "Tone-deaf bull market messaging"
+          }
+        },
+        {
+          "criterion": "Budget Optimization",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Leverages bear market pricing: negotiate 40-50% below stated rates, lock in multi-month ambassador deals while prices are low, heavy micro/nano allocation (their bear market prices are extremely attractive), reserve budget for bull market re-activation; calculates that $30K in bear buys equivalent of $50K+ in bull market reach",
+            "3": "Some budget optimization awareness but doesn't fully exploit bear market pricing",
+            "1": "Standard budget allocation without market consideration",
+            "0": "No budget optimization"
+          }
+        }
+      ],
+      "expectedScoreWithout": 25,
+      "expectedScoreWith": 65
+    },
+    {
+      "id": "bench-med-04",
+      "difficulty": "medium",
+      "description": "Create a KOL deliverable tracking system and contract template",
+      "input": "We're about to run our first large-scale KOL campaign with 15 KOLs across 3 tiers. I need: (1) a deliverable tracking framework that works for 15 simultaneous KOLs, (2) key contract terms to protect us from common KOL problems (ghost, fake engagement, competing promotions), and (3) an escalation protocol when things go wrong. Make it practical — we're a 3-person marketing team.",
+      "rubric": [
+        {
+          "criterion": "Tracking Framework",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Provides a practical tracking system: dashboard structure with KOL name, tier, deliverables, due dates, status, links, metrics columns; daily monitoring routine for a 3-person team (assign KOLs per person); automated tracking suggestions (UTM links, referral codes, social listening tools); weekly summary report template; flags what to monitor in real-time vs batch",
+            "3": "Has a tracking structure but doesn't account for the 3-person team constraint or daily workflow",
+            "1": "Vague suggestion to 'track deliverables'",
+            "0": "No tracking framework"
+          }
+        },
+        {
+          "criterion": "Contract Protection Terms",
+          "weight": 0.35,
+          "scoring": {
+            "5": "Covers all critical contract terms: milestone-based payment (30/40/30), content approval clause, disclosure compliance requirement, exclusivity window, revision policy, kill clause, clawback for non-delivery, fake engagement penalty, minimum engagement guarantee, IP/usage rights, confidentiality; explains WHY each term matters with examples of what goes wrong without it",
+            "3": "Covers payment terms and basic deliverables but misses protective clauses",
+            "1": "Generic contract advice without KOL-specific terms",
+            "0": "No contract guidance"
+          }
+        },
+        {
+          "criterion": "Escalation Protocol",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Tiered escalation: Level 1 (minor delay/quality) — DM reminder, note in tracker; Level 2 (>48h delay, content deviation) — formal notice, withhold payment; Level 3 (ghost, fake engagement, breach) — terminate contract, invoke clawback, document for KOL database; includes communication templates and decision trees for common scenarios",
+            "3": "Has escalation steps but not tiered or lacks specific actions per level",
+            "1": "Mentions escalation without a structured protocol",
+            "0": "No escalation plan"
+          }
+        },
+        {
+          "criterion": "Practicality for Small Team",
+          "weight": 0.15,
+          "scoring": {
+            "5": "Explicitly designs for a 3-person team: assigns roles (1 person manages macro, 1 manages micro, 1 manages nano+admin); suggests tool stack (Notion/Sheets for tracking, Hootsuite for monitoring, Bitly for link tracking); estimates daily time investment per person; identifies what to automate vs manual review",
+            "3": "Acknowledges team size but doesn't optimize the system for it",
+            "1": "System requires enterprise-level resources",
+            "0": "Team constraint ignored"
+          }
+        }
+      ],
+      "expectedScoreWithout": 25,
+      "expectedScoreWith": 65
+    },
+    {
+      "id": "bench-hard-01",
+      "difficulty": "hard",
+      "description": "Design a KOL strategy for a controversial token launch with regulatory sensitivity",
+      "input": "We're launching a privacy-focused DeFi protocol with a token that enables private transactions on Ethereum. We expect regulatory scrutiny (similar to Tornado Cash concerns). Our protocol is legal and compliant (has OFAC screening), but the 'privacy' narrative triggers FUD. Budget is $80,000 for a 3-month campaign. Design a KOL strategy that builds genuine community while navigating the regulatory and narrative minefields. How do we select KOLs who won't run away when the FUD hits? How do we pre-empt regulatory narratives?",
+      "rubric": [
+        {
+          "criterion": "Narrative & Regulatory Strategy",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Develops a comprehensive narrative strategy: frame as 'financial privacy' not 'anonymous transactions', lead with compliance features (OFAC screening), position alongside existing privacy standards (HIPAA, GDPR), pre-empt Tornado Cash comparisons with clear differentiators, prepare a FUD response playbook, engage compliance-focused KOLs and legal commentators as credibility anchors; understands the narrative battle is as important as the marketing campaign",
+            "3": "Acknowledges the regulatory challenge but narrative strategy is thin or reactive rather than proactive",
+            "1": "Ignores the regulatory dimension and runs a standard campaign",
+            "0": "Narrative strategy would increase regulatory risk"
+          }
+        },
+        {
+          "criterion": "KOL Selection for Controversy",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Selects KOL archetypes specifically suited for controversy: privacy advocates with principled track records, legal/compliance commentators in crypto, cypherpunk community leaders, Ethereum core community voices who support privacy; avoids: KOLs who will delete posts at first sign of controversy, KOLs with SEC sensitivity (US-based large influencers), KOLs who promoted Tornado Cash forks without nuance; screens for 'spine' — will they stand behind the promotion when challenged?",
+            "3": "Some selection criteria acknowledge the controversy but doesn't deeply screen for resilience",
+            "1": "Standard KOL selection with no controversy consideration",
+            "0": "Selects KOLs likely to amplify negative narratives"
+          }
+        },
+        {
+          "criterion": "Multi-Phase Campaign Architecture",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Phase 1 (Month 1): Education campaign — KOL analysts explain why privacy matters in DeFi (no token mention yet); Phase 2 (Month 2): Credibility building — compliance-focused KOLs review the OFAC screening mechanism, legal commentators assess regulatory positioning; Phase 3 (Month 3): Launch — broader KOL campaign with the credibility foundation already laid; includes crisis management protocol for each phase; reserves 20% of budget for rapid-response if FUD campaign emerges",
+            "3": "Multi-phase but doesn't build the narrative foundation before launch promotion",
+            "1": "Single-phase standard launch campaign",
+            "0": "No phased approach"
+          }
+        },
+        {
+          "criterion": "Crisis & FUD Management",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Pre-built FUD response framework: prepared counter-narratives for predictable attacks (Tornado Cash comparison, 'criminal tool', regulatory shutdown), designated KOL rapid-response team (3-5 KOLs contracted for on-call FUD response), pre-drafted response threads that KOLs can adapt, monitoring system for emerging negative narratives, legal review of all crisis responses before publication",
+            "3": "Acknowledges FUD risk but crisis plan is reactive not pre-built",
+            "1": "Mentions FUD without a management plan",
+            "0": "No crisis consideration"
+          }
+        }
+      ],
+      "expectedScoreWithout": 20,
+      "expectedScoreWith": 60
+    },
+    {
+      "id": "bench-hard-02",
+      "difficulty": "hard",
+      "description": "Optimize ROI across a failing multi-KOL campaign mid-flight",
+      "input": "We're 2 weeks into a 4-week KOL campaign for our DEX aggregator on Solana. Budget was $40,000, we've spent $25,000 so far. Results are terrible:\n- Mega KOL ($12K): Posted once, got 500K impressions but only 15 replies and 0 referral link clicks. Hasn't posted the 2nd contracted thread.\n- Macro KOL A ($5K): Posted 3 threads, decent engagement (200+ replies each), but referral link generated only 45 wallet connections.\n- Macro KOL B ($4K): Ghosted after receiving upfront payment. No posts delivered.\n- 5 Micro KOLs ($800 each = $4K): 3 have posted with mediocre results (20-40 replies each). 2 haven't posted yet.\n\nWe have $15,000 remaining and 2 weeks left. How do we salvage this campaign? What went wrong, and how should we reallocate the remaining budget?",
+      "rubric": [
+        {
+          "criterion": "Diagnosis of What Went Wrong",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Diagnoses each KOL's failure specifically: Mega KOL — 500K impressions with 15 replies = bot-inflated reach, 0 link clicks = audience has zero intent, overpaid massively; Macro A — engagement is real but 45 conversions from 600+ replies = messaging or product-market issue, not KOL issue; Macro B — ghosted = no milestone payments used, upfront payment mistake; Micros — mediocre results suggest brief was weak or KOLs not aligned with Solana DEX audience; identifies the root cause distinction: KOL selection problem vs messaging problem vs product problem",
+            "3": "Identifies some issues per KOL but doesn't distinguish between selection, messaging, and product problems",
+            "1": "Generic 'campaign isn't working' without specific diagnosis",
+            "0": "No diagnosis"
+          }
+        },
+        {
+          "criterion": "Immediate Action Plan",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Immediate steps: (1) Invoke contract clause with Mega KOL — demand 2nd thread or partial refund; (2) Document Macro B ghost, send formal notice, attempt clawback; (3) Analyze Macro A's 45 conversions — what's the drop-off? Is the landing page/onboarding broken? (4) Contact 2 undelivered micro KOLs — deliver or terminate; (5) Audit referral link tracking — is it working correctly? This is the most actionable analysis.",
+            "3": "Some immediate actions but misses key recovery steps",
+            "1": "Vague 'cut losses' without specific actions",
+            "0": "No action plan"
+          }
+        },
+        {
+          "criterion": "Budget Reallocation Strategy",
+          "weight": 0.3,
+          "scoring": {
+            "5": "With $15K remaining: (1) If Macro A's conversion issue is messaging-based, reallocate $5K to create better content/landing page and have Macro A repost with improved angle; (2) Shift $6-8K to 8-10 new micro KOLs specifically in Solana DEX/aggregator niche (the original micro selection was too generic); (3) Reserve $2-3K for a Solana Twitter Space featuring Macro A + top micro KOLs (interactive format for conversion); (4) Kill the mega KOL model — it clearly doesn't work for a DEX aggregator; provides specific expected ROI improvement for each reallocation",
+            "3": "Reallocates budget but rationale is thin or doesn't learn from what failed",
+            "1": "Suggests spending remaining $15K the same way as first $25K",
+            "0": "No reallocation strategy"
+          }
+        },
+        {
+          "criterion": "Lessons & Process Fixes",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Extracts actionable lessons: (1) Never use mega KOLs for utility products (DEX aggregators need targeted, not broad reach); (2) Always use milestone payments (Macro B ghost was preventable); (3) Test messaging with 1-2 KOLs before scaling to 10; (4) Track referral link functionality before campaign starts; (5) Match KOL niche to product type (DEX aggregator needs trading-focused KOLs, not general crypto); recommends process changes for the next campaign",
+            "3": "Some lessons but doesn't connect them to structural process improvements",
+            "1": "Vague 'do better next time'",
+            "0": "No lessons extracted"
+          }
+        }
+      ],
+      "expectedScoreWithout": 20,
+      "expectedScoreWith": 60
+    },
+    {
+      "id": "bench-hard-03",
+      "difficulty": "hard",
+      "description": "Design a cross-regional KOL expansion strategy for emerging markets",
+      "input": "Our DeFi protocol has strong traction in the US/EU market (50K users, $100M TVL). We want to expand into Southeast Asia (Vietnam, Philippines, Indonesia), South Korea, and Turkey — regions with high crypto adoption but different KOL ecosystems, languages, and platforms. Budget is $100,000 for a 3-month expansion campaign. Design a multi-regional KOL strategy that accounts for cultural differences, local platforms, language barriers, and regional KOL dynamics. We have no local team members.",
+      "rubric": [
+        {
+          "criterion": "Regional KOL Ecosystem Understanding",
+          "weight": 0.3,
+          "scoring": {
+            "5": "Demonstrates understanding of each region's KOL landscape: SEA (YouTube-heavy, Telegram groups dominant, local language essential, price-sensitive audience), Korea (KakaoTalk, Naver, Korean crypto YouTube, relationship-heavy business culture, Korean language required), Turkey (high inflation drives crypto adoption, Turkish language Twitter CT, Telegram dominant, local exchanges are cultural centers); identifies region-specific platforms beyond Twitter; addresses the 'no local team' challenge with solutions (regional KOL agencies, bilingual community managers, local ambassador leads)",
+            "3": "Acknowledges regional differences but analysis is surface-level or misses key platforms",
+            "1": "Applies Western KOL strategy to all regions",
+            "0": "No regional differentiation"
+          }
+        },
+        {
+          "criterion": "Budget Allocation Across Regions",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Allocates budget proportionally to opportunity and cost: SEA might get 35% ($35K — 3 countries, large population, lower KOL costs), Korea 30% ($30K — premium market, higher KOL costs, need local agency), Turkey 20% ($20K — single country, high adoption, moderate costs); reserves 15% ($15K) for tracking tools, translations, and contingency; justifies allocation with market-size and cost-per-KOL data per region",
+            "3": "Has regional budget split but rationale is arbitrary or doesn't account for cost differences",
+            "1": "Equal split or no regional budget breakdown",
+            "0": "No budget allocation"
+          }
+        },
+        {
+          "criterion": "Localization & Cultural Strategy",
+          "weight": 0.25,
+          "scoring": {
+            "5": "Addresses localization deeply: all content must be in local language (not English with subtitles); KOLs should create original local-language content not translate English posts; cultural messaging adaptation (SEA: emphasis on earning/income, Korea: emphasis on innovation/tech sophistication, Turkey: emphasis on inflation hedge/savings); local platform strategy (YouTube Shorts for SEA, Naver Blog for Korea); recommends hiring regional KOL managers or agencies for each market",
+            "3": "Mentions translation but doesn't address cultural messaging differences or local platform dynamics",
+            "1": "English-only strategy for non-English markets",
+            "0": "No localization consideration"
+          }
+        },
+        {
+          "criterion": "Execution Without Local Team",
+          "weight": 0.2,
+          "scoring": {
+            "5": "Practical solutions for remote management: hire regional KOL agencies with crypto experience (specific agency types recommended), recruit 1 bilingual community lead per region from existing community, use established KOL networks (like Lunar Strategy for Korea, YGG for SEA gaming community), set up regional Telegram groups with local moderators, define quality control process despite language barriers (engagement metrics are universal, use bilingual reviewers for content approval)",
+            "3": "Some solutions for remote management but impractical or incomplete",
+            "1": "Acknowledges the challenge without solutions",
+            "0": "Ignores the no-local-team constraint"
+          }
+        }
+      ],
+      "expectedScoreWithout": 15,
+      "expectedScoreWith": 55
+    }
+  ]
+}

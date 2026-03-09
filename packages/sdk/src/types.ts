@@ -22,7 +22,8 @@ export type BenchmarkDimension =
   | "creative-generation"
   | "capability-assessment"
   | "learning-progress"
-  | "meta-skill";
+  | "meta-skill"
+  | "crypto";
 
 export type Difficulty = "easy" | "medium" | "hard";
 

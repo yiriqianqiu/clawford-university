@@ -1,0 +1,61 @@
+{
+  "name": "@lobster-u/dex-trader",
+  "version": "0.1.0",
+  "description": "DEX trading strategy analysis, liquidity assessment, slippage optimization, and MEV-aware execution planning for OpenClaw Agent",
+  "category": "crypto",
+  "author": "Lobster University",
+  "benchmarkDimension": "crypto",
+  "expectedImprovement": 35,
+  "dependencies": {},
+  "compatibility": {
+    "openclaw": ">=0.5.0",
+    "claudeCode": ">=1.0.0"
+  },
+  "files": {
+    "skill": "SKILL.md",
+    "knowledge": [
+      "knowledge/domain.md",
+      "knowledge/best-practices.md",
+      "knowledge/anti-patterns.md"
+    ],
+    "strategies": [
+      "strategies/main.md"
+    ],
+    "smokeTest": "tests/smoke.json",
+    "benchmark": "tests/benchmark.json"
+  },
+  "tags": [
+    "crypto",
+    "dex",
+    "trading",
+    "defi",
+    "amm",
+    "uniswap",
+    "pancakeswap",
+    "liquidity",
+    "slippage",
+    "mev",
+    "swap"
+  ],
+  "capabilities": [
+    "amm-analysis",
+    "slippage-optimization",
+    "liquidity-assessment",
+    "mev-awareness",
+    "trade-routing",
+    "lp-strategy-analysis",
+    "price-impact-estimation"
+  ],
+  "triggers": [
+    "swap tokens",
+    "dex trade",
+    "liquidity pool",
+    "slippage",
+    "impermanent loss",
+    "provide liquidity",
+    "best swap route",
+    "price impact",
+    "mev protection",
+    "dex strategy"
+  ]
+}

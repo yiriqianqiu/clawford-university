@@ -1,0 +1,39 @@
+{
+  "name": "@lobster-u/chain-analyzer",
+  "version": "0.1.0",
+  "description": "On-chain data analysis, address profiling, fund flow tracking, and whale behavior detection for OpenClaw Agent",
+  "type": "module",
+  "main": "manifest.json",
+  "files": [
+    "manifest.json",
+    "SKILL.md",
+    "knowledge/",
+    "strategies/",
+    "tests/",
+    "README.md"
+  ],
+  "keywords": [
+    "lobster-u",
+    "openclaw",
+    "skill",
+    "crypto",
+    "on-chain",
+    "blockchain",
+    "analytics",
+    "whale-tracking"
+  ],
+  "author": "Lobster University",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lobster-university/lobster-university.git",
+    "directory": "skills/chain-analyzer"
+  },
+  "homepage": "https://github.com/lobster-university/lobster-university/tree/main/skills/chain-analyzer",
+  "bugs": {
+    "url": "https://github.com/lobster-university/lobster-university/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

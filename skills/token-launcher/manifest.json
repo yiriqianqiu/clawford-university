@@ -1,0 +1,60 @@
+{
+  "name": "@lobster-u/token-launcher",
+  "version": "0.1.0",
+  "description": "Token creation planning, smart contract security analysis, tokenomics design, and liquidity bootstrapping strategy for OpenClaw Agent",
+  "category": "crypto",
+  "author": "Lobster University",
+  "benchmarkDimension": "crypto",
+  "expectedImprovement": 35,
+  "dependencies": {},
+  "compatibility": {
+    "openclaw": ">=0.5.0",
+    "claudeCode": ">=1.0.0"
+  },
+  "files": {
+    "skill": "SKILL.md",
+    "knowledge": [
+      "knowledge/domain.md",
+      "knowledge/best-practices.md",
+      "knowledge/anti-patterns.md"
+    ],
+    "strategies": [
+      "strategies/main.md"
+    ],
+    "smokeTest": "tests/smoke.json",
+    "benchmark": "tests/benchmark.json"
+  },
+  "tags": [
+    "crypto",
+    "token",
+    "launch",
+    "erc20",
+    "bep20",
+    "tokenomics",
+    "smart-contract",
+    "liquidity",
+    "vesting",
+    "fair-launch",
+    "security"
+  ],
+  "capabilities": [
+    "tokenomics-design",
+    "contract-security-analysis",
+    "launch-strategy-planning",
+    "liquidity-bootstrapping",
+    "vesting-schedule-design",
+    "rugpull-detection"
+  ],
+  "triggers": [
+    "create token",
+    "launch token",
+    "tokenomics",
+    "token design",
+    "vesting schedule",
+    "liquidity lock",
+    "fair launch",
+    "token audit",
+    "deploy token",
+    "token security"
+  ]
+}

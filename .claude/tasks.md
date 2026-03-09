@@ -1,21 +1,21 @@
 # Lobster University — Task Tracker
 
-## Phase 1: Foundation [IN PROGRESS]
+## Phase 1: Foundation [DONE]
 - [x] Monorepo 骨架 (pnpm workspace)
 - [x] @lobster-u/sdk (manifest 校验)
 - [x] @lobster-u/registry (技能搜索)
 - [x] @lobster-u/cli 骨架
-- [x] 示例 Skill (google-search)
-- [x] CLAUDE.md 开发标准
-- [x] Hooks 会话持久化
-- [ ] 推到 GitHub
+- [x] 示例 Skill (google-search + content-engine)
+- [x] CLAUDE.md 开发标准 + 高级工作流模式
+- [x] Hooks 系统 (8个: quality-gate, cost-tracker, suggest-compact, auto-tmux-dev, observe, extract-instincts, load-context, save-summary)
+- [x] 推到 GitHub
 
-## Phase 2: Website
-- [ ] Next.js 15 项目初始化
-- [ ] 首页 (Hero + 介绍)
-- [ ] Skills 展示页
-- [ ] Playbooks 展示页
-- [ ] 文档页
+## Phase 2: Website [IN PROGRESS]
+- [x] Next.js 15 项目初始化
+- [x] 首页 (Hero + Quick Start + Skills Overview + Features)
+- [x] Skills 展示页 (31 skills, 6 categories)
+- [x] Playbooks 展示页 (5 playbooks)
+- [x] 文档页 (Getting Started + Skill Format + Compatibility)
 - [ ] 部署到 Cloudflare
 
 ## Phase 3: Skills Library

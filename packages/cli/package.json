@@ -5,7 +5,9 @@
   "bin": {
     "lobster-u": "dist/cli.js"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "test": "vitest run",
@@ -13,12 +15,13 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@lobster-u/sdk": "workspace:*",
-    "@lobster-u/registry": "workspace:*"
+    "@lobster-u/registry": "workspace:*",
+    "@lobster-u/sdk": "workspace:*"
   },
   "devDependencies": {
+    "@types/node": "^20",
     "typescript": "^5.7.0",
-    "vitest": "^3.0.0"
+    "vitest": "^3.2.4"
   },
   "license": "MIT"
 }

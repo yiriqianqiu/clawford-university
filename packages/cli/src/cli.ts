@@ -1,7 +1,14 @@
 #!/usr/bin/env node
 
+import { install } from "./commands/install";
+import { create } from "./commands/create";
+import { search } from "./commands/search";
+import { list } from "./commands/list";
+import { info } from "./commands/info";
+
 const args = process.argv.slice(2);
 const command = args[0];
+const commandArgs = args.slice(1);
 
 const COMMANDS: Record<string, string> = {
   install: "Install a skill package",
@@ -24,7 +31,7 @@ function showHelp(): void {
   console.log();
 }
 
-function main(): void {
+async function main(): Promise<void> {
   if (!command || command === "help" || command === "--help") {
     showHelp();
     return;
@@ -36,8 +43,28 @@ function main(): void {
     process.exit(1);
   }
 
-  // TODO: implement commands
-  console.log(`lobster-u ${command} — coming soon`);
+  switch (command) {
+    case "install":
+      await install(commandArgs);
+      break;
+    case "create":
+      await create(commandArgs);
+      break;
+    case "search":
+      await search(commandArgs);
+      break;
+    case "list":
+      await list();
+      break;
+    case "info":
+      await info(commandArgs);
+      break;
+    default:
+      console.log(`lobster-u ${command} — coming soon`);
+  }
 }
 
-main();
+main().catch((err) => {
+  console.error(err.message);
+  process.exit(1);
+});

@@ -1,32 +1,32 @@
 #!/bin/bash
 # Load session context on conversation start
-# Outputs key project state for Claude to consume
+# Uses $CLAUDE_PROJECT_DIR for reliable path resolution
 
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+ROOT="${CLAUDE_PROJECT_DIR:-$(git rev-parse --show-toplevel 2>/dev/null)}"
 
-echo "=== Lobster University — Session Context ==="
-echo ""
+if [ -z "$ROOT" ]; then
+  exit 0
+fi
 
-# Current branch and status
-echo "## Git Status"
+echo "=== Lobster University — Session Context ===" >&2
+echo "" >&2
+
+echo "## Git Status" >&2
 cd "$ROOT" 2>/dev/null
-git branch --show-current 2>/dev/null
-git log --oneline -3 2>/dev/null || echo "No commits"
-echo ""
+git branch --show-current 2>/dev/null >&2
+git log --oneline -3 2>/dev/null >&2 || echo "No commits" >&2
+echo "" >&2
 
-# Show task progress
 if [ -f "$ROOT/.claude/tasks.md" ]; then
-  echo "## Task Progress"
-  grep -E '^\- \[[ x]\]' "$ROOT/.claude/tasks.md" | head -20
-  echo ""
+  echo "## Task Progress" >&2
+  grep -E '^\- \[[ x]\]' "$ROOT/.claude/tasks.md" 2>/dev/null | head -20 >&2
+  echo "" >&2
 fi
 
-# Show last session notes
 if [ -f "$ROOT/.claude/session-notes.md" ]; then
-  echo "## Last Session Notes"
-  tail -20 "$ROOT/.claude/session-notes.md"
-  echo ""
+  echo "## Last Session Notes" >&2
+  tail -20 "$ROOT/.claude/session-notes.md" >&2
+  echo "" >&2
 fi
 
-echo "=== Ready to work ==="
+echo "=== Ready to work ===" >&2

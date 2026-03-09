@@ -2,44 +2,76 @@
   "hooks": {
     "SessionStart": [
       {
-        "command": "bash \"$(git rev-parse --show-toplevel 2>/dev/null || echo .)/.claude/load-context.sh\"",
-        "description": "Load project context and last session notes"
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/load-context.sh\""
+          }
+        ]
       }
     ],
     "PreToolUse": [
       {
         "matcher": "Bash",
-        "command": "bash \"$(git rev-parse --show-toplevel 2>/dev/null || echo .)/.claude/hooks/auto-tmux-dev.sh\"",
-        "description": "Suggest tmux for dev server commands"
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/auto-tmux-dev.sh\""
+          }
+        ]
       }
     ],
     "PostToolUse": [
       {
         "matcher": "Edit|Write",
-        "command": "bash \"$(git rev-parse --show-toplevel 2>/dev/null || echo .)/.claude/hooks/quality-gate.sh\"",
-        "description": "Auto-format and typecheck after file edits"
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/quality-gate.sh\""
+          }
+        ]
       },
       {
-        "command": "bash \"$(git rev-parse --show-toplevel 2>/dev/null || echo .)/.claude/hooks/suggest-compact.sh\"",
-        "description": "Suggest /compact at ~50 tool calls"
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/suggest-compact.sh\""
+          }
+        ]
       },
       {
-        "command": "bash \"$(git rev-parse --show-toplevel 2>/dev/null || echo .)/.claude/hooks/observe.sh\"",
-        "description": "Log tool usage for continuous learning"
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/observe.sh\""
+          }
+        ]
       }
     ],
     "Stop": [
       {
-        "command": "bash \"$(git rev-parse --show-toplevel 2>/dev/null || echo .)/.claude/save-summary.sh\"",
-        "description": "Auto-save session summary"
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/save-summary.sh\""
+          }
+        ]
       },
       {
-        "command": "bash \"$(git rev-parse --show-toplevel 2>/dev/null || echo .)/.claude/hooks/cost-tracker.sh\"",
-        "description": "Track session metrics"
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/cost-tracker.sh\""
+          }
+        ]
       },
       {
-        "command": "bash \"$(git rev-parse --show-toplevel 2>/dev/null || echo .)/.claude/hooks/extract-instincts.sh\"",
-        "description": "Extract learning patterns from session"
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/extract-instincts.sh\""
+          }
+        ]
       }
     ]
   }

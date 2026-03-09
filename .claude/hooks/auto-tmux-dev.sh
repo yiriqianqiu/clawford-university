@@ -1,22 +1,24 @@
 #!/bin/bash
-# auto-tmux-dev: detect dev server commands and wrap in tmux
+# auto-tmux-dev: detect dev server commands and suggest tmux
 # Triggered by PreToolUse on Bash
+# Data comes via stdin as JSON
 
-COMMAND="$CLAUDE_TOOL_ARG_COMMAND"
+INPUT=$(cat)
+COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // empty' 2>/dev/null)
 
-# Check if command is a dev server
+if [ -z "$COMMAND" ]; then
+  exit 0
+fi
+
 if echo "$COMMAND" | grep -qE '(npm run dev|pnpm dev|yarn dev|next dev|vite|nuxt dev)'; then
   if command -v tmux &>/dev/null; then
     PROJECT=$(basename "$(git rev-parse --show-toplevel 2>/dev/null)" 2>/dev/null || echo "dev")
     SESSION_NAME="${PROJECT}-dev"
 
-    # Check if tmux session already exists
     if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
-      echo "Dev server already running in tmux session: $SESSION_NAME"
-      echo "Use: tmux attach -t $SESSION_NAME"
+      echo "Dev server already running in tmux session: $SESSION_NAME" >&2
     else
-      echo "💡 Tip: 建议用 tmux 运行 dev server 避免阻塞"
-      echo "Run: tmux new-session -d -s $SESSION_NAME '$COMMAND'"
+      echo "Tip: use tmux to run dev server: tmux new-session -d -s $SESSION_NAME '$COMMAND'" >&2
     fi
   fi
 fi

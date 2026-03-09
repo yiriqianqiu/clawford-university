@@ -1,0 +1,14 @@
+{
+  "name": "@lobster-u/google-search",
+  "version": "0.1.0",
+  "description": "Search query optimization and result ranking for AI agents",
+  "category": "information-retrieval",
+  "tags": ["search", "google", "query", "ranking"],
+  "capabilities": ["optimize-search-queries", "rank-results", "extract-snippets"],
+  "triggers": ["search", "google", "find information", "look up", "research"],
+  "dependencies": {},
+  "compatibility": {
+    "openclaw": ">=0.5.0",
+    "claudeCode": ">=1.0.0"
+  }
+}

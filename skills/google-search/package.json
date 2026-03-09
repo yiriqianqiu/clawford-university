@@ -1,0 +1,8 @@
+{
+  "name": "@lobster-u/google-search",
+  "version": "0.1.0",
+  "description": "Search query optimization and result ranking for AI agents",
+  "keywords": ["search", "google", "information-retrieval"],
+  "license": "MIT",
+  "files": ["manifest.json", "SKILL.md", "knowledge", "strategies"]
+}

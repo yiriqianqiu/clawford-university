@@ -79,6 +79,46 @@ const PLAYBOOKS = [
     level: "Intermediate",
     skills: ["writer", "copywriter", "rewriter"],
   },
+  {
+    id: "crypto-trading-fundamentals",
+    title: "Crypto Trading Fundamentals",
+    desc: "Master on-chain analysis, DEX trading, and risk management with your AI agent.",
+    time: "30 min",
+    level: "Intermediate",
+    skills: ["chain-analyzer", "dex-trader", "wallet-monitor"],
+  },
+  {
+    id: "whale-tracking",
+    title: "Whale Tracking: Follow Smart Money On-Chain",
+    desc: "Identify whale wallets, track fund flows, and interpret on-chain signals.",
+    time: "25 min",
+    level: "Advanced",
+    skills: ["chain-analyzer", "wallet-monitor", "mental-models"],
+  },
+  {
+    id: "token-launch-guide",
+    title: "Token Launch Guide: From Contract to Community",
+    desc: "Design tokenomics, deploy contracts, bootstrap liquidity, and build community.",
+    time: "40 min",
+    level: "Advanced",
+    skills: ["token-launcher", "kol-manager", "content-engine"],
+  },
+  {
+    id: "crypto-kol-operations",
+    title: "Crypto KOL Operations: Build Influence in Web3",
+    desc: "Build and operate a crypto KOL presence with AI-assisted content and engagement.",
+    time: "25 min",
+    level: "Intermediate",
+    skills: ["kol-manager", "twitter-intel", "social-media"],
+  },
+  {
+    id: "defi-risk-management",
+    title: "DeFi Risk Management: Protect Your Portfolio",
+    desc: "Detect rug pulls, manage impermanent loss, and size positions with AI assistance.",
+    time: "20 min",
+    level: "Intermediate",
+    skills: ["dex-trader", "wallet-monitor", "chain-analyzer"],
+  },
 ];
 
 export default function PlaybooksPage() {

@@ -10,15 +10,16 @@
 - [x] Hooks 系统
 - [x] 推到 GitHub
 
-## Phase 2: Website [98%]
+## Phase 2: Website [DONE]
 - [x] Next.js 15 项目初始化
 - [x] 首页 (Hero + Quick Start + Skills Overview + Features)
 - [x] Skills 展示页 (34 skills, 8 categories, 全部 ready)
-- [x] Playbooks 展示页 (10 playbooks)
+- [x] Playbooks 展示页 (10 playbooks → 15 with crypto)
 - [x] 文档页 (Getting Started + Skill Format + Compatibility)
-- [x] 更新网站 skills 页面 (planned → ready，33 skills + social-media + reminder)
+- [x] 更新网站 skills 页面 (planned → ready，33 skills)
 - [x] 更新网站 playbooks 页面 (5 → 10 playbooks)
-- [ ] 部署到 Cloudflare
+- [x] Cloudflare 部署配置 (deploy.yml + static export)
+- [ ] 配置 Cloudflare Secrets (CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID)
 
 ## Phase 3: Skills Library [DONE]
 
@@ -52,44 +53,45 @@
 - [ ] npm 发布所有 skill 包
 
 ## Phase 4: Playbooks [DONE]
-- [x] 10 双语 playbooks (从 BotLearn awesome repo fork)
-- [x] AI 技能学习 (playbook-ai-skill-learning)
-- [x] 职业学习循环 (playbook-career-learning-loop)
-- [x] 英语口语 (playbook-english-learning-professionals)
-- [x] 考试突击 (playbook-exam-prep-fast-track)
-- [x] 学习科学 (playbook-learning-science-system)
-- [x] 微学习日报 (playbook-micro-learning-daily-digest)
-- [x] 个人知识系统 (playbook-personal-knowledge-system)
-- [x] 论文阅读 (playbook-research-paper-reading)
-- [x] 技术面试 (playbook-technical-interview-training)
-- [x] 写作 (playbook-writing-for-impact)
-- [ ] 补充 Crypto 专属 playbooks (配合 Crypto skills)
+- [x] 10 双语通用 playbooks (从 BotLearn awesome repo fork)
+- [x] 5 双语 Crypto playbooks (我们的差异化)
+  - [x] crypto-trading-fundamentals
+  - [x] whale-tracking
+  - [x] token-launch-guide
+  - [x] crypto-kol-operations
+  - [x] defi-risk-management
 
-## Phase 5: Smart Contracts — 未开始
-- [ ] Karma Token (BEP-20)
-- [ ] NFT Certificate (ERC-721)
-- [ ] Skill Marketplace 合约
-- [ ] 部署到 BSC Testnet
+## Phase 5: Smart Contracts [DONE]
+- [x] KarmaToken.sol (BEP-20) — mint/burn, 自由流通
+- [x] CertificateNFT.sol (ERC-721) — Soulbound, 链上元数据
+- [x] SkillMarketplace.sol — 上架/购买/评分, 5% 平台费
+- [x] 87 个 Hardhat 测试通过
+- [x] BSC Testnet 部署脚本
+- [x] BSC Mainnet 部署脚本 (CONFIRM_MAINNET 安全门)
+- [ ] 部署到 BSC Testnet (需要私钥 + BNB)
 - [ ] 部署到 BSC Mainnet
 
-## Phase 6: Campus (Agent Social Network) — 未开始
-- [ ] API 设计
-- [ ] Agent 注册/身份
-- [ ] 发帖/评论/投票
-- [ ] Karma 计算引擎
-- [ ] Knowledge Chain
+## Phase 6: Campus (Agent Social Network) [DONE]
+- [x] @lobster-u/campus 包 (Hono + Zod)
+- [x] Agent 注册/身份 CRUD
+- [x] 发帖/评论/投票 (含防自投、防重复投票)
+- [x] Karma 计算引擎 (post+5, comment+2, upvote+3, downvote-1, knowledge+10, verify+5, cert+20)
+- [x] Knowledge Chain (分享/验证/图谱)
+- [x] 58 个 Vitest 测试通过
 
-## 基础设施
+## 基础设施 [DONE]
 - [x] 文档体系 (design.md, requirements.md, user-guide.md, user-stories.md)
 - [x] CONTRIBUTING.md
 - [x] .npmrc 多注册表配置
 - [x] 发布工具链 (validate-all, cross-regression, publish, generate-registry, generate-readmes, enrich-manifests, create-skill)
-- [ ] CI/CD (GitHub Actions)
-- [ ] npm 发布
+- [x] CI/CD — ci.yml (PR/push), deploy.yml (Cloudflare), publish.yml (npm tags)
 
-## 已完成的里程碑
-- 33 个 skills (通用 22 + 自研 6 + Crypto 5) — 全部验证通过
-- 47 个测试通过 (SDK 33 + Registry 8 + CLI 6)
-- 网站更新：33 skills 全部 ready + 10 playbooks
-- skills-registry.json 33 skills
+## 待完成 (需要外部配置)
+- [ ] 配置 GitHub Secrets: CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID, NPM_TOKEN
+- [ ] 部署合约到 BSC Testnet (需要私钥 + 测试 BNB)
+- [ ] npm 发布所有 skill 包 (需要 NPM_TOKEN)
+
+## 统计
+- 33 skills, 15 playbooks, 3 smart contracts, 1 campus API
+- 192 tests passing (SDK 33 + Campus 58 + Contracts 87 + Registry 8 + CLI 6)
 - 全部已 commit 并 push

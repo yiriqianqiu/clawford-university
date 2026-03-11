@@ -1,5 +1,5 @@
 import { db } from "./db";
-import { colleges, departments, courses, semesters, faculty, courseSections } from "./db/schema";
+import { colleges, departments, courses, semesters, faculty, courseSections, degreePrograms, degreeRequirements } from "./db/schema";
 
 const now = new Date();
 
@@ -135,6 +135,58 @@ const DEPT_FACULTY: Record<string, string> = {
   "dept-ops": "fac-leo",
 };
 
+const DEGREE_PROGRAMS = [
+  { id: "deg-eng", collegeId: "col-eng", name: "B.S. in Software Engineering", slug: "software-engineering", type: "bachelor", description: "Comprehensive software development, architecture, and quality assurance.", requiredCredits: 15, minGpa: 200 },
+  { id: "deg-biz", collegeId: "col-biz", name: "B.S. in DeFi & Blockchain", slug: "defi-blockchain", type: "bachelor", description: "On-chain analysis, trading, token economics, and community management.", requiredCredits: 17, minGpa: 200 },
+  { id: "deg-art", collegeId: "col-art", name: "B.A. in Creative Communication", slug: "creative-communication", type: "bachelor", description: "Writing, narrative, copywriting, social media, and content production.", requiredCredits: 19, minGpa: 200 },
+  { id: "deg-inf", collegeId: "col-inf", name: "B.S. in Information Sciences", slug: "information-sciences-degree", type: "bachelor", description: "Web search, academic research, social intelligence, and data curation.", requiredCredits: 14, minGpa: 200 },
+  { id: "deg-dai", collegeId: "col-dai", name: "B.S. in Data & AI", slug: "data-ai-degree", type: "bachelor", description: "Text processing, NLP, sentiment analysis, and machine learning pipelines.", requiredCredits: 13, minGpa: 200 },
+  { id: "deg-gen", collegeId: "col-gen", name: "Certificate in Agent Foundations", slug: "agent-foundations", type: "certificate", description: "Core skills every AI agent needs: assessment, self-optimization, and tooling.", requiredCredits: 16, minGpa: 150 },
+] as const;
+
+// Required courses per degree (sorted)
+const DEGREE_REQS: { degreeProgramId: string; courseId: string; sortOrder: number }[] = [
+  // Engineering
+  { degreeProgramId: "deg-eng", courseId: "crs-eng101", sortOrder: 1 },
+  { degreeProgramId: "deg-eng", courseId: "crs-eng201", sortOrder: 2 },
+  { degreeProgramId: "deg-eng", courseId: "crs-eng301", sortOrder: 3 },
+  { degreeProgramId: "deg-eng", courseId: "crs-eng302", sortOrder: 4 },
+  { degreeProgramId: "deg-eng", courseId: "crs-eng401", sortOrder: 5 },
+  // Business
+  { degreeProgramId: "deg-biz", courseId: "crs-biz101", sortOrder: 1 },
+  { degreeProgramId: "deg-biz", courseId: "crs-biz201", sortOrder: 2 },
+  { degreeProgramId: "deg-biz", courseId: "crs-biz301", sortOrder: 3 },
+  { degreeProgramId: "deg-biz", courseId: "crs-biz302", sortOrder: 4 },
+  { degreeProgramId: "deg-biz", courseId: "crs-biz401", sortOrder: 5 },
+  // Creative Arts
+  { degreeProgramId: "deg-art", courseId: "crs-art101", sortOrder: 1 },
+  { degreeProgramId: "deg-art", courseId: "crs-art201", sortOrder: 2 },
+  { degreeProgramId: "deg-art", courseId: "crs-art202", sortOrder: 3 },
+  { degreeProgramId: "deg-art", courseId: "crs-art301", sortOrder: 4 },
+  { degreeProgramId: "deg-art", courseId: "crs-art302", sortOrder: 5 },
+  { degreeProgramId: "deg-art", courseId: "crs-art401", sortOrder: 6 },
+  // Information Sciences
+  { degreeProgramId: "deg-inf", courseId: "crs-inf101", sortOrder: 1 },
+  { degreeProgramId: "deg-inf", courseId: "crs-inf102", sortOrder: 2 },
+  { degreeProgramId: "deg-inf", courseId: "crs-inf201", sortOrder: 3 },
+  { degreeProgramId: "deg-inf", courseId: "crs-inf301", sortOrder: 4 },
+  { degreeProgramId: "deg-inf", courseId: "crs-inf302", sortOrder: 5 },
+  // Data & AI
+  { degreeProgramId: "deg-dai", courseId: "crs-dai101", sortOrder: 1 },
+  { degreeProgramId: "deg-dai", courseId: "crs-dai102", sortOrder: 2 },
+  { degreeProgramId: "deg-dai", courseId: "crs-dai201", sortOrder: 3 },
+  { degreeProgramId: "deg-dai", courseId: "crs-dai301", sortOrder: 4 },
+  { degreeProgramId: "deg-dai", courseId: "crs-dai302", sortOrder: 5 },
+  // General Studies
+  { degreeProgramId: "deg-gen", courseId: "crs-gen101", sortOrder: 1 },
+  { degreeProgramId: "deg-gen", courseId: "crs-gen102", sortOrder: 2 },
+  { degreeProgramId: "deg-gen", courseId: "crs-gen201", sortOrder: 3 },
+  { degreeProgramId: "deg-gen", courseId: "crs-gen202", sortOrder: 4 },
+  { degreeProgramId: "deg-gen", courseId: "crs-gen301", sortOrder: 5 },
+  { degreeProgramId: "deg-gen", courseId: "crs-gen302", sortOrder: 6 },
+  { degreeProgramId: "deg-gen", courseId: "crs-gen401", sortOrder: 7 },
+];
+
 async function seedUniversity() {
   console.log("Seeding university data...");
 
@@ -196,6 +248,27 @@ async function seedUniversity() {
     sectionCount++;
   }
   console.log(`  ${sectionCount} course sections`);
+
+  // Degree Programs
+  for (const dp of DEGREE_PROGRAMS) {
+    await db.insert(degreePrograms).values({ ...dp, createdAt: now }).onConflictDoNothing();
+  }
+  console.log(`  ${DEGREE_PROGRAMS.length} degree programs`);
+
+  // Degree Requirements
+  let reqCount = 0;
+  for (const req of DEGREE_REQS) {
+    await db.insert(degreeRequirements).values({
+      id: `dreq-${req.degreeProgramId}-${req.courseId}`,
+      degreeProgramId: req.degreeProgramId,
+      courseId: req.courseId,
+      minCredits: 3,
+      isElective: false,
+      sortOrder: req.sortOrder,
+    }).onConflictDoNothing();
+    reqCount++;
+  }
+  console.log(`  ${reqCount} degree requirements`);
 
   console.log("University seed complete.");
 }

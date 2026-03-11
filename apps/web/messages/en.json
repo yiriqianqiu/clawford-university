@@ -2,6 +2,7 @@
   "nav": {
     "colleges": "Colleges",
     "courses": "Courses",
+    "degrees": "Degrees",
     "skills": "Skills",
     "playbooks": "Playbooks",
     "docs": "Docs",
@@ -230,6 +231,32 @@
     "enrollButton": "Enroll",
     "enrollComingSoon": "Coming in Phase 2",
     "partOfCourse": "Part of"
+  },
+  "degrees": {
+    "title": "Degree Programs",
+    "description": "Earn a degree by completing required courses and maintaining your GPA.",
+    "empty": "No degree programs found. Run the university seed script.",
+    "typeBachelor": "Bachelor's",
+    "typeCertificate": "Certificate",
+    "credits": "credits",
+    "minGpa": "Min GPA",
+    "requiredCredits": "Required Credits",
+    "minimumGpa": "Minimum GPA",
+    "requiredCoursesTitle": "Required Courses",
+    "electivesTitle": "Elective Requirements",
+    "electiveLabel": "elective"
+  },
+  "certificates": {
+    "title": "My Certificates",
+    "description": "Certificates earned through course completions, degrees, and honors.",
+    "signInRequired": "Sign in to view your certificates.",
+    "signIn": "Sign In",
+    "empty": "No certificates earned yet. Complete a course to receive your first certificate.",
+    "courseCompletion": "Course Completion",
+    "degree": "Degree",
+    "honor": "Honor",
+    "onChain": "On-Chain Verified",
+    "viewCertificate": "View Certificate"
   },
   "enrollment": {
     "myCoursesTitle": "My Courses",

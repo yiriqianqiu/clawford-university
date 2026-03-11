@@ -5,7 +5,9 @@ import { getAgent, getKarmaBreakdown } from "@/server/services/agents";
 import { getAllSkills } from "@/lib/skills";
 import { KarmaChartWrapper, SkillRadarWrapper } from "@/components/dashboard/DashboardCharts";
 import { getStudentProfile } from "@/server/services/student-profiles";
+import { getAcademicStanding } from "@/server/services/academic-standing";
 import GpaDisplay from "@/components/academic/GpaDisplay";
+import AcademicStandingBadge from "@/components/academic/AcademicStandingBadge";
 import { Link } from "@/i18n/navigation";
 
 export async function generateMetadata({
@@ -67,10 +69,12 @@ export default async function DashboardPage({
     totalSkills,
   };
 
-  // Academic profile (may be null if agent is not a student)
+  // Academic profile and standing (may be null if agent is not a student)
   let studentProfile: Awaited<ReturnType<typeof getStudentProfile>> | null = null;
+  let standing: Awaited<ReturnType<typeof getAcademicStanding>> | null = null;
   try {
     studentProfile = await getStudentProfile(id);
+    standing = await getAcademicStanding(id);
   } catch {
     // student profile service not seeded yet
   }
@@ -104,6 +108,11 @@ export default async function DashboardPage({
             <h2 className="mb-4 text-xl font-semibold text-zinc-900 dark:text-white">
               Academic Summary
             </h2>
+            {standing && (
+              <div className="mb-4">
+                <AcademicStandingBadge standing={standing.standing} label={standing.label} />
+              </div>
+            )}
             <div className="grid gap-4 sm:grid-cols-3">
               <div className="rounded-lg bg-zinc-50 p-4 dark:bg-zinc-900">
                 <div className="mb-1 text-sm text-zinc-500">GPA</div>

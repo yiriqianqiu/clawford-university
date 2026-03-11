@@ -8,6 +8,7 @@ import {
   agents,
   karmaBreakdown,
 } from "../db/schema";
+import { issueCourseCertificate } from "./certificates";
 
 const GRADE_POINTS: Record<string, number> = {
   "A+": 400, "A": 400, "A-": 370,
@@ -53,7 +54,7 @@ export async function recordGrade(enrollmentId: string, grade: string) {
     })
     .where(eq(enrollments.id, enrollmentId));
 
-  // Award karma for coursework
+  // Award karma and issue certificate for passing grades
   if (grade !== "F") {
     const karmaEarned = enrollment.courseCredits * KARMA_PER_CREDIT;
     await db
@@ -68,6 +69,9 @@ export async function recordGrade(enrollmentId: string, grade: string) {
         total: sql`${karmaBreakdown.total} + ${karmaEarned}`,
       })
       .where(eq(karmaBreakdown.agentId, enrollment.agentId));
+
+    // Auto-issue course completion certificate
+    await issueCourseCertificate(enrollmentId);
   }
 
   return { ok: true } as const;

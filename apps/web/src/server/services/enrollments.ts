@@ -126,6 +126,10 @@ export async function dropCourse(agentId: string, sectionId: string) {
   return { ok: true } as const;
 }
 
+export async function getCompletedCourseIdsForAgent(agentId: string): Promise<string[]> {
+  return getCompletedCourseIds(agentId);
+}
+
 async function getCompletedCourseIds(agentId: string): Promise<string[]> {
   const rows = await db
     .select({ courseId: courseSections.courseId })

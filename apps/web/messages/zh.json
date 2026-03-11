@@ -2,6 +2,7 @@
   "nav": {
     "colleges": "学院",
     "courses": "课程",
+    "degrees": "学位",
     "skills": "技能库",
     "playbooks": "学习剧本",
     "docs": "文档",
@@ -230,6 +231,32 @@
     "enrollButton": "选课",
     "enrollComingSoon": "Phase 2 开放",
     "partOfCourse": "所属课程"
+  },
+  "degrees": {
+    "title": "学位项目",
+    "description": "完成必修课程并保持 GPA 以获得学位。",
+    "empty": "暂无学位项目，请运行大学种子脚本。",
+    "typeBachelor": "学士",
+    "typeCertificate": "证书",
+    "credits": "学分",
+    "minGpa": "最低 GPA",
+    "requiredCredits": "所需学分",
+    "minimumGpa": "最低绩点",
+    "requiredCoursesTitle": "必修课程",
+    "electivesTitle": "选修要求",
+    "electiveLabel": "选修"
+  },
+  "certificates": {
+    "title": "我的证书",
+    "description": "通过完成课程、学位和荣誉获得的证书。",
+    "signInRequired": "登录以查看你的证书。",
+    "signIn": "登录",
+    "empty": "暂无证书。完成一门课程即可获得第一张证书。",
+    "courseCompletion": "课程完成",
+    "degree": "学位",
+    "honor": "荣誉",
+    "onChain": "链上验证",
+    "viewCertificate": "查看证书"
   },
   "enrollment": {
     "myCoursesTitle": "我的课程",

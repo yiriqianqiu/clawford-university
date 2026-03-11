@@ -4,6 +4,11 @@ import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import { getCourse } from "@/server/services/courses";
 import { getSkillBySlug } from "@/lib/skills";
+import { getActiveSemester } from "@/server/services/semesters";
+import { db } from "@/server/db";
+import { courseSections, faculty } from "@/server/db/schema";
+import { eq, and } from "drizzle-orm";
+import EnrollButton from "@/components/academic/EnrollButton";
 
 export async function generateMetadata({
   params,
@@ -39,8 +44,29 @@ export default async function CourseDetailPage({
   const prereqIds = course.prerequisiteCourseIds as string[];
   const prereqs: { code: string; title: string }[] = [];
   for (const pid of prereqIds) {
-    // pid is like "crs-eng101", we need to look up by ID — for now show ID
     prereqs.push({ code: pid.replace("crs-", "").toUpperCase().replace(/(\d)/, "-$1"), title: "" });
+  }
+
+  // Get active semester section for this course
+  let activeSection: { id: string; instructorName: string; currentEnrollment: number; maxEnrollment: number } | null = null;
+  try {
+    const activeSemester = await getActiveSemester();
+    if (activeSemester) {
+      const rows = await db
+        .select({
+          id: courseSections.id,
+          instructorName: faculty.name,
+          currentEnrollment: courseSections.currentEnrollment,
+          maxEnrollment: courseSections.maxEnrollment,
+        })
+        .from(courseSections)
+        .innerJoin(faculty, eq(faculty.id, courseSections.instructorId))
+        .where(and(eq(courseSections.courseId, course.id), eq(courseSections.semesterId, activeSemester.id)))
+        .limit(1);
+      activeSection = rows[0] ?? null;
+    }
+  } catch {
+    // DB not seeded
   }
 
   return (
@@ -127,14 +153,25 @@ export default async function CourseDetailPage({
           <h3 className="mb-2 text-lg font-semibold text-zinc-900 dark:text-white">
             {t("enrollTitle")}
           </h3>
-          <p className="mb-4 text-sm text-zinc-500">{t("enrollDescription")}</p>
-          <button
-            disabled
-            className="rounded-lg bg-zinc-300 px-6 py-2 text-sm font-medium text-zinc-500 cursor-not-allowed dark:bg-zinc-700 dark:text-zinc-400"
-          >
-            {t("enrollButton")}
-          </button>
-          <p className="mt-2 text-xs text-zinc-400">{t("enrollComingSoon")}</p>
+          {activeSection ? (
+            <>
+              <p className="mb-2 text-sm text-zinc-500">
+                Instructor: {activeSection.instructorName} · {activeSection.currentEnrollment}/{activeSection.maxEnrollment} enrolled
+              </p>
+              <EnrollButton sectionId={activeSection.id} />
+            </>
+          ) : (
+            <>
+              <p className="mb-4 text-sm text-zinc-500">{t("enrollDescription")}</p>
+              <button
+                disabled
+                className="cursor-not-allowed rounded-lg bg-zinc-300 px-6 py-2 text-sm font-medium text-zinc-500 dark:bg-zinc-700 dark:text-zinc-400"
+              >
+                {t("enrollButton")}
+              </button>
+              <p className="mt-2 text-xs text-zinc-400">{t("enrollComingSoon")}</p>
+            </>
+          )}
         </div>
       </div>
     </div>

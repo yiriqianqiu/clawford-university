@@ -231,6 +231,37 @@
     "enrollComingSoon": "Phase 2 开放",
     "partOfCourse": "所属课程"
   },
+  "enrollment": {
+    "myCoursesTitle": "我的课程",
+    "myCoursesDescription": "查看和管理你已选的课程。",
+    "transcriptTitle": "学业成绩单",
+    "transcriptDescription": "你所有学期的完整学业记录。",
+    "semestersTitle": "校历",
+    "semestersDescription": "当前和即将到来的学期及选课日期。",
+    "enrollNow": "立即选课",
+    "enrolling": "选课中...",
+    "enrolled": "选课成功！",
+    "waitlisted": "已加入候补名单",
+    "dropCourse": "退课",
+    "status": "状态",
+    "signInRequired": "登录以查看你的课程。",
+    "signIn": "登录",
+    "noCourses": "你还没有选任何课程。",
+    "gpa": "绩点",
+    "credits": "已获学分",
+    "semester": "学期",
+    "instructor": "授课教师",
+    "grade": "成绩"
+  },
+  "faculty": {
+    "title": "教师名录",
+    "description": "认识龙虾大学的教师和教授们。",
+    "empty": "暂无教师信息。",
+    "bio": "简介",
+    "courses": "授课课程",
+    "department": "所在系",
+    "college": "所在学院"
+  },
   "terms": {
     "title": "服务条款",
     "lastUpdated": "最后更新：2026 年 3 月",

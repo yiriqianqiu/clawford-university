@@ -1,5 +1,5 @@
 import { db } from "./db";
-import { colleges, departments, courses, semesters } from "./db/schema";
+import { colleges, departments, courses, semesters, faculty, courseSections } from "./db/schema";
 
 const now = new Date();
 
@@ -104,6 +104,37 @@ const SEMESTERS = [
   },
 ] as const;
 
+const FACULTY = [
+  { id: "fac-alice", name: "Dr. Alice Chen", title: "Professor of Software Engineering", departmentId: "dept-swe", bio: "15 years of experience in distributed systems and code quality.", avatarUrl: null },
+  { id: "fac-bob", name: "Prof. Bob Martinez", title: "Associate Professor", departmentId: "dept-arc", bio: "Expert in system architecture and technical documentation.", avatarUrl: null },
+  { id: "fac-carol", name: "Dr. Carol Kim", title: "Professor of DeFi", departmentId: "dept-defi", bio: "Researcher in decentralized finance and on-chain analytics.", avatarUrl: null },
+  { id: "fac-dave", name: "Prof. Dave Johnson", title: "Lecturer", departmentId: "dept-growth", bio: "Community building and KOL network specialist.", avatarUrl: null },
+  { id: "fac-eve", name: "Dr. Eve Williams", title: "Professor of Creative Writing", departmentId: "dept-write", bio: "Published author and narrative design expert.", avatarUrl: null },
+  { id: "fac-frank", name: "Prof. Frank Liu", title: "Associate Professor", departmentId: "dept-media", bio: "Social media strategy and content pipeline architect.", avatarUrl: null },
+  { id: "fac-grace", name: "Dr. Grace Park", title: "Professor of Information Science", departmentId: "dept-search", bio: "Specialist in information retrieval and web intelligence.", avatarUrl: null },
+  { id: "fac-henry", name: "Prof. Henry Zhao", title: "Lecturer", departmentId: "dept-socint", bio: "Social intelligence and OSINT researcher.", avatarUrl: null },
+  { id: "fac-iris", name: "Dr. Iris Thompson", title: "Professor of NLP", departmentId: "dept-nlp", bio: "Natural language processing and multilingual AI researcher.", avatarUrl: null },
+  { id: "fac-jack", name: "Prof. Jack Rivera", title: "Associate Professor", departmentId: "dept-analysis", bio: "Text mining and sentiment analysis expert.", avatarUrl: null },
+  { id: "fac-kate", name: "Dr. Kate Brown", title: "Professor of Foundations", departmentId: "dept-foundations", bio: "Agent cognition and self-improvement frameworks.", avatarUrl: null },
+  { id: "fac-leo", name: "Prof. Leo Nakamura", title: "Lecturer", departmentId: "dept-ops", bio: "Operations tooling and agent certification specialist.", avatarUrl: null },
+] as const;
+
+// Map department -> faculty for course section assignment
+const DEPT_FACULTY: Record<string, string> = {
+  "dept-swe": "fac-alice",
+  "dept-arc": "fac-bob",
+  "dept-defi": "fac-carol",
+  "dept-growth": "fac-dave",
+  "dept-write": "fac-eve",
+  "dept-media": "fac-frank",
+  "dept-search": "fac-grace",
+  "dept-socint": "fac-henry",
+  "dept-nlp": "fac-iris",
+  "dept-analysis": "fac-jack",
+  "dept-foundations": "fac-kate",
+  "dept-ops": "fac-leo",
+};
+
 async function seedUniversity() {
   console.log("Seeding university data...");
 
@@ -141,6 +172,30 @@ async function seedUniversity() {
     await db.insert(semesters).values(s).onConflictDoNothing();
   }
   console.log(`  ${SEMESTERS.length} semesters`);
+
+  // Faculty
+  for (const f of FACULTY) {
+    await db.insert(faculty).values({ ...f, createdAt: now }).onConflictDoNothing();
+  }
+  console.log(`  ${FACULTY.length} faculty members`);
+
+  // Course sections (1 section per course for Spring 2026)
+  let sectionCount = 0;
+  for (const c of COURSES) {
+    const instructorId = DEPT_FACULTY[c.departmentId];
+    if (!instructorId) continue;
+    await db.insert(courseSections).values({
+      id: `sec-${c.id}-spring26`,
+      courseId: c.id,
+      semesterId: "sem-2026-spring",
+      instructorId,
+      sectionNumber: 1,
+      maxEnrollment: 50,
+      currentEnrollment: 0,
+    }).onConflictDoNothing();
+    sectionCount++;
+  }
+  console.log(`  ${sectionCount} course sections`);
 
   console.log("University seed complete.");
 }

@@ -94,6 +94,8 @@ export const karmaBreakdown = sqliteTable("karma_breakdown", {
   fromKnowledgeShared: integer("from_knowledge_shared").notNull().default(0),
   fromKnowledgeVerified: integer("from_knowledge_verified").notNull().default(0),
   fromCertifications: integer("from_certifications").notNull().default(0),
+  fromCoursework: integer("from_coursework").notNull().default(0),
+  fromTeaching: integer("from_teaching").notNull().default(0),
 });
 
 export const knowledge = sqliteTable("knowledge", {

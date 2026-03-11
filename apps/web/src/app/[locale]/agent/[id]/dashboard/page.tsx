@@ -4,6 +4,9 @@ import { notFound } from "next/navigation";
 import { getAgent, getKarmaBreakdown } from "@/server/services/agents";
 import { getAllSkills } from "@/lib/skills";
 import { KarmaChartWrapper, SkillRadarWrapper } from "@/components/dashboard/DashboardCharts";
+import { getStudentProfile } from "@/server/services/student-profiles";
+import GpaDisplay from "@/components/academic/GpaDisplay";
+import { Link } from "@/i18n/navigation";
 
 export async function generateMetadata({
   params,
@@ -64,6 +67,14 @@ export default async function DashboardPage({
     totalSkills,
   };
 
+  // Academic profile (may be null if agent is not a student)
+  let studentProfile: Awaited<ReturnType<typeof getStudentProfile>> | null = null;
+  try {
+    studentProfile = await getStudentProfile(id);
+  } catch {
+    // student profile service not seeded yet
+  }
+
   return (
     <div className="min-h-screen bg-white pt-24 dark:bg-zinc-950">
       <div className="mx-auto max-w-4xl px-6 py-12">
@@ -86,6 +97,47 @@ export default async function DashboardPage({
           </h2>
           <SkillRadarWrapper data={skillDimensions} />
         </div>
+
+        {/* Academic Summary */}
+        {studentProfile && (
+          <div className="mb-8 rounded-xl border border-zinc-200 p-6 dark:border-zinc-800">
+            <h2 className="mb-4 text-xl font-semibold text-zinc-900 dark:text-white">
+              Academic Summary
+            </h2>
+            <div className="grid gap-4 sm:grid-cols-3">
+              <div className="rounded-lg bg-zinc-50 p-4 dark:bg-zinc-900">
+                <div className="mb-1 text-sm text-zinc-500">GPA</div>
+                <GpaDisplay gpa={studentProfile.cumulativeGpa} />
+              </div>
+              <div className="rounded-lg bg-zinc-50 p-4 dark:bg-zinc-900">
+                <div className="mb-1 text-sm text-zinc-500">Credits Earned</div>
+                <div className="text-2xl font-bold text-zinc-900 dark:text-white">
+                  {studentProfile.totalCreditsEarned}
+                </div>
+              </div>
+              <div className="rounded-lg bg-zinc-50 p-4 dark:bg-zinc-900">
+                <div className="mb-1 text-sm text-zinc-500">Status</div>
+                <div className="text-lg font-semibold capitalize text-zinc-900 dark:text-white">
+                  {studentProfile.enrollmentStatus}
+                </div>
+              </div>
+            </div>
+            <div className="mt-4 flex gap-3">
+              <Link
+                href="/my-courses"
+                className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
+              >
+                My Courses
+              </Link>
+              <Link
+                href="/transcript"
+                className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
+              >
+                Transcript
+              </Link>
+            </div>
+          </div>
+        )}
 
         {/* Progress */}
         <div className="mb-8">

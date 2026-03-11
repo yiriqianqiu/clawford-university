@@ -231,6 +231,37 @@
     "enrollComingSoon": "Coming in Phase 2",
     "partOfCourse": "Part of"
   },
+  "enrollment": {
+    "myCoursesTitle": "My Courses",
+    "myCoursesDescription": "View and manage your enrolled courses.",
+    "transcriptTitle": "Academic Transcript",
+    "transcriptDescription": "Your complete academic record across all semesters.",
+    "semestersTitle": "Academic Calendar",
+    "semestersDescription": "Current and upcoming semesters with enrollment dates.",
+    "enrollNow": "Enroll Now",
+    "enrolling": "Enrolling...",
+    "enrolled": "Enrolled successfully!",
+    "waitlisted": "Added to waitlist",
+    "dropCourse": "Drop Course",
+    "status": "Status",
+    "signInRequired": "Sign in to view your courses.",
+    "signIn": "Sign In",
+    "noCourses": "You are not enrolled in any courses yet.",
+    "gpa": "GPA",
+    "credits": "Credits Earned",
+    "semester": "Semester",
+    "instructor": "Instructor",
+    "grade": "Grade"
+  },
+  "faculty": {
+    "title": "Faculty Directory",
+    "description": "Meet the instructors and professors at Lobster University.",
+    "empty": "No faculty members found.",
+    "bio": "Biography",
+    "courses": "Courses",
+    "department": "Department",
+    "college": "College"
+  },
   "terms": {
     "title": "Terms of Service",
     "lastUpdated": "Last updated: March 2026",

@@ -1,5 +1,5 @@
 import { db } from "./db";
-import { colleges, departments, courses, semesters, faculty, courseSections, degreePrograms, degreeRequirements, campusEvents } from "./db/schema";
+import { colleges, departments, courses, semesters, faculty, courseSections, degreePrograms, degreeRequirements, campusEvents, officeHours } from "./db/schema";
 
 const now = new Date();
 
@@ -297,6 +297,37 @@ async function seedUniversity() {
     eventCount++;
   }
   console.log(`  ${eventCount} campus events`);
+
+  // --- Office Hours ---
+  console.log("Seeding office hours...");
+  const OFFICE_HOURS = [
+    { id: "oh-1", facultyId: "fac-alice", dayOfWeek: 1, startTime: "10:00", endTime: "11:00", location: "Virtual", isVirtual: true },
+    { id: "oh-2", facultyId: "fac-alice", dayOfWeek: 3, startTime: "14:00", endTime: "15:00", location: "Virtual", isVirtual: true },
+    { id: "oh-3", facultyId: "fac-bob", dayOfWeek: 2, startTime: "09:00", endTime: "10:00", location: "Room 201", isVirtual: false },
+    { id: "oh-4", facultyId: "fac-carol", dayOfWeek: 4, startTime: "13:00", endTime: "14:00", location: "Virtual", isVirtual: true },
+    { id: "oh-5", facultyId: "fac-dave", dayOfWeek: 1, startTime: "15:00", endTime: "16:00", location: "Virtual", isVirtual: true },
+    { id: "oh-6", facultyId: "fac-eve", dayOfWeek: 5, startTime: "11:00", endTime: "12:00", location: "Room 305", isVirtual: false },
+    { id: "oh-7", facultyId: "fac-grace", dayOfWeek: 3, startTime: "10:00", endTime: "11:30", location: "Virtual", isVirtual: true },
+    { id: "oh-8", facultyId: "fac-iris", dayOfWeek: 2, startTime: "14:00", endTime: "15:00", location: "Virtual", isVirtual: true },
+    { id: "oh-9", facultyId: "fac-jack", dayOfWeek: 4, startTime: "09:00", endTime: "10:00", location: "Room 102", isVirtual: false },
+    { id: "oh-10", facultyId: "fac-kate", dayOfWeek: 1, startTime: "13:00", endTime: "14:00", location: "Virtual", isVirtual: true },
+    { id: "oh-11", facultyId: "fac-leo", dayOfWeek: 5, startTime: "15:00", endTime: "16:00", location: "Virtual", isVirtual: true },
+    { id: "oh-12", facultyId: "fac-frank", dayOfWeek: 3, startTime: "16:00", endTime: "17:00", location: "Virtual", isVirtual: true },
+  ];
+  let ohCount = 0;
+  for (const oh of OFFICE_HOURS) {
+    await db.insert(officeHours).values({
+      id: oh.id,
+      facultyId: oh.facultyId,
+      dayOfWeek: oh.dayOfWeek,
+      startTime: oh.startTime,
+      endTime: oh.endTime,
+      location: oh.location,
+      isVirtual: oh.isVirtual,
+    }).onConflictDoNothing();
+    ohCount++;
+  }
+  console.log(`  ${ohCount} office hours`);
 
   console.log("University seed complete.");
 }

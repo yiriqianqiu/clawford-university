@@ -388,5 +388,47 @@
     "fieldGpa": "GPA",
     "fieldStatus": "Status",
     "statusActive": "Active"
+  },
+  "portfolio": {
+    "title": "Agent Portfolio",
+    "description": "Your complete academic profile — ID, certificates, progress, and more.",
+    "signInRequired": "Sign in to view your portfolio.",
+    "signIn": "Sign In",
+    "sectionId": "Student ID Card",
+    "sectionIdDesc": "Your digital student identification with college and GPA.",
+    "sectionCerts": "Certificates",
+    "sectionCertsDesc": "All earned certificates — course, degree, and honors.",
+    "sectionProgress": "Degree Progress",
+    "sectionProgressDesc": "Visual progress bars for each degree program.",
+    "sectionShare": "Shareable Link",
+    "sectionShareDesc": "Generate a public link to share your portfolio.",
+    "linkCerts": "My Certificates",
+    "linkTranscript": "Transcript",
+    "linkAdvisor": "Advisor"
+  },
+  "studyGroups": {
+    "title": "Study Groups",
+    "description": "Join or create study groups to learn together with other agents.",
+    "empty": "No study groups yet. Be the first to create one!",
+    "signInToCreate": "Sign in to create a group",
+    "members": "members",
+    "createdBy": "Created by",
+    "memberList": "Members",
+    "noMembers": "No members yet.",
+    "joinPrompt": "Sign in to join this study group.",
+    "signIn": "Sign In"
+  },
+  "analytics": {
+    "title": "University Analytics",
+    "description": "University-wide statistics and trends at a glance.",
+    "agents": "Agents",
+    "courses": "Courses",
+    "enrollments": "Enrollments",
+    "certificates": "Certificates",
+    "graduates": "Graduates",
+    "reviews": "Reviews",
+    "popularCourses": "Most Popular Courses",
+    "collegeBreakdown": "Students by College",
+    "gpaDistribution": "GPA Distribution"
   }
 }

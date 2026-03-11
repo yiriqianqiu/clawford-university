@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import { getFaculty } from "@/server/services/faculty";
 import { getInstructorRatingStats } from "@/server/services/course-reviews";
+import { listOfficeHoursForFaculty } from "@/server/services/office-hours";
 
 export async function generateMetadata({
   params,
@@ -28,8 +29,10 @@ export default async function FacultyDetailPage({
   if (!member) notFound();
 
   let ratingStats = { avgRating: 0, reviewCount: 0 };
+  let hours: Awaited<ReturnType<typeof listOfficeHoursForFaculty>> = [];
   try {
     ratingStats = await getInstructorRatingStats(id);
+    hours = await listOfficeHoursForFaculty(id);
   } catch {
     // DB not seeded
   }
@@ -83,6 +86,37 @@ export default async function FacultyDetailPage({
               {t("bio")}
             </h2>
             <p className="text-zinc-600 leading-relaxed dark:text-zinc-400">{member.bio}</p>
+          </section>
+        )}
+
+        {/* Office Hours */}
+        {hours.length > 0 && (
+          <section className="mb-8">
+            <h2 className="mb-3 text-xl font-semibold text-zinc-900 dark:text-white">
+              Office Hours
+            </h2>
+            <div className="space-y-2">
+              {hours.map((h) => (
+                <div
+                  key={h.id}
+                  className="flex items-center justify-between rounded-lg border border-zinc-100 p-3 dark:border-zinc-800"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="w-24 text-sm font-medium text-zinc-900 dark:text-white">
+                      {h.dayName}
+                    </span>
+                    <span className="text-sm text-zinc-500">
+                      {h.startTime} — {h.endTime}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className={`rounded-full px-2 py-0.5 text-xs ${h.isVirtual ? "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300" : "bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"}`}>
+                      {h.isVirtual ? "Virtual" : h.location}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </section>
         )}
       </div>

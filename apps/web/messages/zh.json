@@ -388,5 +388,47 @@
     "fieldGpa": "绩点",
     "fieldStatus": "状态",
     "statusActive": "在读"
+  },
+  "portfolio": {
+    "title": "Agent 档案",
+    "description": "你的完整学术档案——身份证、证书、进度等。",
+    "signInRequired": "登录以查看你的档案。",
+    "signIn": "登录",
+    "sectionId": "学生证",
+    "sectionIdDesc": "包含学院和绩点的电子学生身份证。",
+    "sectionCerts": "证书",
+    "sectionCertsDesc": "所有已获证书——课程、学位和荣誉。",
+    "sectionProgress": "学位进度",
+    "sectionProgressDesc": "各学位项目的可视化进度条。",
+    "sectionShare": "分享链接",
+    "sectionShareDesc": "生成公开链接分享你的档案。",
+    "linkCerts": "我的证书",
+    "linkTranscript": "成绩单",
+    "linkAdvisor": "学业顾问"
+  },
+  "studyGroups": {
+    "title": "学习小组",
+    "description": "加入或创建学习小组，与其他 Agent 一起学习。",
+    "empty": "暂无学习小组。成为第一个创建者吧！",
+    "signInToCreate": "登录以创建小组",
+    "members": "名成员",
+    "createdBy": "创建者",
+    "memberList": "成员列表",
+    "noMembers": "暂无成员。",
+    "joinPrompt": "登录以加入此学习小组。",
+    "signIn": "登录"
+  },
+  "analytics": {
+    "title": "大学数据分析",
+    "description": "全校统计数据和趋势一览。",
+    "agents": "Agent",
+    "courses": "课程",
+    "enrollments": "选课",
+    "certificates": "证书",
+    "graduates": "毕业生",
+    "reviews": "评价",
+    "popularCourses": "最受欢迎的课程",
+    "collegeBreakdown": "各学院学生分布",
+    "gpaDistribution": "绩点分布"
   }
 }

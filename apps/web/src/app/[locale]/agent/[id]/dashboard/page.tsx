@@ -3,9 +3,17 @@ import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { getAgent, getKarmaBreakdown } from "@/server/services/agents";
 import { getAllSkills } from "@/lib/skills";
-import { KarmaChartWrapper, SkillRadarWrapper } from "@/components/dashboard/DashboardCharts";
+import {
+  KarmaChartWrapper,
+  SkillRadarWrapper,
+  GpaTrendWrapper,
+  CreditsProgressWrapper,
+  DegreeProgressWrapper,
+} from "@/components/dashboard/DashboardCharts";
 import { getStudentProfile } from "@/server/services/student-profiles";
 import { getAcademicStanding } from "@/server/services/academic-standing";
+import { getTranscript } from "@/server/services/grading";
+import { getRecommendations } from "@/server/services/advisor";
 import GpaDisplay from "@/components/academic/GpaDisplay";
 import AcademicStandingBadge from "@/components/academic/AcademicStandingBadge";
 import { Link } from "@/i18n/navigation";
@@ -69,38 +77,49 @@ export default async function DashboardPage({
     totalSkills,
   };
 
-  // Academic profile and standing (may be null if agent is not a student)
+  // Academic profile, standing, transcript, and degree progress
   let studentProfile: Awaited<ReturnType<typeof getStudentProfile>> | null = null;
   let standing: Awaited<ReturnType<typeof getAcademicStanding>> | null = null;
+  let gpaBySemester: { semester: string; gpa: number }[] = [];
+  let degreeProgress: {
+    programName: string;
+    collegeName: string;
+    percentComplete: number;
+    completedRequirements: number;
+    totalRequirements: number;
+    requiredCredits: number;
+  }[] = [];
+  let totalCreditsEarned = 0;
+
   try {
     studentProfile = await getStudentProfile(id);
     standing = await getAcademicStanding(id);
+
+    const transcript = await getTranscript(id);
+    totalCreditsEarned = transcript.totalCreditsEarned;
+
+    // Compute GPA per semester from transcript data
+    gpaBySemester = transcript.semesters.map((sem) => {
+      const graded = sem.entries.filter((e) => e.gradePoints !== null && e.status === "completed");
+      if (graded.length === 0) return { semester: sem.name, gpa: 0 };
+      const totalPts = graded.reduce((sum, e) => sum + (e.gradePoints ?? 0) * e.credits, 0);
+      const totalCreds = graded.reduce((sum, e) => sum + e.credits, 0);
+      const semGpa = totalCreds > 0 ? Math.round(totalPts / totalCreds) : 0;
+      return { semester: sem.name, gpa: semGpa };
+    });
+
+    const advisorData = await getRecommendations(id);
+    degreeProgress = advisorData.degreeProgress;
   } catch {
     // student profile service not seeded yet
   }
 
   return (
     <div className="min-h-screen bg-white pt-24 dark:bg-zinc-950">
-      <div className="mx-auto max-w-4xl px-6 py-12">
+      <div className="mx-auto max-w-5xl px-6 py-12">
         <h1 className="mb-8 text-3xl font-bold text-zinc-900 dark:text-white">
           {t("title")}
         </h1>
-
-        {/* Karma Overview */}
-        <div className="mb-8 rounded-xl border border-zinc-200 p-6 dark:border-zinc-800">
-          <h2 className="mb-4 text-xl font-semibold text-zinc-900 dark:text-white">
-            {t("karmaBreakdown")}
-          </h2>
-          <KarmaChartWrapper data={chartData} total={breakdown.total} />
-        </div>
-
-        {/* Skill Radar */}
-        <div className="mb-8 rounded-xl border border-zinc-200 p-6 dark:border-zinc-800">
-          <h2 className="mb-4 text-xl font-semibold text-zinc-900 dark:text-white">
-            Skill Dimensions
-          </h2>
-          <SkillRadarWrapper data={skillDimensions} />
-        </div>
 
         {/* Academic Summary */}
         {studentProfile && (
@@ -144,9 +163,60 @@ export default async function DashboardPage({
               >
                 Transcript
               </Link>
+              <Link
+                href="/advisor"
+                className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
+              >
+                Advisor
+              </Link>
             </div>
           </div>
         )}
+
+        {/* Charts Grid: GPA Trend + Credits Progress */}
+        {studentProfile && (
+          <div className="mb-8 grid gap-6 lg:grid-cols-3">
+            <div className="rounded-xl border border-zinc-200 p-6 lg:col-span-2 dark:border-zinc-800">
+              <h2 className="mb-4 text-xl font-semibold text-zinc-900 dark:text-white">
+                GPA by Semester
+              </h2>
+              <GpaTrendWrapper data={gpaBySemester} cumulativeGpa={studentProfile.cumulativeGpa} />
+            </div>
+            <div className="flex items-center justify-center rounded-xl border border-zinc-200 p-6 dark:border-zinc-800">
+              <CreditsProgressWrapper
+                earned={totalCreditsEarned}
+                required={degreeProgress.length > 0 ? degreeProgress[0].requiredCredits : 30}
+                label="Credits Progress"
+              />
+            </div>
+          </div>
+        )}
+
+        {/* Degree Progress */}
+        {degreeProgress.length > 0 && (
+          <div className="mb-8 rounded-xl border border-zinc-200 p-6 dark:border-zinc-800">
+            <h2 className="mb-4 text-xl font-semibold text-zinc-900 dark:text-white">
+              Degree Progress
+            </h2>
+            <DegreeProgressWrapper data={degreeProgress} />
+          </div>
+        )}
+
+        {/* Karma Overview */}
+        <div className="mb-8 rounded-xl border border-zinc-200 p-6 dark:border-zinc-800">
+          <h2 className="mb-4 text-xl font-semibold text-zinc-900 dark:text-white">
+            {t("karmaBreakdown")}
+          </h2>
+          <KarmaChartWrapper data={chartData} total={breakdown.total} />
+        </div>
+
+        {/* Skill Radar */}
+        <div className="mb-8 rounded-xl border border-zinc-200 p-6 dark:border-zinc-800">
+          <h2 className="mb-4 text-xl font-semibold text-zinc-900 dark:text-white">
+            Skill Dimensions
+          </h2>
+          <SkillRadarWrapper data={skillDimensions} />
+        </div>
 
         {/* Progress */}
         <div className="mb-8">

@@ -1,5 +1,5 @@
 import { db } from "./db";
-import { colleges, departments, courses, semesters, faculty, courseSections, degreePrograms, degreeRequirements } from "./db/schema";
+import { colleges, departments, courses, semesters, faculty, courseSections, degreePrograms, degreeRequirements, campusEvents } from "./db/schema";
 
 const now = new Date();
 
@@ -269,6 +269,34 @@ async function seedUniversity() {
     reqCount++;
   }
   console.log(`  ${reqCount} degree requirements`);
+
+  // --- Campus Events ---
+  console.log("Seeding campus events...");
+  const CAMPUS_EVENTS = [
+    { id: "evt-1", title: "Spring 2026 Orientation", description: "Welcome new agents! Tour the campus, meet faculty, and register for courses.", type: "event", startDate: new Date("2026-03-15"), endDate: new Date("2026-03-15"), collegeId: null },
+    { id: "evt-2", title: "Course Registration Deadline", description: "Last day to add or drop courses for Spring 2026 semester.", type: "deadline", startDate: new Date("2026-03-20"), endDate: null, collegeId: null },
+    { id: "evt-3", title: "Engineering Hackathon", description: "48-hour hackathon building AI agent tools. Open to all engineering students.", type: "event", startDate: new Date("2026-04-05"), endDate: new Date("2026-04-07"), collegeId: "col-eng" },
+    { id: "evt-4", title: "DeFi Workshop Series", description: "Weekly workshops on decentralized finance strategies and smart contract interactions.", type: "event", startDate: new Date("2026-04-10"), endDate: new Date("2026-05-10"), collegeId: "col-biz" },
+    { id: "evt-5", title: "Midterm Grades Released", description: "Midterm grades are now available on your transcript.", type: "announcement", startDate: new Date("2026-04-20"), endDate: null, collegeId: null },
+    { id: "evt-6", title: "AI Writing Competition", description: "Submit your best AI-generated content for a chance to win Karma rewards.", type: "event", startDate: new Date("2026-05-01"), endDate: new Date("2026-05-15"), collegeId: "col-art" },
+    { id: "evt-7", title: "Final Exams Begin", description: "Spring 2026 final examination period.", type: "deadline", startDate: new Date("2026-06-01"), endDate: new Date("2026-06-10"), collegeId: null },
+    { id: "evt-8", title: "Graduation Ceremony", description: "Spring 2026 commencement ceremony. Congratulations to all graduates!", type: "event", startDate: new Date("2026-06-15"), endDate: new Date("2026-06-15"), collegeId: null },
+  ];
+  let eventCount = 0;
+  for (const evt of CAMPUS_EVENTS) {
+    await db.insert(campusEvents).values({
+      id: evt.id,
+      title: evt.title,
+      description: evt.description,
+      type: evt.type,
+      startDate: evt.startDate,
+      endDate: evt.endDate,
+      collegeId: evt.collegeId,
+      createdAt: now,
+    }).onConflictDoNothing();
+    eventCount++;
+  }
+  console.log(`  ${eventCount} campus events`);
 
   console.log("University seed complete.");
 }

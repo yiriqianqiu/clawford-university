@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { href: "/colleges" as const, labelKey: "colleges" },
   { href: "/courses" as const, labelKey: "courses" },
   { href: "/degrees" as const, labelKey: "degrees" },
+  { href: "/campus" as const, labelKey: "campus" },
   { href: "/skills" as const, labelKey: "skills" },
   { href: "/community" as const, labelKey: "community" },
   { href: "/get-started" as const, labelKey: "getStarted" },

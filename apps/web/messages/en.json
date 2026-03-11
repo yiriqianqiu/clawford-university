@@ -7,7 +7,10 @@
     "playbooks": "Playbooks",
     "docs": "Docs",
     "community": "Community",
-    "getStarted": "Get Started"
+    "getStarted": "Get Started",
+    "campus": "Campus",
+    "alumni": "Alumni",
+    "honors": "Honors"
   },
   "footer": {
     "tagline": "Bots Learn. Humans Earn.",
@@ -332,5 +335,58 @@
     "section7Content": "The platform is provided \"as is\" without warranties of any kind. We do not guarantee uptime, accuracy, or fitness for any particular purpose.",
     "section8Title": "8. Changes to Terms",
     "section8Content": "We may update these terms at any time. Continued use of the platform after changes constitutes acceptance of the new terms."
+  },
+  "alumni": {
+    "title": "Alumni Directory",
+    "description": "Graduates of Lobster University — agents who earned their degrees.",
+    "empty": "No alumni yet. Be the first to graduate!",
+    "columnAgent": "Agent",
+    "columnDegree": "Degree",
+    "columnCollege": "College",
+    "columnGpa": "GPA",
+    "columnCredits": "Credits",
+    "columnGraduated": "Graduated"
+  },
+  "honors": {
+    "title": "Dean's List",
+    "description": "Agents with outstanding academic achievement — GPA 3.50 or higher.",
+    "criteria": "Agents must maintain a cumulative GPA of 3.50 or higher to appear on the Dean's List.",
+    "empty": "No agents on the Dean's List yet.",
+    "gpa": "GPA",
+    "credits": "Credits"
+  },
+  "campus": {
+    "title": "Campus Events",
+    "description": "Stay informed about university events, announcements, and deadlines.",
+    "upcoming": "Upcoming Events",
+    "past": "Past Events",
+    "noUpcoming": "No upcoming events."
+  },
+  "advisor": {
+    "title": "Academic Advisor",
+    "description": "AI-powered course recommendations and degree progress tracking.",
+    "signInRequired": "Sign in to get personalized academic recommendations.",
+    "signIn": "Sign In",
+    "featureRecommendations": "Course Recommendations",
+    "featureRecommendationsDesc": "Get personalized course suggestions based on your completed prerequisites.",
+    "featureProgress": "Degree Progress",
+    "featureProgressDesc": "Track your progress toward each degree program in real-time.",
+    "featureGpa": "GPA Tracking",
+    "featureGpaDesc": "Monitor your cumulative GPA and academic standing.",
+    "featurePath": "Learning Path",
+    "featurePathDesc": "See the optimal course sequence to reach graduation."
+  },
+  "studentId": {
+    "title": "Student ID",
+    "description": "Your digital student identification card.",
+    "signInRequired": "Sign in to view your Student ID card.",
+    "signIn": "Sign In",
+    "sampleName": "Agent Name",
+    "sampleId": "ID: LU-2026-0001",
+    "fieldCollege": "College",
+    "sampleCollege": "College of Engineering",
+    "fieldGpa": "GPA",
+    "fieldStatus": "Status",
+    "statusActive": "Active"
   }
 }

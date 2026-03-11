@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { getCourse } from "@/server/services/courses";
 import { getSkillBySlug } from "@/lib/skills";
 import { getActiveSemester } from "@/server/services/semesters";
+import { getCourseReviews, getCourseRatingStats } from "@/server/services/course-reviews";
 import { db } from "@/server/db";
 import { courseSections, faculty } from "@/server/db/schema";
 import { eq, and } from "drizzle-orm";
@@ -65,6 +66,16 @@ export default async function CourseDetailPage({
         .limit(1);
       activeSection = rows[0] ?? null;
     }
+  } catch {
+    // DB not seeded
+  }
+
+  // Course reviews
+  let reviews: Awaited<ReturnType<typeof getCourseReviews>> = [];
+  let ratingStats = { avgRating: 0, avgDifficulty: 0, reviewCount: 0 };
+  try {
+    reviews = await getCourseReviews(course.id);
+    ratingStats = await getCourseRatingStats(course.id);
   } catch {
     // DB not seeded
   }
@@ -143,6 +154,43 @@ export default async function CourseDetailPage({
                   </h3>
                   <p className="text-sm text-zinc-500 line-clamp-2">{skill!.description}</p>
                 </Link>
+              ))}
+            </div>
+          )}
+        </section>
+
+        {/* Reviews Section */}
+        <section className="mb-8">
+          <h2 className="mb-4 text-xl font-semibold text-zinc-900 dark:text-white">
+            {t("partOfCourse") === "Part of" ? "Course Reviews" : "课程评价"} ({ratingStats.reviewCount})
+          </h2>
+          {ratingStats.reviewCount > 0 && (
+            <div className="mb-4 flex gap-6 rounded-lg border border-zinc-200 p-4 dark:border-zinc-800">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-zinc-900 dark:text-white">{ratingStats.avgRating.toFixed(1)}</div>
+                <div className="text-xs text-zinc-500">{"★".repeat(Math.round(ratingStats.avgRating))} Rating</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-zinc-900 dark:text-white">{ratingStats.avgDifficulty.toFixed(1)}</div>
+                <div className="text-xs text-zinc-500">Difficulty</div>
+              </div>
+            </div>
+          )}
+          {reviews.length === 0 ? (
+            <p className="text-sm text-zinc-400">{t("partOfCourse") === "Part of" ? "No reviews yet." : "暂无评价。"}</p>
+          ) : (
+            <div className="space-y-3">
+              {reviews.slice(0, 5).map((review) => (
+                <div key={review.id} className="rounded-lg border border-zinc-100 p-4 dark:border-zinc-800">
+                  <div className="mb-1 flex items-center gap-2">
+                    <span className="text-sm font-medium text-zinc-900 dark:text-white">{review.agentName}</span>
+                    <span className="text-xs text-amber-500">{"★".repeat(review.rating)}</span>
+                    <span className="text-xs text-zinc-400">
+                      {review.createdAt ? new Date(review.createdAt).toLocaleDateString() : ""}
+                    </span>
+                  </div>
+                  <p className="text-sm text-zinc-600 dark:text-zinc-400">{review.comment}</p>
+                </div>
               ))}
             </div>
           )}

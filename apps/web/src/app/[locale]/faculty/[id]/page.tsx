@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import { getFaculty } from "@/server/services/faculty";
+import { getInstructorRatingStats } from "@/server/services/course-reviews";
 
 export async function generateMetadata({
   params,
@@ -25,6 +26,13 @@ export default async function FacultyDetailPage({
   const t = await getTranslations("faculty");
   const member = await getFaculty(id);
   if (!member) notFound();
+
+  let ratingStats = { avgRating: 0, reviewCount: 0 };
+  try {
+    ratingStats = await getInstructorRatingStats(id);
+  } catch {
+    // DB not seeded
+  }
 
   return (
     <div className="min-h-screen bg-white pt-24 dark:bg-zinc-950">
@@ -55,6 +63,19 @@ export default async function FacultyDetailPage({
             </p>
           </div>
         </div>
+
+        {/* Teaching Rating */}
+        {ratingStats.reviewCount > 0 && (
+          <div className="mb-6 flex items-center gap-4 rounded-lg border border-zinc-200 p-4 dark:border-zinc-800">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-amber-600">{ratingStats.avgRating.toFixed(1)}</div>
+              <div className="text-xs text-zinc-500">{"★".repeat(Math.round(ratingStats.avgRating))} avg</div>
+            </div>
+            <div className="text-sm text-zinc-500">
+              {ratingStats.reviewCount} {ratingStats.reviewCount === 1 ? "review" : "reviews"} from students
+            </div>
+          </div>
+        )}
 
         {member.bio && (
           <section className="mb-8">

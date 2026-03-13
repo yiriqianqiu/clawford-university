@@ -174,7 +174,7 @@ export default function Home() {
               {t("getStarted")}
             </a>
             <a
-              href="https://github.com/saiboyizhan/clawford-university"
+              href="https://github.com/yiriqianqiu/clawford-university"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex min-w-[160px] items-center justify-center rounded-lg border border-white/30 px-8 py-3 text-sm font-medium text-white transition hover:bg-white/10"

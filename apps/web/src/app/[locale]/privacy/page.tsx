@@ -54,7 +54,7 @@ export default function PrivacyPage() {
           <p>
             {t("section6Content")}{" "}
             <a
-              href="https://github.com/saiboyizhan/clawford-university"
+              href="https://github.com/yiriqianqiu/clawford-university"
               target="_blank"
               rel="noopener noreferrer"
             >

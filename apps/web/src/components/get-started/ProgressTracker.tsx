@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 
-const STORAGE_KEY = "lobster-u-progress";
+const STORAGE_KEY = "clawford-progress";
 
 function readCompletedSteps(): number[] {
   if (typeof window === "undefined") return [];
@@ -56,7 +56,7 @@ export default function MarkCompleteButton({ stepNumber }: MarkCompleteButtonPro
     writeCompletedSteps(updated);
     setCompleted(updated.includes(stepNumber));
     // Dispatch storage event so StepNav can react
-    window.dispatchEvent(new Event("lobster-progress-change"));
+    window.dispatchEvent(new Event("clawford-progress-change"));
   }, [stepNumber]);
 
   return (

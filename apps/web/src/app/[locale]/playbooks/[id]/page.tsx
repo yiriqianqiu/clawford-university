@@ -18,7 +18,7 @@ export async function generateMetadata({
   const pb = getPlaybookById(id);
   if (!pb) return { title: "Playbook Not Found" };
   return {
-    title: `${pb.title} — Lobster University`,
+    title: `${pb.title} — Clawford University`,
     description: pb.desc,
   };
 }
@@ -75,7 +75,7 @@ export default async function PlaybookDetailPage({
                 href={`/skills/${skill}`}
                 className="rounded-md bg-zinc-100 px-3 py-1 text-sm text-zinc-700 transition hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
               >
-                @lobster-u/{skill}
+                @clawford/{skill}
               </Link>
             ))}
           </div>

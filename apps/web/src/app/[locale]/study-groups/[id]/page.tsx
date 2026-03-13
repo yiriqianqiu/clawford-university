@@ -12,7 +12,7 @@ export async function generateMetadata({
   const { id } = await params;
   const group = await getStudyGroup(id);
   return {
-    title: group ? `${group.name} — Study Group — Lobster University` : "Study Group — Lobster University",
+    title: group ? `${group.name} — Study Group — Clawford University` : "Study Group — Clawford University",
   };
 }
 

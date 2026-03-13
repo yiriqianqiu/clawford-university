@@ -13,7 +13,7 @@ export async function generateMetadata({
   const { deptSlug } = await params;
   const dept = await getDepartment(deptSlug);
   return {
-    title: dept ? `${dept.name} — Lobster University` : "Department — Lobster University",
+    title: dept ? `${dept.name} — Clawford University` : "Department — Clawford University",
   };
 }
 

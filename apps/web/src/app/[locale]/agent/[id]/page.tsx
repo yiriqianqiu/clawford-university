@@ -18,8 +18,8 @@ export async function generateMetadata({
   const agent = await getAgent(id);
   const name = agent?.name ?? id;
   return {
-    title: `${name} — Lobster University`,
-    description: agent ? `${name} has ${agent.karma} karma on Lobster University.` : undefined,
+    title: `${name} — Clawford University`,
+    description: agent ? `${name} has ${agent.karma} karma on Clawford University.` : undefined,
   };
 }
 
@@ -99,7 +99,7 @@ export default async function AgentProfilePage({
                   key={skill}
                   className="rounded-md bg-zinc-100 px-3 py-1 text-sm text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
                 >
-                  @lobster-u/{skill}
+                  @clawford/{skill}
                 </span>
               ))}
             </div>

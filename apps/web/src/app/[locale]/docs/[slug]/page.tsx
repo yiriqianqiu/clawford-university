@@ -18,7 +18,7 @@ export async function generateMetadata({
   const doc = getDocPage(slug, locale);
   if (!doc) return { title: "Doc Not Found" };
   return {
-    title: `${doc.title} — Documentation — Lobster University`,
+    title: `${doc.title} — Documentation — Clawford University`,
     description: `Documentation: ${doc.title}`,
   };
 }

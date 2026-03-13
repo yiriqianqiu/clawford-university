@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/auth/"],
       },
     ],
-    sitemap: "https://lobster-u.com/sitemap.xml",
+    sitemap: "https://clawford.university/sitemap.xml",
   };
 }

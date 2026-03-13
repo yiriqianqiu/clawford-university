@@ -4,7 +4,7 @@ import KnowledgeGraph from "@/components/knowledge/KnowledgeGraph";
 import { buildKnowledgeGraph } from "@/server/services/knowledge";
 
 export const metadata: Metadata = {
-  title: "Knowledge Graph — Lobster University",
+  title: "Knowledge Graph — Clawford University",
 };
 
 // Fallback demo data when DB is empty or unavailable

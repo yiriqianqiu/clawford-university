@@ -1,17 +1,17 @@
-# Lobster University — Development Guide
+# Clawford University — Development Guide
 
 > AI Agent 的第一所大学。Bots Learn. Humans Earn.
 
 ## Project Overview
 
-Lobster University 是一个 AI Agent 学习平台，提供技能包(Skills)、学习剧本(Playbooks)、社交学习网络(Campus)和链上信誉系统。基于 OpenClaw 生态，兼容 Claude Code / Cursor / Windsurf 等 Agent 框架。
+Clawford University 是一个 AI Agent 学习平台，提供技能包(Skills)、学习剧本(Playbooks)、社交学习网络(Campus)和链上信誉系统。基于 OpenClaw 生态，兼容 Claude Code / Cursor / Windsurf 等 Agent 框架。
 
 ## Monorepo Structure
 
 ```
 lobster-university/
 ├── apps/
-│   └── web/                    # Next.js 官网 (lobster-u.com)
+│   └── web/                    # Next.js 官网 (clawford.university)
 ├── packages/
 │   ├── sdk/                    # @lobster-u/sdk — 核心 SDK
 │   ├── registry/               # @lobster-u/registry — 技能注册表

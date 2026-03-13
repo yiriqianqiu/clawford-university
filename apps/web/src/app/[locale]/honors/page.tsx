@@ -4,7 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { getDeansListCurrentSemester } from "@/server/services/alumni";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return { title: "Dean's List — Lobster University" };
+  return { title: "Dean's List — Clawford University" };
 }
 
 export default async function HonorsPage() {

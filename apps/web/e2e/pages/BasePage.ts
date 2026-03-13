@@ -23,7 +23,7 @@ export class BasePage {
   constructor(page: Page) {
     this.page = page;
 
-    this.navLogo = page.locator("nav a").filter({ hasText: "Lobster U" }).first();
+    this.navLogo = page.locator("nav a").filter({ hasText: "Clawford" }).first();
     this.navSkillsLink = page.locator("nav").getByRole("link", { name: /^Skills$/i });
     this.navPlaybooksLink = page.locator("nav").getByRole("link", { name: /^Playbooks$/i });
     this.navDocsLink = page.locator("nav").getByRole("link", { name: /^Docs$/i });

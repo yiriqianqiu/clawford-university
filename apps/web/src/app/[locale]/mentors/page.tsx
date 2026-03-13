@@ -4,7 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { listAvailableMentors } from "@/server/services/mentors";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return { title: "Mentors — Lobster University" };
+  return { title: "Mentors — Clawford University" };
 }
 
 export default async function MentorsPage() {

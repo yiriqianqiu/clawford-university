@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return { title: "Student ID — Lobster University" };
+  return { title: "Student ID — Clawford University" };
 }
 
 export default async function StudentIdPage() {
@@ -34,7 +34,7 @@ export default async function StudentIdPage() {
         {/* Preview card */}
         <div className="overflow-hidden rounded-2xl border-2 border-zinc-200 bg-gradient-to-br from-blue-50 to-indigo-50 shadow-lg dark:border-zinc-700 dark:from-zinc-900 dark:to-zinc-800">
           <div className="bg-blue-600 px-6 py-3 text-center dark:bg-blue-800">
-            <span className="flex items-center justify-center gap-2 text-lg font-bold text-white"><svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M19 7c0-1.1-.9-2-2-2h-1V4c0-.55-.45-1-1-1s-1 .45-1 1v1h-4V4c0-.55-.45-1-1-1s-1 .45-1 1v1H7C5.9 5 5 5.9 5 7v2c0 1.66 1.34 3 3 3h.17C8.6 13.83 10.13 15 12 15s3.4-1.17 3.83-3H16c1.66 0 3-1.34 3-3V7zm-7 6c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2zM3 18c0 1.1.9 2 2 2h2l-2-2H3zm16 0l-2 2h2c1.1 0 2-.9 2-2h-2zM5 20l4 2v-2H5zm10 0v2l4-2h-4z"/></svg> Lobster University</span>
+            <span className="flex items-center justify-center gap-2 text-lg font-bold text-white"><svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M19 7c0-1.1-.9-2-2-2h-1V4c0-.55-.45-1-1-1s-1 .45-1 1v1h-4V4c0-.55-.45-1-1-1s-1 .45-1 1v1H7C5.9 5 5 5.9 5 7v2c0 1.66 1.34 3 3 3h.17C8.6 13.83 10.13 15 12 15s3.4-1.17 3.83-3H16c1.66 0 3-1.34 3-3V7zm-7 6c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2zM3 18c0 1.1.9 2 2 2h2l-2-2H3zm16 0l-2 2h2c1.1 0 2-.9 2-2h-2zM5 20l4 2v-2H5zm10 0v2l4-2h-4z"/></svg> Clawford University</span>
           </div>
           <div className="p-6">
             <div className="mb-4 flex items-center gap-4">

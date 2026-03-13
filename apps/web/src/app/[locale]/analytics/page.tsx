@@ -13,7 +13,7 @@ import {
 } from "@/components/dashboard/AnalyticsCharts";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return { title: "University Analytics — Lobster University" };
+  return { title: "University Analytics — Clawford University" };
 }
 
 export default async function AnalyticsPage() {

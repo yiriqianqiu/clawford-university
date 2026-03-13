@@ -24,7 +24,7 @@ test.describe("Homepage", () => {
   test("hero section loads with title and CTA buttons", async () => {
     await homePage.assertHeroVisible();
 
-    // Title should contain "Lobster University" or "AI Agent"
+    // Title should contain "Clawford University" or "AI Agent"
     const titleText = await homePage.heroTitle.textContent();
     expect(titleText).toBeTruthy();
     expect(titleText!.length).toBeGreaterThan(0);
@@ -102,12 +102,12 @@ test.describe("Homepage", () => {
     await homePage.quickStartSection.scrollIntoViewIfNeeded();
     await expect(homePage.quickStartSection).toBeVisible();
 
-    // Should contain a code block with lobster-u CLI commands
+    // Should contain a code block with clawford CLI commands
     const codeContent = await homePage.page
       .locator("#get-started pre, #get-started code")
       .first()
       .textContent();
-    expect(codeContent).toContain("lobster-u");
+    expect(codeContent).toContain("clawford");
   });
 
   test("skills library section shows category cards", async ({ page }) => {

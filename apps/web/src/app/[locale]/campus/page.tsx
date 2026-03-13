@@ -4,7 +4,7 @@ import { listUpcomingEvents, listAllEvents } from "@/server/services/campus-even
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("campus");
-  return { title: `${t("title")} — Lobster University` };
+  return { title: `${t("title")} — Clawford University` };
 }
 
 function eventTypeIcon(type: string) {

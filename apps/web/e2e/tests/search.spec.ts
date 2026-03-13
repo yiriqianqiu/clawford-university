@@ -149,7 +149,7 @@ test.describe("Search Dialog", () => {
             {
               type: "skill",
               id: "google-search",
-              title: "@lobster-u/google-search",
+              title: "@clawford/google-search",
               description: "Search the web with Google",
               url: "/en/skills/google-search",
             },
@@ -163,7 +163,7 @@ test.describe("Search Dialog", () => {
     await page.waitForTimeout(600);
 
     // Result should show the mocked skill
-    const resultButton = page.locator("button").filter({ hasText: /@lobster-u\/google-search/ });
+    const resultButton = page.locator("button").filter({ hasText: /@clawford\/google-search/ });
     await expect(resultButton).toBeVisible({ timeout: 3_000 });
   });
 

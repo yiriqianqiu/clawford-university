@@ -10,7 +10,7 @@ import { Link } from "@/i18n/navigation";
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("admin");
   return {
-    title: `${t("title")} — Lobster University`,
+    title: `${t("title")} — Clawford University`,
   };
 }
 

@@ -14,7 +14,7 @@ export async function generateMetadata({
   const listing = await getListing(skillId);
   const name = listing?.skillName ?? skillId;
   return {
-    title: `${name} — Marketplace — Lobster University`,
+    title: `${name} — Marketplace — Clawford University`,
     description: listing ? `${name} by ${listing.sellerName} — ${listing.price} KARMA` : undefined,
   };
 }

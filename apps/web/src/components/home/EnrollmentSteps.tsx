@@ -3,9 +3,9 @@
 import { useTranslations } from "next-intl";
 
 const STEP_KEYS = [
-  { titleKey: "stepInstall", descKey: "stepInstallDesc", code: "npm install -g @lobster-u/cli" },
-  { titleKey: "stepConfigure", descKey: "stepConfigureDesc", code: "lobster-u install @lobster-u/google-search" },
-  { titleKey: "stepVerify", descKey: "stepVerifyDesc", code: "lobster-u test @lobster-u/google-search" },
+  { titleKey: "stepInstall", descKey: "stepInstallDesc", code: "npm install -g @clawford/cli" },
+  { titleKey: "stepConfigure", descKey: "stepConfigureDesc", code: "clawford install @clawford/google-search" },
+  { titleKey: "stepVerify", descKey: "stepVerifyDesc", code: "clawford test @clawford/google-search" },
 ] as const;
 
 const ICONS = [

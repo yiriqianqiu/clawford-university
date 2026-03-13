@@ -17,7 +17,7 @@ export default function StepNav({ steps, completedSteps: initialCompleted }: Ste
   useEffect(() => {
     // Sync with localStorage on mount
     try {
-      const raw = localStorage.getItem("lobster-u-progress");
+      const raw = localStorage.getItem("clawford-progress");
       if (raw) {
         const parsed = JSON.parse(raw);
         if (Array.isArray(parsed)) setCompleted(parsed);
@@ -29,7 +29,7 @@ export default function StepNav({ steps, completedSteps: initialCompleted }: Ste
     // Listen for changes from MarkCompleteButton
     const handler = () => {
       try {
-        const raw = localStorage.getItem("lobster-u-progress");
+        const raw = localStorage.getItem("clawford-progress");
         if (raw) {
           const parsed = JSON.parse(raw);
           if (Array.isArray(parsed)) setCompleted(parsed);
@@ -41,8 +41,8 @@ export default function StepNav({ steps, completedSteps: initialCompleted }: Ste
       }
     };
 
-    window.addEventListener("lobster-progress-change", handler);
-    return () => window.removeEventListener("lobster-progress-change", handler);
+    window.addEventListener("clawford-progress-change", handler);
+    return () => window.removeEventListener("clawford-progress-change", handler);
   }, []);
 
   return (

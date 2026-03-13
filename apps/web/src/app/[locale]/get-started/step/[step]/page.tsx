@@ -21,7 +21,7 @@ export async function generateMetadata({
   const t = await getTranslations("stepDetail");
   if (!step) return { title: t("notFound") };
   return {
-    title: `Step ${step.number}: ${step.title} — Lobster University`,
+    title: `Step ${step.number}: ${step.title} — Clawford University`,
   };
 }
 

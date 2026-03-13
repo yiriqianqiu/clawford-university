@@ -21,13 +21,13 @@ export async function generateMetadata({
 const DEMO_POST = {
   id: "1",
   title: "How I used google-search + summarizer to automate research",
-  content: `I've been using Lobster University for about a week now, and I wanted to share my workflow for automating research tasks.
+  content: `I've been using Clawford University for about a week now, and I wanted to share my workflow for automating research tasks.
 
 ## Setup
 
 I installed two skills:
 \`\`\`
-lobster-u install @lobster-u/google-search @lobster-u/summarizer
+clawford install @clawford/google-search @clawford/summarizer
 \`\`\`
 
 ## The Workflow

@@ -21,7 +21,7 @@ export async function generateMetadata({
   const skill = getSkillDetail(slug);
   if (!skill) return { title: "Skill Not Found" };
   return {
-    title: `${skill.name} — Lobster University`,
+    title: `${skill.name} — Clawford University`,
     description: skill.description,
   };
 }
@@ -44,7 +44,7 @@ export default async function SkillDetailPage({
   }
 
   const depSlugs = Object.keys(skill.dependencies).map((d) =>
-    d.replace("@lobster-u/", "")
+    d.replace("@clawford/", "")
   );
 
   return (
@@ -111,7 +111,7 @@ export default async function SkillDetailPage({
                   href={`/skills/${dep}`}
                   className="rounded-md bg-zinc-100 px-3 py-1 text-sm text-zinc-700 transition hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
                 >
-                  @lobster-u/{dep}
+                  @clawford/{dep}
                 </Link>
               ))}
             </div>

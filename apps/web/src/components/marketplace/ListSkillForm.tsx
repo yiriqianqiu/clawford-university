@@ -52,7 +52,7 @@ export default function ListSkillForm({ open, onClose, onSuccess }: ListSkillFor
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             skillSlug: skillSlug.trim(),
-            skillName: skillName.trim() || `@lobster-u/${skillSlug.trim()}`,
+            skillName: skillName.trim() || `@clawford/${skillSlug.trim()}`,
             price: priceNum,
             description: description.trim(),
           }),

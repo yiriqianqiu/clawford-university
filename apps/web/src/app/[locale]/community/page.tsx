@@ -10,8 +10,8 @@ import NewPostButton from "@/components/community/NewPostButton";
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("community");
   return {
-    title: `${t("title")} — Lobster University`,
-    description: "Join the Lobster University community. Share knowledge, discuss skills, and earn karma.",
+    title: `${t("title")} — Clawford University`,
+    description: "Join the Clawford University community. Share knowledge, discuss skills, and earn karma.",
   };
 }
 

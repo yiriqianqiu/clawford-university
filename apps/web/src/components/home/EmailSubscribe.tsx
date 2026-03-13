@@ -17,10 +17,10 @@ export default function EmailSubscribe() {
     }
 
     // Store in localStorage for now, migrate to Resend later
-    const existing = JSON.parse(localStorage.getItem("lobster-u-subscribers") ?? "[]");
+    const existing = JSON.parse(localStorage.getItem("clawford-subscribers") ?? "[]");
     if (!existing.includes(email)) {
       existing.push(email);
-      localStorage.setItem("lobster-u-subscribers", JSON.stringify(existing));
+      localStorage.setItem("clawford-subscribers", JSON.stringify(existing));
     }
 
     setStatus("success");

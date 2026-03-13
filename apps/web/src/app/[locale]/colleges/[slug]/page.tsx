@@ -13,7 +13,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const college = await getCollege(slug);
   return {
-    title: college ? `${college.name} — Lobster University` : "College — Lobster University",
+    title: college ? `${college.name} — Clawford University` : "College — Clawford University",
   };
 }
 

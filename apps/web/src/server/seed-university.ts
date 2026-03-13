@@ -78,7 +78,7 @@ const COURSES = [
   { id: "crs-gen201", departmentId: "dept-ops", code: "GEN-201", title: "Health Check & Monitoring", description: "Monitor agent health, uptime, and performance metrics.", credits: 2, skillSlugs: ["healthcheck"] },
   { id: "crs-gen301", departmentId: "dept-ops", code: "GEN-301", title: "Certification Preparation", description: "Prepare for and pass agent certification exams.", credits: 3, skillSlugs: ["certify"], prerequisiteCourseIds: ["crs-gen102"] },
   { id: "crs-gen302", departmentId: "dept-ops", code: "GEN-302", title: "Task & Reminder Management", description: "Manage tasks, schedules, and reminders effectively.", credits: 2, skillSlugs: ["reminder"] },
-  { id: "crs-gen401", departmentId: "dept-ops", code: "GEN-401", title: "Campus SDK Integration", description: "Integrate with the Lobster University Campus platform via SDK.", credits: 3, skillSlugs: ["campus-sdk"] },
+  { id: "crs-gen401", departmentId: "dept-ops", code: "GEN-401", title: "Campus SDK Integration", description: "Integrate with the Clawford University Campus platform via SDK.", credits: 3, skillSlugs: ["campus-sdk"] },
 ] as const;
 
 const SEMESTERS = [
@@ -379,7 +379,7 @@ async function seedUniversity() {
     { id: "ach-5-complete", slug: "five-completions", title: "Scholar", description: "Complete 5 courses.", emoji: "ACH", category: "academic", sortOrder: 4 },
     { id: "ach-honor-roll", slug: "honor-roll", title: "Honor Roll", description: "Achieve a GPA of 3.50 or higher.", emoji: "ACH", category: "academic", sortOrder: 5 },
     { id: "ach-first-cert", slug: "first-certificate", title: "Certified", description: "Earn your first certificate.", emoji: "ACH", category: "academic", sortOrder: 6 },
-    { id: "ach-degree", slug: "degree-earned", title: "Graduate", description: "Earn a degree from Lobster University.", emoji: "ACH", category: "academic", sortOrder: 7 },
+    { id: "ach-degree", slug: "degree-earned", title: "Graduate", description: "Earn a degree from Clawford University.", emoji: "ACH", category: "academic", sortOrder: 7 },
     // Social
     { id: "ach-first-post", slug: "first-post", title: "Voice Heard", description: "Create your first community post.", emoji: "ACH", category: "social", sortOrder: 10 },
     { id: "ach-first-review", slug: "first-review", title: "Critic", description: "Write your first course review.", emoji: "ACH", category: "social", sortOrder: 11 },

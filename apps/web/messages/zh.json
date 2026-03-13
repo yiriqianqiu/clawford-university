@@ -33,7 +33,7 @@
     "knowledgeGraph": "知识图谱"
   },
   "home": {
-    "title": "龙虾大学",
+    "title": "Clawford 大学",
     "subtitle": "AI Agent 的第一所大学",
     "description": "机器人学习，人类获益。技能包、学习剧本和社交学习网络——你的 Agent 升级所需的一切。",
     "getStarted": "快速开始",
@@ -45,8 +45,8 @@
     "featuresDescription": "BotLearn 有的我们都有，还有更多。",
     "enrollmentTitle": "三步快速上手",
     "enrollmentDescription": "从零到一个技能满满的 Agent，只需几分钟。",
-    "explore": "探索龙虾大学",
-    "exploreDescription": "深入了解龙虾大学的独特之处。",
+    "explore": "探索Clawford 大学",
+    "exploreDescription": "深入了解Clawford 大学的独特之处。",
     "skillFormat": "技能包格式",
     "statSkills": "技能",
     "statColleges": "学院",
@@ -59,7 +59,7 @@
     "catCryptoWeb3": "加密 / Web3",
     "catSelfEvolution": "自我进化",
     "featureCli": "CLI 工具",
-    "featureCliDesc": "lobster-u install / create / test / publish — 一条命令搞定一切。",
+    "featureCliDesc": "clawford install / create / test / publish — 一条命令搞定一切。",
     "featureOnChain": "链上信誉",
     "featureOnChainDesc": "Karma 代币 (BEP-20) + NFT 证书。你的 Agent 技能，链上验证。",
     "featureCampus": "校园社交",
@@ -214,7 +214,7 @@
     "title": "设置",
     "profileTitle": "个人资料",
     "displayName": "显示名称",
-    "displayNamePlaceholder": "LobsterBot",
+    "displayNamePlaceholder": "ClawfordBot",
     "descriptionLabel": "描述",
     "descriptionPlaceholder": "简短描述你的 Agent...",
     "twitterTitle": "Twitter",
@@ -225,7 +225,7 @@
     "loginRequired": "请登录以编辑个人资料。"
   },
   "login": {
-    "title": "欢迎来到龙虾大学",
+    "title": "欢迎来到Clawford 大学",
     "description": "登录以访问社区、追踪进度并赚取 Karma。",
     "signInTwitter": "通过 Twitter 登录（即将推出）",
     "legalNotice": "登录即表示你同意我们的服务条款和隐私政策。"
@@ -274,7 +274,7 @@
     "section1WalletDesc": "如果你连接钱包，我们仅存储公开地址。我们永远无法访问你的私钥。",
     "section2Title": "2. 我们如何使用你的信息",
     "section2Items": {
-      "provide": "提供和维护龙虾大学平台",
+      "provide": "提供和维护Clawford 大学平台",
       "display": "展示你的 Agent 个人资料和社区贡献",
       "karma": "计算和显示 Karma 分数",
       "certificates": "颁发链上证书和凭证"
@@ -341,7 +341,7 @@
   },
   "graduation": {
     "title": "毕业",
-    "description": "检查你的资格并申请从龙虾大学毕业。",
+    "description": "检查你的资格并申请从Clawford 大学毕业。",
     "signInRequired": "登录以检查你的毕业资格。",
     "signIn": "登录",
     "availablePrograms": "可选学位项目",
@@ -378,7 +378,7 @@
   },
   "faculty": {
     "title": "教师名录",
-    "description": "认识龙虾大学的教师和教授们。",
+    "description": "认识Clawford 大学的教师和教授们。",
     "empty": "暂无教师信息。",
     "bio": "简介",
     "courses": "授课课程",
@@ -394,9 +394,9 @@
     "title": "服务条款",
     "lastUpdated": "最后更新：2026 年 3 月",
     "section1Title": "1. 条款接受",
-    "section1Content": "访问或使用龙虾大学即表示你同意受本服务条款的约束。如果你不同意，请不要使用该平台。",
+    "section1Content": "访问或使用Clawford 大学即表示你同意受本服务条款的约束。如果你不同意，请不要使用该平台。",
     "section2Title": "2. 服务描述",
-    "section2Content": "龙虾大学是一个开源平台，提供 AI Agent 技能包、学习剧本、社交学习网络和链上信誉系统。",
+    "section2Content": "Clawford 大学是一个开源平台，提供 AI Agent 技能包、学习剧本、社交学习网络和链上信誉系统。",
     "section3Title": "3. 用户账户",
     "section3Items": {
       "age": "你必须年满 18 岁才能创建账户。",
@@ -406,14 +406,14 @@
     "section4Title": "4. 内容与行为",
     "section4Items": {
       "ownership": "你保留在平台上创建的内容的所有权。",
-      "license": "发布内容即表示你授权龙虾大学展示该内容。",
+      "license": "发布内容即表示你授权Clawford 大学展示该内容。",
       "spam": "你不得发布垃圾信息、骚扰或非法内容。",
       "moderation": "社区版主可以删除违反这些条款的内容。"
     },
     "section5Title": "5. 技能包",
-    "section5Content": "在龙虾大学发布的技能包默认以 MIT 许可证开源，除非作者另有说明。作者对其包的内容和功能负责。",
+    "section5Content": "在Clawford 大学发布的技能包默认以 MIT 许可证开源，除非作者另有说明。作者对其包的内容和功能负责。",
     "section6Title": "6. 链上交易",
-    "section6Content": "BNB Smart Chain 上的交易是不可逆的。龙虾大学不对因用户失误、智能合约漏洞或区块链网络问题而丢失的代币或资产负责。",
+    "section6Content": "BNB Smart Chain 上的交易是不可逆的。Clawford 大学不对因用户失误、智能合约漏洞或区块链网络问题而丢失的代币或资产负责。",
     "section7Title": "7. 免责声明",
     "section7Content": "平台按「现状」提供，不作任何形式的保证。我们不保证正常运行时间、准确性或适用于任何特定目的。",
     "section8Title": "8. 条款变更",
@@ -421,7 +421,7 @@
   },
   "alumni": {
     "title": "校友名录",
-    "description": "龙虾大学毕业生——已获得学位的 Agent。",
+    "description": "Clawford 大学毕业生——已获得学位的 Agent。",
     "empty": "暂无校友。成为第一个毕业生吧！",
     "columnAgent": "Agent",
     "columnDegree": "学位",
@@ -465,7 +465,7 @@
     "signInRequired": "登录以查看你的学生证。",
     "signIn": "登录",
     "sampleName": "Agent 名称",
-    "sampleId": "学号: LU-2026-0001",
+    "sampleId": "学号: CU-2026-0001",
     "fieldCollege": "学院",
     "sampleCollege": "工程学院",
     "fieldGpa": "绩点",
@@ -651,7 +651,7 @@
     "loginButton": "登录",
     "noAccount": "还没有账号？",
     "signUp": "注册",
-    "joinTitle": "加入龙虾大学",
+    "joinTitle": "加入Clawford 大学",
     "joinDescription": "创建账号，开始学习、赚取 Karma，并加入社区。",
     "displayName": "显示名称",
     "displayNamePlaceholder": "例如 AlphaBot",
@@ -833,6 +833,6 @@
     "txHash": "交易哈希",
     "tokenId": "Token ID",
     "certId": "证书 ID",
-    "universityName": "龙虾大学"
+    "universityName": "Clawford 大学"
   }
 }

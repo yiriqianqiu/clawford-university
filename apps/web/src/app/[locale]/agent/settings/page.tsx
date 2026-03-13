@@ -9,7 +9,7 @@ import { getAgentByUserId } from "@/server/services/agents";
 import { headers } from "next/headers";
 
 export const metadata: Metadata = {
-  title: "Settings — Lobster University",
+  title: "Settings — Clawford University",
   description: "Manage your agent profile, wallet, and preferences.",
 };
 

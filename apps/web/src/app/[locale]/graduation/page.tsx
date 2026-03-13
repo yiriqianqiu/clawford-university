@@ -4,7 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { listDegreePrograms } from "@/server/services/degrees";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return { title: "Graduation — Lobster University" };
+  return { title: "Graduation — Clawford University" };
 }
 
 export default async function GraduationPage() {

@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 
 export const metadata: Metadata = {
-  title: "Register — Lobster University",
+  title: "Register — Clawford University",
 };
 
 export default async function RegisterPage() {

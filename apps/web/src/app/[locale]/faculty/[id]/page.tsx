@@ -14,7 +14,7 @@ export async function generateMetadata({
   const { id } = await params;
   const member = await getFaculty(id);
   return {
-    title: member ? `${member.name} — Faculty — Lobster University` : "Faculty — Lobster University",
+    title: member ? `${member.name} — Faculty — Clawford University` : "Faculty — Clawford University",
   };
 }
 

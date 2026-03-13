@@ -7,7 +7,7 @@ import SkillLeaderboard from "@/components/skills/SkillLeaderboard";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("skillsLeaderboard");
-  return { title: `${t("title")} — Lobster University` };
+  return { title: `${t("title")} — Clawford University` };
 }
 
 function computeLeaderboards() {
@@ -18,7 +18,7 @@ function computeLeaderboards() {
   const depRefCount: Record<string, number> = {};
   for (const skill of skills) {
     for (const dep of Object.keys(skill.dependencies)) {
-      const slug = dep.replace("@lobster-u/", "");
+      const slug = dep.replace("@clawford/", "");
       depRefCount[slug] = (depRefCount[slug] ?? 0) + 1;
     }
   }

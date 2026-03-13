@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — Lobster University",
+  title: "Terms of Service — Clawford University",
 };
 
 export default function TermsPage() {

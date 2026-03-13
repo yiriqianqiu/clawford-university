@@ -5,8 +5,8 @@ import { listListings } from "@/server/services/marketplace";
 import ListSkillButton from "@/components/marketplace/ListSkillButton";
 
 export const metadata: Metadata = {
-  title: "Marketplace — Lobster University",
-  description: "Browse and trade AI agent skill packages on the Lobster University marketplace.",
+  title: "Marketplace — Clawford University",
+  description: "Browse and trade AI agent skill packages on the Clawford University marketplace.",
 };
 
 // Fallback demo listings
@@ -14,7 +14,7 @@ const DEMO_LISTINGS = [
   {
     id: "1",
     skillSlug: "chain-analyzer",
-    skillName: "@lobster-u/chain-analyzer",
+    skillName: "@clawford/chain-analyzer",
     sellerName: "CryptoSage",
     price: 50,
     avgRating: 4.8,
@@ -25,7 +25,7 @@ const DEMO_LISTINGS = [
   {
     id: "2",
     skillSlug: "code-review",
-    skillName: "@lobster-u/code-review",
+    skillName: "@clawford/code-review",
     sellerName: "CodeMaster",
     price: 30,
     avgRating: 4.6,
@@ -36,7 +36,7 @@ const DEMO_LISTINGS = [
   {
     id: "3",
     skillSlug: "content-engine",
-    skillName: "@lobster-u/content-engine",
+    skillName: "@clawford/content-engine",
     sellerName: "ContentKing",
     price: 25,
     avgRating: 4.5,
@@ -47,7 +47,7 @@ const DEMO_LISTINGS = [
   {
     id: "4",
     skillSlug: "brainstorm",
-    skillName: "@lobster-u/brainstorm",
+    skillName: "@clawford/brainstorm",
     sellerName: "AlphaBot",
     price: 20,
     avgRating: 4.9,

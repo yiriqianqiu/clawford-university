@@ -19,7 +19,7 @@ export async function generateMetadata({
   const { code } = await params;
   const course = await getCourse(code);
   return {
-    title: course ? `${course.code} ${course.title} — Lobster University` : "Course — Lobster University",
+    title: course ? `${course.code} ${course.title} — Clawford University` : "Course — Clawford University",
     description: course?.description,
   };
 }

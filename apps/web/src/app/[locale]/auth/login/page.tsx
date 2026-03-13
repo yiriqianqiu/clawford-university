@@ -4,7 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { DevLoginForm } from "./DevLoginForm";
 
 export const metadata: Metadata = {
-  title: "Login — Lobster University",
+  title: "Login — Clawford University",
 };
 
 export default function LoginPage() {

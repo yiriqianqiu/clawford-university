@@ -16,23 +16,23 @@ export const STEPS: Step[] = [
     phase: "Setup",
     title: "Install",
     subtitle: "CLI + Agent Framework",
-    goal: "Get the Lobster University CLI and configure your first agent framework.",
+    goal: "Get the Clawford University CLI and configure your first agent framework.",
     benefit: "You'll have a working development environment ready for skill installation.",
     tasks: [
       "Install Node.js >= 18 if not already installed",
-      "Install the Lobster U CLI globally",
+      "Install the Clawford CLI globally",
       "Verify the installation",
       "Choose your agent framework (OpenClaw, Claude Code, Cursor, or Windsurf)",
     ],
     codeExample: `# Install the CLI
-npm install -g @lobster-u/cli
+npm install -g @clawford/cli
 
 # Verify installation
-lobster-u --version
+clawford --version
 
 # Initialize a new project
-lobster-u init my-agent`,
-    expectedOutput: "CLI installed and `lobster-u --version` prints the version number.",
+clawford init my-agent`,
+    expectedOutput: "CLI installed and `clawford --version` prints the version number.",
   },
   {
     number: 1,
@@ -48,10 +48,10 @@ lobster-u init my-agent`,
       "Read the SKILL.md to understand what the skill does",
     ],
     codeExample: `# Install your first skill
-lobster-u install @lobster-u/google-search
+clawford install @clawford/google-search
 
 # Check what's installed
-lobster-u list
+clawford list
 
 # Read the skill definition
 cat skills/google-search/SKILL.md`,
@@ -71,7 +71,7 @@ cat skills/google-search/SKILL.md`,
       "Save the output as a real deliverable",
     ],
     codeExample: `# Install a skill combo
-lobster-u install @lobster-u/code-gen @lobster-u/code-review
+clawford install @clawford/code-gen @clawford/code-review
 
 # The CLI resolves dependencies automatically
 # code-review depends on code-gen, so both install in order`,
@@ -91,7 +91,7 @@ lobster-u install @lobster-u/code-gen @lobster-u/code-review
       "Record your baseline scores",
     ],
     codeExample: `# Install diagnostic skills
-lobster-u install @lobster-u/assessment @lobster-u/healthcheck
+clawford install @clawford/assessment @clawford/healthcheck
 
 # Run health check
 # Ask your agent: "Run a full health check"
@@ -114,7 +114,7 @@ lobster-u install @lobster-u/assessment @lobster-u/healthcheck
       "Test your custom skill",
     ],
     codeExample: `# Create a custom skill
-lobster-u create my-domain-skill
+clawford create my-domain-skill
 
 # Edit the generated files
 # skills/my-domain-skill/SKILL.md    — role definition
@@ -122,7 +122,7 @@ lobster-u create my-domain-skill
 # skills/my-domain-skill/strategies/ — behavioral patterns
 
 # Test it
-lobster-u test my-domain-skill`,
+clawford test my-domain-skill`,
     expectedOutput: "A working custom skill that encodes your personal expertise.",
   },
   {
@@ -142,7 +142,7 @@ lobster-u test my-domain-skill`,
 # e.g., "AI Skill Learning" or "Crypto Trading Fundamentals"
 
 # Install all required skills at once
-lobster-u install @lobster-u/chain-analyzer @lobster-u/dex-trader @lobster-u/wallet-monitor
+clawford install @clawford/chain-analyzer @clawford/dex-trader @clawford/wallet-monitor
 
 # Follow the playbook steps
 # Each step has human actions + agent actions`,
@@ -162,7 +162,7 @@ lobster-u install @lobster-u/chain-analyzer @lobster-u/dex-trader @lobster-u/wal
       "Set up the reminder skill for regular check-ins",
     ],
     codeExample: `# Install self-evolution skills
-lobster-u install @lobster-u/selfoptimize @lobster-u/reminder
+clawford install @clawford/selfoptimize @clawford/reminder
 
 # Ask your agent:
 # "Analyze my recent performance and suggest optimizations"
@@ -185,7 +185,7 @@ lobster-u install @lobster-u/selfoptimize @lobster-u/reminder
       "Plan your next Playbook or create one for others",
     ],
     codeExample: `# Get certified
-lobster-u install @lobster-u/certify
+clawford install @clawford/certify
 
 # Ask your agent:
 # "Generate my capability certificate based on all assessments"

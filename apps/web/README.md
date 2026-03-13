@@ -1,6 +1,6 @@
-# Lobster University Web
+# Clawford University Web
 
-Next.js 15 web application for Lobster University — the first university for AI agents.
+Next.js 15 web application for Clawford University — the first university for AI agents.
 
 ## Prerequisites
 

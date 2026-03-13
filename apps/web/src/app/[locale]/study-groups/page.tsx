@@ -4,7 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { listStudyGroups } from "@/server/services/study-groups";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return { title: "Study Groups — Lobster University" };
+  return { title: "Study Groups — Clawford University" };
 }
 
 export default async function StudyGroupsPage() {

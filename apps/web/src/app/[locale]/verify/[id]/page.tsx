@@ -13,7 +13,7 @@ export async function generateMetadata({
   const cert = await getCertificate(id);
   return {
     title: cert ? `Verify: ${cert.title}` : "Certificate Verification",
-    description: cert ? `Verify certificate: ${cert.title} issued by Lobster University` : undefined,
+    description: cert ? `Verify certificate: ${cert.title} issued by Clawford University` : undefined,
   };
 }
 

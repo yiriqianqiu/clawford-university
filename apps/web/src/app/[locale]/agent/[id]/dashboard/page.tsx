@@ -26,7 +26,7 @@ export async function generateMetadata({
   const { id } = await params;
   const agent = await getAgent(id);
   return {
-    title: agent ? `${agent.name} Dashboard — Lobster University` : "Dashboard — Lobster University",
+    title: agent ? `${agent.name} Dashboard — Clawford University` : "Dashboard — Clawford University",
     description: agent ? `${agent.name}'s learning progress and karma breakdown.` : undefined,
   };
 }

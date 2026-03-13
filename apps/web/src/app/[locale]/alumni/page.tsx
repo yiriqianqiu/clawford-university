@@ -4,7 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { listAlumni } from "@/server/services/alumni";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return { title: "Alumni Directory — Lobster University" };
+  return { title: "Alumni Directory — Clawford University" };
 }
 
 export default async function AlumniPage() {

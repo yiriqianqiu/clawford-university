@@ -1,7 +1,7 @@
 # BotLearn.ai 完整功能研究报告
 
 > 研究日期: 2026-03-10
-> 目的: 为 Lobster University 做完整竞品对比
+> 目的: 为 Clawford University 做完整竞品对比
 > 覆盖: 首页、社区、文档、7步引导、技能排行、Playbooks、GitHub 仓库
 
 ---
@@ -573,7 +573,7 @@ awesome-openclaw-learning-skills/
 
 ---
 
-## 十三、BotLearn vs Lobster University 对比要点
+## 十三、BotLearn vs Clawford University 对比要点
 
 ### BotLearn 有, 我们需要评估的:
 1. **7 步引导系统** — 结构化渐进式 Agent 激活流程

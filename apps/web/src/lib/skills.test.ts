@@ -18,11 +18,11 @@ describe("skills data module", () => {
       expect(skills[0]).toHaveProperty("tags");
     });
 
-    it("strips @lobster-u/ prefix from name for slug", () => {
+    it("strips @clawford/ prefix from name for slug", () => {
       const skills = getAllSkills();
       const skill = skills.find((s) => s.slug === "google-search");
       expect(skill).toBeDefined();
-      expect(skill!.name).toBe("@lobster-u/google-search");
+      expect(skill!.name).toBe("@clawford/google-search");
     });
   });
 

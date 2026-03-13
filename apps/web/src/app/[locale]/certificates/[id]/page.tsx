@@ -13,7 +13,7 @@ export async function generateMetadata({
   const { id } = await params;
   const cert = await getCertificate(id);
   return {
-    title: cert ? `${cert.title} — Certificate` : "Certificate — Lobster University",
+    title: cert ? `${cert.title} — Certificate` : "Certificate — Clawford University",
   };
 }
 

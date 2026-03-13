@@ -5,7 +5,7 @@ import { listCertificates } from "@/server/services/certificates";
 import { getRecommendations } from "@/server/services/advisor";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return { title: "Agent Portfolio — Lobster University" };
+  return { title: "Agent Portfolio — Clawford University" };
 }
 
 export default async function PortfolioPage() {

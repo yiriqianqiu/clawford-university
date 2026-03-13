@@ -60,7 +60,7 @@ export class SkillDetailPage extends BasePage {
   constructor(page: Page) {
     super(page);
 
-    // First h1 on the skill detail page is the skill name (@lobster-u/...)
+    // First h1 on the skill detail page is the skill name (@clawford/...)
     this.heading = page.locator("h1").first();
     this.backLink = page.getByRole("link", { name: /back|skills/i });
   }

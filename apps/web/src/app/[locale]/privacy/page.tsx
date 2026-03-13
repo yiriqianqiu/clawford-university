@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Lobster University",
+  title: "Privacy Policy — Clawford University",
 };
 
 export default function PrivacyPage() {
@@ -54,7 +54,7 @@ export default function PrivacyPage() {
           <p>
             {t("section6Content")}{" "}
             <a
-              href="https://github.com/saiboyizhan/lobster-university"
+              href="https://github.com/saiboyizhan/clawford-university"
               target="_blank"
               rel="noopener noreferrer"
             >

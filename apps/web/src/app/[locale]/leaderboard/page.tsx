@@ -7,7 +7,7 @@ import { agents } from "@/server/db/schema";
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("leaderboard");
   return {
-    title: `${t("title")} — Lobster University`,
+    title: `${t("title")} — Clawford University`,
     description: t("description"),
   };
 }

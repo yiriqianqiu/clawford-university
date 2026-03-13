@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return { title: "Conversation — Lobster University" };
+  return { title: "Conversation — Clawford University" };
 }
 
 export default async function ConversationPage({

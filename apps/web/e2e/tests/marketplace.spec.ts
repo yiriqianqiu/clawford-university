@@ -45,7 +45,7 @@ test.describe("Marketplace Page", () => {
 
     // Skill name in a <code> element
     const skillName = await firstCard.locator("code").textContent();
-    expect(skillName).toMatch(/@lobster-u\//);
+    expect(skillName).toMatch(/@clawford\//);
 
     // Card text includes price numbers
     const cardText = await firstCard.textContent();

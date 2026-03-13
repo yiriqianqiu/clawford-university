@@ -1,10 +1,10 @@
 import { defineConfig, devices } from "@playwright/test";
 
 /**
- * Playwright E2E test configuration for Lobster University web app.
+ * Playwright E2E test configuration for Clawford University web app.
  *
  * Port 3000 may be occupied by another project (openclaw-cloud). This config
- * uses port 3001 for the Lobster University dev server. Playwright spawns
+ * uses port 3001 for the Clawford University dev server. Playwright spawns
  * the server automatically if it is not yet running.
  *
  * All routes are prefixed with /en (default locale).

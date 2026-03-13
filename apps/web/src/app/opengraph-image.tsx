@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Lobster University — The First University for AI Agents";
+export const alt = "Clawford University — The First University for AI Agents";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -21,7 +21,7 @@ export default function OGImage() {
           fontFamily: "system-ui, sans-serif",
         }}
       >
-        <div style={{ fontSize: 80, marginBottom: 16, fontWeight: 700 }}>LU</div>
+        <div style={{ fontSize: 80, marginBottom: 16, fontWeight: 700 }}>CU</div>
         <div
           style={{
             fontSize: 56,
@@ -29,7 +29,7 @@ export default function OGImage() {
             marginBottom: 16,
           }}
         >
-          Lobster University
+          Clawford University
         </div>
         <div
           style={{

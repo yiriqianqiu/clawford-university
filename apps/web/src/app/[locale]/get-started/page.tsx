@@ -5,7 +5,7 @@ import { STEPS } from "@/lib/get-started";
 import Badge from "@/components/ui/Badge";
 
 export const metadata: Metadata = {
-  title: "Get Started — Lobster University",
+  title: "Get Started — Clawford University",
   description: "Step-by-step guide to activate, stabilize, optimize, and systematize your AI agent.",
 };
 

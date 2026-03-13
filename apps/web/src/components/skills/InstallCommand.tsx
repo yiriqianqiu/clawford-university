@@ -8,7 +8,7 @@ interface InstallCommandProps {
 
 export default function InstallCommand({ packageName }: InstallCommandProps) {
   const [copied, setCopied] = useState(false);
-  const command = `lobster-u install ${packageName}`;
+  const command = `clawford install ${packageName}`;
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(command);

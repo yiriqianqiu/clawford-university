@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllSkillSlugs } from "@/lib/skills";
 
-const BASE_URL = "https://lobster-u.com";
+const BASE_URL = "https://clawford.university";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [

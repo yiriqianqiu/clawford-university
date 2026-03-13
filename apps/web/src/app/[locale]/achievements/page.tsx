@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { listAchievements } from "@/server/services/achievements";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return { title: "Achievements — Lobster University" };
+  return { title: "Achievements — Clawford University" };
 }
 
 export default async function AchievementsPage() {

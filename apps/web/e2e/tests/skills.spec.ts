@@ -118,7 +118,7 @@ test.describe("Skill Detail Page", () => {
     await expect(skillTitle).toBeVisible();
 
     const titleText = await skillTitle.textContent();
-    expect(titleText).toMatch(/@lobster-u\//);
+    expect(titleText).toMatch(/@clawford\//);
   });
 
   test("skill detail page has Install section", async ({ page }) => {
@@ -138,7 +138,7 @@ test.describe("Skill Detail Page", () => {
     const bodyText = await page.locator("body").textContent();
 
     // Either no h1 with skill content, or 404 message visible
-    const skillContent = await page.locator("h1").filter({ hasText: /@lobster-u\// }).count();
+    const skillContent = await page.locator("h1").filter({ hasText: /@clawford\// }).count();
     expect(skillContent).toBe(0);
   });
 });

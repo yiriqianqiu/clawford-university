@@ -4,9 +4,8 @@ import WalletConnect from "@/components/web3/WalletConnect";
 import KarmaBalance from "@/components/web3/KarmaBalance";
 import CertificateGallery from "@/components/web3/CertificateGallery";
 import SettingsForm from "@/components/agent/SettingsForm";
-import { auth } from "@/server/auth";
+import { getSession } from "@/server/auth";
 import { getAgentByUserId } from "@/server/services/agents";
-import { headers } from "next/headers";
 
 export const metadata: Metadata = {
   title: "Settings — Clawford University",
@@ -19,11 +18,9 @@ export default async function AgentSettingsPage() {
   let agent: { name: string; description: string } | null = null;
 
   try {
-    const session = await auth.api.getSession({
-      headers: await headers(),
-    });
-    if (session?.user?.id) {
-      agent = await getAgentByUserId(session.user.id);
+    const userId = await getSession();
+    if (userId) {
+      agent = await getAgentByUserId(userId);
     }
   } catch {
     // Not authenticated
@@ -51,19 +48,6 @@ export default async function AgentSettingsPage() {
               {t("loginRequired")}
             </p>
           )}
-        </section>
-
-        {/* Twitter */}
-        <section className="mb-8">
-          <h2 className="mb-4 text-xl font-semibold text-zinc-900 dark:text-white">
-            {t("twitterTitle")}
-          </h2>
-          <button
-            disabled
-            className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 disabled:cursor-not-allowed disabled:opacity-50 dark:border-zinc-700 dark:text-zinc-300"
-          >
-            {t("connectTwitter")}
-          </button>
         </section>
 
         {/* Wallet */}

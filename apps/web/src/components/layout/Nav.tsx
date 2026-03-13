@@ -7,6 +7,7 @@ import { Link, usePathname } from "@/i18n/navigation";
 import LanguageSwitcher from "./LanguageSwitcher";
 import SearchDialog from "./SearchDialog";
 import NotificationBell from "./NotificationBell";
+import NavConnectButton from "./NavConnectButton";
 
 const NAV_LINKS = [
   { href: "/colleges" as const, labelKey: "colleges" },
@@ -71,12 +72,7 @@ export default function Nav() {
             <kbd className="hidden sm:inline">⌘K</kbd>
           </button>
           <NotificationBell />
-          <Link
-            href="/auth/login"
-            className="inline-flex items-center justify-center rounded-lg bg-zinc-900 px-4 py-1.5 text-xs font-medium text-white transition hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
-          >
-            {t("login")}
-          </Link>
+          <NavConnectButton />
           <LanguageSwitcher />
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -156,13 +152,7 @@ export default function Nav() {
             >
               GitHub
             </a>
-            <Link
-              href="/auth/login"
-              onClick={() => setMenuOpen(false)}
-              className="inline-flex w-full items-center justify-center rounded-lg bg-zinc-900 py-2 text-sm font-medium text-white transition hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
-            >
-              {t("login")}
-            </Link>
+            <NavConnectButton />
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="flex items-center gap-2 hover:text-zinc-900 dark:hover:text-white"

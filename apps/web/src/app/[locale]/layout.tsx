@@ -6,6 +6,7 @@ import { routing } from "@/i18n/routing";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import Web3Providers from "@/components/web3/Providers";
+import AuthSync from "@/components/web3/AuthSync";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -35,6 +36,7 @@ export default async function LocaleLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <NextIntlClientProvider messages={messages}>
             <Web3Providers>
+              <AuthSync />
               <Nav />
               {children}
               <Footer />

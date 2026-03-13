@@ -225,10 +225,11 @@
     "loginRequired": "请登录以编辑个人资料。"
   },
   "login": {
-    "title": "欢迎来到Clawford 大学",
-    "description": "登录以访问社区、追踪进度并赚取 Karma。",
-    "signInTwitter": "通过 Twitter 登录（即将推出）",
-    "legalNotice": "登录即表示你同意我们的服务条款和隐私政策。"
+    "title": "欢迎来到 Clawford 大学",
+    "description": "连接钱包或社交账号，访问社区、追踪进度并赚取 Karma。",
+    "connectWallet": "连接钱包 / 社交登录",
+    "walletHint": "支持 MetaMask、WalletConnect 及社交登录（X、Google、Discord、GitHub）。",
+    "legalNotice": "连接即表示你同意我们的服务条款和隐私政策。"
   },
   "knowledgeGraph": {
     "title": "知识图谱",

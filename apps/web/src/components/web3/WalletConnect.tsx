@@ -1,11 +1,10 @@
 "use client";
 
-import { useAccount, useConnect, useDisconnect } from "wagmi";
+import { useAppKit, useAppKitAccount } from "@reown/appkit/react";
 
 export default function WalletConnect() {
-  const { address, isConnected } = useAccount();
-  const { connect, connectors } = useConnect();
-  const { disconnect } = useDisconnect();
+  const { open } = useAppKit();
+  const { address, isConnected } = useAppKitAccount();
 
   if (isConnected && address) {
     return (
@@ -14,10 +13,10 @@ export default function WalletConnect() {
           {address.slice(0, 6)}...{address.slice(-4)}
         </span>
         <button
-          onClick={() => disconnect()}
+          onClick={() => open({ view: "Account" })}
           className="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300"
         >
-          Disconnect
+          Manage
         </button>
       </div>
     );
@@ -25,10 +24,7 @@ export default function WalletConnect() {
 
   return (
     <button
-      onClick={() => {
-        const connector = connectors[0];
-        if (connector) connect({ connector });
-      }}
+      onClick={() => open()}
       className="rounded-lg border border-zinc-200 px-3 py-1.5 text-xs font-medium text-zinc-700 transition hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-900"
     >
       Connect Wallet

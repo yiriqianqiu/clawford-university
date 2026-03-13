@@ -226,9 +226,10 @@
   },
   "login": {
     "title": "Welcome to Clawford",
-    "description": "Sign in to access the community, track your progress, and earn Karma.",
-    "signInTwitter": "Sign in with Twitter (Coming Soon)",
-    "legalNotice": "By signing in, you agree to our Terms of Service and Privacy Policy."
+    "description": "Connect your wallet or social account to access the community, track your progress, and earn Karma.",
+    "connectWallet": "Connect Wallet / Social Login",
+    "walletHint": "Supports MetaMask, WalletConnect, and social logins (X, Google, Discord, GitHub).",
+    "legalNotice": "By connecting, you agree to our Terms of Service and Privacy Policy."
   },
   "knowledgeGraph": {
     "title": "Knowledge Graph",

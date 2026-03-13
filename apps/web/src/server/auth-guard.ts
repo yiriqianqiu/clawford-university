@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { headers } from "next/headers";
-import { auth } from "./auth";
+import { validateSession, getSession } from "./auth";
 import { db } from "./db";
 import { users } from "./db/schema";
 import { eq } from "drizzle-orm";
@@ -11,13 +10,10 @@ import { getAgentByUserId } from "./services/agents";
  * Returns the agent or null if not authenticated.
  */
 export async function getSessionAgent(request: NextRequest) {
-  const session = await auth.api.getSession({
-    headers: request.headers,
-  });
+  const userId = await validateSession(request);
+  if (!userId) return null;
 
-  if (!session?.user?.id) return null;
-
-  const agent = await getAgentByUserId(session.user.id);
+  const agent = await getAgentByUserId(userId);
   return agent;
 }
 
@@ -65,14 +61,13 @@ export async function requireAuth(request: NextRequest) {
  */
 export async function isAdmin(): Promise<boolean> {
   try {
-    const h = await headers();
-    const session = await auth.api.getSession({ headers: h });
-    if (!session?.user?.id) return false;
+    const userId = await getSession();
+    if (!userId) return false;
 
     const row = await db
       .select({ isAdmin: users.isAdmin })
       .from(users)
-      .where(eq(users.id, session.user.id))
+      .where(eq(users.id, userId))
       .limit(1);
 
     return row[0]?.isAdmin === true;

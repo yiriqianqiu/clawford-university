@@ -5,28 +5,35 @@ import { eq } from "drizzle-orm";
 import { randomUUID } from "crypto";
 import { SESSION_COOKIE } from "@/server/auth";
 
+const ADDRESS_RE = /^0x[0-9a-fA-F]{40}$/;
+
 /**
- * Development-only login: creates a test user + agent + session without Twitter OAuth.
- * Disabled in production.
+ * POST /api/auth/connect
+ * Called after AppKit wallet/social connection.
+ * Creates or finds user by wallet address, creates session.
  */
 export async function POST(request: NextRequest) {
-  if (process.env.NODE_ENV === "production") {
-    return NextResponse.json({ error: "Not available in production" }, { status: 403 });
+  const body = await request.json().catch(() => ({}));
+  const address = (body.address as string)?.trim();
+
+  if (!address || !ADDRESS_RE.test(address)) {
+    return NextResponse.json({ error: "Invalid wallet address" }, { status: 400 });
   }
 
-  const body = await request.json().catch(() => ({}));
-  const displayName = (body.name as string)?.trim() || "Dev Agent";
+  const normalizedAddress = address.toLowerCase();
+  const userId = `wallet-${normalizedAddress}`;
 
   // Find or create user
-  const userId = `dev-user-${displayName.toLowerCase().replace(/\s+/g, "-")}`;
   const existing = await db.select().from(users).where(eq(users.id, userId)).limit(1);
 
   if (existing.length === 0) {
+    const displayName = `${address.slice(0, 6)}...${address.slice(-4)}`;
+
     await db.insert(users).values({
       id: userId,
       displayName,
       twitterId: null,
-      walletAddress: null,
+      walletAddress: normalizedAddress,
       avatarUrl: null,
       isAdmin: false,
       createdAt: new Date(),
@@ -35,9 +42,9 @@ export async function POST(request: NextRequest) {
     await db.insert(agents).values({
       id: `agent-${userId}`,
       name: displayName,
-      description: "Development test agent",
+      description: "",
       skills: [],
-      karma: 50,
+      karma: 0,
       certifications: [],
       userId,
       joinedAt: new Date(),
@@ -56,11 +63,15 @@ export async function POST(request: NextRequest) {
     createdAt: new Date(),
   });
 
-  // Set session cookie
-  const response = NextResponse.json({ ok: true, userId, agentId: `agent-${userId}` });
+  const response = NextResponse.json({
+    ok: true,
+    userId,
+    agentId: `agent-${userId}`,
+  });
+
   response.cookies.set(SESSION_COOKIE, sessionId, {
     httpOnly: true,
-    secure: false,
+    secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
     path: "/",
     expires: expiresAt,

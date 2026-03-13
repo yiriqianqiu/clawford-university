@@ -1,18 +1,24 @@
-import { http, createConfig } from "wagmi";
+import { cookieStorage, createStorage, http } from "wagmi";
 import { bsc, bscTestnet } from "wagmi/chains";
-import { injected, walletConnect } from "wagmi/connectors";
+import { WagmiAdapter } from "@reown/appkit-adapter-wagmi";
 
-export const wagmiConfig = createConfig({
-  chains: [bsc, bscTestnet],
-  connectors: [
-    injected(), // MetaMask, Trust Wallet
-    walletConnect({ projectId: process.env.NEXT_PUBLIC_WC_PROJECT_ID ?? "" }),
-  ],
+// Reown project ID (same as gamexi-axie-style)
+export const PROJECT_ID = process.env.NEXT_PUBLIC_WC_PROJECT_ID ?? "d09347398c83c7aabfcb74cae6c987c4";
+
+export const NETWORKS = [bsc, bscTestnet];
+
+export const wagmiAdapter = new WagmiAdapter({
+  storage: createStorage({ storage: cookieStorage }),
+  ssr: true,
+  projectId: PROJECT_ID,
+  networks: NETWORKS,
   transports: {
     [bsc.id]: http(),
     [bscTestnet.id]: http(),
   },
 });
+
+export const wagmiConfig = wagmiAdapter.wagmiConfig;
 
 // Contract addresses (BSC Testnet)
 export const CONTRACTS = {

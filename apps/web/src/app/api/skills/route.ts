@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAllSkills, filterSkills, getCategories } from "@/lib/skills";
+import { getAllSkills, filterSkills, getCategories } from "@/lib/skills-runtime";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl;

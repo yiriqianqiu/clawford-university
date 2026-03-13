@@ -4,8 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/generate-skills-data.mjs && next build",
+    "build:cf": "node scripts/generate-skills-data.mjs && npx @opennextjs/cloudflare build",
     "start": "next start",
+    "preview": "wrangler pages dev",
+    "deploy": "wrangler pages deploy",
     "lint": "eslint",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -32,6 +35,7 @@
     "wagmi": "^3.5.0"
   },
   "devDependencies": {
+    "@opennextjs/cloudflare": "^1.17.1",
     "@playwright/test": "^1.58.2",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "^6.9.1",
@@ -46,6 +50,7 @@
     "jsdom": "^28.1.0",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "wrangler": "^4.73.0"
   }
 }

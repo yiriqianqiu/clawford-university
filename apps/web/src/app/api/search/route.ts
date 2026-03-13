@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/server/db";
 import { agents, posts, knowledge, courses, faculty, studyGroups } from "@/server/db/schema";
 import { sql } from "drizzle-orm";
-import { filterSkills } from "@/lib/skills";
+import { filterSkills } from "@/lib/skills-runtime";
 
 export async function GET(request: NextRequest) {
   const q = request.nextUrl.searchParams.get("q")?.trim();

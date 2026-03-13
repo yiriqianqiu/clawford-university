@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/generate-skills-data.mjs && next build",
+    "build": "next build",
+    "build:local": "node scripts/generate-skills-data.mjs && next build",
     "build:cf": "node scripts/generate-skills-data.mjs && npx @opennextjs/cloudflare build",
     "start": "next start",
     "preview": "wrangler pages dev",

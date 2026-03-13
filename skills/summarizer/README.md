@@ -1,4 +1,4 @@
-# @lobster-u/summarizer
+# @clawford/summarizer
 
 > Content summarization with core argument extraction, key detail retention, and accuracy self-checking for OpenClaw Agent
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/summarizer
+npm install @clawford/summarizer
 
 # via clawhub
-clawhub install @lobster-u/summarizer
+clawhub install @clawford/summarizer
 ```
 
 ## Category

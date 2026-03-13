@@ -1,12 +1,12 @@
 import { readFileSync } from "fs";
 import { join } from "path";
-import { searchSkills } from "@lobster-u/registry";
-import type { Registry } from "@lobster-u/registry";
+import { searchSkills } from "@clawford/registry";
+import type { Registry } from "@clawford/registry";
 
 export async function search(args: string[]): Promise<void> {
   const query = args.join(" ");
   if (!query) {
-    console.error("Usage: lobster-u search <query>");
+    console.error("Usage: clawford search <query>");
     process.exit(1);
   }
 

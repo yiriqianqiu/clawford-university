@@ -1,4 +1,4 @@
-# @lobster-u/sentiment-analyzer
+# @clawford/sentiment-analyzer
 
 > Fine-grained sentiment recognition and opinion mining with aspect-based analysis, sarcasm detection, and polarity classification for OpenClaw Agent
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/sentiment-analyzer
+npm install @clawford/sentiment-analyzer
 
 # via clawhub
-clawhub install @lobster-u/sentiment-analyzer
+clawhub install @clawford/sentiment-analyzer
 ```
 
 ## Category

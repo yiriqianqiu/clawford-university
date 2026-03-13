@@ -20,7 +20,7 @@ Lobster University Awesome Skills 为你的 OpenClaw Agent 提供 **20 个独立
 
 ```bash
 # 安装一个 Skill
-clawhub install @lobster-u/code-gen
+clawhub install @clawford/code-gen
 
 # 安装后，直接对话即可触发
 # 用户: "帮我写一个用户注册的 REST API"
@@ -34,7 +34,7 @@ clawhub install @lobster-u/code-gen
 ### 基本安装
 
 ```bash
-clawhub install @lobster-u/<skill-name>
+clawhub install @clawford/<skill-name>
 ```
 
 安装过程是**原子操作**，任一步骤失败则自动回滚，不会产生半安装状态。
@@ -42,7 +42,7 @@ clawhub install @lobster-u/<skill-name>
 ### 安装流程详解
 
 ```
-clawhub install @lobster-u/code-gen
+clawhub install @clawford/code-gen
          │
          ▼
    ┌─────────────────┐
@@ -76,20 +76,20 @@ clawhub install @lobster-u/code-gen
 
 ```bash
 # 信息检索类
-clawhub install @lobster-u/google-search
-clawhub install @lobster-u/academic-search    # 需要先安装 google-search
+clawhub install @clawford/google-search
+clawhub install @clawford/academic-search    # 需要先安装 google-search
 
 # 内容处理类
-clawhub install @lobster-u/summarizer
-clawhub install @lobster-u/translator
+clawhub install @clawford/summarizer
+clawhub install @clawford/translator
 
 # 编程辅助类
-clawhub install @lobster-u/code-gen
-clawhub install @lobster-u/code-review
+clawhub install @clawford/code-gen
+clawhub install @clawford/code-review
 
 # 创意生成类
-clawhub install @lobster-u/brainstorm
-clawhub install @lobster-u/copywriter         # 需要先安装 sentiment-analyzer
+clawhub install @clawford/brainstorm
+clawhub install @clawford/copywriter         # 需要先安装 sentiment-analyzer
 ```
 
 ---
@@ -275,28 +275,28 @@ code-gen ─────────→ doc-gen
 
 ```bash
 # 第一批：无依赖（可并行）
-clawhub install @lobster-u/google-search
-clawhub install @lobster-u/rss-manager
-clawhub install @lobster-u/twitter-intel
-clawhub install @lobster-u/reddit-tracker
-clawhub install @lobster-u/summarizer
-clawhub install @lobster-u/translator
-clawhub install @lobster-u/keyword-extractor
-clawhub install @lobster-u/sentiment-analyzer
-clawhub install @lobster-u/code-gen
-clawhub install @lobster-u/code-review
-clawhub install @lobster-u/brainstorm
-clawhub install @lobster-u/storyteller
+clawhub install @clawford/google-search
+clawhub install @clawford/rss-manager
+clawhub install @clawford/twitter-intel
+clawhub install @clawford/reddit-tracker
+clawhub install @clawford/summarizer
+clawhub install @clawford/translator
+clawhub install @clawford/keyword-extractor
+clawhub install @clawford/sentiment-analyzer
+clawhub install @clawford/code-gen
+clawhub install @clawford/code-review
+clawhub install @clawford/brainstorm
+clawhub install @clawford/storyteller
 
 # 第二批：有依赖（按依赖拓扑序）
-clawhub install @lobster-u/academic-search
-clawhub install @lobster-u/rewriter
-clawhub install @lobster-u/debugger
-clawhub install @lobster-u/refactor
-clawhub install @lobster-u/doc-gen
-clawhub install @lobster-u/writer
-clawhub install @lobster-u/copywriter
-clawhub install @lobster-u/social-media
+clawhub install @clawford/academic-search
+clawhub install @clawford/rewriter
+clawhub install @clawford/debugger
+clawhub install @clawford/refactor
+clawhub install @clawford/doc-gen
+clawhub install @clawford/writer
+clawhub install @clawford/copywriter
+clawhub install @clawford/social-media
 ```
 
 ---
@@ -361,9 +361,9 @@ clawhub install @lobster-u/social-media
 
 ```bash
 # 先安装依赖 Skill
-clawhub install @lobster-u/google-search
+clawhub install @clawford/google-search
 # 然后再安装目标 Skill
-clawhub install @lobster-u/academic-search
+clawhub install @clawford/academic-search
 ```
 
 **Q: 冒烟测试不通过**

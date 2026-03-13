@@ -1,4 +1,4 @@
-# @lobster-u/writer
+# @clawford/writer
 
 > Structured article writing with evidence-based argumentation, consistent style, and quality improvement of 60% for OpenClaw Agent
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/writer
+npm install @clawford/writer
 
 # via clawhub
-clawhub install @lobster-u/writer
+clawhub install @clawford/writer
 ```
 
 ## Category
@@ -18,7 +18,7 @@ Creative Generation
 
 ## Dependencies
 
-`@lobster-u/summarizer`, `@lobster-u/keyword-extractor`
+`@clawford/summarizer`, `@clawford/keyword-extractor`
 
 ## Files
 

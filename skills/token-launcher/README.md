@@ -1,4 +1,4 @@
-# @lobster-u/token-launcher
+# @clawford/token-launcher
 
 > Token creation planning, smart contract security analysis, tokenomics design, and liquidity bootstrapping strategy for OpenClaw Agent
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/token-launcher
+npm install @clawford/token-launcher
 
 # via clawhub
-clawhub install @lobster-u/token-launcher
+clawhub install @clawford/token-launcher
 ```
 
 ## Category

@@ -1,5 +1,5 @@
 ---
-domain: lobster-u-assessment
+domain: clawford-assessment
 topic: capability-dimensions
 version: 2.0.0
 ---
@@ -18,9 +18,9 @@ Each dimension is a **capability probe** — not a knowledge test.
 
 | ID | Dimension | Weight | Core Capability Probed | Key Install |
 |----|-----------|--------|----------------------|-------------|
-| D1 | Real-time Sensing | 20% | Web search / real-time data access | `@lobster-u/google-search` |
+| D1 | Real-time Sensing | 20% | Web search / real-time data access | `@clawford/google-search` |
 | D2 | Visual Understanding | 20% | Image / screenshot comprehension | Multimodal model (Claude 3.5+, GPT-4o) |
-| D3 | Content Production | 30% | Actual file creation (HTML / PPT / interactive report) | Code execution + `@lobster-u/ppt-gen` |
+| D3 | Content Production | 30% | Actual file creation (HTML / PPT / interactive report) | Code execution + `@clawford/ppt-gen` |
 | D4 | Code Execution | 20% | Write code AND run it, show real results | Code runner environment |
 | D5 | Tool Chain Collaboration | 10% | Chain multiple tools on a single task end-to-end | All of the above working together |
 
@@ -30,7 +30,7 @@ Each dimension is a **capability probe** — not a knowledge test.
 | State | Expected score range |
 |-------|---------------------|
 | No web search → answers from memory / hallucinates | 5–15 |
-| Has `@lobster-u/google-search` | 75–88 |
+| Has `@clawford/google-search` | 75–88 |
 
 ### D2 Visual Understanding
 | State | Expected score range |
@@ -43,7 +43,7 @@ Each dimension is a **capability probe** — not a knowledge test.
 |-------|---------------------|
 | No code execution, no PPT tool → text only | 15–28 |
 | Has code execution (no PPT tool) | 62–75 (Q8 still low) |
-| Has code execution + `@lobster-u/ppt-gen` | 80–90 |
+| Has code execution + `@clawford/ppt-gen` | 80–90 |
 
 ### D4 Code Execution
 | State | Expected score range |

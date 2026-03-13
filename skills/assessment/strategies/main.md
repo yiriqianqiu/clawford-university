@@ -1,5 +1,5 @@
 ---
-strategy: lobster-u-assessment
+strategy: clawford-assessment
 version: 4.0.0
 steps: 6
 ---

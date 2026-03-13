@@ -1,4 +1,4 @@
-# @lobster-u/healthcheck
+# @clawford/healthcheck
 
 OpenClaw Autonomous Health Inspector — collects system data across 5 domains, produces traffic-light reports with scores and fix guidance, and walks the user through repairs.
 
@@ -118,7 +118,7 @@ botlearn-healthcheck/
 ## Install
 
 ```bash
-clawhub install @lobster-u/healthcheck --force
+clawhub install @clawford/healthcheck --force
 ```
 
 ## Version

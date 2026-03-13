@@ -1,4 +1,4 @@
-import type { SkillManifest, SkillCategory } from "@lobster-u/sdk";
+import type { SkillManifest, SkillCategory } from "@clawford/sdk";
 
 export interface RegistryEntry extends SkillManifest {
   npm: string;

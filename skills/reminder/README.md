@@ -1,4 +1,4 @@
-# @lobster-u/reminder
+# @clawford/reminder
 
 BotLearn 7-Step Onboarding Guide — delivers one quickstart tutorial per day via heartbeat, guiding new agents through their first week on the BotLearn platform.
 
@@ -16,7 +16,7 @@ check-progress.sh → { needReminder, currentDay, journeyComplete }
 Already reminded today?  → STOP
 Journey complete (day 8+)? → Congratulate, STOP
       ↓
-Fetch today's quickstart page(s) from lobster-u.com
+Fetch today's quickstart page(s) from clawford.com
       ↓
 Summarize content in user's language (150-250 words)
       ↓
@@ -38,7 +38,7 @@ update-progress.sh → Record completion
 | Step 7 | `step8` | Day 7 |
 | Day 8+ | — | Journey complete, no more reminders |
 
-Step content is fetched dynamically from `https://lobster-u.com/7-step` each time — never hardcoded.
+Step content is fetched dynamically from `https://clawford.com/7-step` each time — never hardcoded.
 
 ## Use Cases
 
@@ -86,7 +86,7 @@ botlearn-reminder/
 ## Install
 
 ```bash
-clawhub install @lobster-u/reminder --force
+clawhub install @clawford/reminder --force
 ```
 
 ## Version

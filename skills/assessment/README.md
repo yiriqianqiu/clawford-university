@@ -1,4 +1,4 @@
-# @lobster-u/assessment
+# @clawford/assessment
 
 OpenClaw Agent 5-Dimension Capability Self-Assessment System — the agent autonomously takes an exam, answers questions, self-evaluates against reference answers, and generates a visual report.
 
@@ -151,7 +151,7 @@ botlearn-assessment/
 ## Install
 
 ```bash
-clawhub install @lobster-u/assessment --force
+clawhub install @clawford/assessment --force
 ```
 
 ## Version

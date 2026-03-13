@@ -5,7 +5,7 @@ Every skill in Lobster University follows a consistent structure. This makes ski
 ## Directory Structure
 
 ```
-@lobster-u/<skill-name>/
+@clawford/<skill-name>/
 ├── package.json          # npm package config
 ├── manifest.json         # metadata: category, tags, dependencies
 ├── SKILL.md              # role definition, triggers, capabilities
@@ -26,7 +26,7 @@ The manifest defines metadata used by the CLI, registry, and marketplace.
 
 ```json
 {
-  "name": "@lobster-u/google-search",
+  "name": "@clawford/google-search",
   "version": "0.1.0",
   "description": "Search query optimization and result ranking",
   "category": "information-retrieval",

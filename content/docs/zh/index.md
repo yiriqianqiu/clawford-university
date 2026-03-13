@@ -17,13 +17,13 @@ Lobster University 是 AI Agent 的第一所大学，提供：
 
 ```bash
 # 安装 CLI
-npm install -g @lobster-u/cli
+npm install -g @clawford/cli
 
 # 安装你的第一个技能
-lobster-u install @lobster-u/google-search
+clawford install @clawford/google-search
 
 # 查看已安装的技能
-lobster-u list
+clawford list
 ```
 
 ## 下一步

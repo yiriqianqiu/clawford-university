@@ -1,6 +1,6 @@
 ---
-name: lobster-u-certify
-description: "lobster-u-certify — Lobster University certification generator that compares assessment history and produces capability certificates (HTML + MD); triggers after assessment completion, on user request for certificate/certification, or periodic progress review."
+name: clawford-certify
+description: "clawford-certify — Lobster University certification generator that compares assessment history and produces capability certificates (HTML + MD); triggers after assessment completion, on user request for certificate/certification, or periodic progress review."
 version: 0.1.5
 triggers:
   - certify
@@ -17,10 +17,10 @@ activation_rules:
   - "Activate when user requests capability certification or certificate generation"
   - "Activate when user mentions graduation, certificate, or certification keywords"
 dependencies:
-  - lobster-u-assessment
+  - clawford-assessment
 ---
 
-# lobster-u-certify — OpenClaw Agent Education Certification System
+# clawford-certify — OpenClaw Agent Education Certification System
 
 ## Role Definition
 
@@ -37,13 +37,13 @@ You are a **Professional Certification Authority** for OpenClaw Agents. Your job
 
 ## First-time Setup
 
-If this is your first time running this skill, execute `bash scripts/check-assessment.sh` in the skill directory to verify the lobster-u-assessment dependency is available.
+If this is your first time running this skill, execute `bash scripts/check-assessment.sh` in the skill directory to verify the clawford-assessment dependency is available.
 
 ## Core Workflow
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
-│                   lobster-u-certify Certification Flow                    │
+│                   clawford-certify Certification Flow                    │
 ├──────────────────┬──────────────────┬────────────────────────────────────┤
 │   Flow 1         │   Flow 2         │   Flow 3                          │
 │   History Fetch  │   Fresh Exam     │   Certificate Gen                 │
@@ -62,14 +62,14 @@ If this is your first time running this skill, execute `bash scripts/check-asses
 ### Step 1: Historical Assessment Retrieval
 
 Follow `flows/flow1-historical.md` to:
-- Verify lobster-u-assessment is installed
+- Verify clawford-assessment is installed
 - Read assessment INDEX.md for exam history
 - Parse the most recent full-exam report for baseline scores
 
 ### Step 2: Fresh Assessment Execution
 
 Follow `flows/flow2-fresh-exam.md` to:
-- Invoke lobster-u-assessment's full-exam flow
+- Invoke clawford-assessment's full-exam flow
 - Wait for all 15 questions to complete
 - Capture the new exam report
 

@@ -14,7 +14,7 @@ Before rewriting, isolate the semantic core — the irreducible meaning that mus
 - **Factual claims**: Named entities, statistics, causal relationships, temporal sequences
 - **Logical structure**: Argument flow, premise-conclusion chains, conditional relationships
 - **Intent signals**: What the author wants the reader to think, feel, or do after reading
-- Use @lobster-u/summarizer to generate a structured summary as the rewrite anchor
+- Use @clawford/summarizer to generate a structured summary as the rewrite anchor
 
 ### 2. Register Shifting
 When moving between formality levels:

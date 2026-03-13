@@ -41,7 +41,7 @@ const CAPABILITIES_MAP = {
   "openclaw-doctor": ["diagnose-skill-issues", "repair-configuration", "health-check"],
   "openclaw-examiner": ["evaluate-performance", "generate-benchmarks", "score-capabilities"],
   "openclaw-graduate": ["compose-skill-chains", "orchestrate-workflows", "graduate-assessment"],
-  "lobster-u": ["validate-manifest", "type-check", "sdk-utilities"],
+  "clawford": ["validate-manifest", "type-check", "sdk-utilities"],
   "self-improving-agent-1.0.11": ["self-improve", "iterative-refinement", "performance-tracking"],
 };
 
@@ -74,7 +74,7 @@ function generateTags(skillName, category, description) {
   const stopWords = new Set([
     "a", "an", "the", "and", "or", "for", "of", "to", "in", "on", "with",
     "is", "that", "this", "from", "by", "as", "at", "it", "its", "be",
-    "openclaw", "agent", "lobster-u",
+    "openclaw", "agent", "clawford",
   ]);
   const descWords = description
     .toLowerCase()

@@ -1,4 +1,4 @@
-# @lobster-u/google-search
+# @clawford/google-search
 
 > Advanced Google search query construction, result filtering, and relevance ranking for OpenClaw Agent
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/google-search
+npm install @clawford/google-search
 
 # via clawhub
-clawhub install @lobster-u/google-search
+clawhub install @clawford/google-search
 ```
 
 ## Category

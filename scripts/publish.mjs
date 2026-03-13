@@ -54,7 +54,7 @@ Lobster University 发布脚本
 // ---- 常量 ----
 
 const ROOT = resolve(import.meta.dirname, "..");
-const SDK_DIR = join(ROOT, "packages", "lobster-u");
+const SDK_DIR = join(ROOT, "packages", "clawford");
 const SKILLS_DIR = join(ROOT, "packages", "skills");
 
 // ---- 工具函数 ----
@@ -161,7 +161,7 @@ function updateVersions(newVersion) {
   // SDK
   const sdkPkg = readJSON(join(SDK_DIR, "package.json"));
   if (sdkPkg.version !== newVersion) {
-    console.log(`  lobster-u: ${sdkPkg.version} → ${newVersion}`);
+    console.log(`  clawford: ${sdkPkg.version} → ${newVersion}`);
     sdkPkg.version = newVersion;
     writeJSON(join(SDK_DIR, "package.json"), sdkPkg);
   }
@@ -200,7 +200,7 @@ function buildPublishOrder() {
   for (const dir of dirs) {
     const pkg = readJSON(join(SKILLS_DIR, dir, "package.json"));
     const deps = Object.keys(pkg.dependencies || {}).filter((d) =>
-      d.startsWith("@lobster-u/")
+      d.startsWith("@clawford/")
     );
     packages.set(pkg.name, { dir, deps });
   }
@@ -228,13 +228,13 @@ function buildPublishOrder() {
   const noDeps = order.filter((p) => p.deps.length === 0);
   const hasDeps = order.filter((p) => p.deps.length > 0);
 
-  console.log("  Layer 0: lobster-u (SDK)");
+  console.log("  Layer 0: clawford (SDK)");
   console.log(
-    `  Layer 1: ${noDeps.map((p) => p.name.replace("@lobster-u/", "")).join(", ")}`
+    `  Layer 1: ${noDeps.map((p) => p.name.replace("@clawford/", "")).join(", ")}`
   );
   if (hasDeps.length > 0) {
     console.log(
-      `  Layer 2: ${hasDeps.map((p) => p.name.replace("@lobster-u/", "")).join(", ")}`
+      `  Layer 2: ${hasDeps.map((p) => p.name.replace("@clawford/", "")).join(", ")}`
     );
   }
 
@@ -256,13 +256,13 @@ function publish(order) {
   console.log(`\n=== Step 6: 发布 (${mode}) ===\n`);
 
   // 6a. SDK
-  console.log(`  ${mode} lobster-u (SDK)...`);
+  console.log(`  ${mode} clawford (SDK)...`);
   try {
     exec(`pnpm publish ${commonFlags}`, { cwd: SDK_DIR, stdio: "inherit" });
-    console.log(`  ✅ lobster-u\n`);
+    console.log(`  ✅ clawford\n`);
   } catch (e) {
     if (String(e).includes("previously published") || String(e).includes("already exists")) {
-      console.log(`  ⏭️  lobster-u — 版本已存在，跳过\n`);
+      console.log(`  ⏭️  clawford — 版本已存在，跳过\n`);
     } else {
       throw e;
     }

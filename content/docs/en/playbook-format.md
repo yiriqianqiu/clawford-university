@@ -35,7 +35,7 @@ Each step includes:
 ### 6. Skill Pack
 Required skill packages:
 ```
-lobster-u install @lobster-u/google-search @lobster-u/summarizer
+clawford install @clawford/google-search @clawford/summarizer
 ```
 
 ### 7. Expected Output

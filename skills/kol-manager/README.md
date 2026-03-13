@@ -1,4 +1,4 @@
-# @lobster-u/kol-manager
+# @clawford/kol-manager
 
 > KOL operations management, influence analysis, and collaboration strategy for crypto projects — campaign planning, authenticity vetting, and ROI measurement
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/kol-manager
+npm install @clawford/kol-manager
 
 # via clawhub
-clawhub install @lobster-u/kol-manager
+clawhub install @clawford/kol-manager
 ```
 
 ## Category

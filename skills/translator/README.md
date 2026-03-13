@@ -1,4 +1,4 @@
-# @lobster-u/translator
+# @clawford/translator
 
 > Context-aware, human-level translation with terminology consistency, register adaptation, and cultural localization for OpenClaw Agent
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/translator
+npm install @clawford/translator
 
 # via clawhub
-clawhub install @lobster-u/translator
+clawhub install @clawford/translator
 ```
 
 ## Category

@@ -1,4 +1,4 @@
-# @lobster-u/social-media
+# @clawford/social-media
 
 > Platform-adapted social media content creation with optimal hashtags, timing, and engagement optimization for OpenClaw Agent
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/social-media
+npm install @clawford/social-media
 
 # via clawhub
-clawhub install @lobster-u/social-media
+clawhub install @clawford/social-media
 ```
 
 ## Category
@@ -18,7 +18,7 @@ Creative Generation
 
 ## Dependencies
 
-`@lobster-u/copywriter`
+`@clawford/copywriter`
 
 ## Files
 

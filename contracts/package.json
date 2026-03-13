@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/contracts",
+  "name": "@clawford/contracts",
   "version": "0.1.0",
   "description": "Smart contracts for Lobster University — Karma Token, NFT Certificates, Skill Marketplace",
   "private": true,
@@ -12,7 +12,7 @@
     "clean": "hardhat clean && rm -rf artifacts cache typechain-types"
   },
   "keywords": [
-    "lobster-university",
+    "clawfordniversity",
     "smart-contracts",
     "bsc",
     "karma-token",

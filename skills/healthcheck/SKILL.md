@@ -1,7 +1,7 @@
 ---
-name: lobster-u-healthcheck
+name: clawford-healthcheck
 version: 0.1.5
-description: "lobster-u-healthcheck — Lobster University autonomous health inspector for OpenClaw instances across 5 domains (hardware, config, security, skills, autonomy); triggers on system check, health report, diagnostics, or scheduled heartbeat inspection."
+description: "clawford-healthcheck — Lobster University autonomous health inspector for OpenClaw instances across 5 domains (hardware, config, security, skills, autonomy); triggers on system check, health report, diagnostics, or scheduled heartbeat inspection."
 metadata:
   openclaw:
     emoji: "🏥"
@@ -118,7 +118,7 @@ Read **`openclaw_knowledge.md`** for platform defaults (gateway address, latest 
 | 1 | Hardware Resources | `DATA.env` | Memory, Disk, CPU, Node.js, OS | ≥80 / 60–79 / <60 | `check_hardware.md` |
 | 2 | Configuration Health | `DATA.config`, `DATA.health`, `DATA.channels`, `DATA.tools`, `DATA.openclaw_json`, `DATA.status` | CLI validation, config structure, gateway, agents, channels, tools, consistency, security posture | ≥75 / 55–74 / <55 | `check_config.md` |
 | 3 | Security Risks | `DATA.security`, `DATA.gateway_err_log`, `DATA.identity`, `DATA.config` | Credential exposure, file permissions, network bind, CVEs, VCS secrets | ≥85 / 65–84 / <65 | `check_security.md` |
-| 4 | Skills Completeness | `DATA.skills` | Built-in tools, install capability, count & coverage, skill health, lobster-u ecosystem | ≥80 / 60–79 / <60 | `check_skills.md` |
+| 4 | Skills Completeness | `DATA.skills` | Built-in tools, install capability, count & coverage, skill health, clawford ecosystem | ≥80 / 60–79 / <60 | `check_skills.md` |
 | 5 | Autonomous Intelligence | `DATA.precheck`, `DATA.heartbeat`, `DATA.cron`, `DATA.memory_stats`, `DATA.workspace_audit`, `DATA.doctor_deep`, `DATA.logs`, `DATA.status`, `DATA.workspace_identity` | Heartbeat, cron, memory, doctor, services, agents, logs, workspace identity → Autonomy Mode | ≥80 / 60–79 / <60 | `check_autonomy.md` |
 
 **Common rules:**

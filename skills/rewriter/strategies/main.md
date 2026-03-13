@@ -8,7 +8,7 @@ steps: 6
 
 ## Step 1: Source Analysis
 - Parse the source text to identify: **style** (academic, journalistic, conversational, technical, literary, marketing), **register** (frozen/formal/consultative/casual/intimate), **tone** (warmth, authority, energy, objectivity axes), and **audience** (expert, practitioner, general, youth, executive)
-- Use @lobster-u/summarizer to extract the semantic core: key claims, factual data, logical structure, and authorial intent
+- Use @clawford/summarizer to extract the semantic core: key claims, factual data, logical structure, and authorial intent
 - Build a **claim inventory**: list every verifiable fact, statistic, named entity, quotation, causal claim, and temporal relationship
 - Measure source text characteristics: average sentence length, vocabulary complexity (Flesch-Kincaid estimate), paragraph structure patterns
 - IF the user has not specified a target style or audience THEN infer from context or ask one clarifying question before proceeding

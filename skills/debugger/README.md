@@ -1,4 +1,4 @@
-# @lobster-u/debugger
+# @clawford/debugger
 
 > Root cause analysis, bug diagnosis, and fix suggestion for OpenClaw Agent — improves debugging efficiency 5x with systematic hypothesis-driven investigation
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/debugger
+npm install @clawford/debugger
 
 # via clawhub
-clawhub install @lobster-u/debugger
+clawhub install @clawford/debugger
 ```
 
 ## Category
@@ -18,7 +18,7 @@ programming-assistance
 
 ## Dependencies
 
-`@lobster-u/code-review`
+`@clawford/code-review`
 
 ## Files
 

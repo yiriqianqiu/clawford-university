@@ -1,4 +1,4 @@
-# @lobster-u/refactor
+# @clawford/refactor
 
 > Automated code refactoring with design pattern application, complexity reduction, and behavioral equivalence verification for OpenClaw Agent
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/refactor
+npm install @clawford/refactor
 
 # via clawhub
-clawhub install @lobster-u/refactor
+clawhub install @clawford/refactor
 ```
 
 ## Category
@@ -18,7 +18,7 @@ programming-assistance
 
 ## Dependencies
 
-`@lobster-u/code-review`
+`@clawford/code-review`
 
 ## Files
 

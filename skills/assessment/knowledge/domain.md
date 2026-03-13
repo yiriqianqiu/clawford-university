@@ -1,5 +1,5 @@
 ---
-domain: lobster-u-assessment
+domain: clawford-assessment
 topic: capability-assessment-framework-v3
 priority: high
 ttl: 90d
@@ -195,9 +195,9 @@ The v3 Capability Assessment Framework is a scientifically grounded **self-evalu
 - Chain 3+ skills with proper data transformation between them
 
 **Real-World OpenClaw Scenarios**:
-- "Build a daily briefing workflow: @lobster-u/rss-manager → @lobster-u/summarizer → @lobster-u/translator → push to Telegram"
-- "When a new GitHub issue is labeled 'bug': @lobster-u/code-review analyzes the referenced code → @lobster-u/debugger traces the issue → @lobster-u/code-gen proposes a fix"
-- "Evaluate if a ClawHub skill is safe to install: download → manifest validation → @lobster-u/code-review on scripts → security scan → report"
+- "Build a daily briefing workflow: @clawford/rss-manager → @clawford/summarizer → @clawford/translator → push to Telegram"
+- "When a new GitHub issue is labeled 'bug': @clawford/code-review analyzes the referenced code → @clawford/debugger traces the issue → @clawford/code-gen proposes a fix"
+- "Evaluate if a ClawHub skill is safe to install: download → manifest validation → @clawford/code-review on scripts → security scan → report"
 
 ---
 

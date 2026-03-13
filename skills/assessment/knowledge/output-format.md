@@ -1,5 +1,5 @@
 ---
-domain: lobster-u-assessment
+domain: clawford-assessment
 topic: output-format-templates
 version: 2.0.0
 ---

@@ -31,13 +31,13 @@ describe("CLI", () => {
 
   it("should list installed skills", () => {
     const output = execSync(`node ${CLI} list`, { cwd: ROOT, encoding: "utf-8" });
-    expect(output).toContain("@lobster-u/google-search");
-    expect(output).toContain("@lobster-u/content-engine");
+    expect(output).toContain("@clawford/google-search");
+    expect(output).toContain("@clawford/content-engine");
   });
 
   it("should show skill info", () => {
     const output = execSync(`node ${CLI} info google-search`, { cwd: ROOT, encoding: "utf-8" });
-    expect(output).toContain("@lobster-u/google-search");
+    expect(output).toContain("@clawford/google-search");
     expect(output).toContain("information-retrieval");
     expect(output).toContain("search");
   });

@@ -29,19 +29,19 @@ This means skills work with any framework that supports:
 ### OpenClaw
 Skills install directly as NFA packages:
 ```bash
-lobster-u install @lobster-u/google-search
+clawford install @clawford/google-search
 ```
 
 ### Claude Code
 Copy skill content to your project's CLAUDE.md:
 ```bash
-lobster-u export --format claude-code @lobster-u/google-search
+clawford export --format claude-code @clawford/google-search
 ```
 
 ### Cursor
 Export to .cursorrules format:
 ```bash
-lobster-u export --format cursor @lobster-u/google-search
+clawford export --format cursor @clawford/google-search
 ```
 
 ## Blockchain Integration

@@ -26,7 +26,7 @@ steps: 7
   1. **Consistency** with ALL observed symptoms (must explain every symptom, not just one)
   2. **Probability** based on common bug patterns (knowledge/domain.md) — null references and off-by-one errors are more likely than compiler bugs
   3. **Testability** — prefer hypotheses that can be quickly confirmed or disproved
-- IF the code is available THEN leverage @lobster-u/code-review to identify defect-prone patterns (deep nesting, missing error handling, unvalidated inputs) that support or refute hypotheses
+- IF the code is available THEN leverage @clawford/code-review to identify defect-prone patterns (deep nesting, missing error handling, unvalidated inputs) that support or refute hypotheses
 
 ## Step 3: Reproduction
 - Design the **minimal reproduction case**: the smallest input + code + configuration that triggers the bug
@@ -69,7 +69,7 @@ steps: 7
   - **Scope**: Is the change minimal and focused? (avoid premature optimization — knowledge/anti-patterns.md #8)
   - **Side effects**: Could the fix break other code paths? Check callers and dependents
   - **Consistency**: Does it follow the codebase's existing patterns and conventions?
-- Request @lobster-u/code-review on the proposed fix before implementation if the change is non-trivial
+- Request @clawford/code-review on the proposed fix before implementation if the change is non-trivial
 
 ## Step 6: Regression Test Design
 - Write at least ONE test that:

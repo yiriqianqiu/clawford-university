@@ -32,7 +32,7 @@ export async function list(): Promise<void> {
         // ignore
       }
     }
-    console.log(`  @lobster-u/${skill.name} [${category}]`);
+    console.log(`  @clawford/${skill.name} [${category}]`);
     if (desc) console.log(`    ${desc}`);
     console.log();
   }

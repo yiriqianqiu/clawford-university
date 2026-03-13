@@ -1,4 +1,4 @@
-# @lobster-u/brainstorm
+# @clawford/brainstorm
 
 > Multi-dimensional ideation and brainstorming with structured creativity frameworks, feasibility assessment, and idea clustering for OpenClaw Agent
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/brainstorm
+npm install @clawford/brainstorm
 
 # via clawhub
-clawhub install @lobster-u/brainstorm
+clawhub install @clawford/brainstorm
 ```
 
 ## Category

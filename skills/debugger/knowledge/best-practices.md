@@ -159,4 +159,4 @@ After implementing a fix:
 - [ ] Edge cases covered (empty input, null, boundary values, concurrent access)
 - [ ] A regression test exists that would catch this bug if reintroduced
 - [ ] The fix addresses the root cause, not just the symptom
-- [ ] Code review completed (leverage @lobster-u/code-review)
+- [ ] Code review completed (leverage @clawford/code-review)

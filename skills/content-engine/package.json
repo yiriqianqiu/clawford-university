@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/content-engine",
+  "name": "@clawford/content-engine",
   "version": "0.1.0",
   "description": "Multi-platform content creation and repurposing engine for AI agents",
   "keywords": ["content", "social-media", "writing", "repurposing"],

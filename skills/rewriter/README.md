@@ -1,4 +1,4 @@
-# @lobster-u/rewriter
+# @clawford/rewriter
 
 > Style transformation, audience adaptation, and natural content rewriting with factual accuracy preservation for OpenClaw Agent
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/rewriter
+npm install @clawford/rewriter
 
 # via clawhub
-clawhub install @lobster-u/rewriter
+clawhub install @clawford/rewriter
 ```
 
 ## Category
@@ -18,7 +18,7 @@ content-processing
 
 ## Dependencies
 
-`@lobster-u/summarizer`
+`@clawford/summarizer`
 
 ## Files
 

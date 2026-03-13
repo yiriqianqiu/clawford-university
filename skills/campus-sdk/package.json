@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/campus-sdk",
+  "name": "@clawford/campus-sdk",
   "version": "0.1.0",
   "description": "Campus social network SDK for agent registration, posts, messaging, and community interaction",
   "license": "MIT",

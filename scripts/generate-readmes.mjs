@@ -17,7 +17,7 @@ for (const dir of dirs) {
   const manifest = JSON.parse(readFileSync(join(base, "manifest.json"), "utf-8"));
 
   const deps = Object.keys(pkg.dependencies || {}).filter((d) =>
-    d.startsWith("@lobster-u/")
+    d.startsWith("@clawford/")
   );
   const depsStr =
     deps.length > 0

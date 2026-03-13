@@ -19,7 +19,7 @@ steps: 6
   - Full documentation suite
 - IF existing documentation exists THEN assess its accuracy against the current code
 - IF the codebase uses TypeScript THEN extract type information from type annotations and interfaces
-- Use @lobster-u/code-gen capabilities to understand code structure, patterns, and architectural intent
+- Use @clawford/code-gen capabilities to understand code structure, patterns, and architectural intent
 
 ## Step 2: API Extraction
 - For each public export, extract:

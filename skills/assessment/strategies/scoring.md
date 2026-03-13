@@ -1,5 +1,5 @@
 ---
-strategy: lobster-u-assessment
+strategy: clawford-assessment
 topic: scoring-rules
 version: 3.0.0
 ---

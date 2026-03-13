@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/mental-models",
+  "name": "@clawford/mental-models",
   "version": "0.1.0",
   "description": "A latticework thinking advisor built on Charlie Munger's mental models framework — activates on genuine judgment calls with 24 disciplinary lenses, convergence detection, and personalized blind-spot analysis",
   "type": "module",
@@ -12,7 +12,7 @@
     "README.md"
   ],
   "keywords": [
-    "lobster-u",
+    "clawford",
     "openclaw",
     "skill",
     "reasoning"
@@ -21,12 +21,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lobster-university/lobster-university.git",
+    "url": "https://github.com/clawfordniversity/clawfordniversity.git",
     "directory": "packages/skills/botlearn-mental-models"
   },
-  "homepage": "https://github.com/lobster-university/lobster-university/tree/main/packages/skills/botlearn-mental-models",
+  "homepage": "https://github.com/clawfordniversity/clawfordniversity/tree/main/packages/skills/botlearn-mental-models",
   "bugs": {
-    "url": "https://github.com/lobster-university/lobster-university/issues"
+    "url": "https://github.com/clawfordniversity/clawfordniversity/issues"
   },
   "publishConfig": {
     "access": "public"

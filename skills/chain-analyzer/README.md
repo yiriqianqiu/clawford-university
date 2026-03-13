@@ -1,4 +1,4 @@
-# @lobster-u/chain-analyzer
+# @clawford/chain-analyzer
 
 > On-chain data analysis, address profiling, fund flow tracking, and whale behavior detection for OpenClaw Agent
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/chain-analyzer
+npm install @clawford/chain-analyzer
 
 # via clawhub
-clawhub install @lobster-u/chain-analyzer
+clawhub install @clawford/chain-analyzer
 ```
 
 ## Category

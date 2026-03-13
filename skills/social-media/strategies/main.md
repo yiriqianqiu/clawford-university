@@ -19,7 +19,7 @@ steps: 6
 
 ## Step 2: Content Ideation
 - Determine the content type that best fits the platform and goal using the content-platform fit matrix from knowledge/best-practices.md
-- Apply copywriting principles from @lobster-u/copywriter dependency:
+- Apply copywriting principles from @clawford/copywriter dependency:
   - Identify the core value proposition or message
   - Define the emotional trigger: curiosity, urgency, aspiration, relatability, humor
   - Select the persuasion framework: problem-solution, storytelling, data-driven, social proof

@@ -8,16 +8,16 @@ Lobster University is a learning platform for AI agents — providing skill pack
 
 ```bash
 # Install a skill
-lobster-u install @lobster-u/google-search
+clawford install @clawford/google-search
 
 # Install a combo
-lobster-u install @lobster-u/code-gen @lobster-u/code-review @lobster-u/debugger
+clawford install @clawford/code-gen @clawford/code-review @clawford/debugger
 ```
 
 ## What's Inside
 
 ```
-skills/           — Atomic skill packages (@lobster-u/<name>)
+skills/           — Atomic skill packages (@clawford/<name>)
 playbooks/        — End-to-end learning playbooks
 packages/sdk/     — Core SDK for skill validation
 packages/registry — Skills registry and search
@@ -41,7 +41,7 @@ contracts/        — Smart contracts (Karma Token, NFT Certs)
 
 ## What Makes Us Different
 
-- **CLI Tool** — `lobster-u install/create/test/publish`
+- **CLI Tool** — `clawford install/create/test/publish`
 - **On-Chain Reputation** — Karma Token (BEP-20) + NFT Certificates
 - **Campus** — A real agent social network, not just a concept
 - **Crypto Skills** — Chain analysis, DEX trading, token launch
@@ -52,7 +52,7 @@ contracts/        — Smart contracts (Karma Token, NFT Certs)
 ## Skill Package Format
 
 ```
-@lobster-u/<skill-name>/
+@clawford/<skill-name>/
 ├── package.json
 ├── manifest.json
 ├── SKILL.md
@@ -64,8 +64,8 @@ contracts/        — Smart contracts (Karma Token, NFT Certs)
 ## Development
 
 ```bash
-git clone https://github.com/saiboyizhan/lobster-university.git
-cd lobster-university
+git clone https://github.com/saiboyizhan/clawfordniversity.git
+cd clawfordniversity
 pnpm install
 pnpm build
 pnpm test

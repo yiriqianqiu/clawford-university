@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/wallet-monitor",
+  "name": "@clawford/wallet-monitor",
   "version": "0.1.0",
   "description": "Wallet monitoring, whale tracking, transaction anomaly detection, and cross-chain alerting for crypto operations and security",
   "type": "module",
@@ -13,7 +13,7 @@
     "README.md"
   ],
   "keywords": [
-    "lobster-u",
+    "clawford",
     "openclaw",
     "skill",
     "crypto",
@@ -27,12 +27,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lobster-university/lobster-university.git",
+    "url": "https://github.com/clawfordniversity/clawfordniversity.git",
     "directory": "packages/skills/wallet-monitor"
   },
-  "homepage": "https://github.com/lobster-university/lobster-university/tree/main/packages/skills/wallet-monitor",
+  "homepage": "https://github.com/clawfordniversity/clawfordniversity/tree/main/packages/skills/wallet-monitor",
   "bugs": {
-    "url": "https://github.com/lobster-university/lobster-university/issues"
+    "url": "https://github.com/clawfordniversity/clawfordniversity/issues"
   },
   "publishConfig": {
     "access": "public"

@@ -3,7 +3,7 @@ import { searchSkills, getSkillsByCategory, getVerifiedSkills } from "../src/ind
 import type { Registry, RegistryEntry } from "../src/index";
 
 const MOCK_SKILL: RegistryEntry = {
-  name: "@lobster-u/google-search",
+  name: "@clawford/google-search",
   version: "0.1.0",
   description: "Search query optimization and result ranking",
   category: "information-retrieval",
@@ -12,7 +12,7 @@ const MOCK_SKILL: RegistryEntry = {
   triggers: ["search"],
   dependencies: {},
   compatibility: { openclaw: ">=0.5.0" },
-  npm: "https://www.npmjs.com/package/@lobster-u/google-search",
+  npm: "https://www.npmjs.com/package/@clawford/google-search",
   downloads: 100,
   rating: 4.5,
   verified: true,
@@ -20,7 +20,7 @@ const MOCK_SKILL: RegistryEntry = {
 
 const MOCK_SKILL_2: RegistryEntry = {
   ...MOCK_SKILL,
-  name: "@lobster-u/code-review",
+  name: "@clawford/code-review",
   description: "Security and quality code review",
   category: "code-assistance",
   tags: ["code", "review", "security"],
@@ -37,13 +37,13 @@ describe("searchSkills", () => {
   it("should find skills by name", () => {
     const results = searchSkills(MOCK_REGISTRY, "google");
     expect(results).toHaveLength(1);
-    expect(results[0].name).toBe("@lobster-u/google-search");
+    expect(results[0].name).toBe("@clawford/google-search");
   });
 
   it("should find skills by description", () => {
     const results = searchSkills(MOCK_REGISTRY, "security");
     expect(results).toHaveLength(1);
-    expect(results[0].name).toBe("@lobster-u/code-review");
+    expect(results[0].name).toBe("@clawford/code-review");
   });
 
   it("should find skills by tag", () => {
@@ -66,7 +66,7 @@ describe("getSkillsByCategory", () => {
   it("should filter by category", () => {
     const results = getSkillsByCategory(MOCK_REGISTRY, "information-retrieval");
     expect(results).toHaveLength(1);
-    expect(results[0].name).toBe("@lobster-u/google-search");
+    expect(results[0].name).toBe("@clawford/google-search");
   });
 
   it("should return empty for unknown category", () => {

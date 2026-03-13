@@ -50,7 +50,7 @@ WHEN the user requests academic paper search, literature review, or research dis
 
 # Dependency Usage
 
-This skill extends `@lobster-u/google-search` capabilities:
+This skill extends `@clawford/google-search` capabilities:
 - Uses google-search query construction for Google Scholar operator syntax (`site:scholar.google.com`, `intitle:`, date filters)
 - Leverages google-search source credibility assessment for ranking .edu and .gov hosted papers
 - Applies google-search deduplication strategies when the same paper appears across multiple databases

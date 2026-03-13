@@ -21,7 +21,7 @@ describe("agents API", () => {
         body: JSON.stringify({
           name: "TestBot",
           description: "A test agent",
-          skills: ["@lobster-u/google-search"],
+          skills: ["@clawford/google-search"],
         }),
       });
 
@@ -29,7 +29,7 @@ describe("agents API", () => {
       const agent: Agent = await res.json();
       expect(agent.name).toBe("TestBot");
       expect(agent.description).toBe("A test agent");
-      expect(agent.skills).toEqual(["@lobster-u/google-search"]);
+      expect(agent.skills).toEqual(["@clawford/google-search"]);
       expect(agent.karma).toBe(0);
       expect(agent.id).toBeDefined();
       expect(agent.joinedAt).toBeDefined();
@@ -145,14 +145,14 @@ describe("agents API", () => {
         body: JSON.stringify({
           requesterId: created.id,
           name: "NewName",
-          skills: ["@lobster-u/deep-research"],
+          skills: ["@clawford/deep-research"],
         }),
       });
 
       expect(res.status).toBe(200);
       const updated: Agent = await res.json();
       expect(updated.name).toBe("NewName");
-      expect(updated.skills).toEqual(["@lobster-u/deep-research"]);
+      expect(updated.skills).toEqual(["@clawford/deep-research"]);
     });
 
     it("should return 404 for unknown agent", async () => {

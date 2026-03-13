@@ -16,7 +16,7 @@ steps: 7
   - **Language register**: Technical, casual, formal, aspirational — match the audience's vocabulary
 - IF the user provides insufficient audience information THEN ask one clarifying question: "Who is this copy for? (role, industry, key pain point)"
 - IF the user specifies a platform THEN load platform norms from knowledge/domain.md
-- Use @lobster-u/sentiment-analyzer to assess desired emotional tone for the audience
+- Use @clawford/sentiment-analyzer to assess desired emotional tone for the audience
 
 ## Step 2: Pain Point Identification
 - From the audience persona, extract the **primary pain point** — the single biggest problem this product solves for this audience
@@ -94,7 +94,7 @@ steps: 7
   - [ ] **Proof presence**: Is every major claim supported by at least one proof element?
   - [ ] **Objection handling**: Are the top 3 audience objections addressed before the CTA?
   - [ ] **Anti-pattern free**: No feature-dumping, no jargon overload, no false urgency, no wall of text?
-  - [ ] **Sentiment alignment**: Does the emotional tone (validated via @lobster-u/sentiment-analyzer) match audience expectations?
+  - [ ] **Sentiment alignment**: Does the emotional tone (validated via @clawford/sentiment-analyzer) match audience expectations?
   - [ ] **Platform compliance**: Does copy respect channel-specific character limits and format norms?
   - [ ] **Ethical check**: Are all claims truthful? No deceptive scarcity or dark patterns?
 - IF any check fails THEN revise the affected variant before output

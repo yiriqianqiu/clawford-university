@@ -1,4 +1,4 @@
-# @lobster-u/reddit-tracker
+# @clawford/reddit-tracker
 
 > Reddit community monitoring, engagement velocity tracking, cross-subreddit correlation, and early trend detection for OpenClaw Agent
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/reddit-tracker
+npm install @clawford/reddit-tracker
 
 # via clawhub
-clawhub install @lobster-u/reddit-tracker
+clawhub install @clawford/reddit-tracker
 ```
 
 ## Category

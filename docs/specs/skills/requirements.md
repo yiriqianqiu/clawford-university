@@ -12,7 +12,7 @@ Lobster University MVP 需要交付 **20 个 OpenClaw Skill**，每个 Skill 是
 **OpenClaw Skill 规范**：
 
 ```
-@lobster-u/<skill-name>/
+@clawford/<skill-name>/
 ├── manifest.json              # 元信息：name, version, description, category, dependencies, compatibility
 ├── SKILL.md                   # Skill 核心定义：角色、能力、行为指令
 ├── knowledge/                 # 领域知识（注入 Agent Memory）
@@ -40,7 +40,7 @@ Benchmark 维度：信息检索（目标提升 ≥ 30 分）
 
 ---
 
-### Requirement 1: `@lobster-u/google-search`（Google 高级搜索）
+### Requirement 1: `@clawford/google-search`（Google 高级搜索）
 
 **User Story:** As an OpenClaw user, I want my Agent to construct precise search queries and filter noise, so that search result relevance improves from 30% to 80%.
 
@@ -56,7 +56,7 @@ Benchmark 维度：信息检索（目标提升 ≥ 30 分）
 
 ---
 
-### Requirement 2: `@lobster-u/academic-search`（学术论文检索）
+### Requirement 2: `@clawford/academic-search`（学术论文检索）
 
 **User Story:** As an OpenClaw user, I want my Agent to search arXiv/Google Scholar and extract key findings, so that it finds Top 5 papers on any topic within 2 minutes.
 
@@ -67,13 +67,13 @@ Benchmark 维度：信息检索（目标提升 ≥ 30 分）
 3. WHEN multiple papers are retrieved THEN the Agent SHALL rank by relevance and impact, providing a comparative summary.
 4. WHEN the smoke test runs THEN the Agent SHALL return ≥ 3 relevant papers with accurate key-finding summaries.
 
-**Dependencies**: `@lobster-u/google-search`
+**Dependencies**: `@clawford/google-search`
 **Knowledge**: Academic database API patterns, paper structure, citation analysis, research methodology taxonomy.
 **Strategy**: Keyword extraction → database-specific query → abstract screening → cross-reference → synthesis.
 
 ---
 
-### Requirement 3: `@lobster-u/rss-manager`（RSS 订阅管理）
+### Requirement 3: `@clawford/rss-manager`（RSS 订阅管理）
 
 **User Story:** As an OpenClaw user, I want my Agent to aggregate, deduplicate, and summarize multi-source RSS feeds, so that daily digest quality improves 3x.
 
@@ -89,7 +89,7 @@ Benchmark 维度：信息检索（目标提升 ≥ 30 分）
 
 ---
 
-### Requirement 4: `@lobster-u/twitter-intel`（Twitter/X 信息流）
+### Requirement 4: `@clawford/twitter-intel`（Twitter/X 信息流）
 
 **User Story:** As an OpenClaw user, I want my Agent to track topics/KOLs on Twitter and extract insights, so that it surfaces actionable intelligence from noise.
 
@@ -105,7 +105,7 @@ Benchmark 维度：信息检索（目标提升 ≥ 30 分）
 
 ---
 
-### Requirement 5: `@lobster-u/reddit-tracker`（Reddit 热点追踪）
+### Requirement 5: `@clawford/reddit-tracker`（Reddit 热点追踪）
 
 **User Story:** As an OpenClaw user, I want my Agent to monitor subreddits and identify trends, so that it detects community hotspots 24 hours early.
 
@@ -127,7 +127,7 @@ Benchmark 维度：内容理解（目标提升 ≥ 30 分）
 
 ---
 
-### Requirement 6: `@lobster-u/summarizer`（长文总结）
+### Requirement 6: `@clawford/summarizer`（长文总结）
 
 **User Story:** As an OpenClaw user, I want my Agent to extract core arguments and retain key details, so that summary accuracy improves from 40% to 85%.
 
@@ -143,7 +143,7 @@ Benchmark 维度：内容理解（目标提升 ≥ 30 分）
 
 ---
 
-### Requirement 7: `@lobster-u/translator`（多语言翻译）
+### Requirement 7: `@clawford/translator`（多语言翻译）
 
 **User Story:** As an OpenClaw user, I want my Agent to perform context-aware translation with terminology consistency, so that translation quality approaches human-level.
 
@@ -159,7 +159,7 @@ Benchmark 维度：内容理解（目标提升 ≥ 30 分）
 
 ---
 
-### Requirement 8: `@lobster-u/rewriter`（内容改写）
+### Requirement 8: `@clawford/rewriter`（内容改写）
 
 **User Story:** As an OpenClaw user, I want my Agent to rewrite with style transformation and audience adaptation, so that rewritten content passes AI detection at < 10%.
 
@@ -170,13 +170,13 @@ Benchmark 维度：内容理解（目标提升 ≥ 30 分）
 3. WHEN rewriting THEN the Agent SHALL produce natural text avoiding AI patterns (uniform length, generic transitions, over-hedging).
 4. WHEN the smoke test runs THEN factual accuracy SHALL be ≥ 95% AND AI detection rate < 20%.
 
-**Dependencies**: `@lobster-u/summarizer`
+**Dependencies**: `@clawford/summarizer`
 **Knowledge**: Writing style taxonomy, audience analysis, AI-detection avoidance patterns.
 **Strategy**: Source analysis → audience profiling → style mapping → rewrite with variation → naturalness check → accuracy verification.
 
 ---
 
-### Requirement 9: `@lobster-u/keyword-extractor`（关键词提取）
+### Requirement 9: `@clawford/keyword-extractor`（关键词提取）
 
 **User Story:** As an OpenClaw user, I want my Agent to extract semantic-level keywords and cluster topics, so that keyword coverage improves from 50% to 90%.
 
@@ -192,7 +192,7 @@ Benchmark 维度：内容理解（目标提升 ≥ 30 分）
 
 ---
 
-### Requirement 10: `@lobster-u/sentiment-analyzer`（情感分析）
+### Requirement 10: `@clawford/sentiment-analyzer`（情感分析）
 
 **User Story:** As an OpenClaw user, I want my Agent to perform fine-grained sentiment recognition and opinion mining, so that sentiment accuracy exceeds 85%.
 
@@ -214,7 +214,7 @@ Benchmark 维度：代码生成（目标提升 ≥ 30 分）
 
 ---
 
-### Requirement 11: `@lobster-u/code-gen`（代码生成）
+### Requirement 11: `@clawford/code-gen`（代码生成）
 
 **User Story:** As an OpenClaw user, I want my Agent to generate complete code with error handling and types, so that first-run success rate improves from 20% to 70%.
 
@@ -230,7 +230,7 @@ Benchmark 维度：代码生成（目标提升 ≥ 30 分）
 
 ---
 
-### Requirement 12: `@lobster-u/code-review`（代码审查）
+### Requirement 12: `@clawford/code-review`（代码审查）
 
 **User Story:** As an OpenClaw user, I want my Agent to identify security vulnerabilities, performance issues, and code smells, so that review coverage matches human-level.
 
@@ -246,7 +246,7 @@ Benchmark 维度：代码生成（目标提升 ≥ 30 分）
 
 ---
 
-### Requirement 13: `@lobster-u/debugger`（Bug 调试）
+### Requirement 13: `@clawford/debugger`（Bug 调试）
 
 **User Story:** As an OpenClaw user, I want my Agent to perform root cause analysis and suggest fixes, so that debugging efficiency improves 5x.
 
@@ -257,13 +257,13 @@ Benchmark 维度：代码生成（目标提升 ≥ 30 分）
 3. WHEN debugging THEN the Agent SHALL consider related symptoms that may share the same root cause.
 4. WHEN the smoke test runs THEN the Agent SHALL correctly identify root causes ≥ 60% of the time.
 
-**Dependencies**: `@lobster-u/code-review`
+**Dependencies**: `@clawford/code-review`
 **Knowledge**: Common bug patterns, debugging methodologies, error message interpretation, stack trace analysis.
 **Strategy**: Symptom analysis → hypothesis → reproduction → root cause isolation → fix design → regression test → verification.
 
 ---
 
-### Requirement 14: `@lobster-u/refactor`（代码重构）
+### Requirement 14: `@clawford/refactor`（代码重构）
 
 **User Story:** As an OpenClaw user, I want my Agent to apply design patterns and improve readability, so that code quality scores improve 40%.
 
@@ -274,13 +274,13 @@ Benchmark 维度：代码生成（目标提升 ≥ 30 分）
 3. WHEN proposing changes THEN the Agent SHALL explain: what changed, why, and which pattern was applied.
 4. WHEN the smoke test runs THEN refactored code SHALL score ≥ 35% higher on quality metrics.
 
-**Dependencies**: `@lobster-u/code-review`
+**Dependencies**: `@clawford/code-review`
 **Knowledge**: Design patterns (GoF), refactoring catalog (Fowler), SOLID, complexity metrics.
 **Strategy**: Smell detection → pattern matching → refactoring plan → incremental transform → equivalence verification → quality measurement.
 
 ---
 
-### Requirement 15: `@lobster-u/doc-gen`（文档生成）
+### Requirement 15: `@clawford/doc-gen`（文档生成）
 
 **User Story:** As an OpenClaw user, I want my Agent to generate API docs, READMEs, and changelogs, so that documentation completeness improves from 30% to 90%.
 
@@ -291,7 +291,7 @@ Benchmark 维度：代码生成（目标提升 ≥ 30 分）
 3. WHEN generating a changelog THEN the Agent SHALL analyze git history and produce structured entries with commit/PR links.
 4. WHEN the smoke test runs THEN generated docs SHALL cover ≥ 85% of the public API surface.
 
-**Dependencies**: `@lobster-u/code-gen`
+**Dependencies**: `@clawford/code-gen`
 **Knowledge**: Documentation standards (JSDoc, OpenAPI, README conventions), technical writing, changelog formats.
 **Strategy**: Code analysis → API extraction → description generation → example creation → style matching → completeness check.
 
@@ -303,7 +303,7 @@ Benchmark 维度：创意生成（目标提升 ≥ 30 分）
 
 ---
 
-### Requirement 16: `@lobster-u/writer`（文章写作）
+### Requirement 16: `@clawford/writer`（文章写作）
 
 **User Story:** As an OpenClaw user, I want my Agent to produce structured articles with evidence and consistent style, so that article quality improves 60%.
 
@@ -314,13 +314,13 @@ Benchmark 维度：创意生成（目标提升 ≥ 30 分）
 3. WHEN making factual claims THEN the Agent SHALL provide evidence or cite sources.
 4. WHEN the smoke test runs THEN article quality SHALL score ≥ 4/5.
 
-**Dependencies**: `@lobster-u/summarizer`, `@lobster-u/keyword-extractor`
+**Dependencies**: `@clawford/summarizer`, `@clawford/keyword-extractor`
 **Knowledge**: Article structure patterns, argumentation frameworks, evidence types, style guides.
 **Strategy**: Topic research → outline → argument building → evidence integration → draft → style check → revision.
 
 ---
 
-### Requirement 17: `@lobster-u/brainstorm`（头脑风暴）
+### Requirement 17: `@clawford/brainstorm`（头脑风暴）
 
 **User Story:** As an OpenClaw user, I want my Agent to generate multi-dimensional ideas with feasibility assessment, so that idea count triples and viable ideas exceed 40%.
 
@@ -336,7 +336,7 @@ Benchmark 维度：创意生成（目标提升 ≥ 30 分）
 
 ---
 
-### Requirement 18: `@lobster-u/storyteller`（故事创作）
+### Requirement 18: `@clawford/storyteller`（故事创作）
 
 **User Story:** As an OpenClaw user, I want my Agent to craft stories with narrative structure, character development, and emotional rhythm, so that story completeness and coherence significantly improve.
 
@@ -352,7 +352,7 @@ Benchmark 维度：创意生成（目标提升 ≥ 30 分）
 
 ---
 
-### Requirement 19: `@lobster-u/copywriter`（营销文案）
+### Requirement 19: `@clawford/copywriter`（营销文案）
 
 **User Story:** As an OpenClaw user, I want my Agent to analyze audiences, extract pain points, and design CTAs, so that estimated click-through rate doubles.
 
@@ -363,13 +363,13 @@ Benchmark 维度：创意生成（目标提升 ≥ 30 分）
 3. WHEN the user specifies a platform THEN the Agent SHALL adapt copy to platform norms.
 4. WHEN the smoke test runs THEN copy quality (persuasiveness, clarity, CTA) SHALL score ≥ 4/5.
 
-**Dependencies**: `@lobster-u/sentiment-analyzer`
+**Dependencies**: `@clawford/sentiment-analyzer`
 **Knowledge**: Copywriting frameworks (AIDA, PAS, BAB, 4Ps), audience segmentation, CTA design, platform norms.
 **Strategy**: Audience analysis → pain point ID → value proposition → framework selection → drafting → variant generation → persuasiveness check.
 
 ---
 
-### Requirement 20: `@lobster-u/social-media`（社交媒体内容）
+### Requirement 20: `@clawford/social-media`（社交媒体内容）
 
 **User Story:** As an OpenClaw user, I want my Agent to create platform-adapted content with optimal hashtags and timing, so that estimated engagement rate triples.
 
@@ -380,7 +380,7 @@ Benchmark 维度：创意生成（目标提升 ≥ 30 分）
 3. WHEN creating a content series THEN the Agent SHALL maintain thematic consistency while varying format.
 4. WHEN the smoke test runs THEN content quality (platform fit, engagement potential, hashtag relevance) SHALL score ≥ 4/5.
 
-**Dependencies**: `@lobster-u/copywriter`
+**Dependencies**: `@clawford/copywriter`
 **Knowledge**: Platform norms (limits, formats, algorithms), hashtag strategy, engagement patterns, content calendar.
 **Strategy**: Platform analysis → ideation → format adaptation → hashtag selection → timing optimization → engagement prediction.
 

@@ -22,7 +22,7 @@ benchmark: MINT Benchmark / GAIA Level 2-3 / Terminal-Bench multi-tool tasks
 
 **Question**:
 
-> Given the following @lobster-u skills (assume all are installed):
+> Given the following @clawford skills (assume all are installed):
 > `google-search` / `summarizer` / `code-gen` / `writer` / `translator` / `file-reader`
 >
 > For each of the 5 tasks below, choose the optimal skill(s) and explain your reasoning.

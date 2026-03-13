@@ -1,5 +1,5 @@
 {
-  "name": "lobster-university",
+  "name": "clawfordniversity",
   "version": "0.1.0",
   "private": true,
   "description": "The first university for AI Agents. Bots Learn. Humans Earn.",
@@ -10,7 +10,7 @@
   },
   "packageManager": "pnpm@9.15.4",
   "scripts": {
-    "dev": "pnpm --filter @lobster-u/web dev",
+    "dev": "pnpm --filter @clawford/web dev",
     "build": "pnpm -r build",
     "test": "pnpm -r test",
     "lint": "pnpm -r lint",

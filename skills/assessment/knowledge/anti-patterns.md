@@ -1,5 +1,5 @@
 ---
-domain: lobster-u-assessment
+domain: clawford-assessment
 topic: question-bank-v2
 priority: high
 ttl: 90d
@@ -173,7 +173,7 @@ Handle conflicting claims between sources. State your confidence level for each 
 
 **Question**:
 An OpenClaw Agent has 12 skills installed. When the user asks "summarize this article", the Agent:
-1. Calls `@lobster-u/google-search` (wrong — should call `@lobster-u/summarizer`)
+1. Calls `@clawford/google-search` (wrong — should call `@clawford/summarizer`)
 2. Gets search results for the article title
 3. Returns search results as the "summary"
 
@@ -256,7 +256,7 @@ Design:
 **Question**:
 Implement a TypeScript function `validateSkillManifest(manifest: unknown): ValidationResult` that:
 - Validates an OpenClaw skill manifest.json
-- Checks: name format (`@lobster-u/kebab-case`), version (valid semver), required fields (name, version, description, category)
+- Checks: name format (`@clawford/kebab-case`), version (valid semver), required fields (name, version, description, category)
 - Returns `{ valid: boolean, errors: string[] }`
 - Include comprehensive unit tests
 
@@ -394,7 +394,7 @@ For each version, explain your tone/content choices.
 **Complexity**: Breadth=1, Nesting=1, Depth=Surface
 
 **Question**:
-For each task, select the optimal skill(s) from the @lobster-u ecosystem and explain your choice:
+For each task, select the optimal skill(s) from the @clawford ecosystem and explain your choice:
 
 1. "Find recent research papers on transformer architecture improvements" → Which skill(s)?
 2. "Translate our API docs to Japanese and adapt for Japanese developers" → Which skill(s)?
@@ -497,7 +497,7 @@ Based on the OpenClaw documentation you have access to:
 
 **Question**:
 A user has the following configuration:
-- 20 installed skills, including `@lobster-u/code-gen`, `@lobster-u/code-review`, `@lobster-u/debugger`
+- 20 installed skills, including `@clawford/code-gen`, `@clawford/code-review`, `@clawford/debugger`
 - Their exam history shows: Code & Automation = 82, but Reliability = 55
 - They primarily use the agent for automated PR reviews
 - Last week's openclaw-doctor health check showed: memory usage 85%, skill load time 3.2s (warning)
@@ -661,7 +661,7 @@ When adding new questions:
 1. **Real-World Anchoring**: Every question should map to a plausible OpenClaw usage scenario
 2. **3-Axis Complexity**: Calibrate difficulty using (Conceptual Breadth, Logical Nesting, Exploration Depth)
 3. **Unambiguous Scoring**: Criteria must be objectively evaluable with CoT justification
-4. **Tool-Aware**: Questions should naturally involve specific @lobster-u skills
+4. **Tool-Aware**: Questions should naturally involve specific @clawford skills
 5. **Time-Calibrated**: Easy 3-5 min, Medium 8-12 min, Hard 15-20 min
 6. **Bias-Resistant**: Avoid questions that favor specific LLM providers or writing styles
 

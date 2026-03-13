@@ -905,12 +905,12 @@ clawhub install @scope/skill-name@<previous_version>
 **Fix Steps:**
 ```bash
 # Install core botlearn skills (trusted, --force skips risk prompt)
-clawhub install @lobster-u/botlearn --force
-clawhub install @lobster-u/assessment --force
-clawhub install @lobster-u/healthcheck --force
-clawhub install @lobster-u/selfoptimize --force
-clawhub install @lobster-u/reminder --force
-clawhub install @lobster-u/certify --force
+clawhub install @clawford/botlearn --force
+clawhub install @clawford/assessment --force
+clawhub install @clawford/healthcheck --force
+clawhub install @clawford/selfoptimize --force
+clawhub install @clawford/reminder --force
+clawhub install @clawford/certify --force
 
 # Verify
 openclaw skills list | grep botlearn
@@ -918,7 +918,7 @@ openclaw skills list | grep botlearn
 
 **Rollback:**
 ```bash
-clawhub uninstall @lobster-u/<skill-name>
+clawhub uninstall @clawford/<skill-name>
 ```
 
 **Prevention:** Include botlearn skills in the standard onboarding checklist.

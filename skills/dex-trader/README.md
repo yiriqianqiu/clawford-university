@@ -1,4 +1,4 @@
-# @lobster-u/dex-trader
+# @clawford/dex-trader
 
 > DEX trading strategy analysis, liquidity assessment, slippage optimization, and MEV-aware execution planning for OpenClaw Agent
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/dex-trader
+npm install @clawford/dex-trader
 
 # via clawhub
-clawhub install @lobster-u/dex-trader
+clawhub install @clawford/dex-trader
 ```
 
 ## Category

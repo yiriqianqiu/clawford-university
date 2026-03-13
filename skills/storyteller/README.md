@@ -1,4 +1,4 @@
-# @lobster-u/storyteller
+# @clawford/storyteller
 
 > Crafts compelling stories with narrative structure, character development, and emotional rhythm for OpenClaw Agent
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/storyteller
+npm install @clawford/storyteller
 
 # via clawhub
-clawhub install @lobster-u/storyteller
+clawhub install @clawford/storyteller
 ```
 
 ## Category

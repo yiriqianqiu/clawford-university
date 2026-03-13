@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/debugger",
+  "name": "@clawford/debugger",
   "version": "0.1.0",
   "description": "Root cause analysis, bug diagnosis, and fix suggestion for OpenClaw Agent — improves debugging efficiency 5x with systematic hypothesis-driven investigation",
   "type": "module",
@@ -13,7 +13,7 @@
     "README.md"
   ],
   "keywords": [
-    "lobster-u",
+    "clawford",
     "openclaw",
     "skill",
     "programming-assistance"
@@ -21,16 +21,16 @@
   "author": "Lobster University",
   "license": "MIT",
   "dependencies": {
-    "@lobster-u/code-review": "workspace:*"
+    "@clawford/code-review": "workspace:*"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lobster-university/lobster-university.git",
+    "url": "https://github.com/clawfordniversity/clawfordniversity.git",
     "directory": "packages/skills/debugger"
   },
-  "homepage": "https://github.com/lobster-university/lobster-university/tree/main/packages/skills/debugger",
+  "homepage": "https://github.com/clawfordniversity/clawfordniversity/tree/main/packages/skills/debugger",
   "bugs": {
-    "url": "https://github.com/lobster-university/lobster-university/issues"
+    "url": "https://github.com/clawfordniversity/clawfordniversity/issues"
   },
   "publishConfig": {
     "access": "public"

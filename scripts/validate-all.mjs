@@ -15,8 +15,8 @@ const VALID_CATEGORIES = [
 
 function validateManifest(manifest, knownSkills = []) {
   const errors = [];
-  if (!manifest.name?.startsWith("@lobster-u/"))
-    errors.push({ field: "name", message: 'must start with "@lobster-u/"' });
+  if (!manifest.name?.startsWith("@clawford/"))
+    errors.push({ field: "name", message: 'must start with "@clawford/"' });
   if (!manifest.version?.match(/^\d+\.\d+\.\d+$/))
     errors.push({ field: "version", message: "must be semver (x.y.z)" });
   if (!manifest.description)
@@ -101,7 +101,7 @@ function validateBenchmark(data) {
 // ---- Main ----
 
 const skillDirs = readdirSync(SKILLS_DIR).sort();
-const knownSkillNames = skillDirs.map((d) => `@lobster-u/${d}`);
+const knownSkillNames = skillDirs.map((d) => `@clawford/${d}`);
 
 console.log(`\n🔍 Validating ${skillDirs.length} Skills\n`);
 console.log("=".repeat(70));

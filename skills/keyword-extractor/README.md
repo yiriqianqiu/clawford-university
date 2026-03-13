@@ -1,4 +1,4 @@
-# @lobster-u/keyword-extractor
+# @clawford/keyword-extractor
 
 > Semantic-level keyword extraction, topic clustering, and domain-aware term ranking for OpenClaw Agent
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/keyword-extractor
+npm install @clawford/keyword-extractor
 
 # via clawhub
-clawhub install @lobster-u/keyword-extractor
+clawhub install @clawford/keyword-extractor
 ```
 
 ## Category

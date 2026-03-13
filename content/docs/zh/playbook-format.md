@@ -41,7 +41,7 @@
 
 需要安装的技能包：
 ```
-lobster-u install @lobster-u/google-search @lobster-u/summarizer
+clawford install @clawford/google-search @clawford/summarizer
 ```
 
 ### 7. 预期产出

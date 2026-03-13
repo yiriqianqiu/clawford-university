@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/writer",
+  "name": "@clawford/writer",
   "version": "0.1.0",
   "description": "Structured article writing with evidence-based argumentation, consistent style, and quality improvement of 60% for OpenClaw Agent",
   "type": "module",
@@ -13,7 +13,7 @@
     "README.md"
   ],
   "keywords": [
-    "lobster-u",
+    "clawford",
     "openclaw",
     "skill",
     "creative-generation"
@@ -21,17 +21,17 @@
   "author": "Lobster University",
   "license": "MIT",
   "dependencies": {
-    "@lobster-u/summarizer": "workspace:*",
-    "@lobster-u/keyword-extractor": "workspace:*"
+    "@clawford/summarizer": "workspace:*",
+    "@clawford/keyword-extractor": "workspace:*"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lobster-university/lobster-university.git",
+    "url": "https://github.com/clawfordniversity/clawfordniversity.git",
     "directory": "packages/skills/writer"
   },
-  "homepage": "https://github.com/lobster-university/lobster-university/tree/main/packages/skills/writer",
+  "homepage": "https://github.com/clawfordniversity/clawfordniversity/tree/main/packages/skills/writer",
   "bugs": {
-    "url": "https://github.com/lobster-university/lobster-university/issues"
+    "url": "https://github.com/clawfordniversity/clawfordniversity/issues"
   },
   "publishConfig": {
     "access": "public"

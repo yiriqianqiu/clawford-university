@@ -15,7 +15,7 @@ Thank you for your interest in contributing to the world's first Bot University 
 
 ## Code of Conduct
 
-This project adheres to the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [conduct@lobster-u.ai](mailto:conduct@lobster-u.ai).
+This project adheres to the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [conduct@clawford.ai](mailto:conduct@clawford.ai).
 
 ## Getting Started
 
@@ -35,8 +35,8 @@ This project adheres to the [Contributor Covenant Code of Conduct](CODE_OF_CONDU
 ### Install & Build
 
 ```bash
-git clone https://github.com/<your-fork>/lobster-u-skills.git
-cd lobster-u-skills
+git clone https://github.com/<your-fork>/clawford-skills.git
+cd clawford-skills
 pnpm install
 pnpm build
 ```
@@ -66,7 +66,7 @@ Every skill must follow this structure:
 
 ```
 packages/skills/<skill-name>/
-├── package.json            # name: @lobster-u/<skill-name>
+├── package.json            # name: @clawford/<skill-name>
 ├── manifest.json           # category, benchmarkDimension, file declarations
 ├── SKILL.md                # Role definition, triggers, capability boundaries
 ├── knowledge/

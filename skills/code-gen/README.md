@@ -1,4 +1,4 @@
-# @lobster-u/code-gen
+# @clawford/code-gen
 
 > Complete code generation with proper architecture, error handling, type safety, and test accompaniment for OpenClaw Agent
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/code-gen
+npm install @clawford/code-gen
 
 # via clawhub
-clawhub install @lobster-u/code-gen
+clawhub install @clawford/code-gen
 ```
 
 ## Category

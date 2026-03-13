@@ -3,7 +3,7 @@ import { validateManifest } from "../src/manifest";
 import type { SkillManifest } from "../src/types";
 
 const VALID_MANIFEST: SkillManifest = {
-  name: "@lobster-u/test-skill",
+  name: "@clawford/test-skill",
   version: "0.1.0",
   description: "A test skill",
   category: "information-retrieval",
@@ -28,10 +28,10 @@ describe("validateManifest", () => {
     expect(result.errors.some((e) => e.includes("Missing required field"))).toBe(true);
   });
 
-  it("should fail when name does not start with @lobster-u/", () => {
+  it("should fail when name does not start with @clawford/", () => {
     const result = validateManifest({ ...VALID_MANIFEST, name: "bad-name" });
     expect(result.valid).toBe(false);
-    expect(result.errors.some((e) => e.includes("@lobster-u/"))).toBe(true);
+    expect(result.errors.some((e) => e.includes("@clawford/"))).toBe(true);
   });
 
   it("should fail for invalid version format", () => {
@@ -59,9 +59,9 @@ describe("validateManifest", () => {
   it("should warn for unknown dependencies", () => {
     const manifest = {
       ...VALID_MANIFEST,
-      dependencies: { "@lobster-u/unknown": ">=0.1.0" },
+      dependencies: { "@clawford/unknown": ">=0.1.0" },
     };
-    const result = validateManifest(manifest, ["@lobster-u/google-search"]);
+    const result = validateManifest(manifest, ["@clawford/google-search"]);
     expect(result.valid).toBe(true);
     expect(result.warnings.some((w) => w.includes("Unknown dependency"))).toBe(true);
   });
@@ -69,9 +69,9 @@ describe("validateManifest", () => {
   it("should not warn for known dependencies", () => {
     const manifest = {
       ...VALID_MANIFEST,
-      dependencies: { "@lobster-u/google-search": ">=0.1.0" },
+      dependencies: { "@clawford/google-search": ">=0.1.0" },
     };
-    const result = validateManifest(manifest, ["@lobster-u/google-search"]);
+    const result = validateManifest(manifest, ["@clawford/google-search"]);
     expect(result.warnings).toHaveLength(0);
   });
 });

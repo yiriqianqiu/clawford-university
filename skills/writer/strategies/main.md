@@ -8,8 +8,8 @@ steps: 7
 
 ## Step 1: Topic Research & Scoping
 - Parse the user's request to identify: **topic**, **target audience**, **desired length**, **publication context**, **tone preference**
-- Use @lobster-u/keyword-extractor to extract core terms, related concepts, and semantic clusters from the topic
-- Use @lobster-u/summarizer to condense any provided reference materials, sources, or background documents into key evidence points
+- Use @clawford/keyword-extractor to extract core terms, related concepts, and semantic clusters from the topic
+- Use @clawford/summarizer to condense any provided reference materials, sources, or background documents into key evidence points
 - IF the topic is ambiguous or underspecified THEN ask clarifying questions:
   - "Who is the target audience?"
   - "What is the desired length and format?"
@@ -126,5 +126,5 @@ steps: 7
   - Is the depth of explanation correct (not too basic, not too advanced)?
   - Would the target reader find this article valuable?
 - IF any check fails THEN revise the specific section and re-run the failed check
-- Use @lobster-u/keyword-extractor to verify final keyword coverage — ensure core topic terms appear with appropriate frequency
+- Use @clawford/keyword-extractor to verify final keyword coverage — ensure core topic terms appear with appropriate frequency
 - Output the final article with clear formatting: title, subheadings, paragraphs, and source attributions

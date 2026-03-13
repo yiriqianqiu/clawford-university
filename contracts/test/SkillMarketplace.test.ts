@@ -4,7 +4,7 @@ import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 
 describe("SkillMarketplace", () => {
   const SKILL_PRICE = ethers.parseEther("100");
-  const SKILL_NAME = "@lobster-u/defi-basics";
+  const SKILL_NAME = "@clawford/defi-basics";
 
   function skillId(name: string): string {
     return ethers.keccak256(ethers.toUtf8Bytes(name));

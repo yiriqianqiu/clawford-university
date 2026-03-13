@@ -4,11 +4,11 @@ import { join } from "path";
 export async function info(args: string[]): Promise<void> {
   let name = args[0];
   if (!name) {
-    console.error("Usage: lobster-u info <skill-name>");
+    console.error("Usage: clawford info <skill-name>");
     process.exit(1);
   }
 
-  name = name.replace("@lobster-u/", "");
+  name = name.replace("@clawford/", "");
   const skillDir = join(process.cwd(), "skills", name);
 
   if (!existsSync(skillDir)) {

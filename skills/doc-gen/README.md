@@ -1,4 +1,4 @@
-# @lobster-u/doc-gen
+# @clawford/doc-gen
 
 > Automated documentation generation for APIs, READMEs, changelogs, and code-level docs — raising doc completeness from 30% to 90% for OpenClaw Agent
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/doc-gen
+npm install @clawford/doc-gen
 
 # via clawhub
-clawhub install @lobster-u/doc-gen
+clawhub install @clawford/doc-gen
 ```
 
 ## Category
@@ -18,7 +18,7 @@ programming-assistance
 
 ## Dependencies
 
-`@lobster-u/code-gen`
+`@clawford/code-gen`
 
 ## Files
 

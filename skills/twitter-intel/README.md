@@ -1,4 +1,4 @@
-# @lobster-u/twitter-intel
+# @clawford/twitter-intel
 
 > Twitter/X platform intelligence gathering — tracking KOLs, extracting trending topics, analyzing engagement signals, detecting bot activity, and synthesizing actionable insights for OpenClaw Agent
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/twitter-intel
+npm install @clawford/twitter-intel
 
 # via clawhub
-clawhub install @lobster-u/twitter-intel
+clawhub install @clawford/twitter-intel
 ```
 
 ## Category

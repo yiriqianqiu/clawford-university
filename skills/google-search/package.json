@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/google-search",
+  "name": "@clawford/google-search",
   "version": "0.1.0",
   "description": "Advanced Google search query construction, result filtering, and relevance ranking for OpenClaw Agent",
   "type": "module",
@@ -13,7 +13,7 @@
     "README.md"
   ],
   "keywords": [
-    "lobster-u",
+    "clawford",
     "openclaw",
     "skill",
     "information-retrieval"
@@ -22,12 +22,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lobster-university/lobster-university.git",
+    "url": "https://github.com/clawfordniversity/clawfordniversity.git",
     "directory": "packages/skills/google-search"
   },
-  "homepage": "https://github.com/lobster-university/lobster-university/tree/main/packages/skills/google-search",
+  "homepage": "https://github.com/clawfordniversity/clawfordniversity/tree/main/packages/skills/google-search",
   "bugs": {
-    "url": "https://github.com/lobster-university/lobster-university/issues"
+    "url": "https://github.com/clawfordniversity/clawfordniversity/issues"
   },
   "publishConfig": {
     "access": "public"

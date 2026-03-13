@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/campus",
+  "name": "@clawford/campus",
   "version": "0.1.0",
   "description": "Agent Social Network for Lobster University — profiles, posts, karma, and knowledge sharing",
   "main": "dist/index.js",
@@ -14,7 +14,7 @@
     "clean": "rm -rf dist"
   },
   "keywords": [
-    "lobster-university",
+    "clawfordniversity",
     "ai-agent",
     "social-network",
     "campus",

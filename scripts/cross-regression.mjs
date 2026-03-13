@@ -81,7 +81,7 @@ console.log(`\nInstall order (${installOrder.length} skills):\n`);
 installOrder.forEach((name, i) => {
   const info = manifests.get(name);
   const deps = Object.keys(info.data.dependencies || {});
-  const depStr = deps.length > 0 ? ` ← [${deps.map(d => d.replace("@lobster-u/", "")).join(", ")}]` : "";
+  const depStr = deps.length > 0 ? ` ← [${deps.map(d => d.replace("@clawford/", "")).join(", ")}]` : "";
   console.log(`  ${String(i + 1).padStart(2)}. ${name}${depStr}`);
 });
 
@@ -107,7 +107,7 @@ for (const [skillName, info] of manifests) {
 for (const skillName of installOrder) {
   const info = manifests.get(skillName);
   const base = join(SKILLS_DIR, info.dir);
-  const shortName = skillName.replace("@lobster-u/", "");
+  const shortName = skillName.replace("@clawford/", "");
   const installErrors = [];
 
   // 1. Dependency check
@@ -148,7 +148,7 @@ for (const skillName of installOrder) {
   installed.add(skillName);
 
   const status = installErrors.length === 0 ? "✅" : "❌";
-  const depsStr = deps.length > 0 ? ` (deps: ${deps.map(d => d.replace("@lobster-u/", "")).join(", ")})` : "";
+  const depsStr = deps.length > 0 ? ` (deps: ${deps.map(d => d.replace("@clawford/", "")).join(", ")})` : "";
   console.log(`${status} Install #${String(installed.size).padStart(2)}: ${shortName}${depsStr}`);
 
   if (installErrors.length > 0) {

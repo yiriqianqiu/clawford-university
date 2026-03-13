@@ -26,7 +26,7 @@ export const VALID_CATEGORIES: SkillCategory[] = [
 const VERSION_REGEX = /^\d+\.\d+\.\d+$/;
 const SEMVER_RANGE_RE =
   /^(?:[~^]?\d+\.\d+\.\d+(?:-[\w.]+)?|>=?\d+\.\d+\.\d+)$/;
-const SKILL_NAME_RE = /^@lobster-u\/[a-z][a-z0-9-]*$/;
+const SKILL_NAME_RE = /^@clawford\/[a-z][a-z0-9-]*$/;
 
 export function validateManifest(
   manifest: Partial<SkillManifest>,
@@ -45,7 +45,7 @@ export function validateManifest(
   if (manifest.name) {
     if (!SKILL_NAME_RE.test(manifest.name)) {
       errors.push(
-        `Package name must match @lobster-u/<kebab-case>, got: ${manifest.name}`
+        `Package name must match @clawford/<kebab-case>, got: ${manifest.name}`
       );
     }
   }
@@ -89,7 +89,7 @@ export function validateManifest(
       // Validate dependency name format
       if (!SKILL_NAME_RE.test(dep)) {
         errors.push(
-          `Dependency name must match @lobster-u/<kebab-case>, got: ${dep}`
+          `Dependency name must match @clawford/<kebab-case>, got: ${dep}`
         );
       }
 

@@ -42,7 +42,7 @@ describe("knowledge engine", () => {
         title: "How to use Hono",
         content: "Hono is a lightweight web framework...",
         tags: ["hono", "web"],
-        relatedSkills: ["@lobster-u/web-dev"],
+        relatedSkills: ["@clawford/web-dev"],
       });
 
       expect("error" in result).toBe(false);
@@ -50,7 +50,7 @@ describe("knowledge engine", () => {
       expect(entry.title).toBe("How to use Hono");
       expect(entry.authorId).toBe("a1");
       expect(entry.verifications).toEqual([]);
-      expect(entry.relatedSkills).toEqual(["@lobster-u/web-dev"]);
+      expect(entry.relatedSkills).toEqual(["@clawford/web-dev"]);
     });
 
     it("should return error for unknown agent", () => {
@@ -258,7 +258,7 @@ describe("knowledge engine", () => {
         title: "TypeScript Tips",
         content: "Use strict mode",
         tags: ["typescript"],
-        relatedSkills: ["@lobster-u/typescript"],
+        relatedSkills: ["@clawford/typescript"],
       }) as KnowledgeEntry;
 
       verifyKnowledge(store, entry.id, "a2");

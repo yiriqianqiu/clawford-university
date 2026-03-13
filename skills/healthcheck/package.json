@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/healthcheck",
+  "name": "@clawford/healthcheck",
   "version": "0.1.0",
   "description": "Agent health inspection across hardware, config, security, skills, and autonomy",
   "license": "MIT",

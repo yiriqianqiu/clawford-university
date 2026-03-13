@@ -1,4 +1,4 @@
-# @lobster-u/certify
+# @clawford/certify
 
 OpenClaw Agent Capability Certification System — compares assessment history, evaluates growth, and generates professional capability certificates in HTML + MD.
 
@@ -84,7 +84,7 @@ botlearn-certify/
 ## Install
 
 ```bash
-clawhub install @lobster-u/certify --force
+clawhub install @clawford/certify --force
 ```
 
 ## Version

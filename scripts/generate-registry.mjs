@@ -21,7 +21,7 @@ import { join, resolve } from "node:path";
 const ROOT = resolve(import.meta.dirname, "..");
 const SKILLS_DIR = join(ROOT, "skills");
 const OUT_ROOT = join(ROOT, "skills-registry.json");
-const OUT_PKG = join(ROOT, "packages", "lobster-u", "registry", "skills-registry.json");
+const OUT_PKG = join(ROOT, "packages", "clawford", "registry", "skills-registry.json");
 
 // ---- Collect manifests ----
 
@@ -81,46 +81,46 @@ for (const skill of skills) {
 const installGroups = {
   "starter-pack": {
     description: "Essential skills for getting started — search, summarize, and translate",
-    skills: ["@lobster-u/google-search", "@lobster-u/summarizer", "@lobster-u/translator"],
+    skills: ["@clawford/google-search", "@clawford/summarizer", "@clawford/translator"],
   },
   "developer-pack": {
     description: "Full programming assistance — code generation, review, debug, refactor, and docs",
     skills: [
-      "@lobster-u/code-gen",
-      "@lobster-u/code-review",
-      "@lobster-u/debugger",
-      "@lobster-u/refactor",
-      "@lobster-u/doc-gen",
+      "@clawford/code-gen",
+      "@clawford/code-review",
+      "@clawford/debugger",
+      "@clawford/refactor",
+      "@clawford/doc-gen",
     ],
   },
   "content-pack": {
     description: "Content processing toolkit — summarize, translate, rewrite, and extract keywords",
     skills: [
-      "@lobster-u/summarizer",
-      "@lobster-u/translator",
-      "@lobster-u/rewriter",
-      "@lobster-u/keyword-extractor",
-      "@lobster-u/sentiment-analyzer",
+      "@clawford/summarizer",
+      "@clawford/translator",
+      "@clawford/rewriter",
+      "@clawford/keyword-extractor",
+      "@clawford/sentiment-analyzer",
     ],
   },
   "creative-pack": {
     description: "Creative writing suite — write, brainstorm, tell stories, and produce marketing copy",
     skills: [
-      "@lobster-u/writer",
-      "@lobster-u/brainstorm",
-      "@lobster-u/storyteller",
-      "@lobster-u/copywriter",
-      "@lobster-u/social-media",
+      "@clawford/writer",
+      "@clawford/brainstorm",
+      "@clawford/storyteller",
+      "@clawford/copywriter",
+      "@clawford/social-media",
     ],
   },
   "research-pack": {
     description: "Multi-source research — web, academic, RSS, Twitter, and Reddit",
     skills: [
-      "@lobster-u/google-search",
-      "@lobster-u/academic-search",
-      "@lobster-u/rss-manager",
-      "@lobster-u/twitter-intel",
-      "@lobster-u/reddit-tracker",
+      "@clawford/google-search",
+      "@clawford/academic-search",
+      "@clawford/rss-manager",
+      "@clawford/twitter-intel",
+      "@clawford/reddit-tracker",
     ],
   },
 };
@@ -141,7 +141,7 @@ const registry = {
 const json = JSON.stringify(registry, null, 2) + "\n";
 
 // Ensure output directories exist
-mkdirSync(join(ROOT, "packages", "lobster-u", "registry"), { recursive: true });
+mkdirSync(join(ROOT, "packages", "clawford", "registry"), { recursive: true });
 
 writeFileSync(OUT_ROOT, json);
 writeFileSync(OUT_PKG, json);

@@ -1,15 +1,15 @@
 ---
-name: lobster-u-reminder
+name: clawford-reminder
 version: 0.1.5
-description: lobster-u-reminder — Lobster University 7-step onboarding guide that delivers quickstart tutorials every 24 hours; triggers on first Lobster University registration or when user asks about lobster-u tutorial/learning progress.
+description: clawford-reminder — Lobster University 7-step onboarding guide that delivers quickstart tutorials every 24 hours; triggers on first Lobster University registration or when user asks about clawford tutorial/learning progress.
 metadata:
-  lobster-u:
+  clawford:
     emoji: "📚"
     category: "learning"
     heartbeat:
       enabled: true
       interval: "daily"
-      memoryFile: "memory/lobster-u-reminder.json"
+      memoryFile: "memory/clawford-reminder.json"
   openclaw:
     emoji: "📚"
     requires:
@@ -17,17 +17,17 @@ metadata:
       optionalBins: ["jq"]
     os: [darwin, linux]
 triggers:
-  - "lobster-u tutorial"
+  - "clawford tutorial"
   - "quickstart"
   - "daily reminder"
   - "learning progress"
-  - "lobster-u tips"
+  - "clawford tips"
   - "7-step tutorial"
   - "tutorial reminder"
   - "already done today"
   - "skip to next day"
   - "next day"
-  - "lobster-u教程"
+  - "clawford教程"
   - "今日提醒"
   - "学习进度"
   - "已经看完了"
@@ -64,10 +64,10 @@ Set `LANG` to `en` or `zh` for URL construction. Other languages fall back to `e
 
 **Do NOT hardcode step content.** Each time you need to know what steps exist:
 
-1. Fetch `https://lobster-u.ai/7-step` to get the latest step overview
+1. Fetch `https://clawford.ai/7-step` to get the latest step overview
 2. Use the overview to understand each step's topic and guide the user
 
-Base URL for quickstart pages: `https://lobster-u.ai/{lang}/quickstart/`
+Base URL for quickstart pages: `https://clawford.ai/{lang}/quickstart/`
 
 | Step | Pages |
 |------|-------|
@@ -96,7 +96,7 @@ journeyComplete = true? → congratulate in OUTPUT_LANG, STOP
       ↓
 For each URL: WebFetch → summarize in OUTPUT_LANG (150-250 words/chars)
       ↓
-If fetch fails → tell user to visit https://lobster-u.ai/7-step directly
+If fetch fails → tell user to visit https://clawford.ai/7-step directly
       ↓
 Present reminder (format in reminder-strategy.md)
       ↓
@@ -113,7 +113,7 @@ update-progress.sh <day> <today>
 
 ## Memory File
 
-State at `memory/lobster-u-tips.json` (schema: `assets/tips-state-schema.json`):
+State at `memory/clawford-tips.json` (schema: `assets/tips-state-schema.json`):
 
 ```json
 {

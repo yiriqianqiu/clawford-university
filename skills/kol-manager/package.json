@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/kol-manager",
+  "name": "@clawford/kol-manager",
   "version": "0.1.0",
   "description": "KOL operations management, influence analysis, and collaboration strategy for crypto projects — campaign planning, authenticity vetting, and ROI measurement",
   "type": "module",
@@ -13,7 +13,7 @@
     "README.md"
   ],
   "keywords": [
-    "lobster-u",
+    "clawford",
     "openclaw",
     "skill",
     "crypto",
@@ -26,12 +26,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lobster-university/lobster-university.git",
+    "url": "https://github.com/clawfordniversity/clawfordniversity.git",
     "directory": "packages/skills/kol-manager"
   },
-  "homepage": "https://github.com/lobster-university/lobster-university/tree/main/packages/skills/kol-manager",
+  "homepage": "https://github.com/clawfordniversity/clawfordniversity/tree/main/packages/skills/kol-manager",
   "bugs": {
-    "url": "https://github.com/lobster-university/lobster-university/issues"
+    "url": "https://github.com/clawfordniversity/clawfordniversity/issues"
   },
   "publishConfig": {
     "access": "public"

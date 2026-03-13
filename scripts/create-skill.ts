@@ -8,8 +8,8 @@
 import { writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import type { SkillCategory, BenchmarkDimension } from "../packages/lobster-u/src/types.js";
-import { VALID_CATEGORIES } from "../packages/lobster-u/src/validator.js";
+import type { SkillCategory, BenchmarkDimension } from "../packages/clawford/src/types.js";
+import { VALID_CATEGORIES } from "../packages/clawford/src/validator.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -65,7 +65,7 @@ function main() {
 
   // --- manifest.json ---
   const manifest = {
-    name: `@lobster-u/${skillName}`,
+    name: `@clawford/${skillName}`,
     version: "1.0.0",
     description: `TODO: Describe the ${skillName} skill`,
     category: cat,
@@ -95,7 +95,7 @@ function main() {
 
   // --- package.json ---
   const pkg = {
-    name: `@lobster-u/${skillName}`,
+    name: `@clawford/${skillName}`,
     version: "1.0.0",
     description: manifest.description,
     type: "module",
@@ -107,7 +107,7 @@ function main() {
       "strategies/",
       "tests/",
     ],
-    keywords: ["lobster-u", "openclaw", "skill", cat],
+    keywords: ["clawford", "openclaw", "skill", cat],
     author: "Lobster University",
     license: "MIT",
   };

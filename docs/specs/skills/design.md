@@ -2,14 +2,14 @@
 
 ## Overview
 
-本文档定义 20 个 Lobster University OpenClaw Skill 的技术方案。每个 Skill 是一个独立 npm 包，遵循 OpenClaw Skill 接口规范，通过 `clawhub install @lobster-u/<name>` 安装到用户的 Agent 实例。
+本文档定义 20 个 Lobster University OpenClaw Skill 的技术方案。每个 Skill 是一个独立 npm 包，遵循 OpenClaw Skill 接口规范，通过 `clawhub install @clawford/<name>` 安装到用户的 Agent 实例。
 
 ### 关键设计决策
 
 | 决策 | 选择 | 理由 |
 |------|------|------|
 | 包管理 | 独立 npm 包 + monorepo workspace | 独立发布、独立版本、共享构建配置 |
-| 代码宿主 | `packages/lobster-u/skills/` | 复用现有 lobster-u 包，统一导出 |
+| 代码宿主 | `packages/clawford/skills/` | 复用现有 clawford 包，统一导出 |
 | 构建工具 | tsup (已有) | 与项目现有模式一致 |
 | 知识格式 | Markdown + YAML frontmatter | 结构化 + 可读性 + Agent 友好 |
 | 策略格式 | 结构化 Markdown (步骤式) | Agent 可解析执行的指令序列 |
@@ -25,7 +25,7 @@
 ```mermaid
 graph TB
     subgraph "Lobster University Skill Registry (npm)"
-        REG["@lobster-u/* packages"]
+        REG["@clawford/* packages"]
     end
 
     subgraph "clawhub CLI"
@@ -66,7 +66,7 @@ sequenceDiagram
     participant Agent as OpenClaw Agent
     participant Judge as Judge LLM
 
-    User->>CLI: clawhub install @lobster-u/code-gen
+    User->>CLI: clawhub install @clawford/code-gen
     CLI->>REG: fetch manifest.json
     REG-->>CLI: manifest (deps, compatibility)
 
@@ -107,7 +107,7 @@ sequenceDiagram
 ```typescript
 interface SkillManifest {
   // 基本信息
-  name: string;                          // "@lobster-u/code-gen"
+  name: string;                          // "@clawford/code-gen"
   version: string;                       // semver "1.0.0"
   description: string;                   // 人类可读描述
   category: SkillCategory;               // 所属分类
@@ -118,7 +118,7 @@ interface SkillManifest {
   expectedImprovement: number;            // 预期评分提升（百分比）
 
   // 依赖与兼容
-  dependencies: Record<string, string>;   // { "@lobster-u/code-review": "^1.0.0" }
+  dependencies: Record<string, string>;   // { "@clawford/code-review": "^1.0.0" }
   compatibility: {
     openclaw: string;                     // OpenClaw 最低版本 ">=0.5.0"
   };
@@ -501,8 +501,8 @@ interface TaskResult {
 ### Skill Package 在 monorepo 中的存储结构
 
 ```
-packages/lobster-u/
-├── package.json                    # @lobster-u scope, subpath exports
+packages/clawford/
+├── package.json                    # @clawford scope, subpath exports
 ├── tsup.config.ts
 ├── tsconfig.json
 ├── src/
@@ -565,11 +565,11 @@ packages/lobster-u/
 
 ### npm 发布策略
 
-`packages/lobster-u/package.json` 使用 subpath exports，支持独立引用：
+`packages/clawford/package.json` 使用 subpath exports，支持独立引用：
 
 ```json
 {
-  "name": "lobster-u",
+  "name": "clawford",
   "version": "0.1.0",
   "exports": {
     ".": {
@@ -646,7 +646,7 @@ packages/lobster-u/
 
 ```typescript
 interface SkillError {
-  skill: string;          // "@lobster-u/code-gen"
+  skill: string;          // "@clawford/code-gen"
   phase: "retrieval" | "reasoning" | "verification" | "reflection";
   message: string;
   recoverable: boolean;
@@ -755,5 +755,5 @@ Batch 2 (8 skills, ordered):
 ### Phase 3: 集成测试 + 发布（Week 3-4）
 
 - L3 Regression Test 全量跑
-- npm publish @lobster-u/*
+- npm publish @clawford/*
 - clawhub 集成测试

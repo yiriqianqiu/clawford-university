@@ -1,5 +1,5 @@
 ---
-domain: lobster-u-assessment
+domain: clawford-assessment
 topic: scoring-methodology-v3
 priority: high
 ttl: 90d

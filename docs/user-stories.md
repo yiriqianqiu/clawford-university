@@ -15,7 +15,7 @@
 
 ---
 
-### US-01: `@lobster-u/google-search`（Google 高级搜索）
+### US-01: `@clawford/google-search`（Google 高级搜索）
 
 **用户故事**
 
@@ -59,7 +59,7 @@ Agent: [激活 google-search]
 
 ---
 
-### US-02: `@lobster-u/academic-search`（学术论文检索）
+### US-02: `@clawford/academic-search`（学术论文检索）
 
 **用户故事**
 
@@ -69,7 +69,7 @@ Agent: [激活 google-search]
 
 **触发词**: `find papers`, `academic search`, `research`, `literature review`, `arxiv`, `scholar`, `scholarly articles`, `cite`, `citation`, `peer-reviewed`, `scientific literature`
 
-**依赖**: `@lobster-u/google-search`
+**依赖**: `@clawford/google-search`
 
 **核心能力**:
 1. 使用 arXiv 分类代码、Semantic Scholar 领域过滤器和 Google Scholar 高级运算符构建数据库特定查询
@@ -103,7 +103,7 @@ Agent: [激活 academic-search]
 
 ---
 
-### US-03: `@lobster-u/rss-manager`（RSS 订阅管理）
+### US-03: `@clawford/rss-manager`（RSS 订阅管理）
 
 **用户故事**
 
@@ -145,7 +145,7 @@ Agent: [激活 rss-manager]
 
 ---
 
-### US-04: `@lobster-u/twitter-intel`（Twitter/X 信息流）
+### US-04: `@clawford/twitter-intel`（Twitter/X 信息流）
 
 **用户故事**
 
@@ -188,7 +188,7 @@ Agent: [激活 twitter-intel]
 
 ---
 
-### US-05: `@lobster-u/reddit-tracker`（Reddit 热点追踪）
+### US-05: `@clawford/reddit-tracker`（Reddit 热点追踪）
 
 **用户故事**
 
@@ -236,7 +236,7 @@ Agent: [激活 reddit-tracker]
 
 ---
 
-### US-06: `@lobster-u/summarizer`（长文总结）
+### US-06: `@clawford/summarizer`（长文总结）
 
 **用户故事**
 
@@ -278,7 +278,7 @@ Agent: [激活 summarizer]
 
 ---
 
-### US-07: `@lobster-u/translator`（多语言翻译）
+### US-07: `@clawford/translator`（多语言翻译）
 
 **用户故事**
 
@@ -321,7 +321,7 @@ Agent: [激活 translator]
 
 ---
 
-### US-08: `@lobster-u/rewriter`（内容改写）
+### US-08: `@clawford/rewriter`（内容改写）
 
 **用户故事**
 
@@ -331,7 +331,7 @@ Agent: [激活 translator]
 
 **触发词**: `rewrite`, `rephrase`, `paraphrase`, `reword`, `adapt for audience`
 
-**依赖**: `@lobster-u/summarizer`
+**依赖**: `@clawford/summarizer`
 
 **核心能力**:
 1. 在保持核心含义和事实准确性的同时转换写作风格（学术、新闻、口语、技术、文学、营销）
@@ -366,7 +366,7 @@ Agent: [激活 rewriter]
 
 ---
 
-### US-09: `@lobster-u/keyword-extractor`（关键词提取）
+### US-09: `@clawford/keyword-extractor`（关键词提取）
 
 **用户故事**
 
@@ -409,7 +409,7 @@ Agent: [激活 keyword-extractor]
 
 ---
 
-### US-10: `@lobster-u/sentiment-analyzer`（情感分析）
+### US-10: `@clawford/sentiment-analyzer`（情感分析）
 
 **用户故事**
 
@@ -458,7 +458,7 @@ Agent: [激活 sentiment-analyzer]
 
 ---
 
-### US-11: `@lobster-u/code-gen`（代码生成）
+### US-11: `@clawford/code-gen`（代码生成）
 
 **用户故事**
 
@@ -504,7 +504,7 @@ Agent: [激活 code-gen]
 
 ---
 
-### US-12: `@lobster-u/code-review`（代码审查）
+### US-12: `@clawford/code-review`（代码审查）
 
 **用户故事**
 
@@ -551,7 +551,7 @@ Agent: [激活 code-review]
 
 ---
 
-### US-13: `@lobster-u/debugger`（Bug 调试）
+### US-13: `@clawford/debugger`（Bug 调试）
 
 **用户故事**
 
@@ -561,7 +561,7 @@ Agent: [激活 code-review]
 
 **触发词**: `debug`, `fix bug`, `why is this failing`, `error`, `stack trace`, `exception`, `not working`, `unexpected behavior`, `crash`, `broken`
 
-**依赖**: `@lobster-u/code-review`
+**依赖**: `@clawford/code-review`
 
 **核心能力**:
 1. 分析错误消息、堆栈追踪和异常层级，识别故障点及其上游原因
@@ -599,7 +599,7 @@ Agent: [激活 debugger]
 
 ---
 
-### US-14: `@lobster-u/refactor`（代码重构）
+### US-14: `@clawford/refactor`（代码重构）
 
 **用户故事**
 
@@ -609,7 +609,7 @@ Agent: [激活 debugger]
 
 **触发词**: `refactor`, `clean up code`, `improve code quality`, `apply design pattern`, `reduce complexity`, `simplify code`, `restructure code`, `reduce duplication`
 
-**依赖**: `@lobster-u/code-review`
+**依赖**: `@clawford/code-review`
 
 **核心能力**:
 1. 使用 Martin Fowler 重构目录检测代码气味 — 长方法、上帝类、特性嫉妒、数据泥团、原始类型偏执等
@@ -646,7 +646,7 @@ Agent: [激活 refactor]
 
 ---
 
-### US-15: `@lobster-u/doc-gen`（文档生成）
+### US-15: `@clawford/doc-gen`（文档生成）
 
 **用户故事**
 
@@ -656,7 +656,7 @@ Agent: [激活 refactor]
 
 **触发词**: `generate docs`, `document this`, `write README`, `API documentation`, `changelog`, `add JSDoc`, `OpenAPI spec`, `document the API`, `write documentation`
 
-**依赖**: `@lobster-u/code-gen`
+**依赖**: `@clawford/code-gen`
 
 **核心能力**:
 1. 分析源代码，提取公共 API、函数签名、类型定义、类层级和模块边界
@@ -697,7 +697,7 @@ Agent: [激活 doc-gen]
 
 ---
 
-### US-16: `@lobster-u/writer`（文章写作）
+### US-16: `@clawford/writer`（文章写作）
 
 **用户故事**
 
@@ -707,7 +707,7 @@ Agent: [激活 doc-gen]
 
 **触发词**: `write an article`, `write about`, `compose`, `draft article`, `blog post`
 
-**依赖**: `@lobster-u/summarizer` + `@lobster-u/keyword-extractor`
+**依赖**: `@clawford/summarizer` + `@clawford/keyword-extractor`
 
 **核心能力**:
 1. 使用既定结构模式（倒金字塔、叙事弧、分析框架）构建组织良好的文章
@@ -744,7 +744,7 @@ Agent: [激活 writer]
 
 ---
 
-### US-17: `@lobster-u/brainstorm`（头脑风暴）
+### US-17: `@clawford/brainstorm`（头脑风暴）
 
 **用户故事**
 
@@ -790,7 +790,7 @@ Agent: [激活 brainstorm]
 
 ---
 
-### US-18: `@lobster-u/storyteller`（故事创作）
+### US-18: `@clawford/storyteller`（故事创作）
 
 **用户故事**
 
@@ -834,7 +834,7 @@ Agent: [激活 storyteller]
 
 ---
 
-### US-19: `@lobster-u/copywriter`（营销文案）
+### US-19: `@clawford/copywriter`（营销文案）
 
 **用户故事**
 
@@ -844,7 +844,7 @@ Agent: [激活 storyteller]
 
 **触发词**: `write copy`, `marketing copy`, `landing page`, `ad copy`, `CTA`, `sales copy`
 
-**依赖**: `@lobster-u/sentiment-analyzer`
+**依赖**: `@clawford/sentiment-analyzer`
 
 **核心能力**:
 1. 通过人口统计、心理特征、痛点、欲望和购买阶段分析目标受众
@@ -884,7 +884,7 @@ Agent: [激活 copywriter]
 
 ---
 
-### US-20: `@lobster-u/social-media`（社交媒体内容）
+### US-20: `@clawford/social-media`（社交媒体内容）
 
 **用户故事**
 
@@ -894,7 +894,7 @@ Agent: [激活 copywriter]
 
 **触发词**: `social media post`, `tweet`, `LinkedIn post`, `Instagram caption`, `TikTok script`, `create a post`, `social content`, `post for`
 
-**依赖**: `@lobster-u/copywriter`（间接依赖 `@lobster-u/sentiment-analyzer`）
+**依赖**: `@clawford/copywriter`（间接依赖 `@clawford/sentiment-analyzer`）
 
 **核心能力**:
 1. 分析目标平台规范（字数限制、媒体格式、算法信号）并据此调整内容

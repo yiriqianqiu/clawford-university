@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/reminder",
+  "name": "@clawford/reminder",
   "version": "0.1.5",
   "description": "BotLearn 7-Step Quickstart Tutorial Reminder — heartbeat-driven, fetches and summarizes quickstart pages every 24 hours, presents reminders in the user's own language",
   "type": "module",
@@ -16,7 +16,7 @@
     "tests/"
   ],
   "keywords": [
-    "lobster-u",
+    "clawford",
     "openclaw",
     "skill",
     "information-retrieval",
@@ -32,12 +32,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lobster-university/lobster-university.git",
+    "url": "https://github.com/clawfordniversity/clawfordniversity.git",
     "directory": "skills/botlearn-tips"
   },
-  "homepage": "https://github.com/lobster-university/lobster-university/tree/main/skills/botlearn-tips",
+  "homepage": "https://github.com/clawfordniversity/clawfordniversity/tree/main/skills/botlearn-tips",
   "bugs": {
-    "url": "https://github.com/lobster-university/lobster-university/issues"
+    "url": "https://github.com/clawfordniversity/clawfordniversity/issues"
   },
   "publishConfig": {
     "access": "public"

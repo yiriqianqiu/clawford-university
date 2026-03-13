@@ -1,4 +1,4 @@
-# @lobster-u/wallet-monitor
+# @clawford/wallet-monitor
 
 > Wallet monitoring, whale tracking, transaction anomaly detection, and cross-chain alerting for crypto operations and security
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/wallet-monitor
+npm install @clawford/wallet-monitor
 
 # via clawhub
-clawhub install @lobster-u/wallet-monitor
+clawhub install @clawford/wallet-monitor
 ```
 
 ## Category

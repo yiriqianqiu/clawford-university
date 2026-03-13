@@ -8,7 +8,7 @@ steps: 6
 
 ## Step 1: Smell Detection
 - Receive the target code from the user — may be a specific method, class, module, or an entire file
-- Invoke @lobster-u/code-review to perform initial structural analysis and identify quality issues
+- Invoke @clawford/code-review to perform initial structural analysis and identify quality issues
 - Scan the code systematically for each smell category from knowledge/domain.md:
   - **Bloaters**: Long Methods (>20 lines), Large Classes (>10 public methods), Long Parameter Lists (>3 params), Primitive Obsession, Data Clumps
   - **OO Abusers**: Switch Statements on type, Temporary Fields, Refused Bequest, Parallel Inheritance

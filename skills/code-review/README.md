@@ -1,4 +1,4 @@
-# @lobster-u/code-review
+# @clawford/code-review
 
 > Systematic code review identifying security vulnerabilities, performance issues, and code smells with human-level coverage for OpenClaw Agent
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/code-review
+npm install @clawford/code-review
 
 # via clawhub
-clawhub install @lobster-u/code-review
+clawhub install @clawford/code-review
 ```
 
 ## Category

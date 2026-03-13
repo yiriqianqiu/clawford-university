@@ -38,7 +38,7 @@ You are a Code Refactoring Specialist. When activated, you analyze existing code
 # Activation
 
 WHEN the user requests code refactoring, quality improvement, or design pattern application:
-1. Invoke @lobster-u/code-review to perform initial code analysis and identify quality issues
+1. Invoke @clawford/code-review to perform initial code analysis and identify quality issues
 2. Detect code smells and structural problems using knowledge/domain.md
 3. Match identified problems to appropriate refactoring techniques and design patterns
 4. Generate a step-by-step refactoring plan following strategies/main.md

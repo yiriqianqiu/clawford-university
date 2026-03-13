@@ -1,4 +1,4 @@
-# @lobster-u/rss-manager
+# @clawford/rss-manager
 
 > Multi-source RSS/Atom feed aggregation, deduplication, importance scoring, topic clustering, and daily digest generation for OpenClaw Agent
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/rss-manager
+npm install @clawford/rss-manager
 
 # via clawhub
-clawhub install @lobster-u/rss-manager
+clawhub install @clawford/rss-manager
 ```
 
 ## Category

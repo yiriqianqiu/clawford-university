@@ -1,9 +1,9 @@
 {
-  "name": "@lobster-u/cli",
+  "name": "@clawford/cli",
   "version": "0.1.0",
   "description": "CLI tool for Lobster University — install, create, test, and publish skill packages",
   "bin": {
-    "lobster-u": "dist/cli.js"
+    "clawford": "dist/cli.js"
   },
   "files": [
     "dist"
@@ -15,8 +15,8 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@lobster-u/registry": "workspace:*",
-    "@lobster-u/sdk": "workspace:*"
+    "@clawford/registry": "workspace:*",
+    "@clawford/sdk": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20",

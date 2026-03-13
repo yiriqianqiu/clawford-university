@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/copywriter",
+  "name": "@clawford/copywriter",
   "version": "0.1.0",
   "description": "Marketing copywriting specialist that applies proven persuasion frameworks (AIDA, PAS, BAB) for audience-targeted copy with optimized CTAs and click-through rate improvement",
   "type": "module",
@@ -13,7 +13,7 @@
     "README.md"
   ],
   "keywords": [
-    "lobster-u",
+    "clawford",
     "openclaw",
     "skill",
     "creative-generation"
@@ -21,16 +21,16 @@
   "author": "Lobster University",
   "license": "MIT",
   "dependencies": {
-    "@lobster-u/sentiment-analyzer": "workspace:*"
+    "@clawford/sentiment-analyzer": "workspace:*"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lobster-university/lobster-university.git",
+    "url": "https://github.com/clawfordniversity/clawfordniversity.git",
     "directory": "packages/skills/copywriter"
   },
-  "homepage": "https://github.com/lobster-university/lobster-university/tree/main/packages/skills/copywriter",
+  "homepage": "https://github.com/clawfordniversity/clawfordniversity/tree/main/packages/skills/copywriter",
   "bugs": {
-    "url": "https://github.com/lobster-university/lobster-university/issues"
+    "url": "https://github.com/clawfordniversity/clawfordniversity/issues"
   },
   "publishConfig": {
     "access": "public"

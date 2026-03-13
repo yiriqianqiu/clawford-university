@@ -3,7 +3,7 @@
   "generatedAt": "2026-03-09T22:07:20.784Z",
   "skills": [
     {
-      "name": "@lobster-u/academic-search",
+      "name": "@clawford/academic-search",
       "version": "0.1.0",
       "description": "Academic paper discovery across arXiv, Google Scholar, and Semantic Scholar with abstract screening, citation analysis, and research synthesis for OpenClaw Agent",
       "category": "information-retrieval",
@@ -37,17 +37,17 @@
         "scientific literature"
       ],
       "dependencies": {
-        "@lobster-u/google-search": ">=0.1.0"
+        "@clawford/google-search": ">=0.1.0"
       },
       "dependents": [],
       "compatibility": {
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/academic-search"
+      "npm": "https://www.npmjs.com/package/@clawford/academic-search"
     },
     {
-      "name": "@lobster-u/assessment",
+      "name": "@clawford/assessment",
       "version": "0.1.0",
       "description": "5-dimension skill assessment with radar chart generation and scoring",
       "category": "meta",
@@ -75,16 +75,16 @@
       ],
       "dependencies": {},
       "dependents": [
-        "@lobster-u/certify"
+        "@clawford/certify"
       ],
       "compatibility": {
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/assessment"
+      "npm": "https://www.npmjs.com/package/@clawford/assessment"
     },
     {
-      "name": "@lobster-u/brainstorm",
+      "name": "@clawford/brainstorm",
       "version": "0.1.0",
       "description": "Multi-dimensional ideation and brainstorming with structured creativity frameworks, feasibility assessment, and idea clustering for OpenClaw Agent",
       "category": "creative-generation",
@@ -119,10 +119,10 @@
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/brainstorm"
+      "npm": "https://www.npmjs.com/package/@clawford/brainstorm"
     },
     {
-      "name": "@lobster-u/campus-sdk",
+      "name": "@clawford/campus-sdk",
       "version": "0.1.0",
       "description": "Campus social network SDK for agent registration, posts, messaging, and community interaction",
       "category": "social",
@@ -156,10 +156,10 @@
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/campus-sdk"
+      "npm": "https://www.npmjs.com/package/@clawford/campus-sdk"
     },
     {
-      "name": "@lobster-u/certify",
+      "name": "@clawford/certify",
       "version": "0.1.0",
       "description": "Skill certification with progress tracking and certificate generation",
       "category": "meta",
@@ -183,17 +183,17 @@
         "graduation"
       ],
       "dependencies": {
-        "@lobster-u/assessment": ">=0.1.0"
+        "@clawford/assessment": ">=0.1.0"
       },
       "dependents": [],
       "compatibility": {
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/certify"
+      "npm": "https://www.npmjs.com/package/@clawford/certify"
     },
     {
-      "name": "@lobster-u/chain-analyzer",
+      "name": "@clawford/chain-analyzer",
       "version": "0.1.0",
       "description": "On-chain data analysis, address profiling, fund flow tracking, and whale behavior detection for OpenClaw Agent",
       "category": "crypto",
@@ -237,10 +237,10 @@
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/chain-analyzer"
+      "npm": "https://www.npmjs.com/package/@clawford/chain-analyzer"
     },
     {
-      "name": "@lobster-u/code-gen",
+      "name": "@clawford/code-gen",
       "version": "0.1.0",
       "description": "Complete code generation with proper architecture, error handling, type safety, and test accompaniment for OpenClaw Agent",
       "category": "code-assistance",
@@ -269,16 +269,16 @@
       ],
       "dependencies": {},
       "dependents": [
-        "@lobster-u/doc-gen"
+        "@clawford/doc-gen"
       ],
       "compatibility": {
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/code-gen"
+      "npm": "https://www.npmjs.com/package/@clawford/code-gen"
     },
     {
-      "name": "@lobster-u/code-review",
+      "name": "@clawford/code-review",
       "version": "0.1.0",
       "description": "Systematic code review identifying security vulnerabilities, performance issues, and code smells with human-level coverage for OpenClaw Agent",
       "category": "code-assistance",
@@ -310,17 +310,17 @@
       ],
       "dependencies": {},
       "dependents": [
-        "@lobster-u/debugger",
-        "@lobster-u/refactor"
+        "@clawford/debugger",
+        "@clawford/refactor"
       ],
       "compatibility": {
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/code-review"
+      "npm": "https://www.npmjs.com/package/@clawford/code-review"
     },
     {
-      "name": "@lobster-u/content-engine",
+      "name": "@clawford/content-engine",
       "version": "0.1.0",
       "description": "Multi-platform content creation and repurposing engine for AI agents",
       "category": "creative-generation",
@@ -353,10 +353,10 @@
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/content-engine"
+      "npm": "https://www.npmjs.com/package/@clawford/content-engine"
     },
     {
-      "name": "@lobster-u/copywriter",
+      "name": "@clawford/copywriter",
       "version": "0.1.0",
       "description": "Marketing copywriting specialist that applies proven persuasion frameworks (AIDA, PAS, BAB) for audience-targeted copy with optimized CTAs and click-through rate improvement",
       "category": "creative-generation",
@@ -385,19 +385,19 @@
         "sales copy"
       ],
       "dependencies": {
-        "@lobster-u/sentiment-analyzer": ">=0.1.0"
+        "@clawford/sentiment-analyzer": ">=0.1.0"
       },
       "dependents": [
-        "@lobster-u/social-media"
+        "@clawford/social-media"
       ],
       "compatibility": {
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/copywriter"
+      "npm": "https://www.npmjs.com/package/@clawford/copywriter"
     },
     {
-      "name": "@lobster-u/debugger",
+      "name": "@clawford/debugger",
       "version": "0.1.0",
       "description": "Root cause analysis, bug diagnosis, and fix suggestion for OpenClaw Agent — improves debugging efficiency 5x with systematic hypothesis-driven investigation",
       "category": "code-assistance",
@@ -430,17 +430,17 @@
         "broken"
       ],
       "dependencies": {
-        "@lobster-u/code-review": ">=0.1.0"
+        "@clawford/code-review": ">=0.1.0"
       },
       "dependents": [],
       "compatibility": {
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/debugger"
+      "npm": "https://www.npmjs.com/package/@clawford/debugger"
     },
     {
-      "name": "@lobster-u/dex-trader",
+      "name": "@clawford/dex-trader",
       "version": "0.1.0",
       "description": "DEX trading strategy analysis, liquidity assessment, slippage optimization, and MEV-aware execution planning for OpenClaw Agent",
       "category": "crypto",
@@ -486,10 +486,10 @@
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/dex-trader"
+      "npm": "https://www.npmjs.com/package/@clawford/dex-trader"
     },
     {
-      "name": "@lobster-u/doc-gen",
+      "name": "@clawford/doc-gen",
       "version": "0.1.0",
       "description": "Automated documentation generation for APIs, READMEs, changelogs, and code-level docs — raising doc completeness from 30% to 90% for OpenClaw Agent",
       "category": "code-assistance",
@@ -522,17 +522,17 @@
         "write documentation"
       ],
       "dependencies": {
-        "@lobster-u/code-gen": ">=0.1.0"
+        "@clawford/code-gen": ">=0.1.0"
       },
       "dependents": [],
       "compatibility": {
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/doc-gen"
+      "npm": "https://www.npmjs.com/package/@clawford/doc-gen"
     },
     {
-      "name": "@lobster-u/google-search",
+      "name": "@clawford/google-search",
       "version": "0.1.0",
       "description": "Advanced Google search query construction, result filtering, and relevance ranking for OpenClaw Agent",
       "category": "information-retrieval",
@@ -562,16 +562,16 @@
       ],
       "dependencies": {},
       "dependents": [
-        "@lobster-u/academic-search"
+        "@clawford/academic-search"
       ],
       "compatibility": {
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/google-search"
+      "npm": "https://www.npmjs.com/package/@clawford/google-search"
     },
     {
-      "name": "@lobster-u/healthcheck",
+      "name": "@clawford/healthcheck",
       "version": "0.1.0",
       "description": "Agent health inspection across hardware, config, security, skills, and autonomy",
       "category": "meta",
@@ -603,10 +603,10 @@
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/healthcheck"
+      "npm": "https://www.npmjs.com/package/@clawford/healthcheck"
     },
     {
-      "name": "@lobster-u/keyword-extractor",
+      "name": "@clawford/keyword-extractor",
       "version": "0.1.0",
       "description": "Semantic-level keyword extraction, topic clustering, and domain-aware term ranking for OpenClaw Agent",
       "category": "content-processing",
@@ -638,16 +638,16 @@
       ],
       "dependencies": {},
       "dependents": [
-        "@lobster-u/writer"
+        "@clawford/writer"
       ],
       "compatibility": {
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/keyword-extractor"
+      "npm": "https://www.npmjs.com/package/@clawford/keyword-extractor"
     },
     {
-      "name": "@lobster-u/kol-manager",
+      "name": "@clawford/kol-manager",
       "version": "0.1.0",
       "description": "KOL operations management, influence analysis, and collaboration strategy for crypto projects — campaign planning, authenticity vetting, and ROI measurement",
       "category": "crypto",
@@ -692,10 +692,10 @@
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/kol-manager"
+      "npm": "https://www.npmjs.com/package/@clawford/kol-manager"
     },
     {
-      "name": "@lobster-u/mental-models",
+      "name": "@clawford/mental-models",
       "version": "0.1.0",
       "description": "A latticework thinking advisor built on Charlie Munger's mental models framework — activates on genuine judgment calls with 24 disciplinary lenses, convergence detection, and personalized blind-spot analysis",
       "category": "reasoning",
@@ -734,10 +734,10 @@
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/mental-models"
+      "npm": "https://www.npmjs.com/package/@clawford/mental-models"
     },
     {
-      "name": "@lobster-u/reddit-tracker",
+      "name": "@clawford/reddit-tracker",
       "version": "0.1.0",
       "description": "Reddit community monitoring, engagement velocity tracking, cross-subreddit correlation, and early trend detection for OpenClaw Agent",
       "category": "information-retrieval",
@@ -773,10 +773,10 @@
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/reddit-tracker"
+      "npm": "https://www.npmjs.com/package/@clawford/reddit-tracker"
     },
     {
-      "name": "@lobster-u/refactor",
+      "name": "@clawford/refactor",
       "version": "0.1.0",
       "description": "Automated code refactoring with design pattern application, complexity reduction, and behavioral equivalence verification for OpenClaw Agent",
       "category": "code-assistance",
@@ -807,17 +807,17 @@
         "reduce duplication"
       ],
       "dependencies": {
-        "@lobster-u/code-review": ">=0.1.0"
+        "@clawford/code-review": ">=0.1.0"
       },
       "dependents": [],
       "compatibility": {
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/refactor"
+      "npm": "https://www.npmjs.com/package/@clawford/refactor"
     },
     {
-      "name": "@lobster-u/reminder",
+      "name": "@clawford/reminder",
       "version": "0.1.5",
       "description": "BotLearn 7-Step Quickstart Tutorial Reminder — heartbeat-driven reminders every 24 hours that dynamically fetch and summarize botlearn.ai quickstart pages, track progress, and present tips in the user's own language",
       "category": "information-retrieval",
@@ -860,10 +860,10 @@
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/reminder"
+      "npm": "https://www.npmjs.com/package/@clawford/reminder"
     },
     {
-      "name": "@lobster-u/rewriter",
+      "name": "@clawford/rewriter",
       "version": "0.1.0",
       "description": "Style transformation, audience adaptation, and natural content rewriting with factual accuracy preservation for OpenClaw Agent",
       "category": "content-processing",
@@ -891,17 +891,17 @@
         "adapt for audience"
       ],
       "dependencies": {
-        "@lobster-u/summarizer": ">=0.1.0"
+        "@clawford/summarizer": ">=0.1.0"
       },
       "dependents": [],
       "compatibility": {
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/rewriter"
+      "npm": "https://www.npmjs.com/package/@clawford/rewriter"
     },
     {
-      "name": "@lobster-u/rss-manager",
+      "name": "@clawford/rss-manager",
       "version": "0.1.0",
       "description": "Multi-source RSS/Atom feed aggregation, deduplication, importance scoring, topic clustering, and daily digest generation for OpenClaw Agent",
       "category": "information-retrieval",
@@ -938,10 +938,10 @@
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/rss-manager"
+      "npm": "https://www.npmjs.com/package/@clawford/rss-manager"
     },
     {
-      "name": "@lobster-u/selfoptimize",
+      "name": "@clawford/selfoptimize",
       "version": "0.1.0",
       "description": "Self-improvement through error logging, pattern detection, and learning extraction",
       "category": "meta",
@@ -972,10 +972,10 @@
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/selfoptimize"
+      "npm": "https://www.npmjs.com/package/@clawford/selfoptimize"
     },
     {
-      "name": "@lobster-u/sentiment-analyzer",
+      "name": "@clawford/sentiment-analyzer",
       "version": "0.1.0",
       "description": "Fine-grained sentiment recognition and opinion mining with aspect-based analysis, sarcasm detection, and polarity classification for OpenClaw Agent",
       "category": "content-processing",
@@ -1008,16 +1008,16 @@
       ],
       "dependencies": {},
       "dependents": [
-        "@lobster-u/copywriter"
+        "@clawford/copywriter"
       ],
       "compatibility": {
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/sentiment-analyzer"
+      "npm": "https://www.npmjs.com/package/@clawford/sentiment-analyzer"
     },
     {
-      "name": "@lobster-u/social-media",
+      "name": "@clawford/social-media",
       "version": "0.1.0",
       "description": "Platform-adapted social media content creation with optimal hashtags, timing, and engagement optimization for OpenClaw Agent",
       "category": "creative-generation",
@@ -1049,17 +1049,17 @@
         "post for"
       ],
       "dependencies": {
-        "@lobster-u/copywriter": ">=0.1.0"
+        "@clawford/copywriter": ">=0.1.0"
       },
       "dependents": [],
       "compatibility": {
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/social-media"
+      "npm": "https://www.npmjs.com/package/@clawford/social-media"
     },
     {
-      "name": "@lobster-u/storyteller",
+      "name": "@clawford/storyteller",
       "version": "0.1.0",
       "description": "Crafts compelling stories with narrative structure, character development, and emotional rhythm for OpenClaw Agent",
       "category": "creative-generation",
@@ -1092,10 +1092,10 @@
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/storyteller"
+      "npm": "https://www.npmjs.com/package/@clawford/storyteller"
     },
     {
-      "name": "@lobster-u/summarizer",
+      "name": "@clawford/summarizer",
       "version": "0.1.0",
       "description": "Content summarization with core argument extraction, key detail retention, and accuracy self-checking for OpenClaw Agent",
       "category": "content-processing",
@@ -1126,17 +1126,17 @@
       ],
       "dependencies": {},
       "dependents": [
-        "@lobster-u/rewriter",
-        "@lobster-u/writer"
+        "@clawford/rewriter",
+        "@clawford/writer"
       ],
       "compatibility": {
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/summarizer"
+      "npm": "https://www.npmjs.com/package/@clawford/summarizer"
     },
     {
-      "name": "@lobster-u/token-launcher",
+      "name": "@clawford/token-launcher",
       "version": "0.1.0",
       "description": "Token creation planning, smart contract security analysis, tokenomics design, and liquidity bootstrapping strategy for OpenClaw Agent",
       "category": "crypto",
@@ -1181,10 +1181,10 @@
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/token-launcher"
+      "npm": "https://www.npmjs.com/package/@clawford/token-launcher"
     },
     {
-      "name": "@lobster-u/translator",
+      "name": "@clawford/translator",
       "version": "0.1.0",
       "description": "Context-aware, human-level translation with terminology consistency, register adaptation, and cultural localization for OpenClaw Agent",
       "category": "content-processing",
@@ -1219,10 +1219,10 @@
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/translator"
+      "npm": "https://www.npmjs.com/package/@clawford/translator"
     },
     {
-      "name": "@lobster-u/twitter-intel",
+      "name": "@clawford/twitter-intel",
       "version": "0.1.0",
       "description": "Twitter/X platform intelligence gathering — tracking KOLs, extracting trending topics, analyzing engagement signals, detecting bot activity, and synthesizing actionable insights for OpenClaw Agent",
       "category": "information-retrieval",
@@ -1261,10 +1261,10 @@
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/twitter-intel"
+      "npm": "https://www.npmjs.com/package/@clawford/twitter-intel"
     },
     {
-      "name": "@lobster-u/wallet-monitor",
+      "name": "@clawford/wallet-monitor",
       "version": "0.1.0",
       "description": "Wallet monitoring, whale tracking, transaction anomaly detection, and cross-chain alerting for crypto operations and security",
       "category": "crypto",
@@ -1310,10 +1310,10 @@
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/wallet-monitor"
+      "npm": "https://www.npmjs.com/package/@clawford/wallet-monitor"
     },
     {
-      "name": "@lobster-u/writer",
+      "name": "@clawford/writer",
       "version": "0.1.0",
       "description": "Structured article writing with evidence-based argumentation, consistent style, and quality improvement of 60% for OpenClaw Agent",
       "category": "creative-generation",
@@ -1341,169 +1341,169 @@
         "blog post"
       ],
       "dependencies": {
-        "@lobster-u/summarizer": ">=0.1.0",
-        "@lobster-u/keyword-extractor": ">=0.1.0"
+        "@clawford/summarizer": ">=0.1.0",
+        "@clawford/keyword-extractor": ">=0.1.0"
       },
       "dependents": [],
       "compatibility": {
         "openclaw": ">=0.5.0",
         "claudeCode": ">=1.0.0"
       },
-      "npm": "https://www.npmjs.com/package/@lobster-u/writer"
+      "npm": "https://www.npmjs.com/package/@clawford/writer"
     }
   ],
   "categories": {
     "information-retrieval": [
-      "@lobster-u/academic-search",
-      "@lobster-u/google-search",
-      "@lobster-u/reddit-tracker",
-      "@lobster-u/reminder",
-      "@lobster-u/rss-manager",
-      "@lobster-u/twitter-intel"
+      "@clawford/academic-search",
+      "@clawford/google-search",
+      "@clawford/reddit-tracker",
+      "@clawford/reminder",
+      "@clawford/rss-manager",
+      "@clawford/twitter-intel"
     ],
     "meta": [
-      "@lobster-u/assessment",
-      "@lobster-u/certify",
-      "@lobster-u/healthcheck",
-      "@lobster-u/selfoptimize"
+      "@clawford/assessment",
+      "@clawford/certify",
+      "@clawford/healthcheck",
+      "@clawford/selfoptimize"
     ],
     "creative-generation": [
-      "@lobster-u/brainstorm",
-      "@lobster-u/content-engine",
-      "@lobster-u/copywriter",
-      "@lobster-u/social-media",
-      "@lobster-u/storyteller",
-      "@lobster-u/writer"
+      "@clawford/brainstorm",
+      "@clawford/content-engine",
+      "@clawford/copywriter",
+      "@clawford/social-media",
+      "@clawford/storyteller",
+      "@clawford/writer"
     ],
     "social": [
-      "@lobster-u/campus-sdk"
+      "@clawford/campus-sdk"
     ],
     "crypto": [
-      "@lobster-u/chain-analyzer",
-      "@lobster-u/dex-trader",
-      "@lobster-u/kol-manager",
-      "@lobster-u/token-launcher",
-      "@lobster-u/wallet-monitor"
+      "@clawford/chain-analyzer",
+      "@clawford/dex-trader",
+      "@clawford/kol-manager",
+      "@clawford/token-launcher",
+      "@clawford/wallet-monitor"
     ],
     "code-assistance": [
-      "@lobster-u/code-gen",
-      "@lobster-u/code-review",
-      "@lobster-u/debugger",
-      "@lobster-u/doc-gen",
-      "@lobster-u/refactor"
+      "@clawford/code-gen",
+      "@clawford/code-review",
+      "@clawford/debugger",
+      "@clawford/doc-gen",
+      "@clawford/refactor"
     ],
     "content-processing": [
-      "@lobster-u/keyword-extractor",
-      "@lobster-u/rewriter",
-      "@lobster-u/sentiment-analyzer",
-      "@lobster-u/summarizer",
-      "@lobster-u/translator"
+      "@clawford/keyword-extractor",
+      "@clawford/rewriter",
+      "@clawford/sentiment-analyzer",
+      "@clawford/summarizer",
+      "@clawford/translator"
     ],
     "reasoning": [
-      "@lobster-u/mental-models"
+      "@clawford/mental-models"
     ]
   },
   "dependencyGraph": {
-    "@lobster-u/academic-search": [
-      "@lobster-u/google-search"
+    "@clawford/academic-search": [
+      "@clawford/google-search"
     ],
-    "@lobster-u/assessment": [],
-    "@lobster-u/brainstorm": [],
-    "@lobster-u/campus-sdk": [],
-    "@lobster-u/certify": [
-      "@lobster-u/assessment"
+    "@clawford/assessment": [],
+    "@clawford/brainstorm": [],
+    "@clawford/campus-sdk": [],
+    "@clawford/certify": [
+      "@clawford/assessment"
     ],
-    "@lobster-u/chain-analyzer": [],
-    "@lobster-u/code-gen": [],
-    "@lobster-u/code-review": [],
-    "@lobster-u/content-engine": [],
-    "@lobster-u/copywriter": [
-      "@lobster-u/sentiment-analyzer"
+    "@clawford/chain-analyzer": [],
+    "@clawford/code-gen": [],
+    "@clawford/code-review": [],
+    "@clawford/content-engine": [],
+    "@clawford/copywriter": [
+      "@clawford/sentiment-analyzer"
     ],
-    "@lobster-u/debugger": [
-      "@lobster-u/code-review"
+    "@clawford/debugger": [
+      "@clawford/code-review"
     ],
-    "@lobster-u/dex-trader": [],
-    "@lobster-u/doc-gen": [
-      "@lobster-u/code-gen"
+    "@clawford/dex-trader": [],
+    "@clawford/doc-gen": [
+      "@clawford/code-gen"
     ],
-    "@lobster-u/google-search": [],
-    "@lobster-u/healthcheck": [],
-    "@lobster-u/keyword-extractor": [],
-    "@lobster-u/kol-manager": [],
-    "@lobster-u/mental-models": [],
-    "@lobster-u/reddit-tracker": [],
-    "@lobster-u/refactor": [
-      "@lobster-u/code-review"
+    "@clawford/google-search": [],
+    "@clawford/healthcheck": [],
+    "@clawford/keyword-extractor": [],
+    "@clawford/kol-manager": [],
+    "@clawford/mental-models": [],
+    "@clawford/reddit-tracker": [],
+    "@clawford/refactor": [
+      "@clawford/code-review"
     ],
-    "@lobster-u/reminder": [],
-    "@lobster-u/rewriter": [
-      "@lobster-u/summarizer"
+    "@clawford/reminder": [],
+    "@clawford/rewriter": [
+      "@clawford/summarizer"
     ],
-    "@lobster-u/rss-manager": [],
-    "@lobster-u/selfoptimize": [],
-    "@lobster-u/sentiment-analyzer": [],
-    "@lobster-u/social-media": [
-      "@lobster-u/copywriter"
+    "@clawford/rss-manager": [],
+    "@clawford/selfoptimize": [],
+    "@clawford/sentiment-analyzer": [],
+    "@clawford/social-media": [
+      "@clawford/copywriter"
     ],
-    "@lobster-u/storyteller": [],
-    "@lobster-u/summarizer": [],
-    "@lobster-u/token-launcher": [],
-    "@lobster-u/translator": [],
-    "@lobster-u/twitter-intel": [],
-    "@lobster-u/wallet-monitor": [],
-    "@lobster-u/writer": [
-      "@lobster-u/summarizer",
-      "@lobster-u/keyword-extractor"
+    "@clawford/storyteller": [],
+    "@clawford/summarizer": [],
+    "@clawford/token-launcher": [],
+    "@clawford/translator": [],
+    "@clawford/twitter-intel": [],
+    "@clawford/wallet-monitor": [],
+    "@clawford/writer": [
+      "@clawford/summarizer",
+      "@clawford/keyword-extractor"
     ]
   },
   "installGroups": {
     "starter-pack": {
       "description": "Essential skills for getting started — search, summarize, and translate",
       "skills": [
-        "@lobster-u/google-search",
-        "@lobster-u/summarizer",
-        "@lobster-u/translator"
+        "@clawford/google-search",
+        "@clawford/summarizer",
+        "@clawford/translator"
       ]
     },
     "developer-pack": {
       "description": "Full programming assistance — code generation, review, debug, refactor, and docs",
       "skills": [
-        "@lobster-u/code-gen",
-        "@lobster-u/code-review",
-        "@lobster-u/debugger",
-        "@lobster-u/refactor",
-        "@lobster-u/doc-gen"
+        "@clawford/code-gen",
+        "@clawford/code-review",
+        "@clawford/debugger",
+        "@clawford/refactor",
+        "@clawford/doc-gen"
       ]
     },
     "content-pack": {
       "description": "Content processing toolkit — summarize, translate, rewrite, and extract keywords",
       "skills": [
-        "@lobster-u/summarizer",
-        "@lobster-u/translator",
-        "@lobster-u/rewriter",
-        "@lobster-u/keyword-extractor",
-        "@lobster-u/sentiment-analyzer"
+        "@clawford/summarizer",
+        "@clawford/translator",
+        "@clawford/rewriter",
+        "@clawford/keyword-extractor",
+        "@clawford/sentiment-analyzer"
       ]
     },
     "creative-pack": {
       "description": "Creative writing suite — write, brainstorm, tell stories, and produce marketing copy",
       "skills": [
-        "@lobster-u/writer",
-        "@lobster-u/brainstorm",
-        "@lobster-u/storyteller",
-        "@lobster-u/copywriter",
-        "@lobster-u/social-media"
+        "@clawford/writer",
+        "@clawford/brainstorm",
+        "@clawford/storyteller",
+        "@clawford/copywriter",
+        "@clawford/social-media"
       ]
     },
     "research-pack": {
       "description": "Multi-source research — web, academic, RSS, Twitter, and Reddit",
       "skills": [
-        "@lobster-u/google-search",
-        "@lobster-u/academic-search",
-        "@lobster-u/rss-manager",
-        "@lobster-u/twitter-intel",
-        "@lobster-u/reddit-tracker"
+        "@clawford/google-search",
+        "@clawford/academic-search",
+        "@clawford/rss-manager",
+        "@clawford/twitter-intel",
+        "@clawford/reddit-tracker"
       ]
     }
   }

@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/registry",
+  "name": "@clawford/registry",
   "version": "0.1.0",
   "description": "Skills registry for Lobster University — discover, search, and manage skill packages",
   "main": "dist/index.js",
@@ -14,7 +14,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@lobster-u/sdk": "workspace:*"
+    "@clawford/sdk": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.7.0",

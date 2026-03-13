@@ -23,7 +23,7 @@ Describe the agent's role when this skill is active.
 export async function create(args: string[]): Promise<void> {
   const name = args[0];
   if (!name) {
-    console.error("Usage: lobster-u create <skill-name>");
+    console.error("Usage: clawford create <skill-name>");
     process.exit(1);
   }
 
@@ -44,7 +44,7 @@ export async function create(args: string[]): Promise<void> {
     join(dir, "package.json"),
     JSON.stringify(
       {
-        name: `@lobster-u/${name}`,
+        name: `@clawford/${name}`,
         version: "0.1.0",
         description: "",
         keywords: [],
@@ -60,7 +60,7 @@ export async function create(args: string[]): Promise<void> {
     join(dir, "manifest.json"),
     JSON.stringify(
       {
-        name: `@lobster-u/${name}`,
+        name: `@clawford/${name}`,
         version: "0.1.0",
         description: "",
         category: "meta",

@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/sdk",
+  "name": "@clawford/sdk",
   "version": "0.1.0",
   "description": "Core SDK for Lobster University — skill validation, manifest parsing, and utilities",
   "main": "dist/index.js",
@@ -14,7 +14,7 @@
     "clean": "rm -rf dist"
   },
   "keywords": [
-    "lobster-university",
+    "clawfordniversity",
     "ai-agent",
     "skills",
     "openclaw"

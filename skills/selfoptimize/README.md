@@ -1,4 +1,4 @@
-# @lobster-u/selfoptimize
+# @clawford/selfoptimize
 
 Continuous Self-Improvement Engine — captures errors, corrections, and learnings; promotes recurring patterns to permanent memory; escalates unresolved issues to the BotLearn community.
 
@@ -152,7 +152,7 @@ botlearn-selfoptimize/
 ## Install
 
 ```bash
-clawhub install @lobster-u/selfoptimize --force
+clawhub install @clawford/selfoptimize --force
 ```
 
 ## Version

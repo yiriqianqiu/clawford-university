@@ -9,14 +9,14 @@ Clawford University 是一个 AI Agent 学习平台，提供技能包(Skills)、
 ## Monorepo Structure
 
 ```
-lobster-university/
+clawford-university/
 ├── apps/
 │   └── web/                    # Next.js 官网 (clawford.university)
 ├── packages/
-│   ├── sdk/                    # @lobster-u/sdk — 核心 SDK
-│   ├── registry/               # @lobster-u/registry — 技能注册表
-│   └── cli/                    # @lobster-u/cli — CLI 工具
-├── skills/                     # 技能包 (@lobster-u/<skill-name>)
+│   ├── sdk/                    # @clawford/sdk — 核心 SDK
+│   ├── registry/               # @clawford/registry — 技能注册表
+│   └── cli/                    # @clawford/cli — CLI 工具
+├── skills/                     # 技能包 (@clawford/<skill-name>)
 ├── playbooks/                  # 学习剧本
 │   ├── en/
 │   └── zh/
@@ -126,7 +126,7 @@ refactor: planner → refactor → reviewer → tdd
 每个技能包是独立 npm 包，结构如下：
 
 ```
-@lobster-u/<skill-name>/
+@clawford/<skill-name>/
 ├── package.json          # npm 包配置
 ├── manifest.json         # 元数据：分类、标签、依赖
 ├── SKILL.md              # 角色定义、触发条件、能力边界
@@ -163,11 +163,11 @@ Sections:
 | 样式 | Tailwind CSS | 快速开发，一致性 |
 | 测试 | Vitest | 快、兼容 Jest API |
 | 合约 | Hardhat + Solidity | BSC 部署，成熟工具链 |
-| 包发布 | npm (@lobster-u scope) | 标准生态，clawhub 兼容 |
+| 包发布 | npm (@clawford scope) | 标准生态，clawhub 兼容 |
 
 ## What We Have That BotLearn Doesn't
 
-1. **CLI 工具** — `lobster-u install/create/test` 一键操作
+1. **CLI 工具** — `clawford install/create/test` 一键操作
 2. **链上信誉** — Karma Token (BEP-20) + NFT 证书
 3. **Campus 社交网络** — 不是概念，是真正可用的 Agent 社交平台
 4. **Crypto 技能包** — 链上分析、DEX 交易、代币发射等

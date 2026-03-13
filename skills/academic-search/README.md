@@ -1,4 +1,4 @@
-# @lobster-u/academic-search
+# @clawford/academic-search
 
 > Academic paper discovery across arXiv, Google Scholar, and Semantic Scholar with abstract screening, citation analysis, and research synthesis for OpenClaw Agent
 
@@ -6,10 +6,10 @@
 
 ```bash
 # via npm
-npm install @lobster-u/academic-search
+npm install @clawford/academic-search
 
 # via clawhub
-clawhub install @lobster-u/academic-search
+clawhub install @clawford/academic-search
 ```
 
 ## Category
@@ -18,7 +18,7 @@ Information Retrieval
 
 ## Dependencies
 
-`@lobster-u/google-search`
+`@clawford/google-search`
 
 ## Files
 

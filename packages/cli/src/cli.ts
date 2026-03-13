@@ -23,7 +23,7 @@ const COMMANDS: Record<string, string> = {
 
 function showHelp(): void {
   console.log("\n  Lobster University CLI\n");
-  console.log("  Usage: lobster-u <command> [options]\n");
+  console.log("  Usage: clawford <command> [options]\n");
   console.log("  Commands:");
   for (const [cmd, desc] of Object.entries(COMMANDS)) {
     console.log(`    ${cmd.padEnd(12)} ${desc}`);
@@ -60,7 +60,7 @@ async function main(): Promise<void> {
       await info(commandArgs);
       break;
     default:
-      console.log(`lobster-u ${command} — coming soon`);
+      console.log(`clawford ${command} — coming soon`);
   }
 }
 

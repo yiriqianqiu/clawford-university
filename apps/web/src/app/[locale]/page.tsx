@@ -88,18 +88,18 @@ const FEATURE_ICONS: Record<string, React.ReactNode> = {
 };
 
 const QUICK_START_CODE = `# Install a skill
-lobster-u install @lobster-u/google-search
+clawford install @clawford/google-search
 
 # Install a combo
-lobster-u install @lobster-u/code-gen @lobster-u/code-review
+clawford install @clawford/code-gen @clawford/code-review
 
 # Create your own skill
-lobster-u create my-awesome-skill
+clawford create my-awesome-skill
 
 # Run skill tests
-lobster-u test @lobster-u/google-search`;
+clawford test @clawford/google-search`;
 
-const SKILL_FORMAT_CODE = `@lobster-u/<skill-name>/
+const SKILL_FORMAT_CODE = `@clawford/<skill-name>/
 ├── package.json          # npm package config
 ├── manifest.json         # metadata, tags, dependencies
 ├── SKILL.md              # role, triggers, capabilities
@@ -127,23 +127,24 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-950">
       {/* Hero */}
-      <section className="relative flex flex-col items-center justify-center overflow-hidden px-6 pt-24 pb-14 text-center">
-        {/* Gradient background */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-orange-50/50 via-transparent to-transparent dark:from-orange-950/20" />
-        <div className="pointer-events-none absolute top-20 -left-32 h-64 w-64 rounded-full bg-orange-200/30 blur-3xl dark:bg-orange-900/20" />
-        <div className="pointer-events-none absolute top-40 -right-32 h-64 w-64 rounded-full bg-red-200/20 blur-3xl dark:bg-red-900/10" />
+      <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 text-center">
+        {/* Background image */}
+        <div
+          className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/hero-bg.png')" }}
+        />
+        {/* Overlay for text readability */}
+        <div className="pointer-events-none absolute inset-0 bg-black/55 dark:bg-black/65" />
 
         <div className="relative">
-          <div className="animate-float mb-4 flex justify-center">
-            <svg className="h-16 w-16 text-orange-500" viewBox="0 0 24 24" fill="currentColor"><path d="M19 7c0-1.1-.9-2-2-2h-1V4c0-.55-.45-1-1-1s-1 .45-1 1v1h-4V4c0-.55-.45-1-1-1s-1 .45-1 1v1H7C5.9 5 5 5.9 5 7v2c0 1.66 1.34 3 3 3h.17C8.6 13.83 10.13 15 12 15s3.4-1.17 3.83-3H16c1.66 0 3-1.34 3-3V7zm-7 6c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2zM3 18c0 1.1.9 2 2 2h2l-2-2H3zm16 0l-2 2h2c1.1 0 2-.9 2-2h-2zM5 20l4 2v-2H5zm10 0v2l4-2h-4z"/></svg>
-          </div>
-          <h1 className="animate-fade-in mb-3 max-w-3xl text-5xl font-bold tracking-tight text-zinc-900 sm:text-6xl dark:text-white">
+
+          <h1 className="animate-fade-in mb-3 max-w-3xl text-5xl font-bold tracking-tight text-white drop-shadow-lg sm:text-6xl">
             {t("title")}
           </h1>
-          <p className="animate-fade-in delay-100 mb-1.5 text-xl font-medium text-zinc-600 dark:text-zinc-400">
+          <p className="animate-fade-in delay-100 mb-1.5 text-xl font-medium text-white/90 drop-shadow">
             {t("subtitle")}
           </p>
-          <p className="animate-fade-in delay-200 mb-6 max-w-xl text-lg text-zinc-500">
+          <p className="animate-fade-in delay-200 mb-6 max-w-xl text-lg text-white/80 drop-shadow">
             {t("description")}
           </p>
 
@@ -157,10 +158,10 @@ export default function Home() {
             ].map((stat) => (
               <div
                 key={stat.label}
-                className="flex flex-col items-center gap-0.5 rounded-xl border border-zinc-200 bg-white/50 px-5 py-3 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-900/50"
+                className="flex flex-col items-center gap-0.5 rounded-xl border border-white/20 bg-white/15 px-5 py-3 backdrop-blur-sm"
               >
-                <span className="text-2xl font-bold text-zinc-900 dark:text-white">{stat.value}</span>
-                <span className="text-xs text-zinc-500">{stat.label}</span>
+                <span className="text-2xl font-bold text-white">{stat.value}</span>
+                <span className="text-xs text-white/70">{stat.label}</span>
               </div>
             ))}
           </div>
@@ -173,10 +174,10 @@ export default function Home() {
               {t("getStarted")}
             </a>
             <a
-              href="https://github.com/saiboyizhan/lobster-university"
+              href="https://github.com/saiboyizhan/clawford-university"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-w-[160px] items-center justify-center rounded-lg border border-zinc-300 px-8 py-3 text-sm font-medium text-zinc-700 transition hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-900"
+              className="inline-flex min-w-[160px] items-center justify-center rounded-lg border border-white/30 px-8 py-3 text-sm font-medium text-white transition hover:bg-white/10"
             >
               {t("viewGithub")}
             </a>
@@ -240,9 +241,7 @@ export default function Home() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {FEATURES.map((f) => (
               <div key={f.titleKey} className="group rounded-xl border border-zinc-200 p-6 transition hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:hover:border-zinc-700">
-                <div className="mb-3 inline-flex rounded-lg bg-zinc-100 p-2.5 text-zinc-600 transition group-hover:bg-zinc-900 group-hover:text-white dark:bg-zinc-800 dark:text-zinc-400 dark:group-hover:bg-white dark:group-hover:text-zinc-900">
-                  {FEATURE_ICONS[f.icon]}
-                </div>
+
                 <h3 className="mb-2 font-semibold text-zinc-900 dark:text-white">
                   {t(f.titleKey)}
                 </h3>

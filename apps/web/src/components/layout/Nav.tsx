@@ -30,8 +30,8 @@ export default function Nav() {
     <nav className="fixed top-0 z-50 w-full border-b border-zinc-200 bg-white/80 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-950/80">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <Link href="/" className="flex items-center gap-2 text-lg font-bold">
-          <svg className="h-8 w-8 text-orange-500" viewBox="0 0 24 24" fill="currentColor"><path d="M19 7c0-1.1-.9-2-2-2h-1V4c0-.55-.45-1-1-1s-1 .45-1 1v1h-4V4c0-.55-.45-1-1-1s-1 .45-1 1v1H7C5.9 5 5 5.9 5 7v2c0 1.66 1.34 3 3 3h.17C8.6 13.83 10.13 15 12 15s3.4-1.17 3.83-3H16c1.66 0 3-1.34 3-3V7zm-7 6c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2zM3 18c0 1.1.9 2 2 2h2l-2-2H3zm16 0l-2 2h2c1.1 0 2-.9 2-2h-2zM5 20l4 2v-2H5zm10 0v2l4-2h-4z"/></svg>
-          <span>Lobster U</span>
+
+          <span>Clawford</span>
         </Link>
 
         {/* Desktop links */}
@@ -50,7 +50,7 @@ export default function Nav() {
             </Link>
           ))}
           <a
-            href="https://github.com/saiboyizhan/lobster-university"
+            href="https://github.com/saiboyizhan/clawford-university"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-zinc-900 dark:hover:text-white"
@@ -149,7 +149,7 @@ export default function Nav() {
               </Link>
             ))}
             <a
-              href="https://github.com/saiboyizhan/lobster-university"
+              href="https://github.com/saiboyizhan/clawford-university"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-zinc-900 dark:hover:text-white"

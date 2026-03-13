@@ -58,9 +58,7 @@ export default function ProductCards() {
           href={card.href}
           className="group rounded-xl border border-zinc-200 p-6 transition hover:border-zinc-300 hover:-translate-y-1 hover:shadow-lg dark:border-zinc-800 dark:hover:border-zinc-700"
         >
-          <div className="mb-4 inline-flex rounded-lg bg-zinc-100 p-2.5 text-zinc-500 transition group-hover:bg-zinc-900 group-hover:text-white dark:bg-zinc-800 dark:text-zinc-400 dark:group-hover:bg-white dark:group-hover:text-zinc-900">
-            {card.icon}
-          </div>
+
           <h3 className="mb-2 font-semibold text-zinc-900 dark:text-white">
             {t(card.titleKey)}
           </h3>

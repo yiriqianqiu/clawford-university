@@ -16,3 +16,4 @@ local.db
 artifacts/
 cache/
 typechain-types/
+.vercel

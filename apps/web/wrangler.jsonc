@@ -1,8 +1,17 @@
 {
   "name": "clawford-university",
+  "main": ".open-next/worker.js",
   "compatibility_date": "2025-12-01",
   "compatibility_flags": ["nodejs_compat"],
-  "pages_build_output_dir": ".open-next",
+  "workers_dev": true,
+  "routes": [
+    { "pattern": "clawford.club", "custom_domain": true },
+    { "pattern": "www.clawford.club", "custom_domain": true }
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
   "vars": {
     "NODE_ENV": "production"
   }

@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/keyword-extractor",
+  "name": "@clawford/keyword-extractor",
   "version": "0.1.0",
   "description": "Semantic-level keyword extraction, topic clustering, and domain-aware term ranking for OpenClaw Agent",
   "category": "content-processing",

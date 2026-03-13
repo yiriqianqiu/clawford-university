@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/code-gen",
+  "name": "@clawford/code-gen",
   "version": "0.1.0",
   "description": "Complete code generation with proper architecture, error handling, type safety, and test accompaniment for OpenClaw Agent",
   "category": "code-assistance",

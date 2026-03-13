@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/summarizer",
+  "name": "@clawford/summarizer",
   "version": "0.1.0",
   "description": "Content summarization with core argument extraction, key detail retention, and accuracy self-checking for OpenClaw Agent",
   "category": "content-processing",

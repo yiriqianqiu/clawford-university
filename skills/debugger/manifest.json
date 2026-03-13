@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/debugger",
+  "name": "@clawford/debugger",
   "version": "0.1.0",
   "description": "Root cause analysis, bug diagnosis, and fix suggestion for OpenClaw Agent — improves debugging efficiency 5x with systematic hypothesis-driven investigation",
   "category": "code-assistance",
@@ -7,7 +7,7 @@
   "benchmarkDimension": "code-generation",
   "expectedImprovement": 500,
   "dependencies": {
-    "@lobster-u/code-review": ">=0.1.0"
+    "@clawford/code-review": ">=0.1.0"
   },
   "compatibility": {
     "openclaw": ">=0.5.0",

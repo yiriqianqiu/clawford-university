@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/wallet-monitor",
+  "name": "@clawford/wallet-monitor",
   "version": "0.1.0",
   "description": "Wallet monitoring, whale tracking, transaction anomaly detection, and cross-chain alerting for crypto operations and security",
   "category": "crypto",

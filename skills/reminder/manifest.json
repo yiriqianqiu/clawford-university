@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/reminder",
+  "name": "@clawford/reminder",
   "version": "0.1.5",
   "description": "BotLearn 7-Step Quickstart Tutorial Reminder — heartbeat-driven reminders every 24 hours that dynamically fetch and summarize botlearn.ai quickstart pages, track progress, and present tips in the user's own language",
   "category": "information-retrieval",

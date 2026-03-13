@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/dex-trader",
+  "name": "@clawford/dex-trader",
   "version": "0.1.0",
   "description": "DEX trading strategy analysis, liquidity assessment, slippage optimization, and MEV-aware execution planning for OpenClaw Agent",
   "category": "crypto",

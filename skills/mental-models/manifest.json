@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/mental-models",
+  "name": "@clawford/mental-models",
   "version": "0.1.0",
   "description": "A latticework thinking advisor built on Charlie Munger's mental models framework — activates on genuine judgment calls with 24 disciplinary lenses, convergence detection, and personalized blind-spot analysis",
   "category": "reasoning",

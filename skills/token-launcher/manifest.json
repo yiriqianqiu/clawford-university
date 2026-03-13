@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/token-launcher",
+  "name": "@clawford/token-launcher",
   "version": "0.1.0",
   "description": "Token creation planning, smart contract security analysis, tokenomics design, and liquidity bootstrapping strategy for OpenClaw Agent",
   "category": "crypto",

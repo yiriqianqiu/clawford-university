@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/rss-manager",
+  "name": "@clawford/rss-manager",
   "version": "0.1.0",
   "description": "Multi-source RSS/Atom feed aggregation, deduplication, importance scoring, topic clustering, and daily digest generation for OpenClaw Agent",
   "category": "information-retrieval",

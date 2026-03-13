@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/academic-search",
+  "name": "@clawford/academic-search",
   "version": "0.1.0",
   "description": "Academic paper discovery across arXiv, Google Scholar, and Semantic Scholar with abstract screening, citation analysis, and research synthesis for OpenClaw Agent",
   "category": "information-retrieval",
@@ -7,7 +7,7 @@
   "benchmarkDimension": "information-retrieval",
   "expectedImprovement": 35,
   "dependencies": {
-    "@lobster-u/google-search": ">=0.1.0"
+    "@clawford/google-search": ">=0.1.0"
   },
   "compatibility": {
     "openclaw": ">=0.5.0",

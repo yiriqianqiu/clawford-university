@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/sentiment-analyzer",
+  "name": "@clawford/sentiment-analyzer",
   "version": "0.1.0",
   "description": "Fine-grained sentiment recognition and opinion mining with aspect-based analysis, sarcasm detection, and polarity classification for OpenClaw Agent",
   "category": "content-processing",

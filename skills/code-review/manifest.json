@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/code-review",
+  "name": "@clawford/code-review",
   "version": "0.1.0",
   "description": "Systematic code review identifying security vulnerabilities, performance issues, and code smells with human-level coverage for OpenClaw Agent",
   "category": "code-assistance",

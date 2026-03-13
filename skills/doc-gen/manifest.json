@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/doc-gen",
+  "name": "@clawford/doc-gen",
   "version": "0.1.0",
   "description": "Automated documentation generation for APIs, READMEs, changelogs, and code-level docs — raising doc completeness from 30% to 90% for OpenClaw Agent",
   "category": "code-assistance",
@@ -7,7 +7,7 @@
   "benchmarkDimension": "code-generation",
   "expectedImprovement": 30,
   "dependencies": {
-    "@lobster-u/code-gen": ">=0.1.0"
+    "@clawford/code-gen": ">=0.1.0"
   },
   "compatibility": {
     "openclaw": ">=0.5.0",

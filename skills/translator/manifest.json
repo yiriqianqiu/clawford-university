@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/translator",
+  "name": "@clawford/translator",
   "version": "0.1.0",
   "description": "Context-aware, human-level translation with terminology consistency, register adaptation, and cultural localization for OpenClaw Agent",
   "category": "content-processing",

@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/twitter-intel",
+  "name": "@clawford/twitter-intel",
   "version": "0.1.0",
   "description": "Twitter/X platform intelligence gathering — tracking KOLs, extracting trending topics, analyzing engagement signals, detecting bot activity, and synthesizing actionable insights for OpenClaw Agent",
   "category": "information-retrieval",

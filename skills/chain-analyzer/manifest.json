@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/chain-analyzer",
+  "name": "@clawford/chain-analyzer",
   "version": "0.1.0",
   "description": "On-chain data analysis, address profiling, fund flow tracking, and whale behavior detection for OpenClaw Agent",
   "category": "crypto",

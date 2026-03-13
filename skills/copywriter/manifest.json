@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/copywriter",
+  "name": "@clawford/copywriter",
   "version": "0.1.0",
   "description": "Marketing copywriting specialist that applies proven persuasion frameworks (AIDA, PAS, BAB) for audience-targeted copy with optimized CTAs and click-through rate improvement",
   "category": "creative-generation",
@@ -7,7 +7,7 @@
   "benchmarkDimension": "creative-generation",
   "expectedImprovement": 30,
   "dependencies": {
-    "@lobster-u/sentiment-analyzer": ">=0.1.0"
+    "@clawford/sentiment-analyzer": ">=0.1.0"
   },
   "compatibility": {
     "openclaw": ">=0.5.0",

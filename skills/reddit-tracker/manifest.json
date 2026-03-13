@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/reddit-tracker",
+  "name": "@clawford/reddit-tracker",
   "version": "0.1.0",
   "description": "Reddit community monitoring, engagement velocity tracking, cross-subreddit correlation, and early trend detection for OpenClaw Agent",
   "category": "information-retrieval",

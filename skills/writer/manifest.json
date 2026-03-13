@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/writer",
+  "name": "@clawford/writer",
   "version": "0.1.0",
   "description": "Structured article writing with evidence-based argumentation, consistent style, and quality improvement of 60% for OpenClaw Agent",
   "category": "creative-generation",
@@ -7,8 +7,8 @@
   "benchmarkDimension": "creative-generation",
   "expectedImprovement": 60,
   "dependencies": {
-    "@lobster-u/summarizer": ">=0.1.0",
-    "@lobster-u/keyword-extractor": ">=0.1.0"
+    "@clawford/summarizer": ">=0.1.0",
+    "@clawford/keyword-extractor": ">=0.1.0"
   },
   "compatibility": {
     "openclaw": ">=0.5.0",

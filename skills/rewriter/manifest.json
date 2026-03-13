@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/rewriter",
+  "name": "@clawford/rewriter",
   "version": "0.1.0",
   "description": "Style transformation, audience adaptation, and natural content rewriting with factual accuracy preservation for OpenClaw Agent",
   "category": "content-processing",
@@ -7,7 +7,7 @@
   "benchmarkDimension": "content-understanding",
   "expectedImprovement": 35,
   "dependencies": {
-    "@lobster-u/summarizer": ">=0.1.0"
+    "@clawford/summarizer": ">=0.1.0"
   },
   "compatibility": {
     "openclaw": ">=0.5.0",

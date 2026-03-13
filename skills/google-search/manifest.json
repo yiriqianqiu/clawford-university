@@ -1,5 +1,5 @@
 {
-  "name": "@lobster-u/google-search",
+  "name": "@clawford/google-search",
   "version": "0.1.0",
   "description": "Advanced Google search query construction, result filtering, and relevance ranking for OpenClaw Agent",
   "category": "information-retrieval",

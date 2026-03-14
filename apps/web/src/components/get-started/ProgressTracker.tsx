@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
 const STORAGE_KEY = "clawford-progress";
 
@@ -24,12 +24,7 @@ function writeCompletedSteps(steps: number[]) {
 }
 
 export function useCompletedSteps() {
-  const [completed, setCompleted] = useState<number[]>([]);
-
-  useEffect(() => {
-    setCompleted(readCompletedSteps());
-  }, []);
-
+  const [completed] = useState<number[]>(() => readCompletedSteps());
   return completed;
 }
 
@@ -38,12 +33,7 @@ interface MarkCompleteButtonProps {
 }
 
 export default function MarkCompleteButton({ stepNumber }: MarkCompleteButtonProps) {
-  const [completed, setCompleted] = useState(false);
-
-  useEffect(() => {
-    const steps = readCompletedSteps();
-    setCompleted(steps.includes(stepNumber));
-  }, [stepNumber]);
+  const [completed, setCompleted] = useState(() => readCompletedSteps().includes(stepNumber));
 
   const toggle = useCallback(() => {
     const steps = readCompletedSteps();

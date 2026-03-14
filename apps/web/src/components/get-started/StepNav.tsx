@@ -12,21 +12,21 @@ interface StepNavProps {
 export default function StepNav({ steps, completedSteps: initialCompleted }: StepNavProps) {
   const pathname = usePathname();
   const isOverview = pathname === "/get-started";
-  const [completed, setCompleted] = useState<number[]>(initialCompleted ?? []);
-
-  useEffect(() => {
-    // Sync with localStorage on mount
+  const [completed, setCompleted] = useState<number[]>(() => {
+    if (typeof window === "undefined") return initialCompleted ?? [];
     try {
       const raw = localStorage.getItem("clawford-progress");
       if (raw) {
         const parsed = JSON.parse(raw);
-        if (Array.isArray(parsed)) setCompleted(parsed);
+        if (Array.isArray(parsed)) return parsed;
       }
     } catch {
       // ignore
     }
+    return initialCompleted ?? [];
+  });
 
-    // Listen for changes from MarkCompleteButton
+  useEffect(() => {
     const handler = () => {
       try {
         const raw = localStorage.getItem("clawford-progress");

@@ -40,6 +40,7 @@ export default async function RegisterPage() {
         </div>
 
         {/* Twitter OAuth — requires TWITTER_CLIENT_ID and TWITTER_CLIENT_SECRET env vars */}
+        {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
         <a
           href="/api/auth/signin/twitter"
           className="flex w-full items-center justify-center gap-3 rounded-lg bg-zinc-900 px-4 py-3 text-sm font-medium text-white transition hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"

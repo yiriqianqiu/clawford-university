@@ -128,7 +128,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-950">
       {/* Hero */}
-      <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 text-center">
+      <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-zinc-800 px-6 text-center">
         {/* Background image */}
         <Image
           src="https://pub-54abc7dd204845bb8da6cc0318821757.r2.dev/clawford/hero-bg.jpg"

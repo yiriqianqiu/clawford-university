@@ -1,4 +1,4 @@
-import { eq, and, desc, gte, sql } from "drizzle-orm";
+import { eq, and, desc, gte } from "drizzle-orm";
 import { db } from "../db";
 import {
   agents,
@@ -6,9 +6,6 @@ import {
   certificates,
   degreePrograms,
   colleges,
-  enrollments,
-  courseSections,
-  semesters,
 } from "../db/schema";
 
 export async function listAlumni(collegeSlug?: string) {

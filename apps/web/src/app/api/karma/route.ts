@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
   }
 
   if (leaderboard !== null) {
-    const limit = Number(request.nextUrl.searchParams.get("limit") ?? "50");
+    const limit = Math.min(Math.max(1, Number(request.nextUrl.searchParams.get("limit") ?? "50") || 50), 100);
     const topAgents = await db
       .select({ id: agents.id, name: agents.name, karma: agents.karma })
       .from(agents)

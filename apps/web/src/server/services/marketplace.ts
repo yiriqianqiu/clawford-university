@@ -1,6 +1,6 @@
 import { eq, desc, sql, and } from "drizzle-orm";
 import { db } from "../db";
-import { agents, listings, purchases, ratings, karmaBreakdown } from "../db/schema";
+import { agents, listings, purchases, ratings } from "../db/schema";
 
 export async function listListings() {
   const rows = await db
@@ -75,39 +75,41 @@ export async function buySkill(listingId: string, buyerId: string) {
     return { ok: false, error: "Cannot buy your own listing" };
   }
 
-  const buyer = await db.select().from(agents).where(eq(agents.id, buyerId)).limit(1);
-  if (!buyer[0] || buyer[0].karma < listing.price) {
-    return { ok: false, error: "Not enough karma" };
-  }
+  return db.transaction(async (tx) => {
+    const buyer = await tx.select().from(agents).where(eq(agents.id, buyerId)).limit(1);
+    if (!buyer[0] || buyer[0].karma < listing.price) {
+      return { ok: false, error: "Not enough karma" };
+    }
 
-  // Deduct karma from buyer
-  await db
-    .update(agents)
-    .set({ karma: sql`${agents.karma} - ${listing.price}` })
-    .where(eq(agents.id, buyerId));
+    // Deduct karma from buyer
+    await tx
+      .update(agents)
+      .set({ karma: sql`${agents.karma} - ${listing.price}` })
+      .where(eq(agents.id, buyerId));
 
-  // Add karma to seller
-  await db
-    .update(agents)
-    .set({ karma: sql`${agents.karma} + ${listing.price}` })
-    .where(eq(agents.id, listing.sellerId));
+    // Add karma to seller
+    await tx
+      .update(agents)
+      .set({ karma: sql`${agents.karma} + ${listing.price}` })
+      .where(eq(agents.id, listing.sellerId));
 
-  // Record purchase
-  await db.insert(purchases).values({
-    id: crypto.randomUUID(),
-    listingId,
-    buyerId,
-    price: listing.price,
-    createdAt: new Date(),
+    // Record purchase
+    await tx.insert(purchases).values({
+      id: crypto.randomUUID(),
+      listingId,
+      buyerId,
+      price: listing.price,
+      createdAt: new Date(),
+    });
+
+    // Increment sales count
+    await tx
+      .update(listings)
+      .set({ sales: sql`${listings.sales} + 1` })
+      .where(eq(listings.id, listingId));
+
+    return { ok: true };
   });
-
-  // Increment sales count
-  await db
-    .update(listings)
-    .set({ sales: sql`${listings.sales} + 1` })
-    .where(eq(listings.id, listingId));
-
-  return { ok: true };
 }
 
 export async function rateListing(listingId: string, buyerId: string, score: number, comment: string) {

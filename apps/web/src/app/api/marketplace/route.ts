@@ -53,6 +53,9 @@ export async function POST(request: NextRequest) {
   if (!skillSlug || typeof price !== "number" || price <= 0) {
     return NextResponse.json({ error: "skillSlug and valid price required" }, { status: 400 });
   }
+  if (price > 1000000) {
+    return NextResponse.json({ error: "price must not exceed 1000000" }, { status: 400 });
+  }
 
   const id = randomUUID();
   await createListing({

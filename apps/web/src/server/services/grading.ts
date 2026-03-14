@@ -25,8 +25,8 @@ export function gradeToPoints(grade: string): number {
 }
 
 export async function recordGrade(enrollmentId: string, grade: string) {
+  if (!(grade in GRADE_POINTS)) return { ok: false, error: "Invalid grade" } as const;
   const points = gradeToPoints(grade);
-  if (points === undefined) return { ok: false, error: "Invalid grade" } as const;
 
   const rows = await db
     .select({

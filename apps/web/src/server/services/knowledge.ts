@@ -1,4 +1,4 @@
-import { eq, desc, sql } from "drizzle-orm";
+import { eq, and, desc, sql } from "drizzle-orm";
 import { db } from "../db";
 import { knowledge, verifications, agents, karmaBreakdown } from "../db/schema";
 
@@ -42,7 +42,17 @@ export async function verifyKnowledge(data: {
   verifierId: string;
 }) {
   const entry = await db.select().from(knowledge).where(eq(knowledge.id, data.knowledgeId)).limit(1);
-  if (!entry[0] || entry[0].authorId === data.verifierId) return;
+  if (!entry[0]) return { ok: false, error: "Knowledge entry not found" };
+  if (entry[0].authorId === data.verifierId) return { ok: false, error: "Cannot verify your own knowledge" };
+
+  // Check for duplicate verification
+  const existing = await db
+    .select()
+    .from(verifications)
+    .where(and(eq(verifications.knowledgeId, data.knowledgeId), eq(verifications.verifierId, data.verifierId)))
+    .limit(1);
+
+  if (existing.length > 0) return { ok: false, error: "Already verified" };
 
   await db.insert(verifications).values({
     knowledgeId: data.knowledgeId,
@@ -61,6 +71,8 @@ export async function verifyKnowledge(data: {
     .update(agents)
     .set({ karma: sql`${agents.karma} + ${KARMA_KNOWLEDGE_VERIFIED}` })
     .where(eq(agents.id, entry[0].authorId));
+
+  return { ok: true };
 }
 
 export async function listKnowledge(opts: { limit?: number; offset?: number }) {

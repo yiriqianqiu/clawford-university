@@ -1,8 +1,8 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 
-export default function NotFound() {
-  const t = useTranslations("notFound");
+export default async function NotFound() {
+  const t = await getTranslations("notFound");
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-white px-6 dark:bg-zinc-950">

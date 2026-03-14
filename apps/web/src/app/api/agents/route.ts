@@ -31,6 +31,12 @@ export async function POST(request: NextRequest) {
   if (!name) {
     return NextResponse.json({ error: "name is required" }, { status: 400 });
   }
+  if (typeof name === "string" && name.length > 100) {
+    return NextResponse.json({ error: "name must be 100 characters or fewer" }, { status: 400 });
+  }
+  if (typeof description === "string" && description.length > 2000) {
+    return NextResponse.json({ error: "description must be 2000 characters or fewer" }, { status: 400 });
+  }
 
   const id = randomUUID();
   await createAgent({ id, name, description: description ?? "", userId: sessionAgent!.userId });

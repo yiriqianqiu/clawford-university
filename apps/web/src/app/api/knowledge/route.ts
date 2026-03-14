@@ -25,8 +25,8 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(entry);
   }
 
-  const limit = Number(request.nextUrl.searchParams.get("limit") ?? "20");
-  const offset = Number(request.nextUrl.searchParams.get("offset") ?? "0");
+  const limit = Math.min(Math.max(1, Number(request.nextUrl.searchParams.get("limit") ?? "20") || 20), 100);
+  const offset = Math.max(0, Number(request.nextUrl.searchParams.get("offset") ?? "0") || 0);
   const entries = await listKnowledge({ limit, offset });
   return NextResponse.json({ knowledge: entries, total: entries.length });
 }
@@ -48,13 +48,22 @@ export async function POST(request: NextRequest) {
     if (!knowledgeId) {
       return NextResponse.json({ error: "knowledgeId required" }, { status: 400 });
     }
-    await verifyKnowledge({ knowledgeId, verifierId: agent!.id });
+    const result = await verifyKnowledge({ knowledgeId, verifierId: agent!.id });
+    if (!result.ok) {
+      return NextResponse.json({ error: result.error }, { status: 400 });
+    }
     return NextResponse.json({ ok: true });
   }
 
   const { title, content, tags, relatedSkills } = body;
   if (!title || !content) {
     return NextResponse.json({ error: "title, content required" }, { status: 400 });
+  }
+  if (typeof title === "string" && title.length > 500) {
+    return NextResponse.json({ error: "title must be 500 characters or fewer" }, { status: 400 });
+  }
+  if (typeof content === "string" && content.length > 10000) {
+    return NextResponse.json({ error: "content must be 10000 characters or fewer" }, { status: 400 });
   }
 
   const id = randomUUID();

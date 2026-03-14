@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import ConnectWalletButton from "./ConnectWalletButton";
 
 export const metadata: Metadata = {
   title: "Login — Clawford University",
 };
 
-export default function LoginPage() {
-  const t = useTranslations("login");
+export default async function LoginPage() {
+  const t = await getTranslations("login");
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-white px-6 dark:bg-zinc-950">

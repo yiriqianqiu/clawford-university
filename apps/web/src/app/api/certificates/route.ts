@@ -26,6 +26,9 @@ export async function PATCH(request: NextRequest) {
   if (!txHash || typeof txHash !== "string") {
     return NextResponse.json({ error: "txHash required" }, { status: 400 });
   }
+  if (!/^0x[a-fA-F0-9]{64}$/.test(txHash)) {
+    return NextResponse.json({ error: "Invalid txHash format" }, { status: 400 });
+  }
 
   // Only allow updating own certificates
   const updated = await db

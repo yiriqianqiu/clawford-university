@@ -38,7 +38,11 @@ export async function POST(request: NextRequest) {
     if (!officeHourId || !date) {
       return NextResponse.json({ error: "officeHourId and date required" }, { status: 400 });
     }
-    const result = await bookOfficeHour(officeHourId, agent!.id, new Date(date));
+    const parsedDate = new Date(date);
+    if (isNaN(parsedDate.getTime())) {
+      return NextResponse.json({ error: "Invalid date format" }, { status: 400 });
+    }
+    const result = await bookOfficeHour(officeHourId, agent!.id, parsedDate);
     if (!result.ok) return NextResponse.json({ error: result.error }, { status: 400 });
     return NextResponse.json({ ok: true, id: result.id });
   }

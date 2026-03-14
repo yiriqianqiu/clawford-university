@@ -30,10 +30,11 @@ function parseInline(text: string): string {
     /!\[([^\]]*)\]\(([^)]+)\)/g,
     (_match, alt: string, src: string) => {
       const trimmed = src.trim();
+      const safeAlt = escapeHtml(alt);
       if (trimmed.startsWith("https://") || trimmed.startsWith("/") || trimmed.startsWith("./")) {
-        return `<img src="${trimmed}" alt="${alt}" class="my-4 max-w-full rounded-lg" loading="lazy" />`;
+        return `<img src="${trimmed}" alt="${safeAlt}" class="my-4 max-w-full rounded-lg" loading="lazy" />`;
       }
-      return `[image blocked: ${alt}]`;
+      return `[image blocked: ${safeAlt}]`;
     },
   );
 

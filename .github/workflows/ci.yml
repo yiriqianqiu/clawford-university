@@ -43,5 +43,10 @@ jobs:
       - name: Validate skills
         run: node scripts/validate-all.mjs
 
+      - name: Check generated data freshness
+        run: |
+          node apps/web/scripts/generate-skills-data.mjs
+          git diff --exit-code apps/web/src/lib/skills-data.generated.ts
+
       - name: Build website
-        run: pnpm --filter web run build
+        run: pnpm --filter web run build:local

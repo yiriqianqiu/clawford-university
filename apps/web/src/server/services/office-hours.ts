@@ -1,6 +1,6 @@
 import { eq, and, desc } from "drizzle-orm";
 import { db } from "../db";
-import { officeHours, officeHourBookings, faculty, agents } from "../db/schema";
+import { officeHours, officeHourBookings, faculty } from "../db/schema";
 import { randomUUID } from "crypto";
 
 const DAY_NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];

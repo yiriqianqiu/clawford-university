@@ -40,7 +40,7 @@ export async function getEnrollments(agentId: string) {
 }
 
 export async function enrollInCourse(agentId: string, sectionId: string) {
-  // Get section with course info
+  // Get section with course info (read outside transaction — immutable lookup)
   const sectionRows = await db
     .select({
       id: courseSections.id,
@@ -57,16 +57,7 @@ export async function enrollInCourse(agentId: string, sectionId: string) {
   const section = sectionRows[0];
   if (!section) return { ok: false, error: "Section not found" } as const;
 
-  // Check duplicate enrollment
-  const existing = await db
-    .select()
-    .from(enrollments)
-    .where(and(eq(enrollments.agentId, agentId), eq(enrollments.courseSectionId, sectionId)))
-    .limit(1);
-
-  if (existing.length > 0) return { ok: false, error: "Already enrolled" } as const;
-
-  // Check prerequisites
+  // Check prerequisites (immutable lookup)
   const prereqs = section.prerequisiteCourseIds as string[];
   if (prereqs.length > 0) {
     const completed = await getCompletedCourseIds(agentId);
@@ -76,54 +67,74 @@ export async function enrollInCourse(agentId: string, sectionId: string) {
     }
   }
 
-  // Check capacity
-  const status = section.currentEnrollment >= section.maxEnrollment ? "waitlisted" : "enrolled";
+  return db.transaction(async (tx) => {
+    // Check duplicate enrollment
+    const existing = await tx
+      .select()
+      .from(enrollments)
+      .where(and(eq(enrollments.agentId, agentId), eq(enrollments.courseSectionId, sectionId)))
+      .limit(1);
 
-  const id = randomUUID();
-  await db.insert(enrollments).values({
-    id,
-    agentId,
-    courseSectionId: sectionId,
-    status,
-    enrolledAt: new Date(),
+    if (existing.length > 0) return { ok: false, error: "Already enrolled" } as const;
+
+    // Re-read capacity inside transaction for consistency
+    const freshSection = await tx
+      .select({ currentEnrollment: courseSections.currentEnrollment, maxEnrollment: courseSections.maxEnrollment })
+      .from(courseSections)
+      .where(eq(courseSections.id, sectionId))
+      .limit(1);
+
+    const capacity = freshSection[0];
+    const status = capacity && capacity.currentEnrollment >= capacity.maxEnrollment ? "waitlisted" : "enrolled";
+
+    const id = randomUUID();
+    await tx.insert(enrollments).values({
+      id,
+      agentId,
+      courseSectionId: sectionId,
+      status,
+      enrolledAt: new Date(),
+    });
+
+    // Increment enrollment count if enrolled (not waitlisted)
+    if (status === "enrolled") {
+      await tx
+        .update(courseSections)
+        .set({ currentEnrollment: sql`${courseSections.currentEnrollment} + 1` })
+        .where(eq(courseSections.id, sectionId));
+    }
+
+    return { ok: true, status } as const;
   });
-
-  // Increment enrollment count if enrolled (not waitlisted)
-  if (status === "enrolled") {
-    await db
-      .update(courseSections)
-      .set({ currentEnrollment: sql`${courseSections.currentEnrollment} + 1` })
-      .where(eq(courseSections.id, sectionId));
-  }
-
-  return { ok: true, status } as const;
 }
 
 export async function dropCourse(agentId: string, sectionId: string) {
-  const existing = await db
-    .select()
-    .from(enrollments)
-    .where(and(eq(enrollments.agentId, agentId), eq(enrollments.courseSectionId, sectionId)))
-    .limit(1);
+  return db.transaction(async (tx) => {
+    const existing = await tx
+      .select()
+      .from(enrollments)
+      .where(and(eq(enrollments.agentId, agentId), eq(enrollments.courseSectionId, sectionId)))
+      .limit(1);
 
-  if (!existing[0]) return { ok: false, error: "Not enrolled" } as const;
+    if (!existing[0]) return { ok: false, error: "Not enrolled" } as const;
 
-  const wasEnrolled = existing[0].status === "enrolled";
+    const wasEnrolled = existing[0].status === "enrolled";
 
-  await db
-    .update(enrollments)
-    .set({ status: "dropped" })
-    .where(eq(enrollments.id, existing[0].id));
+    await tx
+      .update(enrollments)
+      .set({ status: "dropped" })
+      .where(eq(enrollments.id, existing[0].id));
 
-  // Decrement count if was enrolled
-  if (wasEnrolled) {
-    await db
-      .update(courseSections)
-      .set({ currentEnrollment: sql`${courseSections.currentEnrollment} - 1` })
-      .where(eq(courseSections.id, sectionId));
-  }
+    // Decrement count if was enrolled
+    if (wasEnrolled) {
+      await tx
+        .update(courseSections)
+        .set({ currentEnrollment: sql`${courseSections.currentEnrollment} - 1` })
+        .where(eq(courseSections.id, sectionId));
+    }
 
-  return { ok: true } as const;
+    return { ok: true } as const;
+  });
 }
 
 export async function getCompletedCourseIdsForAgent(agentId: string): Promise<string[]> {

@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { requireAuth } from "@/server/auth-guard";
 import { isAdmin } from "@/server/auth-guard";
 import { recordGrade } from "@/server/services/grading";
 import { updateCreditsAndGpa } from "@/server/services/student-profiles";

@@ -127,81 +127,84 @@ export async function votePost(data: {
   voterId: string;
   direction: 1 | -1;
 }) {
-  // Check existing vote — direct lookup by composite key
-  const existing = await db
-    .select()
-    .from(votes)
-    .where(and(eq(votes.postId, data.postId), eq(votes.voterId, data.voterId)))
-    .limit(1);
+  await db.transaction(async (tx) => {
+    // Check existing vote — direct lookup by composite key
+    const existing = await tx
+      .select()
+      .from(votes)
+      .where(and(eq(votes.postId, data.postId), eq(votes.voterId, data.voterId)))
+      .limit(1);
 
-  const existingVote = existing[0] ?? null;
+    const existingVote = existing[0] ?? null;
 
-  if (existingVote) {
-    // Remove only this voter's vote
-    await db
-      .delete(votes)
-      .where(and(eq(votes.postId, data.postId), eq(votes.voterId, data.voterId)));
+    if (existingVote) {
+      // Remove only this voter's vote
+      await tx
+        .delete(votes)
+        .where(and(eq(votes.postId, data.postId), eq(votes.voterId, data.voterId)));
 
-    // Revert vote count on the post
-    if (existingVote.direction === 1) {
-      await db.update(posts).set({ upvotes: sql`${posts.upvotes} - 1` }).where(eq(posts.id, data.postId));
-    } else {
-      await db.update(posts).set({ downvotes: sql`${posts.downvotes} - 1` }).where(eq(posts.id, data.postId));
+      // Revert vote count on the post
+      if (existingVote.direction === 1) {
+        await tx.update(posts).set({ upvotes: sql`${posts.upvotes} - 1` }).where(eq(posts.id, data.postId));
+      } else {
+        await tx.update(posts).set({ downvotes: sql`${posts.downvotes} - 1` }).where(eq(posts.id, data.postId));
+      }
+
+      // Revert karma for post author
+      const postRows = await tx.select().from(posts).where(eq(posts.id, data.postId)).limit(1);
+      const post = postRows[0] ?? null;
+      if (post) {
+        const karmaGiven = existingVote.direction === 1 ? KARMA_UPVOTE : KARMA_DOWNVOTE;
+        const field = existingVote.direction === 1 ? "fromUpvotesReceived" : "fromDownvotesReceived";
+        const fieldCol = existingVote.direction === 1 ? karmaBreakdown.fromUpvotesReceived : karmaBreakdown.fromDownvotesReceived;
+        await tx
+          .update(karmaBreakdown)
+          .set({
+            [field]: sql`${fieldCol} - ${karmaGiven}`,
+            total: sql`${karmaBreakdown.total} - ${karmaGiven}`,
+          })
+          .where(eq(karmaBreakdown.agentId, post.authorId));
+
+        await tx
+          .update(agents)
+          .set({ karma: sql`${agents.karma} - ${karmaGiven}` })
+          .where(eq(agents.id, post.authorId));
+      }
+
+      // If toggling same direction, just remove (undo). If switching direction, continue to insert new vote.
+      if (existingVote.direction === data.direction) return;
     }
 
-    // Revert karma for post author
-    const post = await getPost(data.postId);
+    await tx.insert(votes).values({
+      postId: data.postId,
+      voterId: data.voterId,
+      direction: data.direction,
+    });
+
+    if (data.direction === 1) {
+      await tx.update(posts).set({ upvotes: sql`${posts.upvotes} + 1` }).where(eq(posts.id, data.postId));
+    } else {
+      await tx.update(posts).set({ downvotes: sql`${posts.downvotes} + 1` }).where(eq(posts.id, data.postId));
+    }
+
+    // Karma for post author
+    const postRows = await tx.select().from(posts).where(eq(posts.id, data.postId)).limit(1);
+    const post = postRows[0] ?? null;
     if (post) {
-      // Upvote gave +KARMA_UPVOTE, revert by subtracting. Downvote gave KARMA_DOWNVOTE(-1), revert by subtracting(-1) = adding 1.
-      const karmaGiven = existingVote.direction === 1 ? KARMA_UPVOTE : KARMA_DOWNVOTE;
-      const field = existingVote.direction === 1 ? "fromUpvotesReceived" : "fromDownvotesReceived";
-      const fieldCol = existingVote.direction === 1 ? karmaBreakdown.fromUpvotesReceived : karmaBreakdown.fromDownvotesReceived;
-      await db
+      const karmaChange = data.direction === 1 ? KARMA_UPVOTE : KARMA_DOWNVOTE;
+      const field = data.direction === 1 ? karmaBreakdown.fromUpvotesReceived : karmaBreakdown.fromDownvotesReceived;
+      await tx
         .update(karmaBreakdown)
         .set({
-          [field]: sql`${fieldCol} - ${karmaGiven}`,
-          total: sql`${karmaBreakdown.total} - ${karmaGiven}`,
+          [data.direction === 1 ? "fromUpvotesReceived" : "fromDownvotesReceived"]: sql`${field} + ${Math.abs(karmaChange)}`,
+          total: sql`${karmaBreakdown.total} + ${karmaChange}`,
         })
         .where(eq(karmaBreakdown.agentId, post.authorId));
 
-      await db
+      await tx
         .update(agents)
-        .set({ karma: sql`${agents.karma} - ${karmaGiven}` })
+        .set({ karma: sql`${agents.karma} + ${karmaChange}` })
         .where(eq(agents.id, post.authorId));
     }
-
-    // If toggling same direction, just remove (undo). If switching direction, continue to insert new vote.
-    if (existingVote.direction === data.direction) return;
-  }
-
-  await db.insert(votes).values({
-    postId: data.postId,
-    voterId: data.voterId,
-    direction: data.direction,
   });
-
-  if (data.direction === 1) {
-    await db.update(posts).set({ upvotes: sql`${posts.upvotes} + 1` }).where(eq(posts.id, data.postId));
-  } else {
-    await db.update(posts).set({ downvotes: sql`${posts.downvotes} + 1` }).where(eq(posts.id, data.postId));
-  }
-
-  // Karma for post author
-  const post = await getPost(data.postId);
-  if (post) {
-    const karmaChange = data.direction === 1 ? KARMA_UPVOTE : KARMA_DOWNVOTE;
-    const field = data.direction === 1 ? karmaBreakdown.fromUpvotesReceived : karmaBreakdown.fromDownvotesReceived;
-    await db
-      .update(karmaBreakdown)
-      .set({
-        [data.direction === 1 ? "fromUpvotesReceived" : "fromDownvotesReceived"]: sql`${field} + ${Math.abs(karmaChange)}`,
-        total: sql`${karmaBreakdown.total} + ${karmaChange}`,
-      })
-      .where(eq(karmaBreakdown.agentId, post.authorId));
-
-    await db
-      .update(agents)
-      .set({ karma: sql`${agents.karma} + ${karmaChange}` })
-      .where(eq(agents.id, post.authorId));
-  }
 }

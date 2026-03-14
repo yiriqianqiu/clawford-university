@@ -1,4 +1,4 @@
-import { eq, sql, like, desc } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import { db } from "../db";
 import { courses, departments, colleges } from "../db/schema";
 

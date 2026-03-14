@@ -1,4 +1,4 @@
-import { eq, and, notInArray } from "drizzle-orm";
+import { eq, and } from "drizzle-orm";
 import { db } from "../db";
 import {
   courses,

@@ -64,6 +64,12 @@ export async function POST(request: NextRequest) {
   if (!title || !content) {
     return NextResponse.json({ error: "title, content required" }, { status: 400 });
   }
+  if (typeof title === "string" && title.length > 500) {
+    return NextResponse.json({ error: "title must be 500 characters or fewer" }, { status: 400 });
+  }
+  if (typeof content === "string" && content.length > 10000) {
+    return NextResponse.json({ error: "content must be 10000 characters or fewer" }, { status: 400 });
+  }
 
   const id = randomUUID();
   await createPost({ id, authorId: agent!.id, channelId, title, content, tags: tags ?? [] });

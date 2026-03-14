@@ -1,5 +1,4 @@
-import fs from "fs";
-import path from "path";
+import { PLAYBOOKS_CONTENT } from "./playbooks-data.generated";
 
 export interface Playbook {
   id: string;
@@ -29,8 +28,6 @@ const PLAYBOOKS: Playbook[] = [
   { id: "defi-risk-management", title: "DeFi Risk Management: Protect Your Portfolio", desc: "Detect rug pulls, manage impermanent loss, and size positions with AI assistance.", time: "20 min", level: "Intermediate", skills: ["dex-trader", "wallet-monitor", "chain-analyzer"], category: "crypto" },
 ];
 
-const PLAYBOOKS_DIR = path.resolve(process.cwd(), "../../playbooks");
-
 export function getAllPlaybooks(): Playbook[] {
   return PLAYBOOKS;
 }
@@ -54,7 +51,8 @@ export function filterPlaybooks(opts: {
 }
 
 export function getPlaybookContent(id: string, locale: string): string | null {
-  const filePath = path.join(PLAYBOOKS_DIR, locale, `playbook-${id}.mdx`);
-  if (!fs.existsSync(filePath)) return null;
-  return fs.readFileSync(filePath, "utf-8");
+  const entry = PLAYBOOKS_CONTENT.find(
+    (e) => e.id === id && e.locale === locale,
+  );
+  return entry?.content ?? null;
 }

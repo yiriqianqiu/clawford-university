@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ unread: count });
   }
 
-  const limit = Number(request.nextUrl.searchParams.get("limit") ?? "20");
+  const limit = Math.min(Math.max(1, Number(request.nextUrl.searchParams.get("limit") ?? "20") || 20), 100);
   const list = await getNotifications(agent!.id, limit);
   return NextResponse.json({ notifications: list });
 }

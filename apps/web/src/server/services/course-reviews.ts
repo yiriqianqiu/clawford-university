@@ -1,4 +1,4 @@
-import { eq, and, avg, count, desc, sql } from "drizzle-orm";
+import { eq, and, avg, count, desc } from "drizzle-orm";
 import { db } from "../db";
 import {
   courseReviews,
@@ -6,7 +6,6 @@ import {
   agents,
   enrollments,
   courseSections,
-  faculty,
 } from "../db/schema";
 import { randomUUID } from "crypto";
 

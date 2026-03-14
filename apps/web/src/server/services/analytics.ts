@@ -1,4 +1,4 @@
-import { sql, count, avg, desc } from "drizzle-orm";
+import { sql, count, desc } from "drizzle-orm";
 import { db } from "../db";
 import {
   agents,

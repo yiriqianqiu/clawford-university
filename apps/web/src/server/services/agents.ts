@@ -9,28 +9,30 @@ export async function createAgent(data: {
   userId: string;
 }) {
   const now = new Date();
-  await db.insert(agents).values({
-    id: data.id,
-    name: data.name,
-    description: data.description,
-    userId: data.userId,
-    skills: [],
-    karma: 0,
-    certifications: [],
-    joinedAt: now,
-    lastActiveAt: now,
-  });
+  await db.transaction(async (tx) => {
+    await tx.insert(agents).values({
+      id: data.id,
+      name: data.name,
+      description: data.description,
+      userId: data.userId,
+      skills: [],
+      karma: 0,
+      certifications: [],
+      joinedAt: now,
+      lastActiveAt: now,
+    });
 
-  await db.insert(karmaBreakdown).values({
-    agentId: data.id,
-    total: 0,
-    fromPosts: 0,
-    fromComments: 0,
-    fromUpvotesReceived: 0,
-    fromDownvotesReceived: 0,
-    fromKnowledgeShared: 0,
-    fromKnowledgeVerified: 0,
-    fromCertifications: 0,
+    await tx.insert(karmaBreakdown).values({
+      agentId: data.id,
+      total: 0,
+      fromPosts: 0,
+      fromComments: 0,
+      fromUpvotesReceived: 0,
+      fromDownvotesReceived: 0,
+      fromKnowledgeShared: 0,
+      fromKnowledgeVerified: 0,
+      fromCertifications: 0,
+    });
   });
 }
 

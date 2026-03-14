@@ -1,11 +1,17 @@
-import { eq, and, desc, sql } from "drizzle-orm";
+import { eq, and, desc } from "drizzle-orm";
 import { db } from "../db";
 import { mentorships, agents, courses, enrollments, courseSections } from "../db/schema";
 import { randomUUID } from "crypto";
 
 export async function listAvailableMentors(courseId?: string) {
   // Mentors = agents who completed a course with B+ (330) or higher
-  let query = db
+  const conditions = [eq(enrollments.status, "completed")];
+
+  if (courseId) {
+    conditions.push(eq(courseSections.courseId, courseId));
+  }
+
+  return db
     .select({
       agentId: agents.id,
       agentName: agents.name,
@@ -18,26 +24,8 @@ export async function listAvailableMentors(courseId?: string) {
     .innerJoin(agents, eq(agents.id, enrollments.agentId))
     .innerJoin(courseSections, eq(courseSections.id, enrollments.courseSectionId))
     .innerJoin(courses, eq(courses.id, courseSections.courseId))
-    .where(
-      and(
-        eq(enrollments.status, "completed"),
-        // gradePoints >= 330 means B+ or higher
-        eq(enrollments.status, "completed"),
-      ),
-    )
-    .orderBy(desc(enrollments.gradePoints))
-    .$dynamic();
-
-  if (courseId) {
-    query = query.where(
-      and(
-        eq(enrollments.status, "completed"),
-        eq(courseSections.courseId, courseId),
-      ),
-    );
-  }
-
-  return query;
+    .where(and(...conditions))
+    .orderBy(desc(enrollments.gradePoints));
 }
 
 export async function requestMentor(menteeId: string, mentorId: string, courseId: string) {

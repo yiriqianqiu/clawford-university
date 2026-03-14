@@ -33,8 +33,9 @@ export async function getSession(): Promise<string | null> {
  */
 export function getSessionFromRequest(request: Request): string | null {
   const cookieHeader = request.headers.get("cookie") ?? "";
-  const match = cookieHeader.match(new RegExp(`${SESSION_COOKIE}=([^;]+)`));
-  return match?.[1] ?? null;
+  const pairs = cookieHeader.split(";").map((p) => p.trim());
+  const sessionPair = pairs.find((p) => p.startsWith(`${SESSION_COOKIE}=`));
+  return sessionPair ? sessionPair.slice(SESSION_COOKIE.length + 1) : null;
 }
 
 /**

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 
 export default function NotificationBell() {
@@ -11,7 +10,6 @@ export default function NotificationBell() {
   const [notifications, setNotifications] = useState<
     { id: string; message: string; type: string; read: boolean; createdAt: string }[]
   >([]);
-  const router = useRouter();
 
   // Poll unread count (stops polling on 401)
   const [authed, setAuthed] = useState(true);

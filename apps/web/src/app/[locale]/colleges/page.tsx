@@ -49,9 +49,6 @@ export default async function CollegesPage() {
                 href={`/colleges/${college.slug}`}
                 className="group relative overflow-hidden rounded-xl border border-zinc-200 p-6 transition hover:border-zinc-300 hover:shadow-lg dark:border-zinc-800 dark:hover:border-zinc-700"
               >
-                <div className="pointer-events-none absolute -top-6 -right-6 text-[8rem] font-bold leading-none opacity-[0.06] transition group-hover:opacity-[0.1] dark:opacity-[0.04] dark:group-hover:opacity-[0.08]">
-                  {college.iconEmoji}
-                </div>
                 <div className="relative">
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-100 text-sm font-bold text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">{college.iconEmoji}</div>
                   <h2 className="mb-2 text-xl font-semibold text-zinc-900 transition group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">

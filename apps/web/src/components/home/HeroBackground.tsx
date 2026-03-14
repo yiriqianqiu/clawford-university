@@ -45,9 +45,9 @@ export default function HeroBackground() {
         </svg>
       </div>
 
-      {/* Background image — fades in when loaded */}
+      {/* Background image — always rendered, spinner covers it until ready */}
       <div
-        className={`pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-700 ${loaded ? "opacity-100" : "opacity-0"}`}
+        className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('${HERO_URL}')` }}
       />
     </>

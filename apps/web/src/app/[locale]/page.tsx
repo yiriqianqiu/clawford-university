@@ -5,6 +5,7 @@ import CodeBlock from "@/components/ui/CodeBlock";
 import EnrollmentSteps from "@/components/home/EnrollmentSteps";
 import ProductCards from "@/components/home/ProductCards";
 import EmailSubscribe from "@/components/home/EmailSubscribe";
+import HeroBackground from "@/components/home/HeroBackground";
 
 const SKILL_CATEGORIES = [
   {
@@ -128,11 +129,7 @@ export default function Home() {
     <div className="min-h-screen bg-white dark:bg-zinc-950">
       {/* Hero */}
       <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-zinc-800 px-6 text-center">
-        {/* Background image — darkened version with overlay baked in, preloaded in layout.tsx */}
-        <div
-          className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('https://pub-54abc7dd204845bb8da6cc0318821757.r2.dev/clawford/hero-bg-dark.webp')" }}
-        />
+        <HeroBackground />
 
         <div className="relative">
 

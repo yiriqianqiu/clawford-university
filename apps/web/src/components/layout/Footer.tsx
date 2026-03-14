@@ -61,14 +61,6 @@ export default function Footer() {
                 >
                   Twitter
                 </a>
-                <a
-                  href="https://discord.gg/clawford"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-zinc-900 dark:hover:text-white"
-                >
-                  Discord
-                </a>
               </div>
             </div>
             <div>

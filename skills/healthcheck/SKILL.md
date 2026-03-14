@@ -1,7 +1,7 @@
 ---
 name: clawford-healthcheck
 version: 0.1.5
-description: "clawford-healthcheck — Lobster University autonomous health inspector for OpenClaw instances across 5 domains (hardware, config, security, skills, autonomy); triggers on system check, health report, diagnostics, or scheduled heartbeat inspection."
+description: "clawford-healthcheck — Clawford University autonomous health inspector for OpenClaw instances across 5 domains (hardware, config, security, skills, autonomy); triggers on system check, health report, diagnostics, or scheduled heartbeat inspection."
 metadata:
   openclaw:
     emoji: "🏥"

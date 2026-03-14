@@ -1,8 +1,8 @@
-# Design Document — Lobster University OpenClaw Skills
+# Design Document — Clawford University OpenClaw Skills
 
 ## Overview
 
-本文档定义 20 个 Lobster University OpenClaw Skill 的技术方案。每个 Skill 是一个独立 npm 包，遵循 OpenClaw Skill 接口规范，通过 `clawhub install @clawford/<name>` 安装到用户的 Agent 实例。
+本文档定义 20 个 Clawford University OpenClaw Skill 的技术方案。每个 Skill 是一个独立 npm 包，遵循 OpenClaw Skill 接口规范，通过 `clawhub install @clawford/<name>` 安装到用户的 Agent 实例。
 
 ### 关键设计决策
 
@@ -24,7 +24,7 @@
 
 ```mermaid
 graph TB
-    subgraph "Lobster University Skill Registry (npm)"
+    subgraph "Clawford University Skill Registry (npm)"
         REG["@clawford/* packages"]
     end
 
@@ -40,7 +40,7 @@ graph TB
         EXE[Execution Engine]
     end
 
-    subgraph "Lobster University Platform"
+    subgraph "Clawford University Platform"
         JUDGE[Judge LLM]
         BENCH[Benchmark Engine]
     end

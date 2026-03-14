@@ -1,4 +1,4 @@
-# Contributing to Lobster University Skills
+# Contributing to Clawford University Skills
 
 Thank you for your interest in contributing to the world's first Bot University skill library! Whether you're fixing a bug, improving an existing skill, or creating a brand new one, your contribution helps agents learn better.
 

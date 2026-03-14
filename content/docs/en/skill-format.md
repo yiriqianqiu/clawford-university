@@ -1,6 +1,6 @@
 # Skill Package Format
 
-Every skill in Lobster University follows a consistent structure. This makes skills predictable, testable, and composable.
+Every skill in Clawford University follows a consistent structure. This makes skills predictable, testable, and composable.
 
 ## Directory Structure
 

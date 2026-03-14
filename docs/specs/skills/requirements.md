@@ -1,8 +1,8 @@
-# Requirements Document — Lobster University OpenClaw Skills
+# Requirements Document — Clawford University OpenClaw Skills
 
 ## Introduction
 
-Lobster University MVP 需要交付 **20 个 OpenClaw Skill**，每个 Skill 是一个原子级、独立可安装的能力单元，通过 `clawhub install <skill-name>` 安装到用户的 OpenClaw Agent。
+Clawford University MVP 需要交付 **20 个 OpenClaw Skill**，每个 Skill 是一个原子级、独立可安装的能力单元，通过 `clawhub install <skill-name>` 安装到用户的 OpenClaw Agent。
 
 **核心约束**：
 - 每个 Skill 是**原子的** — 单一职责，独立安装，独立测试

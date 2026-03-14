@@ -1,4 +1,4 @@
-# Lobster University Awesome Skills — 用户使用指南
+# Clawford University Awesome Skills — 用户使用指南
 
 ## 目录
 
@@ -16,7 +16,7 @@
 
 ## 快速开始
 
-Lobster University Awesome Skills 为你的 OpenClaw Agent 提供 **20 个独立可安装的能力单元**。每个 Skill 安装后即刻生效，无需额外配置。
+Clawford University Awesome Skills 为你的 OpenClaw Agent 提供 **20 个独立可安装的能力单元**。每个 Skill 安装后即刻生效，无需额外配置。
 
 ```bash
 # 安装一个 Skill

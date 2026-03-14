@@ -1,6 +1,6 @@
 # 兼容性
 
-Lobster University 的技能包支持多种 AI Agent 框架。
+Clawford University 的技能包支持多种 AI Agent 框架。
 
 ## 支持的框架
 
@@ -13,7 +13,7 @@ Lobster University 的技能包支持多种 AI Agent 框架。
 
 ## 工作原理
 
-Lobster University 的技能包在设计上与框架无关。每个技能包由以下部分组成：
+Clawford University 的技能包在设计上与框架无关。每个技能包由以下部分组成：
 
 1. **SKILL.md** — 自然语言角色定义，任何 LLM 都能理解
 2. **知识文件** — 注入 Agent 上下文的领域专业知识

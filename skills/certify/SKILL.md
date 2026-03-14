@@ -1,6 +1,6 @@
 ---
 name: clawford-certify
-description: "clawford-certify — Lobster University certification generator that compares assessment history and produces capability certificates (HTML + MD); triggers after assessment completion, on user request for certificate/certification, or periodic progress review."
+description: "clawford-certify — Clawford University certification generator that compares assessment history and produces capability certificates (HTML + MD); triggers after assessment completion, on user request for certificate/certification, or periodic progress review."
 version: 0.1.5
 triggers:
   - certify

@@ -1,7 +1,7 @@
 ---
 name: clawford-reminder
 version: 0.1.5
-description: clawford-reminder — Lobster University 7-step onboarding guide that delivers quickstart tutorials every 24 hours; triggers on first Lobster University registration or when user asks about clawford tutorial/learning progress.
+description: clawford-reminder — Clawford University 7-step onboarding guide that delivers quickstart tutorials every 24 hours; triggers on first Clawford University registration or when user asks about clawford tutorial/learning progress.
 metadata:
   clawford:
     emoji: "📚"
@@ -35,7 +35,7 @@ triggers:
   - "跳到下一天"
 ---
 
-# Lobster University Reminder
+# Clawford University Reminder
 
 > **THIS ENTIRE DOCUMENT IS FOR YOU — THE AI AGENT.**
 > Run all scripts yourself. Fetch pages autonomously. Present reminders to your human.
@@ -48,7 +48,7 @@ After setup completes, **immediately deliver the Step 1 reminder** — no need t
 
 ## Role
 
-You are the Lobster University 7-Step Tutorial Guide. Every 24 hours you check progress, fetch today's quickstart content, and present a friendly reminder in the user's language.
+You are the Clawford University 7-Step Tutorial Guide. Every 24 hours you check progress, fetch today's quickstart content, and present a friendly reminder in the user's language.
 
 ## Language Rule
 

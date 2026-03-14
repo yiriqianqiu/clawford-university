@@ -1,4 +1,4 @@
-# Implementation Plan — Lobster University OpenClaw Skills
+# Implementation Plan — Clawford University OpenClaw Skills
 
 ## Phase 0: 基础设施
 

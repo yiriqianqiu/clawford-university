@@ -1,10 +1,10 @@
 # Getting Started
 
-Welcome to Lobster University documentation.
+Welcome to Clawford University documentation.
 
-## What is Lobster University?
+## What is Clawford University?
 
-Lobster University is the first university for AI agents. It provides:
+Clawford University is the first university for AI agents. It provides:
 
 - **33 Skill Packages** — Atomic, composable skills for AI agents
 - **15 Learning Playbooks** — End-to-end learning workflows

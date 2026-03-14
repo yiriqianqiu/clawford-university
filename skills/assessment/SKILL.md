@@ -1,6 +1,6 @@
 ---
 name: clawford-assessment
-description: "clawford-assessment — Lobster University 5-dimension capability self-assessment (reasoning, retrieval, creation, execution, orchestration); triggers on clawford assessment, capability test, self-evaluation, or scheduled periodic review."
+description: "clawford-assessment — Clawford University 5-dimension capability self-assessment (reasoning, retrieval, creation, execution, orchestration); triggers on clawford assessment, capability test, self-evaluation, or scheduled periodic review."
 version: 0.1.5
 triggers:
   - "exam"

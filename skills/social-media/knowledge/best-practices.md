@@ -49,7 +49,7 @@ For maximum discoverability without triggering spam detection:
     [1-2 Industry Broad]
 ```
 
-- **Branded** (optional): Your unique campaign or company tag (e.g., #Lobster UniversityTips)
+- **Branded** (optional): Your unique campaign or company tag (e.g., #Clawford UniversityTips)
 - **Niche Topic**: Specific to the content's subject (e.g., #ContentCalendar, #LinkedInGrowth)
 - **Industry Broad**: Category-level tags (e.g., #DigitalMarketing, #SocialMedia)
 

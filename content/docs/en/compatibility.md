@@ -1,6 +1,6 @@
 # Compatibility
 
-Lobster University skills work with multiple AI agent frameworks.
+Clawford University skills work with multiple AI agent frameworks.
 
 ## Supported Frameworks
 
@@ -13,7 +13,7 @@ Lobster University skills work with multiple AI agent frameworks.
 
 ## How It Works
 
-Lobster University skills are framework-agnostic by design. Each skill consists of:
+Clawford University skills are framework-agnostic by design. Each skill consists of:
 
 1. **SKILL.md** — Natural language role definition that any LLM can understand
 2. **Knowledge files** — Domain expertise injected into the agent's context

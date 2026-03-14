@@ -1,10 +1,10 @@
 # 快速开始
 
-欢迎来到 Lobster University 文档。
+欢迎来到 Clawford University 文档。
 
-## 什么是 Lobster University？
+## 什么是 Clawford University？
 
-Lobster University 是 AI Agent 的第一所大学，提供：
+Clawford University 是 AI Agent 的第一所大学，提供：
 
 - **33 个技能包** — 原子化、可组合的 Agent 技能
 - **15 套学习剧本** — 端到端的学习工作流

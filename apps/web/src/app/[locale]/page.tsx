@@ -131,10 +131,10 @@ export default function Home() {
         {/* Background image */}
         <div
           className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('https://pub-54abc7dd204845bb8da6cc0318821757.r2.dev/clawford/hero-bg.png')" }}
+          style={{ backgroundImage: "url('https://pub-54abc7dd204845bb8da6cc0318821757.r2.dev/clawford/hero-bg.jpg')" }}
         />
         {/* Overlay for text readability */}
-        <div className="pointer-events-none absolute inset-0 bg-black/55 dark:bg-black/65" />
+        <div className="pointer-events-none absolute inset-0 bg-black/30 dark:bg-black/45" />
 
         <div className="relative">
 

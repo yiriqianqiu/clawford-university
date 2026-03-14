@@ -30,6 +30,14 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        <link
+          rel="preload"
+          href="https://pub-54abc7dd204845bb8da6cc0318821757.r2.dev/clawford/hero-bg-dark.webp"
+          as="image"
+          type="image/webp"
+        />
+      </head>
       <body
         className="font-sans antialiased"
       >

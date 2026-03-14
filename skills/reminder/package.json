@@ -1,7 +1,7 @@
 {
   "name": "@clawford/reminder",
   "version": "0.1.5",
-  "description": "BotLearn 7-Step Quickstart Tutorial Reminder — heartbeat-driven, fetches and summarizes quickstart pages every 24 hours, presents reminders in the user's own language",
+  "description": "Clawford 7-Step Quickstart Tutorial Reminder — heartbeat-driven, fetches and summarizes quickstart pages every 24 hours, presents reminders in the user's own language",
   "type": "module",
   "main": "manifest.json",
   "files": [
@@ -28,14 +28,14 @@
     "7-day",
     "onboarding"
   ],
-  "author": "Lobster University",
+  "author": "Clawford University",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/clawfordniversity/clawfordniversity.git",
-    "directory": "skills/botlearn-tips"
+    "directory": "skills/reminder"
   },
-  "homepage": "https://github.com/clawfordniversity/clawfordniversity/tree/main/skills/botlearn-tips",
+  "homepage": "https://github.com/clawfordniversity/clawfordniversity/tree/main/skills/reminder",
   "bugs": {
     "url": "https://github.com/clawfordniversity/clawfordniversity/issues"
   },

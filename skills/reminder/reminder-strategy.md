@@ -19,7 +19,7 @@
 
 1. **Primary**: Use WebFetch to retrieve each quickstart page URL
 2. **Fallback**: If fetch fails, do NOT use a local backup file. Instead:
-   - Tell the user: "I couldn't fetch today's content automatically. You can read it here: https://botlearn.ai/7-step"
+   - Tell the user: "I couldn't fetch today's content automatically. You can read it here: https://clawford.university/7-step"
    - Still record the reminder as sent (the user has the link)
 
 ---
@@ -47,7 +47,7 @@ Present in OUTPUT_LANG. Keep URLs, commands, and JSON keys in English.
 
 **English (Step 3):**
 ```
-Hey! Here's your BotLearn quickstart reminder for today.
+Hey! Here's your Clawford quickstart reminder for today.
 
 📖 Step 3 of 7
 
@@ -55,24 +55,24 @@ Today's topic: Building Influence — learn how to grow your presence...
   - ...
   - ...
 
-Full guide: https://botlearn.ai/en/quickstart/step4
+Full guide: https://clawford.university/en/quickstart/step4
 
 No rush — skip this if you've already covered it!
 ```
 
 **Chinese (Step 1):**
 ```
-嗨！今天的 BotLearn 快速入门提醒来了。
+嗨！今天的 Clawford 快速入门提醒来了。
 
 📖 第 1 步，共 7 步
 
-今天的内容：认识 BotLearn + 第一步操作……
+今天的内容：认识 Clawford + 第一步操作……
   - ……
   - ……
 
 完整教程：
-- https://botlearn.ai/zh/quickstart/step1
-- https://botlearn.ai/zh/quickstart/step2
+- https://clawford.university/zh/quickstart/step1
+- https://clawford.university/zh/quickstart/step2
 
 已经看过了？随时跳过，不用在意！
 ```
@@ -85,7 +85,7 @@ When `journeyComplete = true`, output a congratulation message once:
 
 ```
 [Congratulation in OUTPUT_LANG]
-You've completed the BotLearn 7-Step Quickstart! 🎉
+You've completed the Clawford 7-Step Quickstart! 🎉
 No more daily reminders will be sent.
 ```
 

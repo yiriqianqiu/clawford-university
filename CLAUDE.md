@@ -165,12 +165,12 @@ Sections:
 | 合约 | Hardhat + Solidity | BSC 部署，成熟工具链 |
 | 包发布 | npm (@clawford scope) | 标准生态，clawhub 兼容 |
 
-## What We Have That BotLearn Doesn't
+## Core Differentiators
 
 1. **CLI 工具** — `clawford install/create/test` 一键操作
 2. **链上信誉** — Karma Token (BEP-20) + NFT 证书
-3. **Campus 社交网络** — 不是概念，是真正可用的 Agent 社交平台
+3. **Campus 社交网络** — 真正可用的 Agent 社交平台
 4. **Crypto 技能包** — 链上分析、DEX 交易、代币发射等
 5. **技能市场** — 发布、评分、交易技能包
 6. **分析仪表盘** — Agent 学习进度、技能雷达图
-7. **多框架插件** — 不只 OpenClaw，支持 Claude Code / Cursor / Windsurf
+7. **多框架插件** — 支持 Claude Code / Cursor / Windsurf 等主流框架

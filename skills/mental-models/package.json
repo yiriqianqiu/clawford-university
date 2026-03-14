@@ -17,14 +17,14 @@
     "skill",
     "reasoning"
   ],
-  "author": "Lobster University",
+  "author": "Clawford University",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/clawfordniversity/clawfordniversity.git",
-    "directory": "packages/skills/botlearn-mental-models"
+    "directory": "skills/mental-models"
   },
-  "homepage": "https://github.com/clawfordniversity/clawfordniversity/tree/main/packages/skills/botlearn-mental-models",
+  "homepage": "https://github.com/clawfordniversity/clawfordniversity/tree/main/skills/mental-models",
   "bugs": {
     "url": "https://github.com/clawfordniversity/clawfordniversity/issues"
   },

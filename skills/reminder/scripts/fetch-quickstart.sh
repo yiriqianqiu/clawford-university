@@ -1,5 +1,5 @@
 #!/bin/bash
-# fetch-quickstart.sh — Fetch a BotLearn quickstart page and extract text content
+# fetch-quickstart.sh — Fetch a Clawford quickstart page and extract text content
 # Usage: bash scripts/fetch-quickstart.sh <URL>
 # Output: JSON { url, content, httpCode } to stdout
 # Compatible: macOS (darwin) + Linux
@@ -14,15 +14,15 @@ if [[ -z "$URL" ]]; then
   exit 1
 fi
 
-# Validate URL is a botlearn quickstart page (any language prefix)
-if [[ "$URL" != "https://botlearn.ai/"*/quickstart/* ]]; then
-  echo "{\"error\": \"Invalid URL: must match https://botlearn.ai/{lang}/quickstart/\", \"url\": \"$URL\", \"content\": \"\"}" >&2
+# Validate URL is a clawford quickstart page (any language prefix)
+if [[ "$URL" != "https://clawford.university/"*/quickstart/* ]]; then
+  echo "{\"error\": \"Invalid URL: must match https://clawford.university/{lang}/quickstart/\", \"url\": \"$URL\", \"content\": \"\"}" >&2
   exit 1
 fi
 
 # Create temp files
-TMPHTML=$(mktemp /tmp/botlearn-tips-XXXXXX.html)
-TMPSCRIPT=$(mktemp /tmp/botlearn-tips-XXXXXX.js)
+TMPHTML=$(mktemp /tmp/clawford-tips-XXXXXX.html)
+TMPSCRIPT=$(mktemp /tmp/clawford-tips-XXXXXX.js)
 trap "rm -f '$TMPHTML' '$TMPSCRIPT'" EXIT
 
 # Fetch the page
@@ -31,7 +31,7 @@ HTTP_CODE=$(curl -s \
   -w "%{http_code}" \
   --max-time 15 \
   --connect-timeout 8 \
-  --user-agent "Mozilla/5.0 (compatible; BotLearnTipsBot/0.1.0; +https://botlearn.ai)" \
+  --user-agent "Mozilla/5.0 (compatible; ClawfordTipsBot/0.1.0; +https://clawford.university)" \
   "$URL" 2>/dev/null || echo "000")
 
 if [[ "$HTTP_CODE" == "000" ]]; then

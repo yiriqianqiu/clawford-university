@@ -138,15 +138,9 @@ export default function Home() {
 
         <div className="relative">
 
-          <h1 className="animate-fade-in mb-3 max-w-3xl text-5xl font-bold tracking-tight text-white drop-shadow-lg sm:text-6xl">
-            {t("title")}
-          </h1>
-          <p className="animate-fade-in delay-100 mb-1.5 text-xl font-medium text-white/90 drop-shadow">
-            {t("subtitle")}
-          </p>
-          <p className="animate-fade-in delay-200 mb-6 max-w-xl text-lg text-white/80 drop-shadow">
-            {t("description")}
-          </p>
+          <h1 className="animate-fade-in mb-3 max-w-3xl text-5xl font-bold tracking-tight text-white drop-shadow-lg sm:text-6xl">{t("title")}</h1>
+          <p className="animate-fade-in delay-100 mb-1.5 text-xl font-medium text-white/90 drop-shadow">{t("subtitle")}</p>
+          <p className="animate-fade-in delay-200 mb-6 max-w-xl text-lg text-white/80 drop-shadow">{t("description")}</p>
 
           {/* Stats */}
           <div className="animate-fade-in delay-300 mb-8 grid grid-cols-4 gap-4">
@@ -170,37 +164,27 @@ export default function Home() {
             <a
               href="#get-started"
               className="inline-flex min-w-[160px] items-center justify-center rounded-lg bg-zinc-900 px-8 py-3 text-sm font-medium text-white shadow-lg transition hover:bg-zinc-700 hover:shadow-xl dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
-            >
-              {t("getStarted")}
-            </a>
+            >{t("getStarted")}</a>
             <a
               href="https://github.com/yiriqianqiu/clawford-university"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex min-w-[160px] items-center justify-center rounded-lg border border-white/30 px-8 py-3 text-sm font-medium text-white transition hover:bg-white/10"
-            >
-              {t("viewGithub")}
-            </a>
+            >{t("viewGithub")}</a>
           </div>
         </div>
       </section>
 
       {/* Quick Start */}
       <section id="get-started" className="mx-auto max-w-3xl px-6 py-16">
-        <h2 className="mb-6 text-center text-3xl font-bold text-zinc-900 dark:text-white">
-          {t("quickStart")}
-        </h2>
+        <h2 className="mb-6 text-center text-3xl font-bold text-zinc-900 dark:text-white">{t("quickStart")}</h2>
         <CodeBlock code={QUICK_START_CODE} title="terminal" />
       </section>
 
       {/* Skills Overview */}
       <section className="mx-auto max-w-6xl px-6 py-16">
-        <h2 className="mb-4 text-center text-3xl font-bold text-zinc-900 dark:text-white">
-          {t("skillsLibrary")}
-        </h2>
-        <p className="mb-12 text-center text-zinc-500">
-          {t("skillsDescription", { count: 33 })}
-        </p>
+        <h2 className="mb-4 text-center text-3xl font-bold text-zinc-900 dark:text-white">{t("skillsLibrary")}</h2>
+        <p className="mb-12 text-center text-zinc-500">{t("skillsDescription", { count: 33 })}</p>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {SKILL_CATEGORIES.map((cat) => (
             <div
@@ -209,9 +193,7 @@ export default function Home() {
             >
               <div className="mb-3 flex items-center gap-3">
                 <div className={`h-3 w-3 rounded-full ${cat.color}`} />
-                <h3 className="font-semibold text-zinc-900 dark:text-white">
-                  {t(cat.titleKey)}
-                </h3>
+                <h3 className="font-semibold text-zinc-900 dark:text-white">{t(cat.titleKey)}</h3>
                 <span className="ml-auto text-sm text-zinc-400">{cat.count}</span>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -232,19 +214,13 @@ export default function Home() {
       {/* Features */}
       <section className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
         <div className="mx-auto max-w-6xl px-6 py-16">
-          <h2 className="mb-4 text-center text-3xl font-bold text-zinc-900 dark:text-white">
-            {t("features")}
-          </h2>
-          <p className="mb-12 text-center text-zinc-500">
-            {t("featuresDescription")}
-          </p>
+          <h2 className="mb-4 text-center text-3xl font-bold text-zinc-900 dark:text-white">{t("features")}</h2>
+          <p className="mb-12 text-center text-zinc-500">{t("featuresDescription")}</p>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {FEATURES.map((f) => (
               <div key={f.titleKey} className="group rounded-xl border border-zinc-200 p-6 transition hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:hover:border-zinc-700">
 
-                <h3 className="mb-2 font-semibold text-zinc-900 dark:text-white">
-                  {t(f.titleKey)}
-                </h3>
+                <h3 className="mb-2 font-semibold text-zinc-900 dark:text-white">{t(f.titleKey)}</h3>
                 <p className="text-sm leading-relaxed text-zinc-500">{t(f.descKey)}</p>
               </div>
             ))}
@@ -253,32 +229,22 @@ export default function Home() {
       </section>
 
       {/* Enrollment Steps */}
-      <section className="mx-auto max-w-4xl px-6 py-16">
-        <h2 className="mb-4 text-center text-3xl font-bold text-zinc-900 dark:text-white">
-          {t("enrollmentTitle")}
-        </h2>
-        <p className="mb-12 text-center text-zinc-500">
-          {t("enrollmentDescription")}
-        </p>
+      <section className="mx-auto max-w-4xl px-6 pb-16 pt-8">
+        <h2 className="mb-4 text-center text-3xl font-bold text-zinc-900 dark:text-white">{t("enrollmentTitle")}</h2>
+        <p className="mb-12 text-center text-zinc-500">{t("enrollmentDescription")}</p>
         <EnrollmentSteps />
       </section>
 
       {/* Product Cards */}
       <section className="mx-auto max-w-6xl px-6 py-16">
-        <h2 className="mb-4 text-center text-3xl font-bold text-zinc-900 dark:text-white">
-          {t("explore")}
-        </h2>
-        <p className="mb-8 text-center text-zinc-500">
-          {t("exploreDescription")}
-        </p>
+        <h2 className="mb-4 text-center text-3xl font-bold text-zinc-900 dark:text-white">{t("explore")}</h2>
+        <p className="mb-8 text-center text-zinc-500">{t("exploreDescription")}</p>
         <ProductCards />
       </section>
 
       {/* Skill Package Format */}
       <section className="mx-auto max-w-3xl px-6 py-16">
-        <h2 className="mb-6 text-center text-3xl font-bold text-zinc-900 dark:text-white">
-          {t("skillFormat")}
-        </h2>
+        <h2 className="mb-6 text-center text-3xl font-bold text-zinc-900 dark:text-white">{t("skillFormat")}</h2>
         <CodeBlock code={SKILL_FORMAT_CODE} language="text" title="structure" />
       </section>
 

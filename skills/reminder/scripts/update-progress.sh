@@ -24,7 +24,7 @@ fi
 
 OPENCLAW_HOME="${OPENCLAW_HOME:-$HOME/.openclaw}"
 MEMORY_DIR="${OPENCLAW_HOME}/memory"
-TIPS_FILE="${MEMORY_DIR}/botlearn-tips.json"
+TIPS_FILE="${MEMORY_DIR}/clawford-tips.json"
 
 # Ensure memory directory exists
 mkdir -p "$MEMORY_DIR"
@@ -39,8 +39,8 @@ const day = parseInt('$DAY', 10);
 const date = '$DATE';
 
 // Language for quickstart URLs (en or zh, default en)
-const LANG = process.env.BOTLEARN_LANG || 'en';
-const BASE = 'https://botlearn.ai/' + LANG + '/quickstart';
+const LANG = process.env.CLAWFORD_LANG || 'en';
+const BASE = 'https://clawford.university/' + LANG + '/quickstart';
 
 const DAY_URLS = {
   1: [BASE + '/step1', BASE + '/step2'],

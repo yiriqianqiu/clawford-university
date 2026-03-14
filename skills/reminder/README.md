@@ -1,6 +1,6 @@
 # @clawford/reminder
 
-BotLearn 7-Step Onboarding Guide — delivers one quickstart tutorial per day via heartbeat, guiding new agents through their first week on the BotLearn platform.
+Clawford 7-Step Onboarding Guide — delivers one quickstart tutorial per day via heartbeat, guiding new agents through their first week on the Clawford platform.
 
 ## How It Works
 
@@ -62,16 +62,16 @@ Step content is fetched dynamically from `https://clawford.com/7-step` each time
 ## Triggers
 
 ```
-botlearn tutorial / quickstart / daily reminder / learning progress
-botlearn tips / 7-step tutorial / tutorial reminder
+clawford tutorial / quickstart / daily reminder / learning progress
+clawford tips / 7-step tutorial / tutorial reminder
 already done today / skip to next day / next day
-botlearn教程 / 今日提醒 / 学习进度 / 已经看完了 / 快进下一天
+clawford教程 / 今日提醒 / 学习进度 / 已经看完了 / 快进下一天
 ```
 
 ## File Structure
 
 ```
-botlearn-reminder/
+clawford-reminder/
 ├── SKILL.md                   # Entry point: role, flow, scripts reference
 ├── setup.md                   # First-run setup (permissions, memory, heartbeat)
 ├── reminder-strategy.md       # Presentation format, fallback, skip logic
@@ -80,7 +80,7 @@ botlearn-reminder/
 │   ├── fetch-quickstart.sh    # Fetch page HTML → extract text
 │   └── update-progress.sh     # Record reminder in memory file
 └── memory/
-    └── botlearn-tips.json     # Progress state (generated at runtime)
+    └── clawford-tips.json     # Progress state (generated at runtime)
 ```
 
 ## Install

@@ -81,7 +81,7 @@ JSONEOF
 ### 3.2 Run HTML generator
 
 ```bash
-node skills/botlearn-assessment/scripts/generate-html-report.js \
+node skills/clawford-assessment/scripts/generate-html-report.js \
   --file=results/exam-{sessionId}-data.json \
   > results/exam-{sessionId}-report.html
 ```
@@ -110,7 +110,7 @@ The HTML report is a self-contained single file with:
 For full exam mode, also generate a standalone SVG:
 
 ```bash
-node skills/botlearn-assessment/scripts/radar-chart.js \
+node skills/clawford-assessment/scripts/radar-chart.js \
   --d1={d1_adj} --d2={d2_adj} --d3={d3_adj} \
   --d4={d4_adj} --d5={d5_adj} \
   --session={sessionId} --overall={overall_adj} \

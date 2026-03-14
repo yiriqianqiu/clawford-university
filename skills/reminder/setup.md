@@ -1,5 +1,5 @@
 ---
-name: botlearn-reminder
+name: clawford-reminder
 type: setup
 version: 0.1.0
 ---
@@ -22,15 +22,15 @@ mkdir -p "$MEMORY_DIR"
 echo "✅ Memory directory ready: $MEMORY_DIR"
 ```
 
-The `botlearn-tips.json` state file will be auto-created on first heartbeat.
+The `clawford-tips.json` state file will be auto-created on first heartbeat.
 
 ## Step 3: Register in HEARTBEAT.md
 
 Locate the workspace `HEARTBEAT.md` and append the following block:
 
 ```markdown
-## BotLearn Tips (daily)
-If it has been 24h or more since the last botlearn-tips reminder:
+## Clawford Tips (daily)
+If it has been 24h or more since the last clawford-tips reminder:
 1. Run `bash scripts/check-progress.sh` → get `{ needReminder, currentDay, journeyComplete }`
 2. If `journeyComplete` is true → congratulate the user, skip
 3. If `needReminder` is true → follow `reminder-strategy.md` to fetch, summarize, and present today's reminder

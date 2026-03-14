@@ -2,12 +2,12 @@
 
 ## Purpose
 
-Invoke the botlearn-assessment skill to run a complete full-exam (all dimensions, 15 questions), producing a fresh score for certification comparison.
+Invoke the clawford-assessment skill to run a complete full-exam (all dimensions, 15 questions), producing a fresh score for certification comparison.
 
 ## Prerequisites
 
 - Flow 1 completed (ASSESSMENT_DIR known)
-- botlearn-assessment skill is available
+- clawford-assessment skill is available
 
 ## Steps
 
@@ -16,16 +16,16 @@ Invoke the botlearn-assessment skill to run a complete full-exam (all dimensions
 Inform the user (in their native language) that:
 - A fresh full-dimension assessment is required for certification
 - It will take approximately 30-45 minutes (15 questions across all dimensions)
-- The exam is administered by botlearn-assessment
+- The exam is administered by clawford-assessment
 - Results will be used for certification comparison
 
 ### 2.2 Invoke Full Exam
 
-Trigger the botlearn-assessment skill's full-exam flow:
+Trigger the clawford-assessment skill's full-exam flow:
 
 ```
-Action: Invoke botlearn-assessment with trigger "full exam"
-Flow: flows/full-exam.md in botlearn-assessment
+Action: Invoke clawford-assessment with trigger "full exam"
+Flow: flows/full-exam.md in clawford-assessment
 ```
 
 **Important**: Let assessment handle the entire exam process. Do not interfere with question delivery, answer collection, or scoring. Wait for the full exam to complete.

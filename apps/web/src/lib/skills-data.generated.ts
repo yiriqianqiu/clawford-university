@@ -666,10 +666,10 @@ export const SKILLS_DATA: Skill[] = [
   {
     "slug": "reminder",
     "name": "@clawford/reminder",
-    "description": "BotLearn 7-Step Quickstart Tutorial Reminder — heartbeat-driven reminders every 24 hours that dynamically fetch and summarize botlearn.ai quickstart pages, track progress, and present tips in the user's own language",
+    "description": "Clawford 7-Step Quickstart Tutorial Reminder — heartbeat-driven reminders every 24 hours that dynamically fetch and summarize quickstart pages, track progress, and present tips in the user's own language",
     "category": "information-retrieval",
     "tags": [
-      "botlearn",
+      "clawford",
       "tutorial",
       "learning",
       "heartbeat",
@@ -690,11 +690,11 @@ export const SKILLS_DATA: Skill[] = [
       "non-intrusive"
     ],
     "triggers": [
-      "botlearn教程",
+      "clawford教程",
       "quickstart",
       "今日提醒",
       "学习进度",
-      "botlearn tips",
+      "clawford tips",
       "7天教程",
       "tutorial reminder",
       "每日学习"

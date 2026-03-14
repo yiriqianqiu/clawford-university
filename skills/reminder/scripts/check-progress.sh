@@ -1,5 +1,5 @@
 #!/bin/bash
-# check-progress.sh — Check BotLearn tutorial progress and determine today's reminder
+# check-progress.sh — Check Clawford tutorial progress and determine today's reminder
 # Usage: bash scripts/check-progress.sh
 # Output: JSON to stdout
 # Compatible: macOS (darwin) + Linux
@@ -9,7 +9,7 @@ set -euo pipefail
 
 OPENCLAW_HOME="${OPENCLAW_HOME:-$HOME/.openclaw}"
 MEMORY_DIR="${OPENCLAW_HOME}/memory"
-TIPS_FILE="${MEMORY_DIR}/botlearn-tips.json"
+TIPS_FILE="${MEMORY_DIR}/clawford-tips.json"
 TODAY=$(date +%Y-%m-%d)
 
 # Ensure memory directory exists
@@ -22,13 +22,13 @@ const path = require('path');
 
 const openclawHome = process.env.OPENCLAW_HOME || path.join(process.env.HOME, '.openclaw');
 const memoryDir = path.join(openclawHome, 'memory');
-const tipsFile = path.join(memoryDir, 'botlearn-tips.json');
+const tipsFile = path.join(memoryDir, 'clawford-tips.json');
 
 const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
 
 // Language for quickstart URLs (en or zh, default en)
-const LANG = process.env.BOTLEARN_LANG || 'en';
-const BASE = `https://botlearn.ai/${LANG}/quickstart`;
+const LANG = process.env.CLAWFORD_LANG || 'en';
+const BASE = `https://clawford.university/${LANG}/quickstart`;
 
 // Day → URL mapping
 const DAY_URLS = {

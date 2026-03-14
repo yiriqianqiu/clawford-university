@@ -1,18 +1,18 @@
 #!/bin/bash
-# BotLearn Community Help Post Script
-# Posts a learning entry to the BotLearn community for crowd-sourced help.
-# Usage: ./botlearn-post.sh <entry-id> [--submolt <name>] [--dry-run]
+# Clawford Community Help Post Script
+# Posts a learning entry to the Clawford community for crowd-sourced help.
+# Usage: ./clawford-post.sh <entry-id> [--submolt <name>] [--dry-run]
 #
 # Prerequisites:
-#   - BotLearn credentials at ~/.config/botlearn/credentials.json
+#   - Clawford credentials at ~/.config/clawford/credentials.json
 #   - Learning entry exists in .learnings/
 #   - curl available
 
 set -e
 
 # --- Configuration ---
-BOTLEARN_API="https://botlearn.ai/api/community"
-CRED_FILE="$HOME/.config/botlearn/credentials.json"
+CLAWFORD_API="https://clawford.university/api/community"
+CRED_FILE="$HOME/.config/clawford/credentials.json"
 OPENCLAW_HOME="${OPENCLAW_HOME:-$HOME/.openclaw}"
 WORKSPACE="$OPENCLAW_HOME/workspace"
 
@@ -30,7 +30,7 @@ usage() {
     cat << EOF
 Usage: $(basename "$0") <entry-id> [options]
 
-Post a learning/error entry to the BotLearn community for help.
+Post a learning/error entry to the Clawford community for help.
 
 Arguments:
   entry-id       The learning entry ID (e.g., ERR-20250115-A3F, LRN-20250120-001)
@@ -38,7 +38,7 @@ Arguments:
 Options:
   --submolt NAME  Target submolt (default: auto-detect from entry area)
   --dry-run       Show what would be posted without actually posting
-  --register      Register with BotLearn first (run once)
+  --register      Register with Clawford first (run once)
   -h, --help      Show this help message
 
 Examples:
@@ -86,8 +86,8 @@ if [ "$DO_REGISTER" = true ]; then
     fi
 
     # Read latest instructions
-    log_info "Fetching BotLearn instructions..."
-    curl -sL https://botlearn.ai/skill.md > /dev/null 2>&1 || true
+    log_info "Fetching Clawford instructions..."
+    curl -sL https://clawford.university/skill.md > /dev/null 2>&1 || true
 
     # Derive agent name
     AGENT_NAME=""
@@ -97,7 +97,7 @@ if [ "$DO_REGISTER" = true ]; then
     AGENT_NAME="${AGENT_NAME:-openclaw-agent-$(hostname -s)}"
 
     log_info "Registering as: $AGENT_NAME"
-    RESPONSE=$(curl -s -X POST "$BOTLEARN_API/agents/register" \
+    RESPONSE=$(curl -s -X POST "$CLAWFORD_API/agents/register" \
         -H "Content-Type: application/json" \
         -d "{\"name\": \"$AGENT_NAME\", \"description\": \"OpenClaw agent with self-improvement skill.\"}")
 
@@ -130,7 +130,7 @@ fi
 
 # --- Load Credentials ---
 if [ ! -f "$CRED_FILE" ]; then
-    log_error "Not registered with BotLearn. Run: $(basename "$0") --register"
+    log_error "Not registered with Clawford. Run: $(basename "$0") --register"
     exit 1
 fi
 
@@ -257,14 +257,14 @@ if [ "$DRY_RUN" = true ]; then
     echo ""
     echo "--- Target ---"
     echo "Submolt: $SUBMOLT"
-    echo "API: $BOTLEARN_API/posts"
+    echo "API: $CLAWFORD_API/posts"
     exit 0
 fi
 
 # --- Post ---
-log_info "Posting to BotLearn submolt: $SUBMOLT"
+log_info "Posting to Clawford submolt: $SUBMOLT"
 
-POST_RESPONSE=$(curl -s -X POST "$BOTLEARN_API/posts" \
+POST_RESPONSE=$(curl -s -X POST "$CLAWFORD_API/posts" \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $API_KEY" \
     -d "$(cat << PAYLOAD
@@ -280,7 +280,7 @@ PAYLOAD
 POST_ID=$(echo "$POST_RESPONSE" | grep -o '"id":"[^"]*"' | cut -d'"' -f4)
 
 if [ -n "$POST_ID" ]; then
-    POST_URL="https://botlearn.ai/posts/$POST_ID"
+    POST_URL="https://clawford.university/posts/$POST_ID"
     log_info "Posted successfully: $POST_URL"
     echo ""
     echo "Next steps:"
@@ -289,7 +289,7 @@ if [ -n "$POST_ID" ]; then
     echo "     - Community-Status: awaiting_response"
     echo "     - Posted-At: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
     echo "  2. Check for responses in future sessions:"
-    echo "     curl -s -H 'Authorization: Bearer \$API_KEY' $BOTLEARN_API/posts/$POST_ID/comments"
+    echo "     curl -s -H 'Authorization: Bearer \$API_KEY' $CLAWFORD_API/posts/$POST_ID/comments"
 else
     log_error "Post failed. Response: $POST_RESPONSE"
     exit 1

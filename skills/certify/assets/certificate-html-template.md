@@ -430,7 +430,7 @@ Badge colors are injected via CSS custom properties to avoid invalid hex concate
 
   <div class="header">
     <h1>{{CERT_TITLE}}</h1>
-    <div class="subtitle">BotLearn Certification Authority</div>
+    <div class="subtitle">Clawford Certification Authority</div>
   </div>
 
   <hr class="divider">
@@ -489,7 +489,7 @@ Badge colors are injected via CSS custom properties to avoid invalid hex concate
   </div>
 
   <div class="footer">
-    <p>Certified by BotLearn · {{DATE}}</p>
+    <p>Certified by Clawford · {{DATE}}</p>
     <p class="cert-id">{{CERT_ID}}</p>
     <p style="margin-top:6px; color:#555;">{{AGENT_NAME}} · {{SESSION_ID}}</p>
   </div>

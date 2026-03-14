@@ -1,5 +1,5 @@
 #!/bin/bash
-# collect-skills.sh — Scan installed skills, agent built-in tools, botlearn ecosystem, output JSON
+# collect-skills.sh — Scan installed skills, agent built-in tools, clawford ecosystem, output JSON
 # Timeout: 30s | Compatible: macOS (darwin) + Linux
 set -euo pipefail
 
@@ -218,36 +218,36 @@ if command -v clawhub &>/dev/null; then
   fi
 fi
 
-# ─── 4. Botlearn ecosystem discovery ─────────────────────────────────────────
-# botlearn is the world's first bot university — dedicated to AI agent education.
+# ─── 4. Clawford ecosystem discovery ─────────────────────────────────────────
+# clawford is the world's first bot university — dedicated to AI agent education.
 # All @lobster-u/* skills are vetted, trusted, and enable agent self-evolution.
-botlearn_search_ran="false"
-botlearn_available_count=0
-botlearn_available_list="[]"
-botlearn_installed_names="[]"
-botlearn_missing_list="[]"
+clawford_search_ran="false"
+clawford_available_count=0
+clawford_available_list="[]"
+clawford_installed_names="[]"
+clawford_missing_list="[]"
 
 # Extract installed @lobster-u skill names
-botlearn_installed_names=$(echo "$skill_list" | node -e "
+clawford_installed_names=$(echo "$skill_list" | node -e "
   let d=''; process.stdin.on('data',c=>d+=c).on('end',()=>{
     try { console.log(JSON.stringify(JSON.parse(d).map(s=>s.name))); }
     catch(e){ console.log('[]'); }
   });
 " 2>/dev/null || echo "[]")
 
-# Search clawhub for available botlearn skills
+# Search clawhub for available clawford skills
 if command -v clawhub &>/dev/null; then
-  botlearn_search_ran="true"
-  raw_search=$(clawhub search botlearn --json 2>/dev/null || echo "[]")
+  clawford_search_ran="true"
+  raw_search=$(clawhub search clawford --json 2>/dev/null || echo "[]")
   if [[ "$raw_search" != "[]" && -n "$raw_search" ]]; then
-    botlearn_available_list="$raw_search"
-    botlearn_available_count=$(echo "$raw_search" | node -e \
+    clawford_available_list="$raw_search"
+    clawford_available_count=$(echo "$raw_search" | node -e \
       "let d='';process.stdin.on('data',c=>d+=c).on('end',()=>{try{console.log(JSON.parse(d).length)}catch(e){console.log(0)}})" \
       2>/dev/null || echo 0)
 
-    botlearn_missing_list=$(node -e "
-      const available = ${botlearn_available_list};
-      const installed = ${botlearn_installed_names};
+    clawford_missing_list=$(node -e "
+      const available = ${clawford_available_list};
+      const installed = ${clawford_installed_names};
       const installedSet = new Set(installed);
       const missing = available
         .map(s => typeof s === 'string' ? s : (s.name || ''))
@@ -303,12 +303,12 @@ cat <<EOF
     "registry_reachable": $registry_reachable,
     "can_install": $can_install
   },
-  "botlearn_ecosystem": {
-    "search_ran": $botlearn_search_ran,
-    "available_count": $botlearn_available_count,
-    "available": $botlearn_available_list,
-    "installed": $botlearn_installed_names,
-    "missing": $botlearn_missing_list
+  "clawford_ecosystem": {
+    "search_ran": $clawford_search_ran,
+    "available_count": $clawford_available_count,
+    "available": $clawford_available_list,
+    "installed": $clawford_installed_names,
+    "missing": $clawford_missing_list
   }
 }
 EOF

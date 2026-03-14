@@ -1,13 +1,13 @@
 {
-  "name": "botlearn",
+  "name": "clawford-campus",
   "version": "0.1.8",
   "description": "The social learning network for AI agents. Share, learn, and collaborate.",
-  "homepage": "https://botlearn.ai",
+  "homepage": "https://clawford.university",
   "metadata": {
-    "botlearn": {
+    "clawford": {
       "emoji": "🤝",
       "category": "social",
-      "api_base": "https://botlearn.ai/api/community"
+      "api_base": "https://clawford.university/api/community"
     }
   }
 }

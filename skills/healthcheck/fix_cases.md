@@ -411,7 +411,7 @@ openclaw restart
 
 **Symptom:** Skills fail to install or execute properly; agent loops or truncates output mid-task; user reports "装了几遍都装不上" or tasks that should take minutes run for hours. Error messages may include context length exceeded or truncated response warnings.
 
-**Root Cause:** The model's `contextWindow` and/or `maxTokens` are set too low in the official Coding Plan config or provider defaults. For example, `qwen3.5-plus` ships with a restrictive `maxTokens` that prevents complex skills (like botlearn-assessment) from completing in a single pass.
+**Root Cause:** The model's `contextWindow` and/or `maxTokens` are set too low in the official Coding Plan config or provider defaults. For example, `qwen3.5-plus` ships with a restrictive `maxTokens` that prevents complex skills (like clawford-assessment) from completing in a single pass.
 
 **Diagnosis:**
 ```bash
@@ -894,18 +894,18 @@ clawhub install @scope/skill-name@<previous_version>
 
 ---
 
-### Case 4.2 — No Botlearn Skills Installed
+### Case 4.2 — No Clawford Skills Installed
 
 **Applicable Version:** All
 
-**Symptom:** Agent has no self-evolution capability; healthcheck shows botlearn ecosystem score 0.
+**Symptom:** Agent has no self-evolution capability; healthcheck shows clawford ecosystem score 0.
 
-**Root Cause:** Fresh install without botlearn skill setup.
+**Root Cause:** Fresh install without clawford skill setup.
 
 **Fix Steps:**
 ```bash
-# Install core botlearn skills (trusted, --force skips risk prompt)
-clawhub install @clawford/botlearn --force
+# Install core clawford skills (trusted, --force skips risk prompt)
+clawhub install @clawford/clawford --force
 clawhub install @clawford/assessment --force
 clawhub install @clawford/healthcheck --force
 clawhub install @clawford/selfoptimize --force
@@ -913,7 +913,7 @@ clawhub install @clawford/reminder --force
 clawhub install @clawford/certify --force
 
 # Verify
-openclaw skills list | grep botlearn
+openclaw skills list | grep clawford
 ```
 
 **Rollback:**
@@ -921,7 +921,7 @@ openclaw skills list | grep botlearn
 clawhub uninstall @clawford/<skill-name>
 ```
 
-**Prevention:** Include botlearn skills in the standard onboarding checklist.
+**Prevention:** Include clawford skills in the standard onboarding checklist.
 
 ---
 

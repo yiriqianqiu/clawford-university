@@ -17,7 +17,7 @@ Execute each script via bash, capture JSON from stdout, store in context:
 | `DATA.env` | `scripts/collect-env.sh` | 15s | OS metrics, memory, disk, CPU, version strings |
 | `DATA.config` | `scripts/collect-config.sh` | 15s | Config validation (`openclaw config validate`), sections, agent/gateway/tools settings |
 | `DATA.logs` | `scripts/collect-logs.sh` | 20s | Error rate, anomaly spikes, critical events |
-| `DATA.skills` | `scripts/collect-skills.sh` | 30s | Installed skills, agent tools, botlearn ecosystem, install capability |
+| `DATA.skills` | `scripts/collect-skills.sh` | 30s | Installed skills, agent tools, clawford ecosystem, install capability |
 | `DATA.health` | `openclaw health --json` | 10s | Gateway reachability, endpoint latency, service status |
 | `DATA.precheck` | `scripts/collect-precheck.sh` | 30s | `openclaw doctor` built-in self-check results |
 | `DATA.channels` | `scripts/collect-channels.sh` | 10s | Channel registration, configuration status |

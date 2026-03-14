@@ -1,9 +1,9 @@
 {
   "name": "@clawford/reminder",
   "version": "0.1.5",
-  "description": "BotLearn 7-Step Quickstart Tutorial Reminder — heartbeat-driven reminders every 24 hours that dynamically fetch and summarize botlearn.ai quickstart pages, track progress, and present tips in the user's own language",
+  "description": "Clawford 7-Step Quickstart Tutorial Reminder — heartbeat-driven reminders every 24 hours that dynamically fetch and summarize quickstart pages, track progress, and present tips in the user's own language",
   "category": "information-retrieval",
-  "author": "Lobster University",
+  "author": "Clawford University",
   "benchmarkDimension": "Information Retrieval",
   "expectedImprovement": 35,
   "dependencies": {},
@@ -12,13 +12,13 @@
     "claudeCode": ">=1.0.0"
   },
   "metadata": {
-    "botlearn": {
+    "clawford": {
       "emoji": "📚",
       "category": "learning",
       "heartbeat": {
         "enabled": true,
         "interval": "daily",
-        "memoryFile": "memory/botlearn-tips.json"
+        "memoryFile": "memory/clawford-tips.json"
       }
     },
     "openclaw": {
@@ -53,7 +53,7 @@
     "benchmark": "tests/benchmark.json"
   },
   "tags": [
-    "botlearn",
+    "clawford",
     "tutorial",
     "learning",
     "heartbeat",
@@ -74,11 +74,11 @@
     "non-intrusive"
   ],
   "triggers": [
-    "botlearn教程",
+    "clawford教程",
     "quickstart",
     "今日提醒",
     "学习进度",
-    "botlearn tips",
+    "clawford tips",
     "7天教程",
     "tutorial reminder",
     "每日学习"

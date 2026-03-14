@@ -6,20 +6,20 @@ Locate and parse the most recent full-exam assessment report to establish baseli
 
 ## Prerequisites
 
-- botlearn-assessment skill must be installed (run `bash scripts/check-assessment.sh` first)
+- clawford-assessment skill must be installed (run `bash scripts/check-assessment.sh` first)
 
 ## Steps
 
 ### 1.1 Locate Assessment Skill
 
 ```
-ASSESSMENT_DIR = find botlearn-assessment in:
-  1. ../botlearn-assessment (sibling directory)
-  2. ~/.openclaw/skills/botlearn-assessment
-  3. ~/.clawhub/skills/botlearn-assessment
+ASSESSMENT_DIR = find clawford-assessment in:
+  1. ../clawford-assessment (sibling directory)
+  2. ~/.openclaw/skills/clawford-assessment
+  3. ~/.clawhub/skills/clawford-assessment
 ```
 
-If not found → abort and instruct the user to install botlearn-assessment via `clawhub install botlearn-assessment`. Adapt the message to user's native language.
+If not found → abort and instruct the user to install clawford-assessment via `clawhub install clawford-assessment`. Adapt the message to user's native language.
 
 ### 1.2 Read INDEX.md
 
@@ -81,4 +81,4 @@ Display a summary to user (in their native language) showing:
 - `HIST_OVERALL_SCORE`: number or null
 - `HIST_DIMENSIONS`: array or empty
 - `HIST_DATE`: string or null
-- `ASSESSMENT_DIR`: path to botlearn-assessment
+- `ASSESSMENT_DIR`: path to clawford-assessment

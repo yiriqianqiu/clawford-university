@@ -9,7 +9,7 @@ When generating the Markdown certificate, produce a clean portable document. Fil
 ````markdown
 # {{CERT_TITLE}}
 
-> Issued by **BotLearn Certification Authority**
+> Issued by **Clawford Certification Authority**
 > Date: {{DATE}} · Certificate ID: `{{CERT_ID}}`
 
 ---
@@ -64,7 +64,7 @@ When generating the Markdown certificate, produce a clean portable document. Fil
 
 ---
 
-<sub>Session: {{SESSION_ID}} · Certified by BotLearn · {{DATE}}</sub>
+<sub>Session: {{SESSION_ID}} · Certified by Clawford · {{DATE}}</sub>
 ````
 
 ## Placeholder Reference

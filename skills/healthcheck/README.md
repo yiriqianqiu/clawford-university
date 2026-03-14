@@ -42,7 +42,7 @@ Phase 6: Fix Summary
 | 1 | Hardware Resources | ≥80 / 60-79 / <60 | Memory, disk, CPU, Node.js version, cache pressure |
 | 2 | Configuration Health | ≥75 / 55-74 / <55 | Config validation, gateway, agents, channels, tools, models, session, security posture |
 | 3 | Security Risks | ≥85 / 65-84 / <65 | Credential exposure, file permissions, network bind, VCS secrets |
-| 4 | Skills Completeness | ≥80 / 60-79 / <60 | Built-in tools, install capability, skill health, botlearn ecosystem |
+| 4 | Skills Completeness | ≥80 / 60-79 / <60 | Built-in tools, install capability, skill health, clawford ecosystem |
 | 5 | Autonomous Intelligence | ≥80 / 60-79 / <60 | Heartbeat, cron tasks, memory, doctor output, workspace identity |
 
 ## Use Cases
@@ -61,7 +61,7 @@ Includes 19 real-world fix cases with proven solutions:
 - **Hardware**: Memory pressure, disk critical, Node.js outdated, cache bloat
 - **Configuration**: Validation failures, gateway unreachable, channel inactive, tools degraded, API rate limiting (429), model context window too small, fallbacks not configured, concurrency tuning, session optimization
 - **Security**: Credentials exposed, files world-readable, LAN without auth
-- **Skills**: Broken dependencies, no botlearn skills, missing SKILL.md
+- **Skills**: Broken dependencies, no clawford skills, missing SKILL.md
 - **Autonomy**: Heartbeat stale, no cron tasks, memory bloat, identity missing, OOM/segfault
 
 Each case includes: applicable version, symptom, root cause, diagnosis, fix steps, rollback, and prevention.
@@ -86,7 +86,7 @@ check gateway / check skills / check config / check security / check autonomy / 
 ## File Structure
 
 ```
-botlearn-healthcheck/
+clawford-healthcheck/
 ├── SKILL.md                       # Entry point: 6-phase pipeline
 ├── setup.md                       # First-run prerequisites
 ├── data_collect.md                # Data collection protocol (20 data sources)

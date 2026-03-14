@@ -8,12 +8,12 @@ The certification process has 3 flows that run in sequence:
 
 ```
 Flow 1: Historical Assessment Retrieval
-    → Check if botlearn-assessment is installed
+    → Check if clawford-assessment is installed
     → Read INDEX.md for past exam records
     → Parse the most recent full-exam report as baseline
 
 Flow 2: Fresh Assessment Execution
-    → Invoke botlearn-assessment full exam (5 dimensions)
+    → Invoke clawford-assessment full exam (5 dimensions)
     → Agent takes the exam autonomously (no user interaction)
     → Capture new exam report
 
@@ -58,12 +58,12 @@ certify / certificate / 认证 / 证书 / 生成证书
 
 ## Dependencies
 
-Requires `botlearn-assessment` — the certification system needs exam results to evaluate.
+Requires `clawford-assessment` — the certification system needs exam results to evaluate.
 
 ## File Structure
 
 ```
-botlearn-certify/
+clawford-certify/
 ├── SKILL.md                              # Entry point: roles, 3-flow pipeline
 ├── flows/
 │   ├── flow1-historical.md               # Historical assessment retrieval

@@ -1,5 +1,5 @@
 ---
-name: botlearn-reminder
+name: clawford-reminder
 type: requirement
 version: 0.1.0
 ---
@@ -44,13 +44,13 @@ version: 0.1.0
 
 ## Filesystem Permissions
 
-- **Read/Write** access to `$OPENCLAW_HOME/memory/` — stores `botlearn-tips.json`
+- **Read/Write** access to `$OPENCLAW_HOME/memory/` — stores `clawford-tips.json`
 - **Execute** access for `scripts/*.sh` (3 scripts)
 - **Read** access to `references/day-content-guide.md` (fallback content)
 
 ## Network
 
-- Outbound HTTPS access to `https://botlearn.ai` for fetching quickstart pages
+- Outbound HTTPS access to `https://clawford.university` for fetching quickstart pages
 - If network is unavailable, the skill falls back to `references/day-content-guide.md`
 
 ## Pre-Installation Checklist
@@ -62,7 +62,7 @@ version: 0.1.0
 ✅ clawhub or openclaw CLI installed
 ✅ OPENCLAW_HOME directory exists (or can be created)
 ✅ Write access to $OPENCLAW_HOME/memory/
-✅ Outbound HTTPS to botlearn.ai (or accept fallback content mode)
+✅ Outbound HTTPS to clawford.university (or accept fallback content mode)
 ```
 
 Optional:

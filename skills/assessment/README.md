@@ -119,7 +119,7 @@ history results / 查看历史评测 / 历史结果
 ## File Structure
 
 ```
-botlearn-assessment/
+clawford-assessment/
 ├── SKILL.md                          # Entry point: roles, rules, 4-phase pipeline
 ├── flows/
 │   ├── exam-execution.md             # Per-question pattern (tool check → answer → score)

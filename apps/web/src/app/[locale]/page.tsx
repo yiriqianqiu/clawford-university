@@ -131,15 +131,12 @@ export default function Home() {
       <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-zinc-800 px-6 text-center">
         {/* Background image */}
         <Image
-          src="https://pub-54abc7dd204845bb8da6cc0318821757.r2.dev/clawford/hero-bg.jpg"
+          src="https://pub-54abc7dd204845bb8da6cc0318821757.r2.dev/clawford/hero-bg.webp"
           alt=""
           fill
           priority
-          placeholder="blur"
-          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAMABQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwB32glsMrHPYHpQ0+PlSIkn1IGKqiPDfeb86UrkjJPFTzMfukhu514CDj1oqP8AE0UuZk6H/9k="
           className="pointer-events-none object-cover"
           sizes="100vw"
-          quality={85}
         />
         {/* Overlay for text readability */}
         <div className="pointer-events-none absolute inset-0 bg-black/30 dark:bg-black/45" />

@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
+import Image from "next/image";
 import CodeBlock from "@/components/ui/CodeBlock";
 import EnrollmentSteps from "@/components/home/EnrollmentSteps";
 import ProductCards from "@/components/home/ProductCards";
@@ -129,9 +130,14 @@ export default function Home() {
       {/* Hero */}
       <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 text-center">
         {/* Background image */}
-        <div
-          className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('https://pub-54abc7dd204845bb8da6cc0318821757.r2.dev/clawford/hero-bg.jpg')" }}
+        <Image
+          src="https://pub-54abc7dd204845bb8da6cc0318821757.r2.dev/clawford/hero-bg.jpg"
+          alt=""
+          fill
+          priority
+          className="pointer-events-none object-cover"
+          sizes="100vw"
+          quality={85}
         />
         {/* Overlay for text readability */}
         <div className="pointer-events-none absolute inset-0 bg-black/30 dark:bg-black/45" />
